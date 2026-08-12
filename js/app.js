@@ -554,7 +554,9 @@ function renderFlashMode(body, words) {
 }
 
 /* ---- Quiz mode ---- */
-function renderQuizMode(body, words, ctx) {
+/* direction: "zh2vi" (mặc định, xem Hán tự chọn nghĩa) hoặc "vi2zh" (xem nghĩa chọn Hán tự) */
+function renderQuizMode(body, words, ctx, direction) {
+  direction = direction === "vi2zh" ? "vi2zh" : "zh2vi";
   const pool = [...words];
   for (let i = pool.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -563,28 +565,46 @@ function renderQuizMode(body, words, ctx) {
   const questions = pool.slice(0, Math.min(10, pool.length));
   let qi = 0, score = 0, answered = false;
 
+  const dirToggle = (disabled) => `
+    <div class="quiz-dir-toggle">
+      <button class="${direction === "zh2vi" ? "active" : ""}" data-dir="zh2vi" ${disabled ? "disabled" : ""}>Hán tự → Nghĩa</button>
+      <button class="${direction === "vi2zh" ? "active" : ""}" data-dir="vi2zh" ${disabled ? "disabled" : ""}>Nghĩa → Hán tự</button>
+    </div>
+  `;
+  function bindDirToggle() {
+    body.querySelectorAll("[data-dir]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const newDir = btn.dataset.dir;
+        if (newDir !== direction) renderQuizMode(body, words, ctx, newDir);
+      });
+    });
+  }
+
   function draw() {
     if (qi >= questions.length) {
       if (window.HSKAuth && HSKAuth.user && ctx) {
         HSKAuth.recordAttempt({ level: ctx.level, unitKey: ctx.unitKey, unitLabel: ctx.unitLabel, mode: "quiz", score, total: questions.length });
       }
       body.innerHTML = `
+        ${dirToggle(false)}
         <div class="quiz-result-box">
           <div class="score-big">${score}/${questions.length}</div>
           <p>Bạn đã trả lời đúng ${score} trên ${questions.length} câu.</p>
           <button class="btn primary" id="q-retry">Làm lại</button>
         </div>`;
-      document.getElementById("q-retry").addEventListener("click", () => renderQuizMode(body, words, ctx));
+      document.getElementById("q-retry").addEventListener("click", () => renderQuizMode(body, words, ctx, direction));
+      bindDirToggle();
       return;
     }
     const w = questions[qi];
-    const correct = meaningOf(w).text;
+    const zh2vi = direction === "zh2vi";
+    const correct = zh2vi ? meaningOf(w).text : w.hanzi;
     const distractorPool = words.filter(x => x.hanzi !== w.hanzi);
     const distractors = [];
     const used = new Set([correct]);
     while (distractors.length < 3 && distractorPool.length) {
       const idx = Math.floor(Math.random() * distractorPool.length);
-      const cand = meaningOf(distractorPool[idx]).text;
+      const cand = zh2vi ? meaningOf(distractorPool[idx]).text : distractorPool[idx].hanzi;
       if (!used.has(cand)) { used.add(cand); distractors.push(cand); }
       distractorPool.splice(idx, 1);
     }
@@ -597,16 +617,22 @@ function renderQuizMode(body, words, ctx) {
 
     body.innerHTML = `
       <div class="quiz-wrap">
+        ${dirToggle(false)}
         <div class="quiz-progress">Câu ${qi + 1} / ${questions.length} · Điểm: ${score}</div>
         <div class="quiz-card">
-          <div class="quiz-hz">${w.hanzi}</div>
-          <div class="quiz-py">${w.pinyin}</div>
+          ${zh2vi ? `
+            <div class="quiz-hz">${w.hanzi}</div>
+            <div class="quiz-py">${w.pinyin}</div>
+          ` : `
+            <div class="quiz-vi">${meaningOf(w).text}</div>
+          `}
           <div class="quiz-options">
-            ${options.map(o => `<button class="quiz-option" data-val="${encodeURIComponent(o)}">${o}</button>`).join("")}
+            ${options.map(o => `<button class="quiz-option${zh2vi ? "" : " quiz-option-hz"}" data-val="${encodeURIComponent(o)}">${o}</button>`).join("")}
           </div>
         </div>
       </div>
     `;
+    bindDirToggle();
     body.querySelectorAll(".quiz-option").forEach(btn => {
       btn.addEventListener("click", () => {
         if (answered) return;
