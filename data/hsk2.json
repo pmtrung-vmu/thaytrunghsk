@@ -12,7 +12,11 @@
     "meaning_en": "understand",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "我不懂这个问题。",
+     "vi": "Tôi không hiểu câu hỏi này."
+    }
    },
    {
     "hanzi": "给",
@@ -30,7 +34,11 @@
     "meaning_en": "then, just",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "我吃完饭就走。",
+     "vi": "Tôi ăn xong là đi ngay."
+    }
    },
    {
     "hanzi": "让",
@@ -39,7 +47,11 @@
     "meaning_en": "to let",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "请让我说一句话。",
+     "vi": "Hãy để tôi nói một câu."
+    }
    },
    {
     "hanzi": "次",
@@ -48,7 +60,11 @@
     "meaning_en": "time (occasion)",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "我去过中国两次。",
+     "vi": "Tôi đã đến Trung Quốc hai lần."
+    }
    },
    {
     "hanzi": "帮忙",
@@ -57,14 +73,22 @@
     "meaning_en": "to help",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "谢谢你帮忙。",
+     "vi": "Cảm ơn bạn đã giúp."
+    }
    },
    {
     "hanzi": "不好意思",
     "pinyin": "bù hǎoyìsi",
     "meaning_vi": "ngại quá, xin lỗi",
     "meaning_en": "embarrassed |",
-    "pos": []
+    "pos": [],
+    "example": {
+     "zh": "不好意思，我来晚了。",
+     "vi": "Xin lỗi, tôi đến muộn."
+    }
    },
    {
     "hanzi": "介绍",
@@ -73,7 +97,11 @@
     "meaning_en": "introduce",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "他向我介绍他的朋友。",
+     "vi": "Anh ấy giới thiệu bạn của anh ấy cho tôi."
+    }
    },
    {
     "hanzi": "已经",
@@ -82,7 +110,11 @@
     "meaning_en": "already",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "我已经吃过饭了。",
+     "vi": "Tôi đã ăn cơm rồi."
+    }
    },
    {
     "hanzi": "意思",
@@ -91,7 +123,11 @@
     "meaning_en": "meaning",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "这个词是什么意思？",
+     "vi": "Từ này có nghĩa là gì?"
+    }
    },
    {
     "hanzi": "有时",
@@ -100,7 +136,11 @@
     "meaning_en": "sometimes",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "我有时候在家工作。",
+     "vi": "Đôi khi tôi làm việc ở nhà."
+    }
    },
    {
     "hanzi": "那",
@@ -126,7 +166,11 @@
     "meaning_en": "particle",
     "pos": [
      "part."
-    ]
+    ],
+    "example": {
+     "zh": "好啊，我们一起去吧。",
+     "vi": "Được đấy, chúng ta cùng đi nhé."
+    }
    },
    {
     "hanzi": "别",
@@ -135,7 +179,11 @@
     "meaning_en": "don't",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "上课的时候别说话。",
+     "vi": "Khi học đừng nói chuyện."
+    }
    },
    {
     "hanzi": "但",
@@ -144,7 +192,11 @@
     "meaning_en": "but",
     "pos": [
      "conj."
-    ]
+    ],
+    "example": {
+     "zh": "我想去，但没时间。",
+     "vi": "Tôi muốn đi nhưng không có thời gian."
+    }
    },
    {
     "hanzi": "还是",
@@ -153,7 +205,11 @@
     "meaning_en": "or, still",
     "pos": [
      "conj."
-    ]
+    ],
+    "example": {
+     "zh": "下雨了，我们还是回家吧。",
+     "vi": "Trời mưa rồi, chúng ta vẫn về nhà thôi."
+    }
    },
    {
     "hanzi": "万",
@@ -162,7 +218,11 @@
     "meaning_en": "ten thousand",
     "pos": [
      "num."
-    ]
+    ],
+    "example": {
+     "zh": "这辆车十万元。",
+     "vi": "Chiếc xe này giá 100.000 tệ."
+    }
    },
    {
     "hanzi": "远",
@@ -171,7 +231,11 @@
     "meaning_en": "far",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "学校离我家很远。",
+     "vi": "Trường rất xa nhà tôi."
+    }
    },
    {
     "hanzi": "车站",
@@ -180,7 +244,11 @@
     "meaning_en": "station",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我们在车站见面。",
+     "vi": "Chúng ta gặp nhau ở bến xe."
+    }
    },
    {
     "hanzi": "公交车",
@@ -189,7 +257,11 @@
     "meaning_en": "bus",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我每天坐公交车。",
+     "vi": "Tôi đi xe buýt mỗi ngày."
+    }
    },
    {
     "hanzi": "教室",
@@ -198,7 +270,11 @@
     "meaning_en": "classroom",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "学生都在教室里。",
+     "vi": "Học sinh đều ở trong lớp."
+    }
    },
    {
     "hanzi": "间",
@@ -207,7 +283,11 @@
     "meaning_en": "MW room",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "这家饭店有三间房。",
+     "vi": "Nhà hàng này có ba phòng."
+    }
    },
    {
     "hanzi": "名",
@@ -216,7 +296,11 @@
     "meaning_en": "MW person",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "他是一个有名的老师。",
+     "vi": "Anh ấy là một giáo viên nổi tiếng."
+    }
    },
    {
     "hanzi": "票",
@@ -225,7 +309,11 @@
     "meaning_en": "ticket",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我已经买好票了。",
+     "vi": "Tôi đã mua vé xong rồi."
+    }
    },
    {
     "hanzi": "打车",
@@ -234,7 +322,11 @@
     "meaning_en": "take a taxi",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "下雨了，我们打车吧。",
+     "vi": "Trời mưa rồi, chúng ta gọi taxi đi."
+    }
    },
    {
     "hanzi": "外国",
@@ -243,7 +335,11 @@
     "meaning_en": "foreign",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "他想去外国工作。",
+     "vi": "Anh ấy muốn ra nước ngoài làm việc."
+    }
    },
    {
     "hanzi": "网上",
@@ -252,7 +348,11 @@
     "meaning_en": "online",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我在网上买东西。",
+     "vi": "Tôi mua đồ trên mạng."
+    }
    },
    {
     "hanzi": "过来",
@@ -261,7 +361,11 @@
     "meaning_en": "come over",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "你过来一下。",
+     "vi": "Bạn qua đây một chút."
+    }
    }
   ]
  },
@@ -278,7 +382,11 @@
     "meaning_en": "not bad",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "这家饭馆不错。",
+     "vi": "Nhà hàng này không tệ."
+    }
    },
    {
     "hanzi": "累",
@@ -287,7 +395,11 @@
     "meaning_en": "tired",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "我今天很累。",
+     "vi": "Hôm nay tôi rất mệt."
+    }
    },
    {
     "hanzi": "为什么",
@@ -296,7 +408,11 @@
     "meaning_en": "why",
     "pos": [
      "pron."
-    ]
+    ],
+    "example": {
+     "zh": "你为什么不来？",
+     "vi": "Tại sao bạn không đến?"
+    }
    },
    {
     "hanzi": "每",
@@ -305,7 +421,11 @@
     "meaning_en": "every",
     "pos": [
      "pron."
-    ]
+    ],
+    "example": {
+     "zh": "我每天学习两个小时。",
+     "vi": "Tôi học hai tiếng mỗi ngày."
+    }
    },
    {
     "hanzi": "手",
@@ -314,7 +434,11 @@
     "meaning_en": "hand",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "他手里拿着手机。",
+     "vi": "Anh ấy cầm điện thoại trong tay."
+    }
    },
    {
     "hanzi": "旅游",
@@ -323,7 +447,11 @@
     "meaning_en": "travel",
     "pos": [
      "v./n."
-    ]
+    ],
+    "example": {
+     "zh": "暑假我想去中国旅游。",
+     "vi": "Kỳ nghỉ hè tôi muốn đi du lịch Trung Quốc."
+    }
    },
    {
     "hanzi": "洗",
@@ -332,7 +460,11 @@
     "meaning_en": "to wash",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "我回家以后洗衣服。",
+     "vi": "Về nhà xong tôi giặt quần áo."
+    }
    },
    {
     "hanzi": "完",
@@ -341,7 +473,11 @@
     "meaning_en": "to finish",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "作业我已经做完了。",
+     "vi": "Bài tập tôi làm xong rồi."
+    }
    },
    {
     "hanzi": "一起",
@@ -350,7 +486,11 @@
     "meaning_en": "together",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "我们一起学习汉语。",
+     "vi": "Chúng ta cùng học tiếng Trung."
+    }
    },
    {
     "hanzi": "自己",
@@ -359,7 +499,11 @@
     "meaning_en": "oneself",
     "pos": [
      "pron."
-    ]
+    ],
+    "example": {
+     "zh": "我自己来做。",
+     "vi": "Tôi tự làm."
+    }
    },
    {
     "hanzi": "送",
@@ -368,7 +512,11 @@
     "meaning_en": "give, send",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "朋友送我一份礼物。",
+     "vi": "Bạn tặng tôi một món quà."
+    }
    },
    {
     "hanzi": "拿",
@@ -377,7 +525,11 @@
     "meaning_en": "to take",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "请帮我拿一下书。",
+     "vi": "Làm ơn giúp tôi cầm sách."
+    }
    },
    {
     "hanzi": "回来",
@@ -386,7 +538,11 @@
     "meaning_en": "come back",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "他晚上才回来。",
+     "vi": "Buổi tối anh ấy mới về."
+    }
    },
    {
     "hanzi": "回去",
@@ -395,7 +551,11 @@
     "meaning_en": "go back",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "下课以后我回去。",
+     "vi": "Tan học tôi quay lại."
+    }
    },
    {
     "hanzi": "出去",
@@ -404,7 +564,11 @@
     "meaning_en": "go out",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "请出去等一下。",
+     "vi": "Mời ra ngoài đợi một lát."
+    }
    },
    {
     "hanzi": "这么",
@@ -413,7 +577,11 @@
     "meaning_en": "so, this way",
     "pos": [
      "pron."
-    ]
+    ],
+    "example": {
+     "zh": "为什么这么贵？",
+     "vi": "Sao lại đắt như vậy?"
+    }
    }
   ]
  },
@@ -430,7 +598,11 @@
     "meaning_en": "aspect particle",
     "pos": [
      "part."
-    ]
+    ],
+    "example": {
+     "zh": "我去过中国。",
+     "vi": "Tôi đã từng đi Trung Quốc."
+    }
    },
    {
     "hanzi": "颜色",
@@ -439,7 +611,11 @@
     "meaning_en": "color",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我喜欢这个颜色。",
+     "vi": "Tôi thích màu này."
+    }
    },
    {
     "hanzi": "白色",
@@ -448,7 +624,11 @@
     "meaning_en": "white",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "她穿了一件白色的衣服。",
+     "vi": "Cô ấy mặc áo màu trắng."
+    }
    },
    {
     "hanzi": "黑色",
@@ -457,7 +637,11 @@
     "meaning_en": "black",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "他买了一件黑色的衣服。",
+     "vi": "Anh ấy mua một chiếc áo màu đen."
+    }
    },
    {
     "hanzi": "红色",
@@ -466,7 +650,11 @@
     "meaning_en": "red",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "红色的花很漂亮。",
+     "vi": "Hoa màu đỏ rất đẹp."
+    }
    },
    {
     "hanzi": "绿色",
@@ -475,7 +663,11 @@
     "meaning_en": "green",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我喜欢绿色的衣服。",
+     "vi": "Tôi thích quần áo màu xanh lá."
+    }
    },
    {
     "hanzi": "裤子",
@@ -484,7 +676,11 @@
     "meaning_en": "pants",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "这条裤子有点儿长。",
+     "vi": "Cái quần này hơi dài."
+    }
    },
    {
     "hanzi": "条",
@@ -493,7 +689,11 @@
     "meaning_en": "MW (long)",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "我买了一条裤子。",
+     "vi": "Tôi mua một cái quần."
+    }
    },
    {
     "hanzi": "书包",
@@ -502,7 +702,11 @@
     "meaning_en": "schoolbag",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "书包里有很多书。",
+     "vi": "Trong cặp có nhiều sách."
+    }
    },
    {
     "hanzi": "商场",
@@ -511,7 +715,11 @@
     "meaning_en": "mall",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "周末商场里人很多。",
+     "vi": "Cuối tuần trung tâm thương mại rất đông."
+    }
    },
    {
     "hanzi": "因为",
@@ -520,7 +728,11 @@
     "meaning_en": "because",
     "pos": [
      "conj."
-    ]
+    ],
+    "example": {
+     "zh": "因为下雨，我没去。",
+     "vi": "Vì mưa nên tôi không đi."
+    }
    },
    {
     "hanzi": "所以",
@@ -529,7 +741,11 @@
     "meaning_en": "so",
     "pos": [
      "conj."
-    ]
+    ],
+    "example": {
+     "zh": "下雨了，所以我没出去。",
+     "vi": "Trời mưa nên tôi không ra ngoài."
+    }
    },
    {
     "hanzi": "进去",
@@ -538,7 +754,11 @@
     "meaning_en": "go in",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "他走进去办公室。",
+     "vi": "Anh ấy đi vào văn phòng."
+    }
    },
    {
     "hanzi": "过去",
@@ -547,7 +767,11 @@
     "meaning_en": "go over",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "那条路我以前走过去。",
+     "vi": "Con đường đó trước đây tôi đã đi qua."
+    }
    },
    {
     "hanzi": "更",
@@ -573,7 +797,11 @@
     "meaning_en": "to wait",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "请等我一下。",
+     "vi": "Làm ơn đợi tôi một chút."
+    }
    },
    {
     "hanzi": "快",
@@ -582,7 +810,11 @@
     "meaning_en": "fast",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "他跑得很快。",
+     "vi": "Anh ấy chạy rất nhanh."
+    }
    },
    {
     "hanzi": "面",
@@ -591,7 +823,11 @@
     "meaning_en": "face, side",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "这件事有很多方面。",
+     "vi": "Việc này có nhiều mặt."
+    }
    },
    {
     "hanzi": "下面",
@@ -600,7 +836,11 @@
     "meaning_en": "below",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "猫在桌子下面。",
+     "vi": "Con mèo ở dưới bàn."
+    }
    },
    {
     "hanzi": "下来",
@@ -609,7 +849,11 @@
     "meaning_en": "come down",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "请从楼上下来。",
+     "vi": "Mời từ trên lầu đi xuống."
+    }
    },
    {
     "hanzi": "下去",
@@ -618,7 +862,11 @@
     "meaning_en": "go down",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "他拿着包走下去。",
+     "vi": "Anh ấy cầm túi đi xuống."
+    }
    },
    {
     "hanzi": "上来",
@@ -627,7 +875,11 @@
     "meaning_en": "come up",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "请上来这儿看。",
+     "vi": "Mời lên đây xem."
+    }
    },
    {
     "hanzi": "上去",
@@ -636,7 +888,11 @@
     "meaning_en": "go up",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "他走上去楼上。",
+     "vi": "Anh ấy đi lên tầng trên."
+    }
    },
    {
     "hanzi": "进来",
@@ -645,7 +901,11 @@
     "meaning_en": "come in",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "老师走进来了。",
+     "vi": "Giáo viên đã đi vào."
+    }
    },
    {
     "hanzi": "跟",
@@ -654,7 +914,11 @@
     "meaning_en": "with",
     "pos": [
      "prep."
-    ]
+    ],
+    "example": {
+     "zh": "我跟朋友一起去。",
+     "vi": "Tôi đi cùng bạn."
+    }
    },
    {
     "hanzi": "爷爷",
@@ -663,7 +927,11 @@
     "meaning_en": "grandfather",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我爷爷今年七十岁。",
+     "vi": "Ông nội tôi năm nay 70 tuổi."
+    }
    },
    {
     "hanzi": "奶奶",
@@ -672,7 +940,11 @@
     "meaning_en": "grandmother",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我奶奶住在农村。",
+     "vi": "Bà nội tôi sống ở quê."
+    }
    },
    {
     "hanzi": "奶茶",
@@ -681,7 +953,11 @@
     "meaning_en": "bubble tea",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "她很喜欢喝奶茶。",
+     "vi": "Cô ấy rất thích uống trà sữa."
+    }
    },
    {
     "hanzi": "一会儿",
@@ -690,7 +966,11 @@
     "meaning_en": "a moment",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "请等我一会儿。",
+     "vi": "Làm ơn đợi tôi một lát."
+    }
    },
    {
     "hanzi": "走",
@@ -699,7 +979,11 @@
     "meaning_en": "to walk",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "我们走路去学校。",
+     "vi": "Chúng ta đi bộ tới trường."
+    }
    },
    {
     "hanzi": "准备",
@@ -708,7 +992,11 @@
     "meaning_en": "prepare",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "我在准备考试。",
+     "vi": "Tôi đang chuẩn bị cho kỳ thi."
+    }
    },
    {
     "hanzi": "酒店",
@@ -717,7 +1005,11 @@
     "meaning_en": "hotel",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我们住在这家酒店。",
+     "vi": "Chúng tôi ở khách sạn này."
+    }
    },
    {
     "hanzi": "礼物",
@@ -743,7 +1035,11 @@
     "meaning_en": "happy",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "希望你每天都快乐。",
+     "vi": "Mong bạn mỗi ngày đều vui vẻ."
+    }
    },
    {
     "hanzi": "舒服",
@@ -752,7 +1048,11 @@
     "meaning_en": "comfortable",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "这张床很舒服。",
+     "vi": "Cái giường này rất thoải mái."
+    }
    },
    {
     "hanzi": "长",
@@ -761,7 +1061,11 @@
     "meaning_en": "long",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "这条路很长。",
+     "vi": "Con đường này rất dài."
+    }
    },
    {
     "hanzi": "生日",
@@ -770,7 +1074,11 @@
     "meaning_en": "birthday",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "明天是我的生日。",
+     "vi": "Ngày mai là sinh nhật tôi."
+    }
    },
    {
     "hanzi": "肉",
@@ -779,7 +1087,11 @@
     "meaning_en": "meat",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我不太喜欢吃肉。",
+     "vi": "Tôi không thích ăn thịt lắm."
+    }
    },
    {
     "hanzi": "鱼",
@@ -788,7 +1100,11 @@
     "meaning_en": "fish",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我喜欢吃鱼。",
+     "vi": "Tôi thích ăn cá."
+    }
    },
    {
     "hanzi": "床",
@@ -797,7 +1113,11 @@
     "meaning_en": "bed",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "房间里有一张床。",
+     "vi": "Trong phòng có một cái giường."
+    }
    },
    {
     "hanzi": "画",
@@ -806,7 +1126,11 @@
     "meaning_en": "to draw",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "她喜欢画画。",
+     "vi": "Cô ấy thích vẽ tranh."
+    }
    },
    {
     "hanzi": "忘",
@@ -815,7 +1139,11 @@
     "meaning_en": "to forget",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "不要忘了带手机。",
+     "vi": "Đừng quên mang điện thoại."
+    }
    },
    {
     "hanzi": "打开",
@@ -824,7 +1152,11 @@
     "meaning_en": "to open",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "请打开窗户。",
+     "vi": "Làm ơn mở cửa sổ."
+    }
    },
    {
     "hanzi": "过",
@@ -833,7 +1165,11 @@
     "meaning_en": "to pass",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "我去过中国。",
+     "vi": "Tôi đã từng đi Trung Quốc."
+    }
    },
    {
     "hanzi": "蛋糕",
@@ -851,7 +1187,11 @@
     "meaning_en": "particle (adv)",
     "pos": [
      "part."
-    ]
+    ],
+    "example": {
+     "zh": "他认真地学习。",
+     "vi": "Anh ấy học rất chăm chỉ."
+    }
    }
   ]
  },
@@ -868,7 +1208,11 @@
     "meaning_en": "complement particle",
     "pos": [
      "part."
-    ]
+    ],
+    "example": {
+     "zh": "他跑得很快。",
+     "vi": "Anh ấy chạy rất nhanh."
+    }
    },
    {
     "hanzi": "打",
@@ -877,7 +1221,11 @@
     "meaning_en": "hit, play",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "他打了我一个电话。",
+     "vi": "Anh ấy gọi điện cho tôi."
+    }
    },
    {
     "hanzi": "从",
@@ -886,7 +1234,11 @@
     "meaning_en": "from",
     "pos": [
      "prep."
-    ]
+    ],
+    "example": {
+     "zh": "我从家来学校。",
+     "vi": "Tôi từ nhà đến trường."
+    }
    },
    {
     "hanzi": "往",
@@ -895,7 +1247,11 @@
     "meaning_en": "toward",
     "pos": [
      "prep."
-    ]
+    ],
+    "example": {
+     "zh": "往前走就是学校。",
+     "vi": "Đi thẳng về phía trước là tới trường."
+    }
    },
    {
     "hanzi": "球",
@@ -904,7 +1260,11 @@
     "meaning_en": "ball",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "孩子们在操场上踢球。",
+     "vi": "Bọn trẻ đá bóng trên sân."
+    }
    },
    {
     "hanzi": "篮球",
@@ -913,7 +1273,11 @@
     "meaning_en": "basketball",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我喜欢打篮球。",
+     "vi": "Tôi thích chơi bóng rổ."
+    }
    },
    {
     "hanzi": "足球",
@@ -922,7 +1286,11 @@
     "meaning_en": "football",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "他周末常常踢足球。",
+     "vi": "Cuối tuần anh ấy thường đá bóng."
+    }
    },
    {
     "hanzi": "跑",
@@ -931,7 +1299,11 @@
     "meaning_en": "to run",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "他每天早上跑步。",
+     "vi": "Anh ấy chạy bộ mỗi sáng."
+    }
    },
    {
     "hanzi": "跑步",
@@ -940,7 +1312,11 @@
     "meaning_en": "jogging",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "我喜欢在公园跑步。",
+     "vi": "Tôi thích chạy bộ trong công viên."
+    }
    },
    {
     "hanzi": "踢",
@@ -949,7 +1325,11 @@
     "meaning_en": "to kick",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "他喜欢踢足球。",
+     "vi": "Anh ấy thích đá bóng."
+    }
    },
    {
     "hanzi": "游",
@@ -958,7 +1338,11 @@
     "meaning_en": "to swim",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "孩子们在河里游。",
+     "vi": "Bọn trẻ bơi dưới sông."
+    }
    },
    {
     "hanzi": "游泳",
@@ -967,7 +1351,11 @@
     "meaning_en": "swimming",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "夏天我喜欢游泳。",
+     "vi": "Mùa hè tôi thích bơi."
+    }
    },
    {
     "hanzi": "运动",
@@ -976,7 +1364,11 @@
     "meaning_en": "sport",
     "pos": [
      "n./v."
-    ]
+    ],
+    "example": {
+     "zh": "我每天做运动。",
+     "vi": "Tôi vận động mỗi ngày."
+    }
    },
    {
     "hanzi": "爱好",
@@ -985,7 +1377,11 @@
     "meaning_en": "hobby",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我的爱好是学习汉语。",
+     "vi": "Sở thích của tôi là học tiếng Trung."
+    }
    },
    {
     "hanzi": "开始",
@@ -994,7 +1390,11 @@
     "meaning_en": "to start",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "会议八点开始。",
+     "vi": "Cuộc họp bắt đầu lúc 8 giờ."
+    }
    }
   ]
  },
@@ -1011,7 +1411,11 @@
     "meaning_en": "than",
     "pos": [
      "prep."
-    ]
+    ],
+    "example": {
+     "zh": "他比我高。",
+     "vi": "Anh ấy cao hơn tôi."
+    }
    },
    {
     "hanzi": "但是",
@@ -1020,7 +1424,11 @@
     "meaning_en": "but, however",
     "pos": [
      "conj."
-    ]
+    ],
+    "example": {
+     "zh": "天气不好，但是我还是去。",
+     "vi": "Thời tiết không tốt nhưng tôi vẫn đi."
+    }
    },
    {
     "hanzi": "虽然",
@@ -1029,7 +1437,11 @@
     "meaning_en": "although",
     "pos": [
      "conj."
-    ]
+    ],
+    "example": {
+     "zh": "虽然很累，但是我很开心。",
+     "vi": "Dù rất mệt nhưng tôi rất vui."
+    }
    },
    {
     "hanzi": "记得",
@@ -1038,7 +1450,11 @@
     "meaning_en": "remember",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "我记得你的名字。",
+     "vi": "Tôi nhớ tên bạn."
+    }
    },
    {
     "hanzi": "有意思",
@@ -1047,7 +1463,11 @@
     "meaning_en": "interesting",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "这本书很有意思。",
+     "vi": "Quyển sách này rất thú vị."
+    }
    },
    {
     "hanzi": "花",
@@ -1056,7 +1476,11 @@
     "meaning_en": "flower; spend",
     "pos": [
      "n./v."
-    ]
+    ],
+    "example": {
+     "zh": "我昨天花了很多钱。",
+     "vi": "Hôm qua tôi tiêu rất nhiều tiền."
+    }
    },
    {
     "hanzi": "丈夫",
@@ -1065,7 +1489,11 @@
     "meaning_en": "husband",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "她的丈夫在北京工作。",
+     "vi": "Chồng cô ấy làm việc ở Bắc Kinh."
+    }
    },
    {
     "hanzi": "妻子",
@@ -1074,7 +1502,11 @@
     "meaning_en": "wife",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "他和妻子住在上海。",
+     "vi": "Anh ấy sống ở Thượng Hải với vợ."
+    }
    },
    {
     "hanzi": "手表",
@@ -1083,7 +1515,11 @@
     "meaning_en": "watch",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我的手表坏了。",
+     "vi": "Đồng hồ của tôi bị hỏng."
+    }
    },
    {
     "hanzi": "饭馆",
@@ -1092,7 +1528,11 @@
     "meaning_en": "restaurant",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "这家饭馆很有名。",
+     "vi": "Quán ăn này rất nổi tiếng."
+    }
    },
    {
     "hanzi": "点",
@@ -1101,7 +1541,11 @@
     "meaning_en": "to order",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "请点菜。",
+     "vi": "Làm ơn gọi món."
+    }
    },
    {
     "hanzi": "右",
@@ -1110,7 +1554,11 @@
     "meaning_en": "right",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "银行在右边。",
+     "vi": "Ngân hàng ở bên phải."
+    }
    },
    {
     "hanzi": "右边",
@@ -1119,7 +1567,11 @@
     "meaning_en": "right side",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "右边有一家咖啡店。",
+     "vi": "Bên phải có một quán cà phê."
+    }
    },
    {
     "hanzi": "左",
@@ -1128,7 +1580,11 @@
     "meaning_en": "left",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "商店在左边。",
+     "vi": "Cửa hàng ở bên trái."
+    }
    },
    {
     "hanzi": "左边",
@@ -1137,7 +1593,11 @@
     "meaning_en": "left side",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "左边是学校。",
+     "vi": "Bên trái là trường học."
+    }
    },
    {
     "hanzi": "爱情片",
@@ -1163,7 +1623,11 @@
     "meaning_en": "near",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "我家离学校很近。",
+     "vi": "Nhà tôi rất gần trường."
+    }
    },
    {
     "hanzi": "高",
@@ -1172,7 +1636,11 @@
     "meaning_en": "tall, high",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "这座山很高。",
+     "vi": "Ngọn núi này rất cao."
+    }
    },
    {
     "hanzi": "离",
@@ -1181,7 +1649,11 @@
     "meaning_en": "away from",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "学校离我家很远。",
+     "vi": "Trường cách nhà tôi rất xa."
+    }
    },
    {
     "hanzi": "坏",
@@ -1190,7 +1662,11 @@
     "meaning_en": "bad, broken",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "这台电脑坏了。",
+     "vi": "Chiếc máy tính này bị hỏng."
+    }
    },
    {
     "hanzi": "那么",
@@ -1199,7 +1675,11 @@
     "meaning_en": "then, so",
     "pos": [
      "conj."
-    ]
+    ],
+    "example": {
+     "zh": "那么我们明天再去吧。",
+     "vi": "Vậy thì ngày mai chúng ta đi nhé."
+    }
    },
    {
     "hanzi": "这样",
@@ -1208,7 +1688,11 @@
     "meaning_en": "like this",
     "pos": [
      "pron."
-    ]
+    ],
+    "example": {
+     "zh": "这样做不对。",
+     "vi": "Làm như vậy là không đúng."
+    }
    },
    {
     "hanzi": "咖啡",
@@ -1217,7 +1701,11 @@
     "meaning_en": "coffee",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "早上我喝一杯咖啡。",
+     "vi": "Buổi sáng tôi uống một cốc cà phê."
+    }
    },
    {
     "hanzi": "男孩儿",
@@ -1226,7 +1714,11 @@
     "meaning_en": "boy",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "那个男孩儿很聪明。",
+     "vi": "Cậu bé đó rất thông minh."
+    }
    },
    {
     "hanzi": "门口",
@@ -1235,7 +1727,11 @@
     "meaning_en": "doorway",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我们在学校门口见面。",
+     "vi": "Chúng ta gặp nhau ở cổng trường."
+    }
    },
    {
     "hanzi": "旁边",
@@ -1244,7 +1740,11 @@
     "meaning_en": "beside",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "银行旁边有一家饭馆。",
+     "vi": "Bên cạnh ngân hàng có một quán ăn."
+    }
    },
    {
     "hanzi": "个子",
@@ -1253,7 +1753,11 @@
     "meaning_en": "height",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "他个子很高。",
+     "vi": "Anh ấy rất cao."
+    }
    },
    {
     "hanzi": "周",
@@ -1262,7 +1766,11 @@
     "meaning_en": "week",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "下周我很忙。",
+     "vi": "Tuần sau tôi rất bận."
+    }
    },
    {
     "hanzi": "走路",
@@ -1271,7 +1779,11 @@
     "meaning_en": "to walk",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "他每天走路上班。",
+     "vi": "Anh ấy đi bộ đi làm mỗi ngày."
+    }
    }
   ]
  },
@@ -1288,7 +1800,11 @@
     "meaning_en": "to help",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "你能帮我吗？",
+     "vi": "Bạn có thể giúp tôi không?"
+    }
    },
    {
     "hanzi": "考",
@@ -1297,7 +1813,11 @@
     "meaning_en": "to take exam",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "下周我们要考汉语。",
+     "vi": "Tuần sau chúng tôi thi tiếng Trung."
+    }
    },
    {
     "hanzi": "考试",
@@ -1306,7 +1826,11 @@
     "meaning_en": "exam",
     "pos": [
      "n./v."
-    ]
+    ],
+    "example": {
+     "zh": "明天有考试。",
+     "vi": "Ngày mai có kỳ thi."
+    }
    },
    {
     "hanzi": "快要",
@@ -1315,7 +1839,11 @@
     "meaning_en": "about to",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "电影快要开始了。",
+     "vi": "Phim sắp bắt đầu rồi."
+    }
    },
    {
     "hanzi": "开学",
@@ -1324,7 +1852,11 @@
     "meaning_en": "start school",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "九月学校开学。",
+     "vi": "Tháng 9 trường khai giảng."
+    }
    },
    {
     "hanzi": "笑",
@@ -1333,7 +1865,11 @@
     "meaning_en": "to laugh",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "听到这个消息，他笑了。",
+     "vi": "Nghe tin này, anh ấy cười."
+    }
    },
    {
     "hanzi": "错",
@@ -1342,7 +1878,11 @@
     "meaning_en": "wrong",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "这个答案是错的。",
+     "vi": "Câu trả lời này sai."
+    }
    },
    {
     "hanzi": "词",
@@ -1351,7 +1891,11 @@
     "meaning_en": "word",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "这个词是什么意思？",
+     "vi": "Từ này nghĩa là gì?"
+    }
    },
    {
     "hanzi": "题",
@@ -1360,7 +1904,11 @@
     "meaning_en": "question",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "这道题不难。",
+     "vi": "Câu hỏi này không khó."
+    }
    },
    {
     "hanzi": "门",
@@ -1369,7 +1917,11 @@
     "meaning_en": "MW subject",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "请关门。",
+     "vi": "Làm ơn đóng cửa."
+    }
    },
    {
     "hanzi": "笔",
@@ -1378,7 +1930,11 @@
     "meaning_en": "pen",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "桌子上有三支笔。",
+     "vi": "Trên bàn có ba cây bút."
+    }
    },
    {
     "hanzi": "本子",
@@ -1387,7 +1943,11 @@
     "meaning_en": "notebook",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我买了一个新本子。",
+     "vi": "Tôi mua một quyển vở mới."
+    }
    },
    {
     "hanzi": "后面",
@@ -1396,7 +1956,11 @@
     "meaning_en": "behind",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "教室后面有一棵树。",
+     "vi": "Phía sau lớp học có một cái cây."
+    }
    }
   ]
  },
@@ -1413,7 +1977,11 @@
     "meaning_en": "most",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "这是我最喜欢的书。",
+     "vi": "Đây là quyển sách tôi thích nhất."
+    }
    },
    {
     "hanzi": "慢",
@@ -1422,7 +1990,11 @@
     "meaning_en": "slow",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "请说慢一点儿。",
+     "vi": "Làm ơn nói chậm một chút."
+    }
    },
    {
     "hanzi": "动",
@@ -1431,7 +2003,11 @@
     "meaning_en": "to move",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "这个地方不能动。",
+     "vi": "Chỗ này không được di chuyển."
+    }
    },
    {
     "hanzi": "着",
@@ -1440,7 +2016,11 @@
     "meaning_en": "particle",
     "pos": [
      "part."
-    ]
+    ],
+    "example": {
+     "zh": "他穿着一件黑衣服。",
+     "vi": "Anh ấy đang mặc áo đen."
+    }
    },
    {
     "hanzi": "药",
@@ -1449,7 +2029,11 @@
     "meaning_en": "medicine",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "医生给我开了药。",
+     "vi": "Bác sĩ kê thuốc cho tôi."
+    }
    },
    {
     "hanzi": "药店",
@@ -1458,7 +2042,11 @@
     "meaning_en": "pharmacy",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我去药店买药。",
+     "vi": "Tôi đi hiệu thuốc mua thuốc."
+    }
    },
    {
     "hanzi": "头",
@@ -1467,7 +2055,11 @@
     "meaning_en": "head",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "他点了点头。",
+     "vi": "Anh ấy gật đầu."
+    }
    },
    {
     "hanzi": "身体",
@@ -1476,7 +2068,11 @@
     "meaning_en": "body",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "最近他的身体不太好。",
+     "vi": "Gần đây sức khỏe anh ấy không tốt."
+    }
    },
    {
     "hanzi": "疼",
@@ -1485,7 +2081,11 @@
     "meaning_en": "painful",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "我的头有点儿疼。",
+     "vi": "Đầu tôi hơi đau."
+    }
    },
    {
     "hanzi": "路上",
@@ -1494,7 +2094,11 @@
     "meaning_en": "on the way",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我在路上遇到朋友。",
+     "vi": "Tôi gặp bạn trên đường."
+    }
    },
    {
     "hanzi": "经常",
@@ -1503,7 +2107,11 @@
     "meaning_en": "often",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "我经常练习汉语。",
+     "vi": "Tôi thường xuyên luyện tiếng Trung."
+    }
    },
    {
     "hanzi": "时",
@@ -1512,7 +2120,11 @@
     "meaning_en": "when",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "这个时候他不在家。",
+     "vi": "Lúc này anh ấy không ở nhà."
+    }
    },
    {
     "hanzi": "进",
@@ -1521,7 +2133,11 @@
     "meaning_en": "to enter",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "请进来坐。",
+     "vi": "Mời vào ngồi."
+    }
    }
   ]
  },
@@ -1538,7 +2154,11 @@
     "meaning_en": "just",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "他正在学习。",
+     "vi": "Anh ấy đang học."
+    }
    },
    {
     "hanzi": "晴",
@@ -1547,7 +2167,11 @@
     "meaning_en": "sunny",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "今天是晴天。",
+     "vi": "Hôm nay là ngày nắng."
+    }
    },
    {
     "hanzi": "阴",
@@ -1556,7 +2180,11 @@
     "meaning_en": "cloudy",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "今天是阴天。",
+     "vi": "Hôm nay trời âm u."
+    }
    },
    {
     "hanzi": "站",
@@ -1565,7 +2193,11 @@
     "meaning_en": "stand; stop",
     "pos": [
      "v./n."
-    ]
+    ],
+    "example": {
+     "zh": "我们在地铁站见。",
+     "vi": "Chúng ta gặp ở trạm tàu điện."
+    }
    },
    {
     "hanzi": "地铁",
@@ -1574,7 +2206,11 @@
     "meaning_en": "subway",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我每天坐地铁上班。",
+     "vi": "Tôi đi làm bằng tàu điện ngầm mỗi ngày."
+    }
    },
    {
     "hanzi": "楼",
@@ -1583,7 +2219,11 @@
     "meaning_en": "floor, building",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "他住在三楼。",
+     "vi": "Anh ấy sống ở tầng ba."
+    }
    },
    {
     "hanzi": "外面",
@@ -1592,7 +2232,11 @@
     "meaning_en": "outside",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "外面很冷。",
+     "vi": "Bên ngoài rất lạnh."
+    }
    },
    {
     "hanzi": "事情",
@@ -1601,7 +2245,11 @@
     "meaning_en": "thing, matter",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "这件事情很重要。",
+     "vi": "Việc này rất quan trọng."
+    }
    },
    {
     "hanzi": "从小",
@@ -1610,7 +2258,11 @@
     "meaning_en": "since childhood",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "他从小学习汉语。",
+     "vi": "Anh ấy học tiếng Trung từ nhỏ."
+    }
    },
    {
     "hanzi": "小时候",
@@ -1619,7 +2271,11 @@
     "meaning_en": "childhood",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我小时候住在这里。",
+     "vi": "Hồi nhỏ tôi sống ở đây."
+    }
    }
   ]
  },
@@ -1636,7 +2292,11 @@
     "meaning_en": "maybe",
     "pos": [
      "mod."
-    ]
+    ],
+    "example": {
+     "zh": "他今天可能不来。",
+     "vi": "Hôm nay anh ấy có thể không đến."
+    }
    },
    {
     "hanzi": "告诉",
@@ -1645,7 +2305,11 @@
     "meaning_en": "to tell",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "请告诉我你的名字。",
+     "vi": "Làm ơn nói cho tôi biết tên bạn."
+    }
    },
    {
     "hanzi": "教",
@@ -1654,7 +2318,11 @@
     "meaning_en": "to teach",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "她教我们汉语。",
+     "vi": "Cô ấy dạy chúng tôi tiếng Trung."
+    }
    },
    {
     "hanzi": "希望",
@@ -1663,7 +2331,11 @@
     "meaning_en": "to hope",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "我希望你能来。",
+     "vi": "Tôi hy vọng bạn có thể đến."
+    }
    },
    {
     "hanzi": "那样",
@@ -1672,7 +2344,11 @@
     "meaning_en": "like that",
     "pos": [
      "pron."
-    ]
+    ],
+    "example": {
+     "zh": "不要那样说话。",
+     "vi": "Đừng nói chuyện như vậy."
+    }
    },
    {
     "hanzi": "花",
@@ -1681,7 +2357,11 @@
     "meaning_en": "flower",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我昨天花了很多钱。",
+     "vi": "Hôm qua tôi tiêu rất nhiều tiền."
+    }
    },
    {
     "hanzi": "班",
@@ -1690,7 +2370,11 @@
     "meaning_en": "class",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我们班有二十个学生。",
+     "vi": "Lớp tôi có 20 học sinh."
+    }
    },
    {
     "hanzi": "笔",
@@ -1699,7 +2383,11 @@
     "meaning_en": "pen",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "桌子上有三支笔。",
+     "vi": "Trên bàn có ba cây bút."
+    }
    },
    {
     "hanzi": "里面",
@@ -1708,7 +2396,11 @@
     "meaning_en": "inside",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "包里面有书。",
+     "vi": "Trong túi có sách."
+    }
    },
    {
     "hanzi": "上面",
@@ -1717,7 +2409,11 @@
     "meaning_en": "above",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "书在桌子上面。",
+     "vi": "Sách ở phía trên bàn."
+    }
    },
    {
     "hanzi": "上网",
@@ -1726,7 +2422,11 @@
     "meaning_en": "go online",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "我每天晚上上网学习。",
+     "vi": "Mỗi tối tôi lên mạng học."
+    }
    },
    {
     "hanzi": "洗手间",
@@ -1735,7 +2435,11 @@
     "meaning_en": "bathroom",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "洗手间在那边。",
+     "vi": "Nhà vệ sinh ở bên kia."
+    }
    },
    {
     "hanzi": "新年",
@@ -1761,7 +2465,11 @@
     "meaning_en": "boring",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "这个电影有点儿没意思。",
+     "vi": "Bộ phim này hơi chán."
+    }
    },
    {
     "hanzi": "位",
@@ -1770,7 +2478,11 @@
     "meaning_en": "MW (polite)",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "那位老师很好。",
+     "vi": "Vị giáo viên đó rất tốt."
+    }
    },
    {
     "hanzi": "包",
@@ -1779,7 +2491,11 @@
     "meaning_en": "bag",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "这个包不大。",
+     "vi": "Cái túi này không lớn."
+    }
    },
    {
     "hanzi": "前面",
@@ -1788,7 +2504,11 @@
     "meaning_en": "in front",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "学校前面有一个公园。",
+     "vi": "Phía trước trường có một công viên."
+    }
    },
    {
     "hanzi": "跳舞",
@@ -1797,7 +2517,11 @@
     "meaning_en": "to dance",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "她晚上喜欢跳舞。",
+     "vi": "Buổi tối cô ấy thích nhảy múa."
+    }
    },
    {
     "hanzi": "眼睛",
@@ -1806,7 +2530,11 @@
     "meaning_en": "eye",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "她的眼睛很大。",
+     "vi": "Mắt cô ấy rất to."
+    }
    },
    {
     "hanzi": "姓",
@@ -1815,7 +2543,11 @@
     "meaning_en": "surname",
     "pos": [
      "v./n."
-    ]
+    ],
+    "example": {
+     "zh": "你姓什么？",
+     "vi": "Bạn họ gì?"
+    }
    },
    {
     "hanzi": "小孩儿",
@@ -1824,7 +2556,11 @@
     "meaning_en": "child",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "小孩儿在公园玩。",
+     "vi": "Trẻ con chơi trong công viên."
+    }
    },
    {
     "hanzi": "女孩儿",
@@ -1833,7 +2569,11 @@
     "meaning_en": "girl",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "这个女孩儿很可爱。",
+     "vi": "Cô bé này rất đáng yêu."
+    }
    },
    {
     "hanzi": "过年",
@@ -1842,7 +2582,11 @@
     "meaning_en": "celebrate NY",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "中国人过年很热闹。",
+     "vi": "Người Trung Quốc ăn Tết rất nhộn nhịp."
+    }
    },
    {
     "hanzi": "房子",
@@ -1868,7 +2612,11 @@
     "meaning_en": "to fly",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "鸟在天上飞。",
+     "vi": "Chim bay trên trời."
+    }
    },
    {
     "hanzi": "路",
@@ -1877,7 +2625,11 @@
     "meaning_en": "road",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "这条路很长。",
+     "vi": "Con đường này rất dài."
+    }
    },
    {
     "hanzi": "出国",
@@ -1886,7 +2638,11 @@
     "meaning_en": "go abroad",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "明年我想出国学习。",
+     "vi": "Năm sau tôi muốn ra nước ngoài học."
+    }
    },
    {
     "hanzi": "出门",
@@ -1895,7 +2651,11 @@
     "meaning_en": "go out",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "下雨了，我不想出门。",
+     "vi": "Trời mưa rồi, tôi không muốn ra ngoài."
+    }
    },
    {
     "hanzi": "机场",
@@ -1904,7 +2664,11 @@
     "meaning_en": "airport",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我们在机场见面。",
+     "vi": "Chúng ta gặp nhau ở sân bay."
+    }
    },
    {
     "hanzi": "机票",
@@ -1913,7 +2677,11 @@
     "meaning_en": "plane ticket",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "我已经买了机票。",
+     "vi": "Tôi đã mua vé máy bay rồi."
+    }
    },
    {
     "hanzi": "门票",
@@ -1922,7 +2690,11 @@
     "meaning_en": "entrance ticket",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "这张门票多少钱？",
+     "vi": "Vé này bao nhiêu tiền?"
+    }
    },
    {
     "hanzi": "鸟",
@@ -1931,7 +2703,11 @@
     "meaning_en": "bird",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "树上有一只鸟。",
+     "vi": "Trên cây có một con chim."
+    }
    },
    {
     "hanzi": "好像",
@@ -1949,7 +2725,11 @@
     "meaning_en": "high school",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "他在高中学习。",
+     "vi": "Anh ấy học cấp ba."
+    }
    },
    {
     "hanzi": "姓名",
@@ -1958,7 +2738,11 @@
     "meaning_en": "full name",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "请写下你的姓名。",
+     "vi": "Hãy viết họ tên của bạn."
+    }
    }
   ]
  }

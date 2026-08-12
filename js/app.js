@@ -398,6 +398,7 @@ async function renderUnit(app, id, unitIdx, mode) {
     ["flash", "🔄 Lật thẻ"],
     ["quiz", "✏️ Trắc nghiệm"],
     ["fill", "⌨️ Điền pinyin"],
+    ["cloze", "📝 Điền từ"],
   ];
 
   const header = `
@@ -422,6 +423,7 @@ async function renderUnit(app, id, unitIdx, mode) {
   else if (mode === "flash") renderFlashMode(body, words);
   else if (mode === "quiz") renderQuizMode(body, words, ctx);
   else if (mode === "fill") renderFillMode(body, words, ctx);
+  else if (mode === "cloze") renderClozeMode(body, words, ctx);
   else body.innerHTML = `<p class="empty-note">Chế độ không hợp lệ.</p>`;
 }
 
@@ -429,6 +431,23 @@ async function renderUnit(app, id, unitIdx, mode) {
    giống tính năng trên trang Meiday Chinese. */
 const STROKE_ORDER_LEVELS = ["1", "2", "3"];
 const HANZI_RE = /[一-鿿]/;
+
+/* w.example = {zh, vi} lấy từ Meiday — có thể là 1 câu đầy đủ, hoặc (với một số
+   từ HSK3) vài cụm ngắn nối bằng " / ". Hàm này ghép từng cặp zh/vi theo cụm. */
+function exampleLines(example) {
+  if (!example || !example.zh) return [];
+  const zhParts = example.zh.split(" / ");
+  const viParts = (example.vi || "").split(" / ");
+  return zhParts.map((zh, i) => ({ zh: zh.trim(), vi: (viParts[i] || "").trim() }));
+}
+
+function exampleHtml(example) {
+  const lines = exampleLines(example);
+  if (!lines.length) return "";
+  return `<div class="word-example">
+    ${lines.map(l => `<div class="ex-line"><span class="ex-zh">${l.zh}</span>${l.vi ? `<span class="ex-vi">${l.vi}</span>` : ""}</div>`).join("")}
+  </div>`;
+}
 
 function renderListMode(body, words, levelId) {
   const canWrite = STROKE_ORDER_LEVELS.includes(levelId) && typeof HanziWriter !== "undefined";
@@ -449,6 +468,7 @@ function renderListMode(body, words, levelId) {
             ${posBadges(w.pos)}
             ${canWrite ? `<span class="write-toggle-hint">✏️ Cách viết</span>` : ""}
           </div>
+          ${exampleHtml(w.example)}
           ${canWrite ? `
             <div class="write-panel" id="write-panel-${i}" hidden>
               ${chars.map((ch, ci) => `
@@ -525,6 +545,9 @@ function renderFlashMode(body, words) {
               <div class="big-mn">${m.text}</div>
               ${m.pending ? '<div class="small-mn">(nghĩa tiếng Anh — chưa có bản dịch tiếng Việt)</div>' : ""}
               <div class="big-py" style="margin-top:10px;">${w.pinyin}</div>
+              ${w.example ? `<div class="flash-example">
+                ${exampleLines(w.example).map(l => `<div class="ex-line"><span class="ex-zh">${l.zh}</span>${l.vi ? `<span class="ex-vi">${l.vi}</span>` : ""}</div>`).join("")}
+              </div>` : ""}
             </div>
           </div>
         </div>
@@ -716,6 +739,87 @@ function renderFillMode(body, words, ctx) {
     document.getElementById("f-check").addEventListener("click", check);
     document.getElementById("f-skip").addEventListener("click", () => { qi++; draw(); });
     input.addEventListener("keydown", (e) => { if (e.key === "Enter") check(); });
+  }
+  draw();
+}
+
+/* ---- Điền từ vào chỗ trống mode (câu ví dụ lấy từ Meiday) ---- */
+function renderClozeMode(body, words, ctx) {
+  const pool = words.filter(w => w.example && w.example.zh && w.example.zh.includes(w.hanzi));
+
+  if (!pool.length) {
+    body.innerHTML = `<div class="empty-note">Bài này chưa có câu ví dụ để tạo bài điền từ vào chỗ trống.</div>`;
+    return;
+  }
+
+  const shuffled = [...pool];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  const questions = shuffled.slice(0, Math.min(10, shuffled.length));
+  let qi = 0, score = 0, answered = false;
+
+  function draw() {
+    if (qi >= questions.length) {
+      if (window.HSKAuth && HSKAuth.user && ctx) {
+        HSKAuth.recordAttempt({ level: ctx.level, unitKey: ctx.unitKey, unitLabel: ctx.unitLabel, mode: "cloze", score, total: questions.length });
+      }
+      body.innerHTML = `
+        <div class="quiz-result-box">
+          <div class="score-big">${score}/${questions.length}</div>
+          <p>Bạn đã điền đúng ${score} trên ${questions.length} câu.</p>
+          <button class="btn primary" id="c-retry">Làm lại</button>
+        </div>`;
+      document.getElementById("c-retry").addEventListener("click", () => renderClozeMode(body, words, ctx));
+      return;
+    }
+    const w = questions[qi];
+    const blanked = w.example.zh.split(w.hanzi).join("______");
+    const distractorPool = words.filter(x => x.hanzi !== w.hanzi);
+    const distractors = [];
+    const used = new Set([w.hanzi]);
+    while (distractors.length < 3 && distractorPool.length) {
+      const idx = Math.floor(Math.random() * distractorPool.length);
+      const cand = distractorPool[idx].hanzi;
+      if (!used.has(cand)) { used.add(cand); distractors.push(cand); }
+      distractorPool.splice(idx, 1);
+    }
+    const options = [w.hanzi, ...distractors];
+    for (let i = options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [options[i], options[j]] = [options[j], options[i]];
+    }
+    answered = false;
+
+    body.innerHTML = `
+      <div class="quiz-wrap">
+        <div class="quiz-progress">Câu ${qi + 1} / ${questions.length} · Điểm: ${score}</div>
+        <div class="quiz-card">
+          <div class="cloze-sentence">${blanked}</div>
+          <div class="cloze-hint">(${w.example.vi})</div>
+          <div class="quiz-options">
+            ${options.map(o => `<button class="quiz-option quiz-option-hz" data-val="${encodeURIComponent(o)}">${o}</button>`).join("")}
+          </div>
+        </div>
+      </div>
+    `;
+    body.querySelectorAll(".quiz-option").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (answered) return;
+        answered = true;
+        const val = decodeURIComponent(btn.dataset.val);
+        if (val === w.hanzi) { btn.classList.add("correct"); score++; }
+        else {
+          btn.classList.add("wrong");
+          body.querySelectorAll(".quiz-option").forEach(b => {
+            if (decodeURIComponent(b.dataset.val) === w.hanzi) b.classList.add("correct");
+          });
+          if (window.HSKAuth && HSKAuth.user) HSKAuth.recordWrongWord(w.hanzi);
+        }
+        setTimeout(() => { qi++; draw(); }, 1000);
+      });
+    });
   }
   draw();
 }

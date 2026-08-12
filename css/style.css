@@ -372,6 +372,20 @@ a { color: inherit; text-decoration: none; }
 }
 .speak-btn:hover { background: #dfe8ea; }
 
+/* ---------- Ví dụ câu (dưới mỗi từ trong Danh sách) ---------- */
+.word-example {
+  background: #f7f9fa;
+  border: 1px solid var(--line);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  padding: 8px 14px 10px 58px;
+  margin-top: -8px;
+}
+.ex-line { font-size: 13.5px; margin: 2px 0; }
+.ex-line .ex-zh { color: var(--ink); }
+.ex-line .ex-vi { color: var(--ink-soft); }
+.ex-line .ex-vi::before { content: " — "; }
+
 /* ---------- Cách viết (stroke order, HanziWriter) ---------- */
 .word-row-clickable { cursor: pointer; }
 .word-row-clickable:hover { border-color: var(--teal); }
@@ -428,7 +442,7 @@ a { color: inherit; text-decoration: none; }
 .flash-progress { color: var(--ink-soft); font-size: 13px; }
 .flashcard {
   width: min(420px, 90vw);
-  height: 260px;
+  height: 300px;
   perspective: 1200px;
   cursor: pointer;
 }
@@ -457,6 +471,18 @@ a { color: inherit; text-decoration: none; }
 .flash-face.back .big-py { color: var(--amber); }
 .flash-face .big-mn { font-size: 22px; margin-top: 6px; }
 .flash-face .small-mn { font-size: 14px; opacity: .8; margin-top: 6px; }
+.flash-example {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,.25);
+  width: 100%;
+  max-height: 110px;
+  overflow-y: auto;
+}
+.flash-example .ex-line { font-size: 13px; margin: 3px 0; }
+.flash-example .ex-zh { color: #fff; }
+.flash-example .ex-vi { color: rgba(255,255,255,.75); }
+.flash-example .ex-vi::before { content: " — "; }
 .flash-controls { display: flex; gap: 10px; }
 .btn {
   font: inherit;
@@ -511,6 +537,8 @@ a { color: inherit; text-decoration: none; }
 }
 .quiz-option-hz { text-align: center; font-size: 22px; }
 .quiz-option:hover { border-color: var(--teal); }
+.cloze-sentence { font-size: 24px; margin-bottom: 6px; line-height: 1.5; }
+.cloze-hint { color: var(--ink-soft); font-size: 14px; margin-bottom: 22px; }
 .quiz-option.correct { background: #e5f4ea; border-color: var(--ok); color: #1f6b3c; }
 .quiz-option.wrong { background: #fbe7e7; border-color: var(--danger); color: #9c3a3a; }
 .quiz-score { margin-top: 18px; font-size: 14px; color: var(--ink-soft); }

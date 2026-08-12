@@ -12,7 +12,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "以为是真的 / 我以为… / 别以为",
+     "vi": "tưởng là thật / tôi tưởng… / đừng tưởng"
+    }
    },
    {
     "hanzi": "像",
@@ -21,7 +25,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "像你一样 / 看起来像 / 不像真的",
+     "vi": "giống bạn / trông giống / không giống thật"
+    }
    },
    {
     "hanzi": "长",
@@ -30,7 +38,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "长大 / 校长 / 科长",
+     "vi": "lớn lên / hiệu trưởng / trưởng khoa"
+    }
    },
    {
     "hanzi": "身高",
@@ -39,7 +51,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "身高一米七 / 身高问题 / 比身高",
+     "vi": "cao 1m7 / vấn đề chiều cao / so chiều cao"
+    }
    },
    {
     "hanzi": "米",
@@ -48,7 +64,11 @@
     "meaning_en": "",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "一米八 / 两米 / 五十米",
+     "vi": "1m80 / 2 mét / 50 mét"
+    }
    },
    {
     "hanzi": "瘦",
@@ -57,7 +77,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "有点瘦 / 瘦下来 / 太瘦了",
+     "vi": "hơi gầy / gầy đi / gầy quá"
+    }
    },
    {
     "hanzi": "接",
@@ -66,7 +90,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "接电话 / 接人 / 接下来",
+     "vi": "nghe điện thoại / đón người / tiếp theo"
+    }
    },
    {
     "hanzi": "年轻",
@@ -75,7 +103,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很年轻 / 年轻人 / 年轻的时候",
+     "vi": "rất trẻ / người trẻ / khi còn trẻ"
+    }
    },
    {
     "hanzi": "不见",
@@ -84,7 +116,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "钥匙不见了 / 人不见了 / 找不见",
+     "vi": "mất chìa khóa rồi / không thấy người / tìm không thấy"
+    }
    },
    {
     "hanzi": "应该",
@@ -93,7 +129,11 @@
     "meaning_en": "",
     "pos": [
      "mod."
-    ]
+    ],
+    "example": {
+     "zh": "应该去 / 应该知道 / 应该注意",
+     "vi": "nên đi / nên biết / nên chú ý"
+    }
    },
    {
     "hanzi": "照片",
@@ -102,7 +142,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "看照片 / 照片里 / 拍照片",
+     "vi": "xem ảnh / trong ảnh / chụp ảnh"
+    }
    },
    {
     "hanzi": "箱子",
@@ -111,7 +155,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "打开箱子 / 行李箱子 / 装箱子",
+     "vi": "mở thùng / vali / đóng thùng"
+    }
    },
    {
     "hanzi": "行李",
@@ -120,7 +168,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "收拾行李 / 行李箱 / 行李很多",
+     "vi": "dọn hành lý / vali / nhiều hành lý"
+    }
    },
    {
     "hanzi": "站",
@@ -129,7 +181,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "站起来 / 站一会儿 / 站在这儿",
+     "vi": "đứng dậy / đứng một lát / đứng đây"
+    }
    },
    {
     "hanzi": "中间",
@@ -138,7 +194,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "中间位置 / 中间的人 / 放中间",
+     "vi": "vị trí giữa / người ở giữa / đặt ở giữa"
+    }
    },
    {
     "hanzi": "着急",
@@ -147,7 +207,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很着急 / 别着急 / 着急的事",
+     "vi": "rất lo / đừng lo / việc gấp"
+    }
    },
    {
     "hanzi": "号码",
@@ -156,7 +220,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "电话号码 / 房间号码 / 号码牌",
+     "vi": "số điện thoại / số phòng / số thứ tự"
+    }
    },
    {
     "hanzi": "好像",
@@ -165,7 +233,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "好像下雨 / 好像知道 / 好像不对",
+     "vi": "hình như mưa / hình như biết / hình như không đúng"
+    }
    },
    {
     "hanzi": "带",
@@ -174,7 +246,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "带手机 / 带孩子 / 带我去",
+     "vi": "mang điện thoại / dẫn con / dẫn tôi đi"
+    }
    },
    {
     "hanzi": "头发",
@@ -183,7 +259,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "长头发 / 剪头发 / 头发很黑",
+     "vi": "tóc dài / cắt tóc / tóc đen"
+    }
    },
    {
     "hanzi": "短",
@@ -192,7 +272,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "短时间 / 短头发 / 裙子很短",
+     "vi": "thời gian ngắn / tóc ngắn / váy rất ngắn"
+    }
    },
    {
     "hanzi": "重要",
@@ -201,7 +285,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很重要 / 重要事情 / 不重要",
+     "vi": "rất quan trọng / việc quan trọng / không quan trọng"
+    }
    },
    {
     "hanzi": "丢",
@@ -210,7 +298,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "丢东西 / 丢了钱包 / 别丢了",
+     "vi": "làm mất đồ / mất ví / đừng làm mất"
+    }
    },
    {
     "hanzi": "发现",
@@ -219,7 +311,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "发现问题 / 发现错误 / 新发现",
+     "vi": "phát hiện vấn đề / phát hiện lỗi / phát hiện mới"
+    }
    }
   ]
  },
@@ -236,7 +332,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "看菜单 / 点菜单上的菜 / 菜单里有…",
+     "vi": "xem thực đơn / gọi món trong thực đơn / trong thực đơn có…"
+    }
    },
    {
     "hanzi": "筷子",
@@ -245,7 +345,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "用筷子 / 一双筷子 / 拿筷子",
+     "vi": "dùng đũa / một đôi đũa / cầm đũa"
+    }
    },
    {
     "hanzi": "碗",
@@ -254,7 +358,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "一碗饭 / 洗碗 / 空碗",
+     "vi": "một bát cơm / rửa bát / bát rỗng"
+    }
    },
    {
     "hanzi": "勺子",
@@ -263,7 +371,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "用勺子 / 一把勺子 / 塑料勺子",
+     "vi": "dùng muỗng / một cái muỗng / muỗng nhựa"
+    }
    },
    {
     "hanzi": "饮料",
@@ -272,7 +384,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "冷饮料 / 买饮料 / 饮料店",
+     "vi": "nước lạnh / mua nước / quán nước"
+    }
    },
    {
     "hanzi": "鸡",
@@ -281,7 +397,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "鸡肉 / 炸鸡 / 一只鸡",
+     "vi": "thịt gà / gà rán / một con gà"
+    }
    },
    {
     "hanzi": "蛋糕",
@@ -290,7 +410,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "生日蛋糕 / 买蛋糕 / 吃蛋糕",
+     "vi": "bánh sinh nhật / mua bánh / ăn bánh"
+    }
    },
    {
     "hanzi": "方便",
@@ -299,7 +423,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很方便 / 不方便 / 交通方便",
+     "vi": "rất tiện / không tiện / giao thông tiện"
+    }
    },
    {
     "hanzi": "方便面",
@@ -308,7 +436,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "吃方便面 / 买方便面 / 一包方便面",
+     "vi": "ăn mì gói / mua mì / 1 gói mì"
+    }
    },
    {
     "hanzi": "简单",
@@ -317,7 +449,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很简单 / 简单问题 / 简单生活",
+     "vi": "rất đơn giản / vấn đề đơn giản / cuộc sống đơn giản"
+    }
    },
    {
     "hanzi": "选",
@@ -326,7 +462,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "选一个 / 选择颜色 / 选老师",
+     "vi": "chọn một / chọn màu / chọn giáo viên"
+    }
    },
    {
     "hanzi": "尝",
@@ -335,7 +475,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "尝一尝 / 尝味道 / 尝新菜",
+     "vi": "nếm thử / thử mùi vị / thử món mới"
+    }
    },
    {
     "hanzi": "渴",
@@ -344,7 +488,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "口渴 / 渴了想喝水 / 很渴",
+     "vi": "khát nước / khát muốn uống / rất khát"
+    }
    },
    {
     "hanzi": "饿",
@@ -353,7 +501,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很饿 / 饿了想吃 / 饿肚子",
+     "vi": "rất đói / đói muốn ăn / đói bụng"
+    }
    },
    {
     "hanzi": "热情",
@@ -362,7 +514,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很热情 / 热情帮助 / 热情接待",
+     "vi": "rất nhiệt tình / giúp nhiệt tình / đón tiếp nhiệt tình"
+    }
    },
    {
     "hanzi": "外卖",
@@ -371,7 +527,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "点外卖 / 外卖平台 / 外卖小哥",
+     "vi": "đặt đồ ăn / nền tảng giao đồ / shipper"
+    }
    },
    {
     "hanzi": "不用",
@@ -380,7 +540,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "不用谢 / 不用担心 / 不用着急",
+     "vi": "không cần cảm ơn / không cần lo / không cần vội"
+    }
    },
    {
     "hanzi": "好久",
@@ -389,7 +553,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "好久不见 / 等好久 / 好久以前",
+     "vi": "lâu không gặp / đợi lâu / lâu lắm rồi"
+    }
    },
    {
     "hanzi": "用",
@@ -398,7 +566,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "用手机 / 用时间 / 用方法",
+     "vi": "dùng điện thoại / dùng thời gian / dùng cách"
+    }
    },
    {
     "hanzi": "马上",
@@ -407,7 +579,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "马上去 / 马上回来 / 马上开始",
+     "vi": "đi ngay / về ngay / bắt đầu ngay"
+    }
    },
    {
     "hanzi": "又",
@@ -416,7 +592,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "又来了 / 又快又好 / 又说又笑",
+     "vi": "lại đến / vừa nhanh vừa tốt / vừa nói vừa cười"
+    }
    },
    {
     "hanzi": "双",
@@ -425,7 +605,11 @@
     "meaning_en": "",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "一双鞋 / 双手 / 双休日",
+     "vi": "một đôi giày / hai tay / cuối tuần"
+    }
    },
    {
     "hanzi": "张",
@@ -434,7 +618,11 @@
     "meaning_en": "",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "一张纸 / 两张票 / 一张桌子",
+     "vi": "một tờ giấy / hai vé / một cái bàn"
+    }
    },
    {
     "hanzi": "员",
@@ -443,7 +631,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "服务员 / 工作人员 / 店员",
+     "vi": "nhân viên phục vụ / nhân viên làm việc / nhân viên cửa hàng"
+    }
    },
    {
     "hanzi": "客气",
@@ -469,7 +661,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "打开冰箱 / 冰箱里有… / 买冰箱",
+     "vi": "mở tủ lạnh / trong tủ lạnh có… / mua tủ lạnh"
+    }
    },
    {
     "hanzi": "洗衣机",
@@ -478,7 +674,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "用洗衣机 / 洗衣机坏了 / 买洗衣机",
+     "vi": "dùng máy giặt / máy giặt hỏng / mua máy giặt"
+    }
    },
    {
     "hanzi": "空调",
@@ -487,7 +687,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "开空调 / 空调坏了 / 空调房",
+     "vi": "bật máy lạnh / máy lạnh hỏng / phòng có máy lạnh"
+    }
    },
    {
     "hanzi": "灯",
@@ -496,7 +700,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "开灯 / 关灯 / 路灯",
+     "vi": "bật đèn / tắt đèn / đèn đường"
+    }
    },
    {
     "hanzi": "卫生间",
@@ -505,7 +713,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "找卫生间 / 去卫生间 / 卫生间在哪",
+     "vi": "tìm WC / đi WC / WC ở đâu"
+    }
    },
    {
     "hanzi": "环境",
@@ -514,7 +726,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "生活环境 / 工作环境 / 保护环境",
+     "vi": "môi trường sống / môi trường làm việc / bảo vệ môi trường"
+    }
    },
    {
     "hanzi": "花园",
@@ -523,7 +739,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "花园里 / 花园散步 / 小花园",
+     "vi": "trong vườn / dạo vườn / vườn nhỏ"
+    }
    },
    {
     "hanzi": "小区",
@@ -532,7 +752,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "住小区 / 小区门口 / 小区环境",
+     "vi": "sống trong khu / cổng khu / môi trường khu"
+    }
    },
    {
     "hanzi": "层",
@@ -541,7 +765,11 @@
     "meaning_en": "",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "三层楼 / 上一层 / 这层",
+     "vi": "tòa nhà 3 tầng / lên một tầng / tầng này"
+    }
    },
    {
     "hanzi": "房子",
@@ -550,7 +778,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "买房子 / 新房子 / 房子很大",
+     "vi": "mua nhà / nhà mới / nhà rất lớn"
+    }
    },
    {
     "hanzi": "搬家",
@@ -559,7 +791,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "搬家了 / 搬家到… / 帮忙搬家",
+     "vi": "chuyển nhà rồi / chuyển nhà đến… / giúp chuyển nhà"
+    }
    },
    {
     "hanzi": "办",
@@ -568,7 +804,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "办事情 / 办手续 / 办活动",
+     "vi": "giải quyết việc / làm thủ tục / tổ chức hoạt động"
+    }
    },
    {
     "hanzi": "打扫",
@@ -577,7 +817,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "打扫房间 / 打扫卫生 / 打扫干净",
+     "vi": "dọn phòng / dọn vệ sinh / dọn sạch"
+    }
    },
    {
     "hanzi": "换",
@@ -586,7 +830,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "换衣服 / 换房间 / 换时间",
+     "vi": "đổi đồ / đổi phòng / đổi thời gian"
+    }
    },
    {
     "hanzi": "挺",
@@ -595,7 +843,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "挺好 / 挺累 / 挺有意思",
+     "vi": "khá tốt / khá mệt / khá thú vị"
+    }
    },
    {
     "hanzi": "听说",
@@ -604,7 +856,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "听说你来了 / 听说过 / 听说消息",
+     "vi": "nghe nói bạn đến / nghe nói rồi / nghe tin"
+    }
    },
    {
     "hanzi": "还",
@@ -613,7 +869,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "还钱 / 还书 / 还给你",
+     "vi": "trả tiền / trả sách / trả cho bạn"
+    }
    },
    {
     "hanzi": "信用卡",
@@ -622,7 +882,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "刷信用卡 / 办信用卡 / 信用卡付款",
+     "vi": "quẹt thẻ / làm thẻ / trả bằng thẻ"
+    }
    },
    {
     "hanzi": "银行",
@@ -631,7 +895,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "去银行 / 银行卡 / 银行工作",
+     "vi": "đi ngân hàng / thẻ ngân hàng / làm ngân hàng"
+    }
    },
    {
     "hanzi": "纸",
@@ -640,7 +908,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "一张纸 / 白纸 / 用纸写",
+     "vi": "một tờ giấy / giấy trắng / viết bằng giấy"
+    }
    },
    {
     "hanzi": "需要",
@@ -649,7 +921,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "需要帮助 / 不需要 / 生活需要",
+     "vi": "cần giúp / không cần / nhu cầu sống"
+    }
    },
    {
     "hanzi": "咱们",
@@ -658,7 +934,11 @@
     "meaning_en": "",
     "pos": [
      "pron."
-    ]
+    ],
+    "example": {
+     "zh": "咱们一起 / 咱们走吧 / 咱们公司",
+     "vi": "chúng ta cùng / chúng ta đi / công ty chúng ta"
+    }
    },
    {
     "hanzi": "才",
@@ -667,7 +947,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "才知道 / 才回来 / 才开始",
+     "vi": "mãi mới biết / mãi mới về / mãi mới bắt đầu"
+    }
    },
    {
     "hanzi": "初中",
@@ -676,7 +960,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "上初中 / 初中同学 / 初中老师",
+     "vi": "học cấp 2 / bạn cấp 2 / thầy cô cấp 2"
+    }
    }
   ]
  },
@@ -693,7 +981,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "大海 / 海边 / 去海边",
+     "vi": "biển lớn / bờ biển / đi biển"
+    }
    },
    {
     "hanzi": "马",
@@ -702,7 +994,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "骑马 / 一匹马 / 马跑得快",
+     "vi": "cưỡi ngựa / một con ngựa / ngựa chạy nhanh"
+    }
    },
    {
     "hanzi": "牛",
@@ -711,7 +1007,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "一头牛 / 牛奶 / 牛肉",
+     "vi": "một con bò / sữa bò / thịt bò"
+    }
    },
    {
     "hanzi": "羊",
@@ -720,7 +1020,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "一只羊 / 羊肉 / 养羊",
+     "vi": "một con cừu / thịt cừu / nuôi cừu"
+    }
    },
    {
     "hanzi": "月亮",
@@ -729,7 +1033,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "看月亮 / 月亮很圆 / 月亮出来",
+     "vi": "xem trăng / trăng tròn / trăng lên"
+    }
    },
    {
     "hanzi": "相机",
@@ -738,7 +1046,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "买相机 / 用相机拍 / 相机坏了",
+     "vi": "mua máy ảnh / chụp bằng máy ảnh / máy ảnh hỏng"
+    }
    },
    {
     "hanzi": "骑",
@@ -747,7 +1059,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "骑车 / 骑马 / 骑上去",
+     "vi": "đi xe đạp / cưỡi ngựa / cưỡi/leo lên"
+    }
    },
    {
     "hanzi": "起飞",
@@ -756,7 +1072,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "飞机起飞 / 起飞时间 / 快要起飞",
+     "vi": "máy bay cất cánh / giờ cất cánh / sắp cất cánh"
+    }
    },
    {
     "hanzi": "司机",
@@ -765,7 +1085,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "出租车司机 / 司机开车 / 司机师傅",
+     "vi": "tài xế taxi / tài xế lái xe / bác tài"
+    }
    },
    {
     "hanzi": "特别",
@@ -774,7 +1098,11 @@
     "meaning_en": "",
     "pos": [
      "adj./adv."
-    ]
+    ],
+    "example": {
+     "zh": "特别好 / 特别注意 / 特别喜欢",
+     "vi": "rất đặc biệt/tốt / đặc biệt chú ý / đặc biệt thích"
+    }
    },
    {
     "hanzi": "满意",
@@ -783,7 +1111,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很满意 / 不满意 / 满意的结果",
+     "vi": "rất hài lòng / không hài lòng / kết quả hài lòng"
+    }
    },
    {
     "hanzi": "干净",
@@ -792,7 +1124,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很干净 / 打扫干净 / 房间干净",
+     "vi": "rất sạch / dọn sạch / phòng sạch"
+    }
    },
    {
     "hanzi": "欢迎",
@@ -801,7 +1137,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "欢迎你 / 热烈欢迎 / 欢迎光临",
+     "vi": "chào mừng bạn / nhiệt liệt chào mừng / hoan nghênh quý khách"
+    }
    },
    {
     "hanzi": "刻",
@@ -810,7 +1150,11 @@
     "meaning_en": "",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "一刻钟 / 等一刻 / 十点一刻",
+     "vi": "15 phút / đợi 15 phút / 10 giờ 15"
+    }
    },
    {
     "hanzi": "晚点",
@@ -819,7 +1163,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "晚点到 / 晚点联系 / 晚点再说",
+     "vi": "đến muộn chút / liên lạc muộn / nói sau"
+    }
    },
    {
     "hanzi": "一定",
@@ -828,7 +1176,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "一定要去 / 不一定 / 一定可以",
+     "vi": "nhất định phải đi / không nhất thiết / nhất định được"
+    }
    },
    {
     "hanzi": "一样",
@@ -837,7 +1189,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "一样大 / 一样好 / 不一样",
+     "vi": "bằng nhau / tốt như nhau / không giống"
+    }
    },
    {
     "hanzi": "以外",
@@ -846,7 +1202,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "工作以外 / 以外时间 / 以外的人",
+     "vi": "ngoài công việc / thời gian ngoài / người khác"
+    }
    },
    {
     "hanzi": "别的",
@@ -855,7 +1215,11 @@
     "meaning_en": "",
     "pos": [
      "pron."
-    ]
+    ],
+    "example": {
+     "zh": "别的人 / 别的地方 / 别的颜色",
+     "vi": "người khác / nơi khác / màu khác"
+    }
    },
    {
     "hanzi": "假期",
@@ -864,7 +1228,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "寒假假期 / 假期计划 / 假期结束",
+     "vi": "kỳ nghỉ đông / kế hoạch kỳ nghỉ / kỳ nghỉ kết thúc"
+    }
    },
    {
     "hanzi": "久",
@@ -873,7 +1241,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很久以前 / 等了很久 / 好久不见",
+     "vi": "rất lâu trước / đợi lâu / lâu không gặp"
+    }
    },
    {
     "hanzi": "宾馆",
@@ -882,7 +1254,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "住宾馆 / 订宾馆 / 宾馆房间",
+     "vi": "ở khách sạn / đặt khách sạn / phòng khách sạn"
+    }
    },
    {
     "hanzi": "先",
@@ -891,7 +1267,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "你先走 / 先吃饭 / 先看看",
+     "vi": "bạn đi trước / ăn trước / xem trước"
+    }
    },
    {
     "hanzi": "草原",
@@ -926,7 +1306,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "爬山 / 山上 / 高山",
+     "vi": "leo núi / trên núi / núi cao"
+    }
    },
    {
     "hanzi": "树",
@@ -935,7 +1319,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "大树 / 树下 / 种树",
+     "vi": "cây lớn / dưới cây / trồng cây"
+    }
    },
    {
     "hanzi": "太阳",
@@ -944,7 +1332,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "太阳出来 / 晒太阳 / 太阳很大",
+     "vi": "mặt trời mọc / phơi nắng / nắng gắt"
+    }
    },
    {
     "hanzi": "鞋",
@@ -953,7 +1345,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "穿鞋 / 买鞋 / 一双鞋",
+     "vi": "mang giày / mua giày / một đôi giày"
+    }
    },
    {
     "hanzi": "大衣",
@@ -962,7 +1358,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "穿大衣 / 买大衣 / 黑色大衣",
+     "vi": "mặc áo khoác / mua áo khoác / áo khoác đen"
+    }
    },
    {
     "hanzi": "照相",
@@ -971,7 +1371,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "照相留念 / 照相机 / 去照相",
+     "vi": "chụp kỷ niệm / máy ảnh / đi chụp ảnh"
+    }
    },
    {
     "hanzi": "照",
@@ -980,7 +1384,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "照顾 / 照相 / 按照",
+     "vi": "chăm sóc / chụp ảnh / theo"
+    }
    },
    {
     "hanzi": "爬",
@@ -989,7 +1397,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "爬山 / 爬楼梯 / 爬上去",
+     "vi": "leo núi / leo cầu thang / leo lên"
+    }
    },
    {
     "hanzi": "拍照",
@@ -998,7 +1410,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "拍照片 / 拍照留念 / 给我拍照",
+     "vi": "chụp ảnh / chụp ảnh kỷ niệm / chụp cho tôi"
+    }
    },
    {
     "hanzi": "锻炼",
@@ -1007,7 +1423,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "锻炼身体 / 每天锻炼 / 锻炼习惯",
+     "vi": "rèn luyện sức khỏe / tập mỗi ngày / thói quen tập luyện"
+    }
    },
    {
     "hanzi": "结束",
@@ -1016,7 +1436,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "会议结束 / 结束以后 / 结束时间",
+     "vi": "họp kết thúc / sau khi kết thúc / thời gian kết thúc"
+    }
    },
    {
     "hanzi": "终于",
@@ -1025,7 +1449,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "终于到了 / 终于完成 / 终于明白",
+     "vi": "cuối cùng đến / cuối cùng xong / cuối cùng hiểu"
+    }
    },
    {
     "hanzi": "收到",
@@ -1034,7 +1462,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "收到礼物 / 收到邮件 / 已经收到",
+     "vi": "nhận quà / nhận mail / đã nhận"
+    }
    },
    {
     "hanzi": "感兴趣",
@@ -1043,7 +1475,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "对…感兴趣 / 很感兴趣 / 不感兴趣",
+     "vi": "hứng thú với… / rất hứng thú / không hứng thú"
+    }
    },
    {
     "hanzi": "兴趣",
@@ -1052,7 +1488,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "学习兴趣 / 感兴趣 / 没兴趣",
+     "vi": "hứng thú học / có hứng thú / không hứng thú"
+    }
    },
    {
     "hanzi": "音乐",
@@ -1061,7 +1501,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "听音乐 / 音乐会 / 音乐老师",
+     "vi": "nghe nhạc / hòa nhạc / GV âm nhạc"
+    }
    },
    {
     "hanzi": "水平",
@@ -1070,7 +1514,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "汉语水平 / 技术水平 / 提高水平",
+     "vi": "trình độ tiếng Trung / trình độ kỹ thuật / nâng trình độ"
+    }
    },
    {
     "hanzi": "难过",
@@ -1079,7 +1527,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很难过 / 难过的事 / 别难过",
+     "vi": "rất buồn / chuyện buồn / đừng buồn"
+    }
    },
    {
     "hanzi": "难看",
@@ -1088,7 +1540,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很难看 / 难看的字 / 脸色难看",
+     "vi": "rất xấu / chữ xấu / sắc mặt xấu"
+    }
    },
    {
     "hanzi": "邮件",
@@ -1097,7 +1553,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "发邮件 / 收邮件 / 邮件地址",
+     "vi": "gửi mail / nhận mail / địa chỉ email"
+    }
    },
    {
     "hanzi": "封",
@@ -1106,7 +1566,11 @@
     "meaning_en": "",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "一封信 / 封邮件 / 封起来",
+     "vi": "một bức thư / phong mail / niêm phong"
+    }
    },
    {
     "hanzi": "总是",
@@ -1115,7 +1579,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "总是忙 / 总是这样 / 总是忘记",
+     "vi": "luôn bận / luôn thế / luôn quên"
+    }
    },
    {
     "hanzi": "干",
@@ -1124,7 +1592,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "干工作 / 干事情 / 干得好",
+     "vi": "làm việc / làm việc / làm tốt"
+    }
    },
    {
     "hanzi": "会",
@@ -1133,7 +1605,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "开会 / 会议室 / 一个会",
+     "vi": "họp / phòng họp / một cuộc họp"
+    }
    },
    {
     "hanzi": "哈哈",
@@ -1159,7 +1635,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "坐高铁 / 高铁站 / 高铁票",
+     "vi": "đi tàu cao tốc / ga cao tốc / vé cao tốc"
+    }
    },
    {
     "hanzi": "电梯",
@@ -1168,7 +1648,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "坐电梯 / 电梯坏了 / 电梯口",
+     "vi": "đi thang máy / thang máy hỏng / chỗ thang máy"
+    }
    },
    {
     "hanzi": "沙发",
@@ -1177,7 +1661,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "坐沙发 / 沙发上 / 新沙发",
+     "vi": "ngồi sofa / trên sofa / sofa mới"
+    }
    },
    {
     "hanzi": "耳机",
@@ -1186,7 +1674,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "戴耳机 / 耳机坏了 / 买耳机",
+     "vi": "đeo tai nghe / tai nghe hỏng / mua tai nghe"
+    }
    },
    {
     "hanzi": "路口",
@@ -1195,7 +1687,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "十字路口 / 路口左转 / 路口等红灯",
+     "vi": "ngã tư / rẽ trái ở ngã tư / đợi đèn ở ngã tư"
+    }
    },
    {
     "hanzi": "红绿灯",
@@ -1204,7 +1700,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "等红绿灯 / 过红绿灯 / 红绿灯路口",
+     "vi": "chờ đèn / qua đèn / ngã tư đèn"
+    }
    },
    {
     "hanzi": "刷",
@@ -1213,7 +1713,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "刷牙 / 刷卡 / 刷手机",
+     "vi": "đánh răng / quẹt thẻ / lướt điện thoại"
+    }
    },
    {
     "hanzi": "检查",
@@ -1222,7 +1726,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "检查身体 / 检查作业 / 安全检查",
+     "vi": "khám sức khỏe / kiểm tra bài / kiểm tra an toàn"
+    }
    },
    {
     "hanzi": "检票",
@@ -1231,7 +1739,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "检票口 / 开始检票 / 检票员",
+     "vi": "cổng soát vé / bắt đầu soát vé / nhân viên soát vé"
+    }
    },
    {
     "hanzi": "打算",
@@ -1240,7 +1752,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "打算去 / 有打算 / 打算明年",
+     "vi": "dự định đi / có dự định / dự định năm sau"
+    }
    },
    {
     "hanzi": "选择",
@@ -1249,7 +1765,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "正确选择 / 做选择 / 多种选择",
+     "vi": "lựa chọn đúng / đưa lựa chọn / nhiều lựa chọn"
+    }
    },
    {
     "hanzi": "分开",
@@ -1258,7 +1778,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "分开坐 / 分开看 / 分开走",
+     "vi": "ngồi riêng / xem riêng / đi riêng"
+    }
    },
    {
     "hanzi": "放假",
@@ -1267,7 +1791,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "放寒假 / 放暑假 / 放假时间",
+     "vi": "nghỉ đông / nghỉ hè / thời gian nghỉ"
+    }
    },
    {
     "hanzi": "后来",
@@ -1276,7 +1804,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "后来发现 / 后来才知道 / 后来的人",
+     "vi": "sau đó phát hiện / sau mới biết / người đến sau"
+    }
    },
    {
     "hanzi": "该",
@@ -1285,7 +1817,11 @@
     "meaning_en": "",
     "pos": [
      "mod."
-    ]
+    ],
+    "example": {
+     "zh": "该你了 / 该怎么办 / 该走了",
+     "vi": "đến lượt bạn / nên làm sao / đến lúc đi"
+    }
    },
    {
     "hanzi": "必须",
@@ -1294,7 +1830,11 @@
     "meaning_en": "",
     "pos": [
      "mod."
-    ]
+    ],
+    "example": {
+     "zh": "必须去 / 必须完成 / 必须注意",
+     "vi": "phải đi / phải hoàn thành / phải chú ý"
+    }
    },
    {
     "hanzi": "如果",
@@ -1303,7 +1843,11 @@
     "meaning_en": "",
     "pos": [
      "conj."
-    ]
+    ],
+    "example": {
+     "zh": "如果有时间 / 如果可以 / 如果不去",
+     "vi": "nếu có thời gian / nếu có thể / nếu không đi"
+    }
    },
    {
     "hanzi": "小心",
@@ -1312,7 +1856,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "小心点 / 小心开车 / 不小心",
+     "vi": "cẩn thận chút / lái xe cẩn thận / không cẩn thận"
+    }
    },
    {
     "hanzi": "急",
@@ -1321,7 +1869,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很急 / 着急 / 急事情",
+     "vi": "rất gấp / lo vội / việc gấp"
+    }
    },
    {
     "hanzi": "行",
@@ -1330,7 +1882,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "这样不行 / 行不行 / 这条路行",
+     "vi": "như vậy không được / được không / con đường này đi được"
+    }
    },
    {
     "hanzi": "越",
@@ -1339,7 +1895,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "越学越好 / 越来越忙 / 越快越好",
+     "vi": "càng học càng tốt / ngày càng bận / càng nhanh càng tốt"
+    }
    },
    {
     "hanzi": "以前",
@@ -1348,7 +1908,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "以前的事 / 以前住这儿 / 比以前好",
+     "vi": "chuyện trước / trước ở đây / tốt hơn trước"
+    }
    },
    {
     "hanzi": "迟到",
@@ -1357,7 +1921,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "上课迟到 / 别迟到 / 迟到原因",
+     "vi": "đi muộn giờ học / đừng đi muộn / lý do đi muộn"
+    }
    },
    {
     "hanzi": "充电宝",
@@ -1383,7 +1951,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "穿裙子 / 买裙子 / 漂亮的裙子",
+     "vi": "mặc váy / mua váy / váy đẹp"
+    }
    },
    {
     "hanzi": "短裤",
@@ -1392,7 +1964,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "穿短裤 / 买短裤 / 夏天短裤",
+     "vi": "mặc quần short / mua quần short / quần short mùa hè"
+    }
    },
    {
     "hanzi": "毛",
@@ -1401,7 +1977,11 @@
     "meaning_en": "",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "一毛钱 / 五毛 / 两块三毛",
+     "vi": "1 hào / 5 hào / 2.3 tệ"
+    }
    },
    {
     "hanzi": "斤",
@@ -1410,7 +1990,11 @@
     "meaning_en": "",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "一斤苹果 / 两斤肉 / 斤数",
+     "vi": "0.5kg táo / 1kg thịt / số cân"
+    }
    },
    {
     "hanzi": "公斤",
@@ -1419,7 +2003,11 @@
     "meaning_en": "",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "一公斤 / 两公斤 / 公斤价格",
+     "vi": "1kg / 2kg / giá theo kg"
+    }
    },
    {
     "hanzi": "辆",
@@ -1428,7 +2016,11 @@
     "meaning_en": "",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "一辆车 / 两辆出租车 / 这辆自行车",
+     "vi": "một chiếc xe / hai chiếc taxi / chiếc xe đạp này"
+    }
    },
    {
     "hanzi": "声",
@@ -1437,7 +2029,11 @@
     "meaning_en": "",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "一声谢谢 / 声音大 / 不出声",
+     "vi": "một tiếng cảm ơn / tiếng lớn / không ra tiếng"
+    }
    },
    {
     "hanzi": "甜",
@@ -1446,7 +2042,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很甜 / 太甜了 / 甜的水果",
+     "vi": "rất ngọt / ngọt quá / trái cây ngọt"
+    }
    },
    {
     "hanzi": "旧",
@@ -1455,7 +2055,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "旧衣服 / 旧手机 / 旧朋友",
+     "vi": "quần áo cũ / điện thoại cũ / bạn cũ"
+    }
    },
    {
     "hanzi": "合适",
@@ -1464,7 +2068,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很合适 / 不合适 / 合适时间",
+     "vi": "rất phù hợp / không phù hợp / thời gian phù hợp"
+    }
    },
    {
     "hanzi": "更",
@@ -1473,7 +2081,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "更好 / 更快 / 更重要",
+     "vi": "tốt hơn / nhanh hơn / quan trọng hơn"
+    }
    },
    {
     "hanzi": "极",
@@ -1482,7 +2094,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "极重要 / 极少 / 极好",
+     "vi": "cực kỳ quan trọng / rất ít / rất tốt"
+    }
    },
    {
     "hanzi": "一共",
@@ -1491,7 +2107,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "一共三个人 / 一共多少钱 / 一共五天",
+     "vi": "tổng 3 người / tổng bao nhiêu tiền / tổng 5 ngày"
+    }
    },
    {
     "hanzi": "结婚",
@@ -1500,7 +2120,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "结婚了 / 结婚纪念日 / 打算结婚",
+     "vi": "kết hôn rồi / kỷ niệm cưới / dự định kết hôn"
+    }
    },
    {
     "hanzi": "决定",
@@ -1509,7 +2133,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "做决定 / 最后决定 / 决定去",
+     "vi": "ra quyết định / quyết định cuối / quyết định đi"
+    }
    },
    {
     "hanzi": "试",
@@ -1518,7 +2146,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "试一下 / 试衣服 / 试试看",
+     "vi": "thử một chút / thử quần áo / thử xem"
+    }
    },
    {
     "hanzi": "黄色",
@@ -1527,7 +2159,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "黄色衣服 / 黄色花 / 黄色的车",
+     "vi": "áo vàng / hoa vàng / xe màu vàng"
+    }
    },
    {
     "hanzi": "新鲜",
@@ -1536,7 +2172,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "新鲜水果 / 很新鲜 / 新鲜空气",
+     "vi": "trái cây tươi / rất tươi / không khí trong"
+    }
    },
    {
     "hanzi": "香蕉",
@@ -1545,7 +2185,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "吃香蕉 / 买香蕉 / 一根香蕉",
+     "vi": "ăn chuối / mua chuối / một quả chuối"
+    }
    },
    {
     "hanzi": "西瓜",
@@ -1554,7 +2198,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "吃西瓜 / 买西瓜 / 一个西瓜",
+     "vi": "ăn dưa / mua dưa / một quả dưa"
+    }
    },
    {
     "hanzi": "不但",
@@ -1563,7 +2211,11 @@
     "meaning_en": "",
     "pos": [
      "conj."
-    ]
+    ],
+    "example": {
+     "zh": "不但…而且… / 不但会说 / 不但喜欢",
+     "vi": "không những… mà còn… / không những biết nói / không những thích"
+    }
    },
    {
     "hanzi": "大小",
@@ -1572,7 +2224,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "大小合适 / 房间大小 / 尺寸大小",
+     "vi": "cỡ vừa / kích thước phòng / kích thước"
+    }
    },
    {
     "hanzi": "自行车",
@@ -1581,7 +2237,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "骑自行车 / 买自行车 / 自行车道",
+     "vi": "đi xe đạp / mua xe đạp / làn xe đạp"
+    }
    },
    {
     "hanzi": "开机",
@@ -1590,7 +2250,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "电脑开机 / 手机开机 / 开机密码",
+     "vi": "bật máy tính / bật điện thoại / mật khẩu mở máy"
+    }
    }
   ]
  },
@@ -1607,7 +2271,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "打羽毛球 / 羽毛球拍 / 羽毛球馆",
+     "vi": "chơi cầu lông / vợt cầu lông / nhà cầu lông"
+    }
    },
    {
     "hanzi": "腿",
@@ -1616,7 +2284,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "腿疼 / 长腿 / 一条腿",
+     "vi": "đau chân / chân dài / một chân"
+    }
    },
    {
     "hanzi": "耳朵",
@@ -1625,7 +2297,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "左耳朵 / 右耳朵 / 耳朵疼",
+     "vi": "tai trái / tai phải / đau tai"
+    }
    },
    {
     "hanzi": "发烧",
@@ -1634,7 +2310,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "有点发烧 / 发烧了 / 去医院发烧",
+     "vi": "hơi sốt / bị sốt / đi viện vì sốt"
+    }
    },
    {
     "hanzi": "感冒",
@@ -1643,7 +2323,11 @@
     "meaning_en": "",
     "pos": [
      "v./n."
-    ]
+    ],
+    "example": {
+     "zh": "得感冒 / 感冒了 / 治感冒",
+     "vi": "bị cảm / cảm rồi / chữa cảm"
+    }
    },
    {
     "hanzi": "胖",
@@ -1652,7 +2336,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "有点胖 / 胖起来 / 胖的人",
+     "vi": "hơi mập / mập lên / người mập"
+    }
    },
    {
     "hanzi": "关心",
@@ -1661,7 +2349,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "关心别人 / 谢谢关心 / 不关心",
+     "vi": "quan tâm người khác / cảm ơn quan tâm / không quan tâm"
+    }
    },
    {
     "hanzi": "担心",
@@ -1670,7 +2362,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "别担心 / 担心你 / 很担心",
+     "vi": "đừng lo / lo cho bạn / rất lo"
+    }
    },
    {
     "hanzi": "注意",
@@ -1679,7 +2375,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "注意安全 / 注意时间 / 注意听",
+     "vi": "chú ý an toàn / chú ý giờ / chú ý nghe"
+    }
    },
    {
     "hanzi": "习惯",
@@ -1688,7 +2388,11 @@
     "meaning_en": "",
     "pos": [
      "n./v."
-    ]
+    ],
+    "example": {
+     "zh": "生活习惯 / 养成习惯 / 不习惯",
+     "vi": "thói quen sống / tạo thói quen / không quen"
+    }
    },
    {
     "hanzi": "突然",
@@ -1697,7 +2401,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "突然下雨 / 突然出现 / 突然决定",
+     "vi": "đột nhiên mưa / đột nhiên xuất hiện / quyết định đột ngột"
+    }
    },
    {
     "hanzi": "心里",
@@ -1706,7 +2414,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "心里想 / 心里明白 / 心里不安",
+     "vi": "nghĩ trong lòng / trong lòng hiểu / trong lòng không yên"
+    }
    },
    {
     "hanzi": "以后",
@@ -1715,7 +2427,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "以后再说 / 以后见 / 以后打算",
+     "vi": "nói sau / gặp sau / dự định sau này"
+    }
    },
    {
     "hanzi": "开心",
@@ -1724,7 +2440,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很开心 / 开心地笑 / 让人开心",
+     "vi": "rất vui / cười vui / làm người ta vui"
+    }
    },
    {
     "hanzi": "开",
@@ -1742,7 +2462,11 @@
     "meaning_en": "",
     "pos": [
      "adj./n."
-    ]
+    ],
+    "example": {
+     "zh": "身体健康 / 健康生活 / 健康问题",
+     "vi": "sức khỏe tốt / sống lành mạnh / vấn đề sức khỏe"
+    }
    },
    {
     "hanzi": "其他",
@@ -1751,7 +2475,11 @@
     "meaning_en": "",
     "pos": [
      "pron."
-    ]
+    ],
+    "example": {
+     "zh": "其他人 / 其他地方 / 其他问题",
+     "vi": "người khác / nơi khác / vấn đề khác"
+    }
    },
    {
     "hanzi": "差不多",
@@ -1760,7 +2488,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "差不多一样 / 差不多了 / 差不多时间",
+     "vi": "gần như giống / gần xong / thời gian gần như"
+    }
    },
    {
     "hanzi": "住院",
@@ -1769,7 +2501,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "住院治疗 / 需要住院 / 出院住院",
+     "vi": "điều trị nội trú / cần nhập viện / xuất–nhập viện"
+    }
    },
    {
     "hanzi": "体育馆",
@@ -1778,7 +2514,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "去体育馆 / 体育馆里 / 体育馆门口",
+     "vi": "đi nhà thi đấu / trong nhà thi đấu / cổng nhà thi đấu"
+    }
    },
    {
     "hanzi": "出院",
@@ -1787,7 +2527,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "出院以后 / 办出院手续 / 可以出院",
+     "vi": "sau khi xuất viện / làm thủ tục xuất viện / có thể xuất viện"
+    }
    },
    {
     "hanzi": "方法",
@@ -1796,7 +2540,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "学习方法 / 好方法 / 用方法",
+     "vi": "phương pháp học / cách hay / dùng phương pháp"
+    }
    },
    {
     "hanzi": "得",
@@ -1805,7 +2553,11 @@
     "meaning_en": "",
     "pos": [
      "mod."
-    ]
+    ],
+    "example": {
+     "zh": "得机会 / 得第一 / 得奖励",
+     "vi": "được cơ hội / được hạng nhất / được thưởng"
+    }
    },
    {
     "hanzi": "种",
@@ -1814,7 +2566,11 @@
     "meaning_en": "",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "一种办法 / 这种问题 / 各种各样",
+     "vi": "một cách / loại vấn đề này / các loại"
+    }
    },
    {
     "hanzi": "低",
@@ -1832,7 +2588,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "照顾病人 / 看望病人 / 病人很多",
+     "vi": "chăm bệnh nhân / thăm bệnh nhân / nhiều bệnh nhân"
+    }
    },
    {
     "hanzi": "最近",
@@ -1841,7 +2601,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "最近很忙 / 最近天气 / 最近一次",
+     "vi": "gần đây bận / thời tiết gần đây / lần gần nhất"
+    }
    }
   ]
  },
@@ -1858,7 +2622,11 @@
     "meaning_en": "",
     "pos": [
      "n./v."
-    ]
+    ],
+    "example": {
+     "zh": "参加比赛 / 比赛开始 / 赢比赛",
+     "vi": "tham gia thi đấu / cuộc thi bắt đầu / thắng cuộc thi"
+    }
    },
    {
     "hanzi": "运动会",
@@ -1867,7 +2635,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "参加运动会 / 学校运动会 / 运动会项目",
+     "vi": "tham gia đại hội / đại hội trường / môn thi"
+    }
    },
    {
     "hanzi": "运动员",
@@ -1876,7 +2648,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "专业运动员 / 国家运动员 / 运动员精神",
+     "vi": "VĐV chuyên nghiệp / VĐV quốc gia / tinh thần VĐV"
+    }
    },
    {
     "hanzi": "球场",
@@ -1885,7 +2661,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "足球场 / 篮球场 / 球场上",
+     "vi": "sân bóng đá / sân bóng rổ / trên sân"
+    }
    },
    {
     "hanzi": "校园",
@@ -1894,7 +2674,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "校园生活 / 校园环境 / 校园活动",
+     "vi": "đời sống SV / môi trường trường / hoạt động trường"
+    }
    },
    {
     "hanzi": "网球",
@@ -1903,7 +2687,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "打网球 / 网球场 / 网球比赛",
+     "vi": "chơi tennis / sân tennis / thi đấu tennis"
+    }
    },
    {
     "hanzi": "世界",
@@ -1912,7 +2700,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "世界各地 / 世界文化 / 世界地图",
+     "vi": "khắp thế giới / văn hóa thế giới / bản đồ thế giới"
+    }
    },
    {
     "hanzi": "啤酒",
@@ -1921,7 +2713,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "喝啤酒 / 一瓶啤酒 / 啤酒肚",
+     "vi": "uống bia / một chai bia / bụng bia"
+    }
    },
    {
     "hanzi": "体育",
@@ -1930,7 +2726,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "体育课 / 体育运动 / 体育精神",
+     "vi": "giờ thể dục / vận động TDTT / tinh thần thể thao"
+    }
    },
    {
     "hanzi": "得到",
@@ -1939,7 +2739,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "得到帮助 / 得到礼物 / 得到同意",
+     "vi": "nhận giúp đỡ / nhận quà / được đồng ý"
+    }
    },
    {
     "hanzi": "得分",
@@ -1948,7 +2752,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "得高分 / 比赛得分 / 得分最高",
+     "vi": "được điểm cao / ghi điểm trong trận / điểm cao nhất"
+    }
    },
    {
     "hanzi": "为了",
@@ -1957,7 +2765,11 @@
     "meaning_en": "",
     "pos": [
      "prep."
-    ]
+    ],
+    "example": {
+     "zh": "为了学习 / 为了工作 / 为了家人",
+     "vi": "để học / để làm việc / vì gia đình"
+    }
    },
    {
     "hanzi": "练",
@@ -1966,7 +2778,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "练口语 / 练习写字 / 练得很好",
+     "vi": "luyện nói / luyện viết / luyện rất tốt"
+    }
    },
    {
     "hanzi": "练习",
@@ -1975,7 +2791,11 @@
     "meaning_en": "",
     "pos": [
      "v./n."
-    ]
+    ],
+    "example": {
+     "zh": "练习听力 / 练习题 / 多练习",
+     "vi": "luyện nghe / bài luyện tập / luyện nhiều"
+    }
    },
    {
     "hanzi": "参加",
@@ -1984,7 +2804,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "参加活动 / 参加会议 / 参加比赛",
+     "vi": "tham gia hoạt động / tham gia cuộc họp / tham gia cuộc thi"
+    }
    },
    {
     "hanzi": "影响",
@@ -1993,7 +2817,11 @@
     "meaning_en": "",
     "pos": [
      "v./n."
-    ]
+    ],
+    "example": {
+     "zh": "产生影响 / 不好影响 / 影响工作",
+     "vi": "tạo ảnh hưởng / ảnh hưởng xấu / ảnh hưởng công việc"
+    }
    },
    {
     "hanzi": "几乎",
@@ -2002,7 +2830,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "几乎每天 / 几乎一样 / 几乎没有",
+     "vi": "hầu như mỗi ngày / hầu như giống / hầu như không có"
+    }
    },
    {
     "hanzi": "主要",
@@ -2011,7 +2843,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "主要原因 / 主要内容 / 主要工作",
+     "vi": "nguyên nhân chính / nội dung chính / công việc chính"
+    }
    },
    {
     "hanzi": "回",
@@ -2029,7 +2865,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "男生宿舍 / 班里男生 / 男生女生",
+     "vi": "ký túc xá nam / nam trong lớp / nam nữ"
+    }
    },
    {
     "hanzi": "受到",
@@ -2038,7 +2878,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "受到帮助 / 受到影响 / 受到表扬",
+     "vi": "được giúp / chịu ảnh hưởng / được khen"
+    }
    },
    {
     "hanzi": "成绩",
@@ -2047,7 +2891,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "考试成绩 / 成绩很好 / 提高成绩",
+     "vi": "điểm thi / điểm rất tốt / nâng điểm"
+    }
    },
    {
     "hanzi": "卡",
@@ -2056,7 +2904,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "银行卡 / 信用卡 / 会员卡",
+     "vi": "thẻ ngân hàng / thẻ tín dụng / thẻ thành viên"
+    }
    },
    {
     "hanzi": "只是",
@@ -2065,7 +2917,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "只是看看 / 只是问题 / 只是时间",
+     "vi": "chỉ xem / chỉ là vấn đề / chỉ là thời gian"
+    }
    },
    {
     "hanzi": "紧张",
@@ -2091,7 +2947,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "做笔记 / 课堂笔记 / 看笔记",
+     "vi": "ghi chép / ghi chú trên lớp / xem ghi chú"
+    }
    },
    {
     "hanzi": "句",
@@ -2100,7 +2960,11 @@
     "meaning_en": "",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "一句话 / 两句中文 / 这句不懂",
+     "vi": "một câu / hai câu tiếng Trung / câu này không hiểu"
+    }
    },
    {
     "hanzi": "句子",
@@ -2109,7 +2973,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "写句子 / 读句子 / 句子结构",
+     "vi": "viết câu / đọc câu / cấu trúc câu"
+    }
    },
    {
     "hanzi": "黑板",
@@ -2118,7 +2986,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "写黑板 / 擦黑板 / 黑板上",
+     "vi": "viết bảng / lau bảng / trên bảng"
+    }
    },
    {
     "hanzi": "办公室",
@@ -2127,7 +2999,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "在办公室 / 办公室里 / 去办公室",
+     "vi": "ở văn phòng / trong văn phòng / đến văn phòng"
+    }
    },
    {
     "hanzi": "对话",
@@ -2136,7 +3012,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "课文对话 / 对话练习 / 一段对话",
+     "vi": "đối thoại bài học / luyện đối thoại / một đoạn hội thoại"
+    }
    },
    {
     "hanzi": "年级",
@@ -2145,7 +3025,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "三年级 / 年级第一 / 不同年级",
+     "vi": "lớp 3 / hạng nhất khối / khác khối"
+    }
    },
    {
     "hanzi": "外语",
@@ -2154,7 +3038,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "学外语 / 外语水平 / 外语老师",
+     "vi": "học ngoại ngữ / trình độ ngoại ngữ / GV ngoại ngữ"
+    }
    },
    {
     "hanzi": "数学",
@@ -2163,7 +3051,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "学数学 / 数学考试 / 数学老师",
+     "vi": "học toán / thi toán / GV toán"
+    }
    },
    {
     "hanzi": "当然",
@@ -2172,7 +3064,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "当然可以 / 当然要 / 当然知道",
+     "vi": "tất nhiên được / tất nhiên phải / tất nhiên biết"
+    }
    },
    {
     "hanzi": "难",
@@ -2181,7 +3077,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很难 / 难不难 / 难的问题",
+     "vi": "rất khó / khó không / vấn đề khó"
+    }
    },
    {
     "hanzi": "复习",
@@ -2190,7 +3090,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "复习功课 / 复习考试 / 认真复习",
+     "vi": "ôn bài / ôn thi / ôn tập nghiêm túc"
+    }
    },
    {
     "hanzi": "提高",
@@ -2199,7 +3103,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "提高水平 / 提高成绩 / 提高效率",
+     "vi": "nâng trình độ / nâng điểm / tăng hiệu quả"
+    }
    },
    {
     "hanzi": "要求",
@@ -2208,7 +3116,11 @@
     "meaning_en": "",
     "pos": [
      "v./n."
-    ]
+    ],
+    "example": {
+     "zh": "提出要求 / 工作要求 / 满足要求",
+     "vi": "đưa yêu cầu / yêu cầu công việc / đáp ứng yêu cầu"
+    }
    },
    {
     "hanzi": "努力",
@@ -2217,7 +3129,11 @@
     "meaning_en": "",
     "pos": [
      "adj./v."
-    ]
+    ],
+    "example": {
+     "zh": "努力学习 / 很努力 / 努力工作",
+     "vi": "cố gắng học / rất cố gắng / cố gắng làm việc"
+    }
    },
    {
     "hanzi": "清楚",
@@ -2226,7 +3142,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "说清楚 / 听不清楚 / 不太清楚",
+     "vi": "nói rõ / nghe không rõ / không rõ lắm"
+    }
    },
    {
     "hanzi": "明白",
@@ -2235,7 +3155,11 @@
     "meaning_en": "",
     "pos": [
      "adj./v."
-    ]
+    ],
+    "example": {
+     "zh": "听明白 / 不明白 / 说明白",
+     "vi": "nghe hiểu / không hiểu / nói cho rõ"
+    }
    },
    {
     "hanzi": "认真",
@@ -2244,7 +3168,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "认真学习 / 认真工作 / 很认真",
+     "vi": "học nghiêm túc / làm nghiêm túc / rất nghiêm túc"
+    }
    },
    {
     "hanzi": "讲",
@@ -2253,7 +3181,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "讲故事 / 讲清楚 / 讲汉语",
+     "vi": "kể chuyện / nói rõ / nói tiếng Trung"
+    }
    },
    {
     "hanzi": "一般",
@@ -2262,7 +3194,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "一般情况 / 一般人 / 很一般",
+     "vi": "tình huống thường / người bình thường / không có gì đặc biệt"
+    }
    },
    {
     "hanzi": "后年",
@@ -2271,7 +3207,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "后年结婚 / 后年计划 / 后年见",
+     "vi": "năm sau nữa cưới / kế hoạch năm sau nữa / gặp năm sau nữa"
+    }
    },
    {
     "hanzi": "遍",
@@ -2280,7 +3220,11 @@
     "meaning_en": "",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "读一遍 / 再说一遍 / 写两遍",
+     "vi": "đọc một lần / nói lại một lần / viết hai lần"
+    }
    },
    {
     "hanzi": "遇到",
@@ -2289,7 +3233,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "遇到问题 / 遇到困难 / 遇到朋友",
+     "vi": "gặp vấn đề / gặp khó khăn / gặp bạn"
+    }
    },
    {
     "hanzi": "页",
@@ -2298,7 +3246,11 @@
     "meaning_en": "",
     "pos": [
      "m./n."
-    ]
+    ],
+    "example": {
+     "zh": "一页纸 / 翻一页 / 第三页",
+     "vi": "một trang giấy / lật một trang / trang thứ ba"
+    }
    },
    {
     "hanzi": "历史",
@@ -2307,7 +3259,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "中国历史 / 学历史 / 历史故事",
+     "vi": "lịch sử Trung Quốc / học lịch sử / câu chuyện lịch sử"
+    }
    },
    {
     "hanzi": "作业",
@@ -2316,7 +3272,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "写作业 / 作业很多 / 交作业",
+     "vi": "làm bài / nhiều bài tập / nộp bài"
+    }
    }
   ]
  },
@@ -2333,7 +3293,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "参加会议 / 会议时间 / 会议内容",
+     "vi": "tham gia họp / thời gian họp / nội dung họp"
+    }
    },
    {
     "hanzi": "城市",
@@ -2342,7 +3306,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "大城市 / 城市生活 / 城市中心",
+     "vi": "thành phố lớn / cuộc sống thành phố / trung tâm thành phố"
+    }
    },
    {
     "hanzi": "生活",
@@ -2351,7 +3319,11 @@
     "meaning_en": "",
     "pos": [
      "n./v."
-    ]
+    ],
+    "example": {
+     "zh": "生活习惯 / 生活水平 / 日常生活",
+     "vi": "thói quen sống / mức sống / sinh hoạt hằng ngày"
+    }
    },
    {
     "hanzi": "声音",
@@ -2360,7 +3332,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "声音很小 / 听声音 / 奇怪的声音",
+     "vi": "tiếng nhỏ / nghe tiếng / âm thanh lạ"
+    }
    },
    {
     "hanzi": "经理",
@@ -2369,7 +3345,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "公司经理 / 经理办公室 / 当经理",
+     "vi": "quản lý công ty / phòng quản lý / làm quản lý"
+    }
    },
    {
     "hanzi": "同事",
@@ -2378,7 +3358,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "公司同事 / 老同事 / 同事关系",
+     "vi": "đồng nghiệp công ty / đồng nghiệp cũ / quan hệ đồng nghiệp"
+    }
    },
    {
     "hanzi": "地点",
@@ -2387,7 +3371,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "见面地点 / 地点不远 / 换地点",
+     "vi": "địa điểm gặp / địa điểm không xa / đổi địa điểm"
+    }
    },
    {
     "hanzi": "办法",
@@ -2396,7 +3384,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "想办法 / 好办法 / 没办法",
+     "vi": "nghĩ cách / cách hay / không có cách"
+    }
    },
    {
     "hanzi": "室",
@@ -2405,7 +3397,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "教室 / 办公室 / 室内",
+     "vi": "phòng học / văn phòng / trong phòng"
+    }
    },
    {
     "hanzi": "邮箱",
@@ -2414,7 +3410,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "电子邮箱 / 邮箱地址 / 查邮箱",
+     "vi": "email / địa chỉ email / kiểm tra mail"
+    }
    },
    {
     "hanzi": "开会",
@@ -2423,7 +3423,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "开会时间 / 参加开会 / 在开会",
+     "vi": "giờ họp / tham gia họp / đang họp"
+    }
    },
    {
     "hanzi": "解决",
@@ -2432,7 +3436,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "解决问题 / 解决办法 / 很难解决",
+     "vi": "giải quyết vấn đề / cách giải quyết / rất khó giải quyết"
+    }
    },
    {
     "hanzi": "请假",
@@ -2441,7 +3449,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "请假一天 / 向老师请假 / 请假理由",
+     "vi": "xin nghỉ 1 ngày / xin phép thầy / lý do xin nghỉ"
+    }
    },
    {
     "hanzi": "离开",
@@ -2450,7 +3462,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "离开这里 / 离开公司 / 离开北京",
+     "vi": "rời khỏi đây / rời công ty / rời Bắc Kinh"
+    }
    },
    {
     "hanzi": "看来",
@@ -2459,7 +3475,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "看来不错 / 看来要下雨 / 你看来很累",
+     "vi": "xem ra không tệ / xem ra sắp mưa / trông bạn có vẻ mệt"
+    }
    },
    {
     "hanzi": "怕",
@@ -2468,7 +3488,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "怕黑 / 不怕 / 怕麻烦",
+     "vi": "sợ tối / không sợ / sợ phiền"
+    }
    },
    {
     "hanzi": "机会",
@@ -2477,7 +3501,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "好机会 / 给机会 / 抓住机会",
+     "vi": "cơ hội tốt / cho cơ hội / nắm cơ hội"
+    }
    },
    {
     "hanzi": "或",
@@ -2486,7 +3514,11 @@
     "meaning_en": "",
     "pos": [
      "conj."
-    ]
+    ],
+    "example": {
+     "zh": "A或B / 今天或明天 / 或多或少",
+     "vi": "A hoặc B / hôm nay hoặc mai / ít nhiều"
+    }
    },
    {
     "hanzi": "或者",
@@ -2495,7 +3527,11 @@
     "meaning_en": "",
     "pos": [
      "conj."
-    ]
+    ],
+    "example": {
+     "zh": "你或者我 / 吃饭或者面 / 或者不去",
+     "vi": "bạn hoặc tôi / ăn cơm hoặc mì / hoặc không đi"
+    }
    },
    {
     "hanzi": "为",
@@ -2504,7 +3540,11 @@
     "meaning_en": "",
     "pos": [
      "prep."
-    ]
+    ],
+    "example": {
+     "zh": "为你 / 为工作 / 为大家",
+     "vi": "vì bạn / vì công việc / vì mọi người"
+    }
    },
    {
     "hanzi": "别人",
@@ -2513,7 +3553,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "帮助别人 / 别人说 / 别人家",
+     "vi": "giúp người khác / người khác nói / nhà người khác"
+    }
    },
    {
     "hanzi": "愿意",
@@ -2522,7 +3566,11 @@
     "meaning_en": "",
     "pos": [
      "mod."
-    ]
+    ],
+    "example": {
+     "zh": "愿意帮忙 / 不愿意 / 很愿意",
+     "vi": "sẵn lòng giúp / không muốn / rất sẵn lòng"
+    }
    },
    {
     "hanzi": "只能",
@@ -2531,7 +3579,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "只能这样 / 只能去 / 只能等",
+     "vi": "chỉ có thể vậy / chỉ có thể đi / chỉ có thể đợi"
+    }
    },
    {
     "hanzi": "笔记本",
@@ -2540,7 +3592,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "新笔记本 / 买笔记本 / 带笔记本",
+     "vi": "vở/laptop mới / mua vở/laptop / mang vở/laptop"
+    }
    },
    {
     "hanzi": "休假",
@@ -2549,7 +3605,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "请休假 / 休假时间 / 带薪休假",
+     "vi": "xin nghỉ phép / thời gian nghỉ / nghỉ hưởng lương"
+    }
    },
    {
     "hanzi": "后天",
@@ -2558,7 +3618,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "后天见 / 后天考试 / 后天出发",
+     "vi": "gặp ngày kia / thi ngày kia / khởi hành ngày kia"
+    }
    }
   ]
  },
@@ -2575,7 +3639,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "四个季节 / 换季节 / 最喜欢的季节",
+     "vi": "bốn mùa / đổi mùa / mùa thích nhất"
+    }
    },
    {
     "hanzi": "春天",
@@ -2584,7 +3652,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "春天到了 / 春天天气 / 春天花开",
+     "vi": "mùa xuân đến rồi / thời tiết mùa xuân / mùa xuân hoa nở"
+    }
    },
    {
     "hanzi": "夏天",
@@ -2593,7 +3665,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "夏天天气 / 夏天很热 / 夏天衣服",
+     "vi": "thời tiết hè / mùa hè nóng / quần áo hè"
+    }
    },
    {
     "hanzi": "秋天",
@@ -2602,7 +3678,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "秋天天气 / 秋天很凉快 / 秋天的风",
+     "vi": "thời tiết mùa thu / mùa thu mát / gió mùa thu"
+    }
    },
    {
     "hanzi": "冬天",
@@ -2611,7 +3691,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "冬天天气 / 冬天很冷 / 冬天穿厚衣服",
+     "vi": "thời tiết mùa đông / mùa đông rất lạnh / mùa đông mặc đồ dày"
+    }
    },
    {
     "hanzi": "风",
@@ -2620,7 +3704,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "刮风 / 大风 / 风很冷",
+     "vi": "nổi gió / gió lớn / gió lạnh"
+    }
    },
    {
     "hanzi": "伞",
@@ -2629,7 +3717,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "打伞 / 带伞 / 雨伞",
+     "vi": "che dù / mang ô / ô mưa"
+    }
    },
    {
     "hanzi": "雨衣",
@@ -2638,7 +3730,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "穿雨衣 / 买雨衣 / 雨衣帽子",
+     "vi": "mặc áo mưa / mua áo mưa / mũ áo mưa"
+    }
    },
    {
     "hanzi": "船",
@@ -2647,7 +3743,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "坐船 / 一条船 / 船上",
+     "vi": "đi thuyền / một chiếc thuyền / trên thuyền"
+    }
    },
    {
     "hanzi": "公园",
@@ -2656,7 +3756,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "去公园 / 公园散步 / 公园里",
+     "vi": "đi công viên / dạo công viên / trong công viên"
+    }
    },
    {
     "hanzi": "工作日",
@@ -2665,7 +3769,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "工作日上班 / 工作日时间 / 非工作日",
+     "vi": "đi làm ngày thường / thời gian ngày làm / không phải ngày làm"
+    }
    },
    {
     "hanzi": "四季",
@@ -2674,7 +3782,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "一年四季 / 四季分明 / 四季变化",
+     "vi": "quanh năm / bốn mùa rõ / thay đổi bốn mùa"
+    }
    },
    {
     "hanzi": "新闻",
@@ -2683,7 +3795,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "看新闻 / 新闻节目 / 新闻内容",
+     "vi": "xem tin / chương trình tin / nội dung tin"
+    }
    },
    {
     "hanzi": "变",
@@ -2692,7 +3808,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "变好了 / 变冷了 / 变得更…",
+     "vi": "trở nên tốt hơn / trở lạnh / trở nên càng…"
+    }
    },
    {
     "hanzi": "变成",
@@ -2701,7 +3821,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "变成老师 / 变成习惯 / 变成问题",
+     "vi": "trở thành giáo viên / thành thói quen / trở thành vấn đề"
+    }
    },
    {
     "hanzi": "变化",
@@ -2710,7 +3834,11 @@
     "meaning_en": "",
     "pos": [
      "n./v."
-    ]
+    ],
+    "example": {
+     "zh": "很大变化 / 发生变化 / 没什么变化",
+     "vi": "thay đổi lớn / xảy ra thay đổi / không thay đổi mấy"
+    }
    },
    {
     "hanzi": "借",
@@ -2719,7 +3847,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "借书 / 借钱 / 借一下",
+     "vi": "mượn sách / mượn tiền / mượn một chút"
+    }
    },
    {
     "hanzi": "开花",
@@ -2728,7 +3860,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "花开花 / 春天开花 / 开花结果",
+     "vi": "hoa nở / mùa xuân nở hoa / ra hoa kết quả"
+    }
    },
    {
     "hanzi": "刮",
@@ -2737,7 +3873,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "刮风 / 刮大风 / 风刮得大",
+     "vi": "gió thổi / gió mạnh / gió thổi mạnh"
+    }
    },
    {
     "hanzi": "关注",
@@ -2746,7 +3886,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "关注新闻 / 关注健康 / 关注我",
+     "vi": "theo dõi tin tức / chú ý sức khỏe / theo dõi tôi"
+    }
    },
    {
     "hanzi": "常常",
@@ -2755,7 +3899,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "常常迟到 / 常常练习 / 常常见面",
+     "vi": "hay đi muộn / hay luyện tập / hay gặp nhau"
+    }
    },
    {
     "hanzi": "常",
@@ -2764,7 +3912,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "常去 / 常看到 / 常用",
+     "vi": "thường đi / thường thấy / thường dùng"
+    }
    },
    {
     "hanzi": "凉快",
@@ -2773,7 +3925,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很凉快 / 凉快一点儿 / 天气凉快",
+     "vi": "rất mát / mát hơn chút / thời tiết mát"
+    }
    },
    {
     "hanzi": "地方",
@@ -2782,7 +3938,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "好地方 / 这个地方 / 远的地方",
+     "vi": "nơi hay / chỗ này / nơi xa"
+    }
    },
    {
     "hanzi": "街",
@@ -2791,7 +3951,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "大街上 / 街边店 / 逛街",
+     "vi": "trên phố lớn / cửa hàng ven phố / dạo phố"
+    }
    },
    {
     "hanzi": "刚才",
@@ -2800,7 +3964,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "刚才说 / 刚才来 / 刚才发生",
+     "vi": "vừa nói / vừa tới / vừa xảy ra"
+    }
    }
   ]
  },
@@ -2817,7 +3985,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "好邻居 / 邻居家 / 跟邻居说话",
+     "vi": "hàng xóm tốt / nhà hàng xóm / nói chuyện với hàng xóm"
+    }
    },
    {
     "hanzi": "画家",
@@ -2826,7 +3998,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "著名画家 / 中国画家 / 当画家",
+     "vi": "họa sĩ nổi tiếng / họa sĩ Trung Quốc / làm họa sĩ"
+    }
    },
    {
     "hanzi": "东方",
@@ -2835,7 +4011,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "东方文化 / 东方国家 / 东方人",
+     "vi": "văn hóa phương Đông / nước phương Đông / người phương Đông"
+    }
    },
    {
     "hanzi": "南方",
@@ -2844,7 +4024,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "南方人 / 去南方 / 南方天气",
+     "vi": "người miền Nam / đi miền Nam / thời tiết miền Nam"
+    }
    },
    {
     "hanzi": "夫妻",
@@ -2853,7 +4037,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "年轻夫妻 / 一对夫妻 / 夫妻生活",
+     "vi": "vợ chồng trẻ / một cặp vợ chồng / đời sống vợ chồng"
+    }
    },
    {
     "hanzi": "酒",
@@ -2862,7 +4050,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "喝酒 / 红酒 / 啤酒",
+     "vi": "uống rượu / rượu vang / bia"
+    }
    },
    {
     "hanzi": "盘子",
@@ -2871,7 +4063,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "一个盘子 / 洗盘子 / 盘子里有菜",
+     "vi": "một cái đĩa / rửa đĩa / trong đĩa có thức ăn"
+    }
    },
    {
     "hanzi": "来自",
@@ -2880,7 +4076,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "来自越南 / 来自北京 / 来自公司",
+     "vi": "đến từ Việt Nam / đến từ Bắc Kinh / đến từ công ty"
+    }
    },
    {
     "hanzi": "加",
@@ -2889,7 +4089,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "加一点 / 加油 / 加名字",
+     "vi": "thêm chút / thêm dầu/cố lên / thêm tên"
+    }
    },
    {
     "hanzi": "放",
@@ -2898,7 +4102,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "放桌上 / 放进去 / 放下来",
+     "vi": "đặt lên bàn / để vào trong / đặt xuống"
+    }
    },
    {
     "hanzi": "放心",
@@ -2907,7 +4115,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "请放心 / 放心吧 / 不放心",
+     "vi": "xin yên tâm / yên tâm đi / không yên tâm"
+    }
    },
    {
     "hanzi": "做客",
@@ -2916,7 +4128,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "去朋友家做客 / 做客一天 / 做客礼貌",
+     "vi": "làm khách nhà bạn / làm khách 1 ngày / lịch sự khi làm khách"
+    }
    },
    {
     "hanzi": "做法",
@@ -2934,7 +4150,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "请客吃饭 / 我请客 / 请客一次",
+     "vi": "mời ăn cơm / tôi mời / mời một lần"
+    }
    },
    {
     "hanzi": "聊天儿",
@@ -2943,7 +4163,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "跟朋友聊天儿 / 聊天儿时间 / 聊天儿内容",
+     "vi": "tán gẫu với bạn / thời gian tán gẫu / nội dung tán gẫu"
+    }
    },
    {
     "hanzi": "感到",
@@ -2952,7 +4176,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "感到高兴 / 感到累 / 感到满意",
+     "vi": "cảm thấy vui / cảm thấy mệt / cảm thấy hài lòng"
+    }
    },
    {
     "hanzi": "文化",
@@ -2961,7 +4189,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "中国文化 / 文化差异 / 学习文化",
+     "vi": "văn hóa TQ / khác biệt VH / học văn hóa"
+    }
    },
    {
     "hanzi": "不同",
@@ -2970,7 +4202,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "不同的人 / 不同的地方 / 很不同",
+     "vi": "người khác nhau / nơi khác nhau / rất khác"
+    }
    },
    {
     "hanzi": "一边",
@@ -2979,7 +4215,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "一边走 / 一边听 / 一边学习",
+     "vi": "vừa đi / vừa nghe / vừa học"
+    }
    },
    {
     "hanzi": "地图",
@@ -2988,7 +4228,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "看地图 / 地图上 / 打开地图",
+     "vi": "xem bản đồ / trên bản đồ / mở bản đồ"
+    }
    },
    {
     "hanzi": "礼物",
@@ -2997,7 +4241,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "送礼物 / 收到礼物 / 生日礼物",
+     "vi": "tặng quà / nhận quà / quà sinh nhật"
+    }
    },
    {
     "hanzi": "晚会",
@@ -3006,7 +4254,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "文艺晚会 / 春节晚会 / 晚会节目",
+     "vi": "dạ hội văn nghệ / gala Tết / tiết mục dạ hội"
+    }
    },
    {
     "hanzi": "北方",
@@ -3015,7 +4267,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "北方人 / 去北方 / 北方天气",
+     "vi": "người miền Bắc / đi miền Bắc / thời tiết miền Bắc"
+    }
    },
    {
     "hanzi": "直到",
@@ -3024,7 +4280,11 @@
     "meaning_en": "",
     "pos": [
      "prep."
-    ]
+    ],
+    "example": {
+     "zh": "直到现在 / 直到明天 / 直到结束",
+     "vi": "cho đến nay / đến ngày mai / cho đến khi xong"
+    }
    },
    {
     "hanzi": "点",
@@ -3042,7 +4302,11 @@
     "meaning_en": "",
     "pos": [
      "part."
-    ]
+    ],
+    "example": {
+     "zh": "有空的话 / 方便的话 / 不行的话",
+     "vi": "nếu rảnh / nếu tiện / nếu không được"
+    }
    }
   ]
  },
@@ -3059,7 +4323,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "看电子书 / 下载电子书 / 电子书平台",
+     "vi": "đọc ebook / tải ebook / nền tảng ebook"
+    }
    },
    {
     "hanzi": "词典",
@@ -3068,7 +4336,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "查词典 / 汉语词典 / 电子词典",
+     "vi": "tra từ điển / từ điển tiếng Trung / từ điển điện tử"
+    }
    },
    {
     "hanzi": "图书馆",
@@ -3077,7 +4349,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "去图书馆 / 图书馆里 / 图书馆学习",
+     "vi": "đi thư viện / trong thư viện / học ở thư viện"
+    }
    },
    {
     "hanzi": "故事",
@@ -3086,7 +4362,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "讲故事 / 有趣故事 / 故事内容",
+     "vi": "kể chuyện / chuyện hay / nội dung chuyện"
+    }
    },
    {
     "hanzi": "节目",
@@ -3095,7 +4375,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "电视节目 / 表演节目 / 节目单",
+     "vi": "chương trình TV / biểu diễn tiết mục / danh sách tiết mục"
+    }
    },
    {
     "hanzi": "网站",
@@ -3104,7 +4388,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "购物网站 / 学习网站 / 官方网站",
+     "vi": "web mua sắm / web học tập / web chính thức"
+    }
    },
    {
     "hanzi": "校长",
@@ -3113,7 +4401,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "校长办公室 / 校长讲话 / 当校长",
+     "vi": "phòng hiệu trưởng / hiệu trưởng phát biểu / làm hiệu trưởng"
+    }
    },
    {
     "hanzi": "留学生",
@@ -3122,7 +4414,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "外国留学生 / 留学生宿舍 / 留学生朋友",
+     "vi": "du học sinh nước ngoài / ký túc xá du học sinh / bạn du học sinh"
+    }
    },
    {
     "hanzi": "女生",
@@ -3131,7 +4427,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "女生宿舍 / 班里女生 / 女生喜欢",
+     "vi": "ký túc xá nữ / nữ trong lớp / nữ sinh thích"
+    }
    },
    {
     "hanzi": "名人",
@@ -3140,7 +4440,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "世界名人 / 名人故事 / 名人照片",
+     "vi": "danh nhân thế giới / chuyện người nổi tiếng / ảnh người nổi tiếng"
+    }
    },
    {
     "hanzi": "报纸",
@@ -3149,7 +4453,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "看报纸 / 一份报纸 / 买报纸",
+     "vi": "đọc báo / một tờ báo / mua báo"
+    }
    },
    {
     "hanzi": "被",
@@ -3158,7 +4466,11 @@
     "meaning_en": "",
     "pos": [
      "prep."
-    ]
+    ],
+    "example": {
+     "zh": "被老师表扬 / 被雨淋 / 被发现",
+     "vi": "được thầy cô khen / bị mưa ướt / bị phát hiện"
+    }
    },
    {
     "hanzi": "跳",
@@ -3167,7 +4479,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "跳舞 / 跳高 / 跳起来",
+     "vi": "nhảy múa / nhảy cao / nhảy lên"
+    }
    },
    {
     "hanzi": "表演",
@@ -3176,7 +4492,11 @@
     "meaning_en": "",
     "pos": [
      "v./n."
-    ]
+    ],
+    "example": {
+     "zh": "表演节目 / 上台表演 / 表演得好",
+     "vi": "biểu diễn tiết mục / lên sân khấu biểu diễn / biểu diễn hay"
+    }
    },
    {
     "hanzi": "忘记",
@@ -3185,7 +4505,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "忘记带 / 忘记时间 / 容易忘记",
+     "vi": "quên mang / quên giờ / dễ quên"
+    }
    },
    {
     "hanzi": "相信",
@@ -3194,7 +4518,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "相信你 / 相信自己 / 相信未来",
+     "vi": "tin bạn / tin bản thân / tin tương lai"
+    }
    },
    {
     "hanzi": "然后",
@@ -3203,7 +4531,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "然后再说 / 然后回家 / 然后开始",
+     "vi": "sau đó nói tiếp / sau đó về nhà / sau đó bắt đầu"
+    }
    },
    {
     "hanzi": "最好",
@@ -3212,7 +4544,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "最好现在去 / 最好办法 / 最好别去",
+     "vi": "tốt nhất đi ngay / cách tốt nhất / tốt nhất đừng đi"
+    }
    },
    {
     "hanzi": "最后",
@@ -3221,7 +4557,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "最后一天 / 最后结果 / 最后一次",
+     "vi": "ngày cuối / kết quả cuối / lần cuối"
+    }
    },
    {
     "hanzi": "有些",
@@ -3239,7 +4579,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "一块儿吃饭 / 一块儿去 / 一块儿学习",
+     "vi": "ăn cùng / đi cùng / học cùng"
+    }
    },
    {
     "hanzi": "面前",
@@ -3248,7 +4592,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "在你面前 / 面前的路 / 当面前说",
+     "vi": "trước mặt bạn / con đường trước mặt / nói trước mặt"
+    }
    },
    {
     "hanzi": "新年",
@@ -3257,7 +4605,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "过新年 / 新年快乐 / 新年计划",
+     "vi": "ăn Tết / chúc năm mới / kế hoạch năm mới"
+    }
    },
    {
     "hanzi": "视频",
@@ -3275,7 +4627,11 @@
     "meaning_en": "",
     "pos": [
      "m./n."
-    ]
+    ],
+    "example": {
+     "zh": "节日活动 / 上一节课 / 过节",
+     "vi": "hoạt động lễ / một tiết trước / ăn lễ"
+    }
    }
   ]
  },
@@ -3292,7 +4648,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "坐草地 / 草地公园 / 草地上玩",
+     "vi": "ngồi trên cỏ / công viên bãi cỏ / chơi trên cỏ"
+    }
    },
    {
     "hanzi": "马路",
@@ -3301,7 +4661,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "过马路 / 马路上 / 马路很宽",
+     "vi": "qua đường / trên đường / đường rất rộng"
+    }
    },
    {
     "hanzi": "河",
@@ -3310,7 +4674,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "过河 / 河边 / 河水",
+     "vi": "qua sông / bờ sông / nước sông"
+    }
    },
    {
     "hanzi": "蓝",
@@ -3319,7 +4687,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "蓝色 / 蓝天 / 蓝衣服",
+     "vi": "màu xanh / trời xanh / áo xanh"
+    }
    },
    {
     "hanzi": "老人",
@@ -3328,7 +4700,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "照顾老人 / 老人家 / 老人很多",
+     "vi": "chăm người già / ông/bà cụ / nhiều người già"
+    }
    },
    {
     "hanzi": "游客",
@@ -3337,7 +4713,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "外国游客 / 游客很多 / 游客中心",
+     "vi": "khách nước ngoài / nhiều du khách / TT du khách"
+    }
    },
    {
     "hanzi": "游戏",
@@ -3346,7 +4726,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "玩游戏 / 网络游戏 / 游戏时间",
+     "vi": "chơi game / game online / thời gian chơi"
+    }
    },
    {
     "hanzi": "有名",
@@ -3355,7 +4739,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很有名 / 有名的人 / 有名的地方",
+     "vi": "rất nổi tiếng / người nổi tiếng / nơi nổi tiếng"
+    }
    },
    {
     "hanzi": "附近",
@@ -3364,7 +4752,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "学校附近 / 附近商店 / 在附近",
+     "vi": "gần trường / cửa hàng gần / ở gần đây"
+    }
    },
    {
     "hanzi": "经过",
@@ -3373,7 +4765,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "经过这里 / 经过同意 / 经过一段时间",
+     "vi": "đi qua đây / qua sự đồng ý / sau một thời gian"
+    }
    },
    {
     "hanzi": "遇见",
@@ -3382,7 +4778,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "遇见你 / 偶然遇见 / 第一次遇见",
+     "vi": "gặp bạn / tình cờ gặp / lần đầu gặp"
+    }
    },
    {
     "hanzi": "养",
@@ -3391,7 +4791,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "养孩子 / 养成习惯 / 养身体",
+     "vi": "nuôi con / tạo thói quen / dưỡng sức"
+    }
    },
    {
     "hanzi": "关系",
@@ -3400,7 +4804,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "人际关系 / 没关系 / 有关系",
+     "vi": "quan hệ xã hội / không sao / có liên quan"
+    }
    },
    {
     "hanzi": "根据",
@@ -3409,7 +4817,11 @@
     "meaning_en": "",
     "pos": [
      "prep."
-    ]
+    ],
+    "example": {
+     "zh": "根据情况 / 根据规定 / 根据经验",
+     "vi": "dựa theo tình hình / theo quy định / theo kinh nghiệm"
+    }
    },
    {
     "hanzi": "可是",
@@ -3418,7 +4830,11 @@
     "meaning_en": "",
     "pos": [
      "conj."
-    ]
+    ],
+    "example": {
+     "zh": "可是我很忙 / 可是他不来 / 可是…",
+     "vi": "nhưng tôi bận / nhưng anh ấy không đến / nhưng mà…"
+    }
    },
    {
     "hanzi": "了解",
@@ -3427,7 +4843,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "了解情况 / 了解文化 / 了解一下",
+     "vi": "tìm hiểu tình hình / tìm hiểu văn hóa / tìm hiểu chút"
+    }
    },
    {
     "hanzi": "聊",
@@ -3436,7 +4856,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "聊一聊 / 聊天 / 聊工作",
+     "vi": "trò chuyện chút / tán gẫu / nói chuyện công việc"
+    }
    },
    {
     "hanzi": "平时",
@@ -3445,7 +4869,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "平时很忙 / 平时不这样 / 平时习惯",
+     "vi": "ngày thường bận / thường không vậy / thói quen thường ngày"
+    }
    },
    {
     "hanzi": "以上",
@@ -3454,7 +4882,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "十八岁以上 / 以上内容 / 两小时以上",
+     "vi": "trên 18 tuổi / nội dung trên / trên 2 giờ"
+    }
    },
    {
     "hanzi": "段",
@@ -3463,7 +4895,11 @@
     "meaning_en": "",
     "pos": [
      "m."
-    ]
+    ],
+    "example": {
+     "zh": "一段话 / 一段时间 / 这段路",
+     "vi": "một đoạn văn / một khoảng thời gian / đoạn đường này"
+    }
    },
    {
     "hanzi": "放学",
@@ -3472,7 +4908,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "放学以后 / 放学回家 / 放学时间",
+     "vi": "sau tan học / tan học về nhà / giờ tan học"
+    }
    },
    {
     "hanzi": "外地",
@@ -3481,7 +4921,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "外地人 / 去外地 / 外地工作",
+     "vi": "người nơi khác / đi xa / làm xa"
+    }
    },
    {
     "hanzi": "西北",
@@ -3490,7 +4934,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "西北方向 / 去西北 / 西北风",
+     "vi": "hướng tây bắc / đi Tây Bắc / gió tây bắc"
+    }
    },
    {
     "hanzi": "半天",
@@ -3499,7 +4947,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "等半天 / 忙了半天 / 走了半天",
+     "vi": "đợi nửa ngày / bận nửa ngày / đi nửa ngày"
+    }
    }
   ]
  },
@@ -3516,7 +4968,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "野生动物 / 看动物 / 保护动物",
+     "vi": "động vật hoang dã / xem động vật / bảo vệ động vật"
+    }
    },
    {
     "hanzi": "动物园",
@@ -3525,7 +4981,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "去动物园 / 动物园里 / 动物园门口",
+     "vi": "đi vườn thú / trong vườn thú / cổng vườn thú"
+    }
    },
    {
     "hanzi": "大熊猫",
@@ -3534,7 +4994,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "看熊猫 / 熊猫很可爱 / 熊猫馆",
+     "vi": "xem gấu trúc / gấu trúc rất đáng yêu / nhà gấu trúc"
+    }
    },
    {
     "hanzi": "脸",
@@ -3543,7 +5007,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "洗脸 / 脸红 / 脸上有…",
+     "vi": "rửa mặt / mặt đỏ / trên mặt có…"
+    }
    },
    {
     "hanzi": "嘴",
@@ -3552,7 +5020,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "张嘴 / 嘴巴大 / 嘴甜",
+     "vi": "mở miệng / miệng to / miệng ngọt"
+    }
    },
    {
     "hanzi": "脚",
@@ -3561,7 +5033,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "脚疼 / 洗脚 / 一只脚",
+     "vi": "đau chân / rửa chân / một chân"
+    }
    },
    {
     "hanzi": "身边",
@@ -3570,7 +5046,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "在身边 / 身边的人 / 身边朋友",
+     "vi": "ở bên cạnh / người bên cạnh / bạn xung quanh"
+    }
    },
    {
     "hanzi": "关于",
@@ -3579,7 +5059,11 @@
     "meaning_en": "",
     "pos": [
      "prep."
-    ]
+    ],
+    "example": {
+     "zh": "关于问题 / 关于工作 / 关于你",
+     "vi": "về vấn đề / về công việc / về bạn"
+    }
    },
    {
     "hanzi": "其实",
@@ -3588,7 +5072,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "其实不难 / 其实我知道 / 其实很好",
+     "vi": "thật ra không khó / thật ra tôi biết / thật ra rất tốt"
+    }
    },
    {
     "hanzi": "奇怪",
@@ -3597,7 +5085,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很奇怪 / 奇怪的事 / 看起来奇怪",
+     "vi": "rất lạ / việc lạ / trông kỳ lạ"
+    }
    },
    {
     "hanzi": "可爱",
@@ -3606,7 +5098,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很可爱 / 可爱的孩子 / 可爱的小猫",
+     "vi": "rất đáng yêu / đứa trẻ đáng yêu / mèo đáng yêu"
+    }
    },
    {
     "hanzi": "认得",
@@ -3615,7 +5111,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "认得你 / 不认得路 / 认得字",
+     "vi": "nhận ra bạn / không nhận ra đường / nhận ra chữ"
+    }
    },
    {
     "hanzi": "照顾",
@@ -3624,7 +5124,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "照顾孩子 / 照顾父母 / 好好照顾",
+     "vi": "chăm trẻ / chăm bố mẹ / chăm sóc tốt"
+    }
    },
    {
     "hanzi": "喜爱",
@@ -3633,7 +5137,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "喜爱音乐 / 深受喜爱 / 喜爱的东西",
+     "vi": "thích âm nhạc / rất được yêu thích / thứ yêu thích"
+    }
    },
    {
     "hanzi": "一会儿",
@@ -3651,7 +5159,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "周末休息 / 周末活动 / 周末见",
+     "vi": "nghỉ cuối tuần / hoạt động cuối tuần / gặp cuối tuần"
+    }
    },
    {
     "hanzi": "张",
@@ -3660,7 +5172,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "一张纸 / 两张票 / 一张桌子",
+     "vi": "một tờ giấy / hai vé / một cái bàn"
+    }
    },
    {
     "hanzi": "饱",
@@ -3669,7 +5185,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "吃饱 / 很饱 / 饱了",
+     "vi": "ăn no / rất no / no rồi"
+    }
    },
    {
     "hanzi": "野生",
@@ -3696,7 +5216,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "大人和孩子 / 问大人 / 大人说",
+     "vi": "người lớn và trẻ em / hỏi người lớn / người lớn nói"
+    }
    },
    {
     "hanzi": "全",
@@ -3714,7 +5238,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很脏 / 脏衣服 / 地很脏",
+     "vi": "rất bẩn / quần áo bẩn / sàn bẩn"
+    }
    },
    {
     "hanzi": "竹子",
@@ -3740,7 +5268,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "发展国家 / 国家文化 / 国家语言",
+     "vi": "quốc gia phát triển / văn hóa quốc gia / ngôn ngữ quốc gia"
+    }
    },
    {
     "hanzi": "方向",
@@ -3749,7 +5281,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "找方向 / 正确方向 / 改变方向",
+     "vi": "tìm hướng / hướng đúng / đổi hướng"
+    }
    },
    {
     "hanzi": "楼梯",
@@ -3758,7 +5294,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "上楼梯 / 下楼梯 / 楼梯口",
+     "vi": "lên cầu thang / xuống cầu thang / chỗ cầu thang"
+    }
    },
    {
     "hanzi": "屋子",
@@ -3767,7 +5307,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "小屋子 / 屋子里 / 打扫屋子",
+     "vi": "nhà nhỏ / trong nhà / dọn nhà"
+    }
    },
    {
     "hanzi": "难题",
@@ -3776,7 +5320,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "解决难题 / 数学难题 / 遇到难题",
+     "vi": "giải đề khó / toán khó / gặp vấn đề khó"
+    }
    },
    {
     "hanzi": "留学",
@@ -3785,7 +5333,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "去留学 / 留学生活 / 留学计划",
+     "vi": "đi du học / đời sống du học / kế hoạch du học"
+    }
    },
    {
     "hanzi": "到处",
@@ -3794,7 +5346,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "到处都是 / 到处找 / 到处看看",
+     "vi": "khắp nơi đều / tìm khắp nơi / xem khắp nơi"
+    }
    },
    {
     "hanzi": "同意",
@@ -3803,7 +5359,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "同意意见 / 不同意 / 表示同意",
+     "vi": "đồng ý ý kiến / không đồng ý / bày tỏ đồng ý"
+    }
    },
    {
     "hanzi": "回答",
@@ -3812,7 +5372,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "回答问题 / 正确回答 / 不回答",
+     "vi": "trả lời câu hỏi / trả lời đúng / không trả lời"
+    }
    },
    {
     "hanzi": "比如",
@@ -3821,7 +5385,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "比如说 / 比如… / 比如这个",
+     "vi": "ví dụ như nói / ví dụ… / ví dụ cái này"
+    }
    },
    {
     "hanzi": "害怕",
@@ -3830,7 +5398,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "害怕黑 / 不害怕 / 害怕失败",
+     "vi": "sợ tối / không sợ / sợ thất bại"
+    }
    },
    {
     "hanzi": "关机",
@@ -3839,7 +5411,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "电脑关机 / 手机关机 / 自动关机",
+     "vi": "tắt máy tính / tắt điện thoại / tự tắt máy"
+    }
    },
    {
     "hanzi": "认为",
@@ -3848,7 +5424,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "认为正确 / 我认为… / 普遍认为",
+     "vi": "cho là đúng / tôi cho rằng / mọi người cho rằng"
+    }
    },
    {
     "hanzi": "常见",
@@ -3857,7 +5437,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很常见 / 常见问题 / 常见错误",
+     "vi": "rất thường gặp / vấn đề thường gặp / lỗi thường gặp"
+    }
    },
    {
     "hanzi": "聪明",
@@ -3866,7 +5450,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很聪明 / 聪明的孩子 / 更聪明",
+     "vi": "rất thông minh / đứa trẻ thông minh / thông minh hơn"
+    }
    },
    {
     "hanzi": "容易",
@@ -3875,7 +5463,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很容易 / 不容易 / 容易理解",
+     "vi": "rất dễ / không dễ / dễ hiểu"
+    }
    },
    {
     "hanzi": "有关",
@@ -3884,7 +5476,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "有关问题 / 与…有关 / 有关资料",
+     "vi": "vấn đề liên quan / liên quan đến… / tài liệu liên quan"
+    }
    },
    {
     "hanzi": "有用",
@@ -3893,7 +5489,11 @@
     "meaning_en": "",
     "pos": [
      "adj."
-    ]
+    ],
+    "example": {
+     "zh": "很有用 / 没有用 / 有用信息",
+     "vi": "rất có ích / không ích / thông tin hữu ích"
+    }
    },
    {
     "hanzi": "向",
@@ -3902,7 +5502,11 @@
     "meaning_en": "",
     "pos": [
      "prep."
-    ]
+    ],
+    "example": {
+     "zh": "向前走 / 向老师问 / 面向大家",
+     "vi": "đi về trước / hỏi thầy / hướng về mọi người"
+    }
    },
    {
     "hanzi": "可",
@@ -3911,7 +5515,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "可不是 / 可我没时间 / 可还是要去",
+     "vi": "đúng vậy đó / nhưng tôi không có thời gian / nhưng vẫn phải đi"
+    }
    },
    {
     "hanzi": "只有",
@@ -3920,7 +5528,11 @@
     "meaning_en": "",
     "pos": [
      "conj."
-    ]
+    ],
+    "example": {
+     "zh": "只有一次 / 只有你 / 只有现在",
+     "vi": "chỉ có một lần / chỉ có bạn / chỉ có bây giờ"
+    }
    },
    {
     "hanzi": "生气",
@@ -3929,7 +5541,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "别生气 / 生气了 / 生气的样子",
+     "vi": "đừng giận / giận rồi / vẻ giận"
+    }
    },
    {
     "hanzi": "前天",
@@ -3938,7 +5554,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "前天晚上 / 前天考试 / 前天的事",
+     "vi": "tối hôm kia / thi hôm kia / việc hôm kia"
+    }
    },
    {
     "hanzi": "查",
@@ -3947,7 +5567,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "查词典 / 查地图 / 查一下",
+     "vi": "tra từ điển / xem bản đồ / kiểm tra một chút"
+    }
    },
    {
     "hanzi": "继续",
@@ -3973,7 +5597,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "准备出发 / 马上出发 / 从这里出发",
+     "vi": "chuẩn bị khởi hành / khởi hành ngay / xuất phát từ đây"
+    }
    },
    {
     "hanzi": "出生",
@@ -3982,7 +5610,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "出生在… / 出生日期 / 出生地",
+     "vi": "sinh ở… / ngày sinh / nơi sinh"
+    }
    },
    {
     "hanzi": "发生",
@@ -3991,7 +5623,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "发生事情 / 发生变化 / 发生问题",
+     "vi": "xảy ra chuyện / xảy ra thay đổi / xảy ra vấn đề"
+    }
    },
    {
     "hanzi": "发展",
@@ -4000,7 +5636,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "经济发展 / 发展很快 / 未来发展",
+     "vi": "phát triển kinh tế / phát triển nhanh / phát triển tương lai"
+    }
    },
    {
     "hanzi": "完成",
@@ -4009,7 +5649,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "完成作业 / 完成任务 / 按时完成",
+     "vi": "hoàn thành bài / hoàn thành nhiệm vụ / hoàn thành đúng hạn"
+    }
    },
    {
     "hanzi": "坚持",
@@ -4018,7 +5662,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "坚持学习 / 坚持下去 / 坚持锻炼",
+     "vi": "kiên trì học / kiên trì tiếp / kiên trì tập"
+    }
    },
    {
     "hanzi": "见面",
@@ -4027,7 +5675,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "见面聊天 / 第一次见面 / 约见面",
+     "vi": "gặp nói chuyện / lần đầu gặp / hẹn gặp"
+    }
    },
    {
     "hanzi": "收",
@@ -4036,7 +5688,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "收钱 / 收到信 / 收起来",
+     "vi": "thu tiền / nhận thư / cất đi"
+    }
    },
    {
     "hanzi": "懂得",
@@ -4045,7 +5701,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "懂得礼貌 / 懂得珍惜 / 懂得道理",
+     "vi": "biết lễ phép / biết trân trọng / hiểu đạo lý"
+    }
    },
    {
     "hanzi": "过去",
@@ -4054,7 +5714,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "过去的事 / 回到过去 / 过去几年",
+     "vi": "chuyện quá khứ / quay về quá khứ / những năm qua"
+    }
    },
    {
     "hanzi": "过节",
@@ -4063,7 +5727,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "过春节 / 过节气氛 / 一起过节",
+     "vi": "ăn Tết / không khí lễ / ăn lễ cùng nhau"
+    }
    },
    {
     "hanzi": "节日",
@@ -4072,7 +5740,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "传统节日 / 节日快乐 / 节日活动",
+     "vi": "lễ truyền thống / chúc lễ vui / hoạt động ngày lễ"
+    }
    },
    {
     "hanzi": "联欢",
@@ -4090,7 +5762,11 @@
     "meaning_en": "",
     "pos": [
      "v."
-    ]
+    ],
+    "example": {
+     "zh": "起床 / 一起 / 起不来",
+     "vi": "thức dậy / cùng nhau / không dậy nổi"
+    }
    },
    {
     "hanzi": "总",
@@ -4099,7 +5775,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "总是迟到 / 总觉得 / 总共",
+     "vi": "luôn muộn / luôn thấy / tổng cộng"
+    }
    },
    {
     "hanzi": "刚刚",
@@ -4108,7 +5788,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "刚刚到 / 刚刚好 / 刚刚结束",
+     "vi": "vừa mới tới / vừa đủ / vừa kết thúc"
+    }
    },
    {
     "hanzi": "不久",
@@ -4117,7 +5801,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "不久以后 / 不久就… / 离开不久",
+     "vi": "không lâu sau / chẳng bao lâu thì… / rời đi chưa lâu"
+    }
    },
    {
     "hanzi": "大概",
@@ -4126,7 +5814,11 @@
     "meaning_en": "",
     "pos": [
      "adv."
-    ]
+    ],
+    "example": {
+     "zh": "大概八点 / 大概知道 / 大概一样",
+     "vi": "khoảng 8 giờ / đại khái biết / gần như giống"
+    }
    },
    {
     "hanzi": "怎样",
@@ -4135,7 +5827,11 @@
     "meaning_en": "",
     "pos": [
      "pron."
-    ]
+    ],
+    "example": {
+     "zh": "情况怎样 / 做得怎样 / 你觉得怎样",
+     "vi": "tình hình thế nào / làm thế nào / bạn thấy sao"
+    }
    },
    {
     "hanzi": "只要",
@@ -4144,7 +5840,11 @@
     "meaning_en": "",
     "pos": [
      "conj."
-    ]
+    ],
+    "example": {
+     "zh": "只要努力 / 只要你来 / 只要有时间",
+     "vi": "chỉ cần cố / chỉ cần bạn đến / chỉ cần có thời gian"
+    }
    },
    {
     "hanzi": "学期",
@@ -4153,7 +5853,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "新学期 / 学期开始 / 学期结束",
+     "vi": "học kỳ mới / bắt đầu học kỳ / kết thúc học kỳ"
+    }
    },
    {
     "hanzi": "叔叔",
@@ -4162,7 +5866,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "王叔叔 / 叔叔家 / 叔叔来了",
+     "vi": "chú Vương / nhà chú / chú đến"
+    }
    },
    {
     "hanzi": "矿泉水",
@@ -4171,7 +5879,11 @@
     "meaning_en": "",
     "pos": [
      "n."
-    ]
+    ],
+    "example": {
+     "zh": "一瓶矿泉水 / 买矿泉水 / 喝矿泉水",
+     "vi": "một chai nước khoáng / mua nước khoáng / uống nước khoáng"
+    }
    },
    {
     "hanzi": "毕业",

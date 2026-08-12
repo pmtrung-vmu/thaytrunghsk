@@ -42,15 +42,15 @@ Sau khi bật, trang giáo viên (`#/teacher`, chỉ tài khoản có quyền gi
 site/
 ├── index.html            # khung trang, điều hướng
 ├── css/style.css         # toàn bộ giao diện
-├── js/app.js              # router + 4 chế độ ôn tập + ngữ pháp + "cách viết" + trang đăng nhập/giáo viên (tự viết)
+├── js/app.js              # router + 5 chế độ ôn tập + ngữ pháp + "cách viết" + trang đăng nhập/giáo viên (tự viết)
 ├── js/auth.js             # xử lý đăng nhập/đăng ký + ghi nhận tiến độ vào Firestore (tự viết)
 ├── js/firebase-config.js  # nơi dán thông tin cấu hình Firebase của bạn (xem FIREBASE_SETUP.md)
 ├── firestore.rules        # luật bảo mật Firestore — dán vào Firebase Console
 ├── FIREBASE_SETUP.md      # hướng dẫn bật đăng nhập từng bước
 └── data/
-    ├── hsk1.json         # 296 từ, 15 bài — đúng thứ tự giáo trình HSK 3.0, đầy đủ nghĩa Việt
-    ├── hsk2.json         # 205 từ, 15 bài — đúng thứ tự giáo trình HSK 3.0, đầy đủ nghĩa Việt
-    ├── hsk3.json         # 450 từ, 18 bài — đúng thứ tự giáo trình HSK 3.0, đầy đủ nghĩa Việt
+    ├── hsk1.json         # 296 từ, 15 bài — đúng thứ tự giáo trình HSK 3.0, đầy đủ nghĩa Việt, 291 từ có câu ví dụ
+    ├── hsk2.json         # 205 từ, 15 bài — đúng thứ tự giáo trình HSK 3.0, đầy đủ nghĩa Việt, 196 từ có câu ví dụ
+    ├── hsk3.json         # 450 từ, 18 bài — đúng thứ tự giáo trình HSK 3.0, đầy đủ nghĩa Việt, 428 từ có câu ví dụ
     ├── hsk4.json … hsk7-9.json  # còn lại — Hán tự/pinyin/từ loại/nghĩa tiếng Anh, sắp theo độ thông dụng
     ├── grammar1.json     # 35 điểm ngữ pháp HSK1 (14 bài) — lấy từ Meiday Chinese
     ├── grammar2.json     # 20 điểm ngữ pháp HSK2 (11 bài) — lấy từ Meiday Chinese
@@ -60,8 +60,10 @@ site/
 ## Tình trạng dữ liệu — phần nào xong, phần nào cần làm thêm
 
 **Đã hoàn chỉnh:**
-- Toàn bộ khung trang, 4 chế độ ôn (Danh sách / Lật thẻ / Trắc nghiệm / Điền pinyin), phần Ngữ pháp, và tính năng **"✏️ Cách viết"** (hoạt hình nét bút từng chữ Hán, bấm vào một từ trong Danh sách để mở).
+- Toàn bộ khung trang, 5 chế độ ôn (Danh sách / Lật thẻ / Trắc nghiệm / Điền pinyin / Điền từ), phần Ngữ pháp, và tính năng **"✏️ Cách viết"** (hoạt hình nét bút từng chữ Hán, bấm vào một từ trong Danh sách để mở).
 - **Trắc nghiệm 2 chiều**: chế độ Trắc nghiệm có nút chuyển "Hán tự → Nghĩa" (mặc định, xem chữ Hán chọn nghĩa tiếng Việt) và **"Nghĩa → Hán tự"** (xem nghĩa tiếng Việt, chọn đúng chữ Hán) — chuyển đổi bất cứ lúc nào, kể cả sau khi làm xong bài.
+- **Câu ví dụ cho từng từ (HSK1, HSK2, HSK3)**: lấy từ trang tổng ôn từ vựng của Meiday Chinese — hiển thị ngay dưới mỗi từ trong chế độ Danh sách, và ở mặt sau thẻ trong chế độ Lật thẻ. HSK1/HSK2 có 1 câu ví dụ đầy đủ; một số từ HSK3 có 2-3 cụm ngắn (đúng theo cách Meiday trình bày cho cấp này) thay vì 1 câu dài.
+- **"📝 Điền từ" (mới)**: bài tập điền từ vào chỗ trống dựa trên câu ví dụ ở trên — hiện câu có chỗ trống thay cho từ vựng, kèm nghĩa tiếng Việt làm gợi ý, chọn đúng chữ Hán trong 4 lựa chọn. Chỉ áp dụng cho từ đã có câu ví dụ; bài học nào chưa có câu ví dụ nào sẽ hiện thông báo "chưa có câu ví dụ".
 - **HSK 1, 2, 3** (296 + 205 + 450 = 951 từ, chia thành 48 bài học): nội dung — Hán tự, pinyin, từ loại, nghĩa tiếng Việt, và **thứ tự/cách chia bài học** — lấy theo đúng giáo trình HSK 3.0 mà trang Meiday Chinese (meidaychinese.github.io/Meiday-Chinese) đang dùng, do bạn đã xin phép và được chủ sở hữu nội dung đồng ý cho sử dụng lại toàn bộ. Mỗi bài học trên trang này giữ nguyên tiêu đề chữ Hán + tiêu đề tiếng Việt + số lượng từ đúng như bản gốc.
 - **Ngữ pháp HSK 1, 2, 3** (35 + 20 + 60 = 115 điểm ngữ pháp, chia theo từng bài học): lấy trực tiếp từ Meiday Chinese, cùng nguồn cấp phép như từ vựng ở trên — tên điểm ngữ pháp (chữ Hán + pinyin nếu có), tên/giải nghĩa tiếng Việt, mẫu cấu trúc, và các câu ví dụ (kèm pinyin + nghĩa tiếng Việt khi bản gốc có hiển thị). HSK3 dùng định dạng gọn hơn (thường chỉ 1 ví dụ, không kèm pinyin/nghĩa cho ví dụ) đúng như trên trang gốc.
 - **"✏️ Cách viết"** cho từ vựng HSK1, HSK2, HSK3: bấm vào một dòng từ trong chế độ Danh sách sẽ mở bảng hiển thị từng chữ Hán trong từ đó, bấm "▶ Xem viết" để xem hoạt hình thứ tự nét bút — dùng thư viện mã nguồn mở [HanziWriter](https://github.com/chanind/hanzi-writer) (MIT), đúng thư viện mà Meiday Chinese cũng dùng cho tính năng này.
