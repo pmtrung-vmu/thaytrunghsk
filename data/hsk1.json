@@ -1,0 +1,2774 @@
+[
+ {
+  "lesson": 1,
+  "title_zh": "AI小语，你好！",
+  "title_full": "第1课 · AI小语，你好！",
+  "title_vi": "AI Xiaoyu, xin chào!",
+  "words": [
+   {
+    "hanzi": "你好",
+    "pinyin": "nǐ hǎo",
+    "meaning_vi": "xin chào",
+    "meaning_en": "hello |",
+    "pos": []
+   },
+   {
+    "hanzi": "老师",
+    "pinyin": "lǎoshī",
+    "meaning_vi": "giáo viên, thầy/cô",
+    "meaning_en": "teacher",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "好",
+    "pinyin": "hǎo",
+    "meaning_vi": "tốt, khỏe",
+    "meaning_en": "good",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "大家",
+    "pinyin": "dàjiā",
+    "meaning_vi": "mọi người",
+    "meaning_en": "everyone",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "们",
+    "pinyin": "men",
+    "meaning_vi": "(hậu tố số nhiều)",
+    "meaning_en": "(plural suffix)",
+    "pos": [
+     "suf."
+    ]
+   },
+   {
+    "hanzi": "同学",
+    "pinyin": "tóngxué",
+    "meaning_vi": "bạn cùng lớp",
+    "meaning_en": "classmate",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "你们",
+    "pinyin": "nǐmen",
+    "meaning_vi": "các bạn",
+    "meaning_en": "you (plural)",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "学生",
+    "pinyin": "xuéshēng",
+    "meaning_vi": "học sinh, sinh viên",
+    "meaning_en": "student",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "您",
+    "pinyin": "nín",
+    "meaning_vi": "ngài (tôn kính)",
+    "meaning_en": "you (formal)",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "谢谢",
+    "pinyin": "xièxie",
+    "meaning_vi": "cảm ơn",
+    "meaning_en": "thank you",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "不客气",
+    "pinyin": "bú kèqi",
+    "meaning_vi": "không có gì",
+    "meaning_en": "you're welcome |",
+    "pos": []
+   },
+   {
+    "hanzi": "再见",
+    "pinyin": "zàijiàn",
+    "meaning_vi": "tạm biệt",
+    "meaning_en": "goodbye",
+    "pos": [
+     "v."
+    ]
+   }
+  ]
+ },
+ {
+  "lesson": 2,
+  "title_zh": "我叫李文",
+  "title_full": "第2课 · 我叫李文",
+  "title_vi": "Tôi tên là Lý Văn",
+  "words": [
+   {
+    "hanzi": "我",
+    "pinyin": "wǒ",
+    "meaning_vi": "tôi",
+    "meaning_en": "I, me",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "叫",
+    "pinyin": "jiào",
+    "meaning_vi": "gọi là, tên là",
+    "meaning_en": "to be called",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "你",
+    "pinyin": "nǐ",
+    "meaning_vi": "bạn",
+    "meaning_en": "you",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "什么",
+    "pinyin": "shénme",
+    "meaning_vi": "gì, cái gì",
+    "meaning_en": "what",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "名字",
+    "pinyin": "míngzi",
+    "meaning_vi": "tên",
+    "meaning_en": "name",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "认识",
+    "pinyin": "rènshi",
+    "meaning_vi": "quen biết",
+    "meaning_en": "to know (person)",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "高兴",
+    "pinyin": "gāoxìng",
+    "meaning_vi": "vui, vui mừng",
+    "meaning_en": "happy",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "很",
+    "pinyin": "hěn",
+    "meaning_vi": "rất",
+    "meaning_en": "very",
+    "pos": [
+     "adv."
+    ]
+   },
+   {
+    "hanzi": "请问",
+    "pinyin": "qǐngwèn",
+    "meaning_vi": "xin hỏi",
+    "meaning_en": "may I ask",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "是",
+    "pinyin": "shì",
+    "meaning_vi": "là",
+    "meaning_en": "to be",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "不",
+    "pinyin": "bù",
+    "meaning_vi": "không",
+    "meaning_en": "not",
+    "pos": [
+     "adv."
+    ]
+   },
+   {
+    "hanzi": "对不起",
+    "pinyin": "duìbuqǐ",
+    "meaning_vi": "xin lỗi",
+    "meaning_en": "sorry |",
+    "pos": []
+   },
+   {
+    "hanzi": "没关系",
+    "pinyin": "méi guānxi",
+    "meaning_vi": "không sao",
+    "meaning_en": "it doesn't matter |",
+    "pos": []
+   },
+   {
+    "hanzi": "没事",
+    "pinyin": "méishì",
+    "meaning_vi": "không sao đâu",
+    "meaning_en": "it's nothing |",
+    "pos": []
+   },
+   {
+    "hanzi": "也",
+    "pinyin": "yě",
+    "meaning_vi": "cũng",
+    "meaning_en": "also",
+    "pos": [
+     "adv."
+    ]
+   }
+  ]
+ },
+ {
+  "lesson": 3,
+  "title_zh": "我是中国人",
+  "title_full": "第3课 · 我是中国人",
+  "title_vi": "Tôi là người Trung Quốc",
+  "words": [
+   {
+    "hanzi": "国",
+    "pinyin": "guó",
+    "meaning_vi": "nước, quốc gia",
+    "meaning_en": "country",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "人",
+    "pinyin": "rén",
+    "meaning_vi": "người",
+    "meaning_en": "person",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "哪",
+    "pinyin": "nǎ",
+    "meaning_vi": "nào",
+    "meaning_en": "which",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "的",
+    "pinyin": "de",
+    "meaning_vi": "của (trợ từ)",
+    "meaning_en": "structural particle",
+    "pos": [
+     "part."
+    ]
+   },
+   {
+    "hanzi": "还",
+    "pinyin": "hái",
+    "meaning_vi": "còn, vẫn",
+    "meaning_en": "still, also",
+    "pos": [
+     "adv."
+    ]
+   },
+   {
+    "hanzi": "她",
+    "pinyin": "tā",
+    "meaning_vi": "cô ấy",
+    "meaning_en": "she",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "谁",
+    "pinyin": "shéi",
+    "meaning_vi": "ai",
+    "meaning_en": "who",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "女朋友",
+    "pinyin": "nǚpéngyou",
+    "meaning_vi": "bạn gái",
+    "meaning_en": "girlfriend",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "姐姐",
+    "pinyin": "jiějie",
+    "meaning_vi": "chị gái",
+    "meaning_en": "older sister",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "太",
+    "pinyin": "tài",
+    "meaning_vi": "quá",
+    "meaning_en": "too (excessive)",
+    "pos": [
+     "adv."
+    ]
+   },
+   {
+    "hanzi": "忙",
+    "pinyin": "máng",
+    "meaning_vi": "bận",
+    "meaning_en": "busy",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "喂",
+    "pinyin": "wèi",
+    "meaning_vi": "a lô",
+    "meaning_en": "hello (phone)",
+    "pos": [
+     "int."
+    ]
+   },
+   {
+    "hanzi": "我们",
+    "pinyin": "wǒmen",
+    "meaning_vi": "chúng tôi",
+    "meaning_en": "we, us",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "想",
+    "pinyin": "xiǎng",
+    "meaning_vi": "muốn, nghĩ",
+    "meaning_en": "to want, think",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "这",
+    "pinyin": "zhè",
+    "meaning_vi": "đây, này",
+    "meaning_en": "this",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "工作",
+    "pinyin": "gōngzuò",
+    "meaning_vi": "công việc, làm việc",
+    "meaning_en": "work",
+    "pos": [
+     "n./v."
+    ]
+   },
+   {
+    "hanzi": "吗",
+    "pinyin": "ma",
+    "meaning_vi": "(trợ từ nghi vấn)",
+    "meaning_en": "question particle",
+    "pos": [
+     "part."
+    ]
+   }
+  ]
+ },
+ {
+  "lesson": 4,
+  "title_zh": "我有两个孩子",
+  "title_full": "第4课 · 我有两个孩子",
+  "title_vi": "Tôi có hai đứa con",
+  "words": [
+   {
+    "hanzi": "有",
+    "pinyin": "yǒu",
+    "meaning_vi": "có",
+    "meaning_en": "to have",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "两",
+    "pinyin": "liǎng",
+    "meaning_vi": "hai (đi với lượng từ)",
+    "meaning_en": "two",
+    "pos": [
+     "num."
+    ]
+   },
+   {
+    "hanzi": "个",
+    "pinyin": "gè",
+    "meaning_vi": "(lượng từ chung)",
+    "meaning_en": "measure word",
+    "pos": [
+     "m."
+    ]
+   },
+   {
+    "hanzi": "孩子",
+    "pinyin": "háizi",
+    "meaning_vi": "con, trẻ em",
+    "meaning_en": "child",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "没有",
+    "pinyin": "méiyǒu",
+    "meaning_vi": "không có",
+    "meaning_en": "don't have",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "儿子",
+    "pinyin": "érzi",
+    "meaning_vi": "con trai",
+    "meaning_en": "son",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "女儿",
+    "pinyin": "nǚ'ér",
+    "meaning_vi": "con gái",
+    "meaning_en": "daughter",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "爸爸",
+    "pinyin": "bàba",
+    "meaning_vi": "bố, ba",
+    "meaning_en": "father",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "妈妈",
+    "pinyin": "māma",
+    "meaning_vi": "mẹ, má",
+    "meaning_en": "mother",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "哥哥",
+    "pinyin": "gēge",
+    "meaning_vi": "anh trai",
+    "meaning_en": "older brother",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "妹妹",
+    "pinyin": "mèimei",
+    "meaning_vi": "em gái",
+    "meaning_en": "younger sister",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "口",
+    "pinyin": "kǒu",
+    "meaning_vi": "(lượng từ thành viên GĐ)",
+    "meaning_en": "MW for family",
+    "pos": [
+     "m."
+    ]
+   },
+   {
+    "hanzi": "多少",
+    "pinyin": "duōshao",
+    "meaning_vi": "bao nhiêu",
+    "meaning_en": "how many",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "几",
+    "pinyin": "jǐ",
+    "meaning_vi": "mấy",
+    "meaning_en": "how many",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "岁",
+    "pinyin": "suì",
+    "meaning_vi": "tuổi",
+    "meaning_en": "years old",
+    "pos": [
+     "m."
+    ]
+   },
+   {
+    "hanzi": "今年",
+    "pinyin": "jīnnián",
+    "meaning_vi": "năm nay",
+    "meaning_en": "this year",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "多",
+    "pinyin": "duō",
+    "meaning_vi": "nhiều",
+    "meaning_en": "many",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "家",
+    "pinyin": "jiā",
+    "meaning_vi": "gia đình, nhà",
+    "meaning_en": "family, home",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "他",
+    "pinyin": "tā",
+    "meaning_vi": "anh ấy",
+    "meaning_en": "he",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "呢",
+    "pinyin": "ne",
+    "meaning_vi": "(trợ từ ngữ khí)",
+    "meaning_en": "particle",
+    "pos": [
+     "part."
+    ]
+   },
+   {
+    "hanzi": "和",
+    "pinyin": "hé",
+    "meaning_vi": "và",
+    "meaning_en": "and",
+    "pos": [
+     "conj."
+    ]
+   },
+   {
+    "hanzi": "一",
+    "pinyin": "yī",
+    "meaning_vi": "một",
+    "meaning_en": "one",
+    "pos": [
+     "num."
+    ]
+   },
+   {
+    "hanzi": "二",
+    "pinyin": "èr",
+    "meaning_vi": "hai",
+    "meaning_en": "two",
+    "pos": [
+     "num."
+    ]
+   },
+   {
+    "hanzi": "三",
+    "pinyin": "sān",
+    "meaning_vi": "ba",
+    "meaning_en": "three",
+    "pos": [
+     "num."
+    ]
+   },
+   {
+    "hanzi": "四",
+    "pinyin": "sì",
+    "meaning_vi": "bốn",
+    "meaning_en": "four",
+    "pos": [
+     "num."
+    ]
+   },
+   {
+    "hanzi": "五",
+    "pinyin": "wǔ",
+    "meaning_vi": "năm",
+    "meaning_en": "five",
+    "pos": [
+     "num."
+    ]
+   },
+   {
+    "hanzi": "六",
+    "pinyin": "liù",
+    "meaning_vi": "sáu",
+    "meaning_en": "six",
+    "pos": [
+     "num."
+    ]
+   },
+   {
+    "hanzi": "七",
+    "pinyin": "qī",
+    "meaning_vi": "bảy",
+    "meaning_en": "seven",
+    "pos": [
+     "num."
+    ]
+   },
+   {
+    "hanzi": "八",
+    "pinyin": "bā",
+    "meaning_vi": "tám",
+    "meaning_en": "eight",
+    "pos": [
+     "num."
+    ]
+   },
+   {
+    "hanzi": "九",
+    "pinyin": "jiǔ",
+    "meaning_vi": "chín",
+    "meaning_en": "nine",
+    "pos": [
+     "num."
+    ]
+   },
+   {
+    "hanzi": "十",
+    "pinyin": "shí",
+    "meaning_vi": "mười",
+    "meaning_en": "ten",
+    "pos": [
+     "num."
+    ]
+   },
+   {
+    "hanzi": "百",
+    "pinyin": "bǎi",
+    "meaning_vi": "trăm",
+    "meaning_en": "hundred",
+    "pos": [
+     "num."
+    ]
+   },
+   {
+    "hanzi": "千",
+    "pinyin": "qiān",
+    "meaning_vi": "nghìn",
+    "meaning_en": "thousand",
+    "pos": [
+     "num."
+    ]
+   },
+   {
+    "hanzi": "零",
+    "pinyin": "líng",
+    "meaning_vi": "không (số 0)",
+    "meaning_en": "zero",
+    "pos": [
+     "num."
+    ]
+   }
+  ]
+ },
+ {
+  "lesson": 5,
+  "title_zh": "今天我休息",
+  "title_full": "第5课 · 今天我休息",
+  "title_vi": "Hôm nay tôi nghỉ",
+  "words": [
+   {
+    "hanzi": "今天",
+    "pinyin": "jīntiān",
+    "meaning_vi": "hôm nay",
+    "meaning_en": "today",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "休息",
+    "pinyin": "xiūxi",
+    "meaning_vi": "nghỉ ngơi",
+    "meaning_en": "to rest",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "星期",
+    "pinyin": "xīngqī",
+    "meaning_vi": "tuần",
+    "meaning_en": "week",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "星期日",
+    "pinyin": "xīngqīrì",
+    "meaning_vi": "Chủ nhật",
+    "meaning_en": "Sunday",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "星期天",
+    "pinyin": "xīngqītiān",
+    "meaning_vi": "Chủ nhật",
+    "meaning_en": "Sunday",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "月",
+    "pinyin": "yuè",
+    "meaning_vi": "tháng",
+    "meaning_en": "month",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "日",
+    "pinyin": "rì",
+    "meaning_vi": "ngày",
+    "meaning_en": "day",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "号",
+    "pinyin": "hào",
+    "meaning_vi": "số, ngày",
+    "meaning_en": "number, date",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "电脑",
+    "pinyin": "diànnǎo",
+    "meaning_vi": "máy tính",
+    "meaning_en": "computer",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "喜欢",
+    "pinyin": "xǐhuan",
+    "meaning_vi": "thích",
+    "meaning_en": "to like",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "好看",
+    "pinyin": "hǎokàn",
+    "meaning_vi": "đẹp, hay",
+    "meaning_en": "good-looking",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "面条儿",
+    "pinyin": "miàntiáor",
+    "meaning_vi": "mì sợi",
+    "meaning_en": "noodles",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "饺子",
+    "pinyin": "jiǎozi",
+    "meaning_vi": "sủi cảo",
+    "meaning_en": "dumplings",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "菜",
+    "pinyin": "cài",
+    "meaning_vi": "rau, món ăn",
+    "meaning_en": "dish, vegetable",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "新",
+    "pinyin": "xīn",
+    "meaning_vi": "mới",
+    "meaning_en": "new",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "一些",
+    "pinyin": "yīxiē",
+    "meaning_vi": "một số",
+    "meaning_en": "some",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "真",
+    "pinyin": "zhēn",
+    "meaning_vi": "thật sự",
+    "meaning_en": "really",
+    "pos": [
+     "adv."
+    ]
+   },
+   {
+    "hanzi": "做",
+    "pinyin": "zuò",
+    "meaning_vi": "làm",
+    "meaning_en": "to do",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "做饭",
+    "pinyin": "zuò fàn",
+    "meaning_vi": "nấu cơm",
+    "meaning_en": "to cook",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "下班",
+    "pinyin": "xiàbān",
+    "meaning_vi": "tan làm",
+    "meaning_en": "get off work",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "它",
+    "pinyin": "tā",
+    "meaning_vi": "nó",
+    "meaning_en": "it",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "会",
+    "pinyin": "huì",
+    "meaning_vi": "sẽ, biết",
+    "meaning_en": "can, will",
+    "pos": [
+     "mod."
+    ]
+   }
+  ]
+ },
+ {
+  "lesson": 6,
+  "title_zh": "你的手机号是多少？",
+  "title_full": "第6课 · 你的手机号是多少？",
+  "title_vi": "Số điện thoại của bạn là bao nhiêu?",
+  "words": [
+   {
+    "hanzi": "手机",
+    "pinyin": "shǒujī",
+    "meaning_vi": "điện thoại di động",
+    "meaning_en": "cell phone",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "电话",
+    "pinyin": "diànhuà",
+    "meaning_vi": "điện thoại",
+    "meaning_en": "telephone",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "怎么",
+    "pinyin": "zěnme",
+    "meaning_vi": "thế nào, làm sao",
+    "meaning_en": "how",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "去",
+    "pinyin": "qù",
+    "meaning_vi": "đi",
+    "meaning_en": "to go",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "超市",
+    "pinyin": "chāoshì",
+    "meaning_vi": "siêu thị",
+    "meaning_en": "supermarket",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "买",
+    "pinyin": "mǎi",
+    "meaning_vi": "mua",
+    "meaning_en": "to buy",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "东西",
+    "pinyin": "dōngxi",
+    "meaning_vi": "đồ, thứ",
+    "meaning_en": "thing",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "吃",
+    "pinyin": "chī",
+    "meaning_vi": "ăn",
+    "meaning_en": "to eat",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "好吃",
+    "pinyin": "hǎochī",
+    "meaning_vi": "ngon",
+    "meaning_en": "delicious",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "包子",
+    "pinyin": "bāozi",
+    "meaning_vi": "bánh bao",
+    "meaning_en": "steamed bun",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "米饭",
+    "pinyin": "mǐfàn",
+    "meaning_vi": "cơm",
+    "meaning_en": "rice",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "牛奶",
+    "pinyin": "niúnǎi",
+    "meaning_vi": "sữa bò",
+    "meaning_en": "milk",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "明天",
+    "pinyin": "míngtiān",
+    "meaning_vi": "ngày mai",
+    "meaning_en": "tomorrow",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "出租车",
+    "pinyin": "chūzūchē",
+    "meaning_vi": "xe taxi",
+    "meaning_en": "taxi",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "坐",
+    "pinyin": "zuò",
+    "meaning_vi": "ngồi, đi (xe)",
+    "meaning_en": "to sit, take",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "那边",
+    "pinyin": "nàbiān",
+    "meaning_vi": "bên kia",
+    "meaning_en": "over there",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "些",
+    "pinyin": "xiē",
+    "meaning_vi": "một vài",
+    "meaning_en": "some",
+    "pos": [
+     "m."
+    ]
+   },
+   {
+    "hanzi": "晚饭",
+    "pinyin": "wǎnfàn",
+    "meaning_vi": "cơm tối",
+    "meaning_en": "dinner",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "非常",
+    "pinyin": "fēicháng",
+    "meaning_vi": "vô cùng, rất",
+    "meaning_en": "very",
+    "pos": [
+     "adv."
+    ]
+   },
+   {
+    "hanzi": "想",
+    "pinyin": "xiǎng",
+    "meaning_vi": "muốn",
+    "meaning_en": "to want",
+    "pos": [
+     "mod."
+    ]
+   }
+  ]
+ },
+ {
+  "lesson": 7,
+  "title_zh": "我晚上六点半下班",
+  "title_full": "第7课 · 我晚上六点半下班",
+  "title_vi": "Tối tôi 6 giờ rưỡi tan làm",
+  "words": [
+   {
+    "hanzi": "点",
+    "pinyin": "diǎn",
+    "meaning_vi": "giờ",
+    "meaning_en": "o'clock",
+    "pos": [
+     "m."
+    ]
+   },
+   {
+    "hanzi": "半",
+    "pinyin": "bàn",
+    "meaning_vi": "rưỡi, nửa",
+    "meaning_en": "half",
+    "pos": [
+     "num."
+    ]
+   },
+   {
+    "hanzi": "分",
+    "pinyin": "fēn",
+    "meaning_vi": "phút",
+    "meaning_en": "minute",
+    "pos": [
+     "m."
+    ]
+   },
+   {
+    "hanzi": "分钟",
+    "pinyin": "fēnzhōng",
+    "meaning_vi": "phút",
+    "meaning_en": "minute",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "上班",
+    "pinyin": "shàngbān",
+    "meaning_vi": "đi làm",
+    "meaning_en": "go to work",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "上课",
+    "pinyin": "shàngkè",
+    "meaning_vi": "lên lớp",
+    "meaning_en": "attend class",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "下课",
+    "pinyin": "xiàkè",
+    "meaning_vi": "tan học",
+    "meaning_en": "class over",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "上午",
+    "pinyin": "shàngwǔ",
+    "meaning_vi": "buổi sáng",
+    "meaning_en": "morning",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "下午",
+    "pinyin": "xiàwǔ",
+    "meaning_vi": "buổi chiều",
+    "meaning_en": "afternoon",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "晚上",
+    "pinyin": "wǎnshang",
+    "meaning_vi": "buổi tối",
+    "meaning_en": "evening",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "早上",
+    "pinyin": "zǎoshang",
+    "meaning_vi": "buổi sáng sớm",
+    "meaning_en": "early morning",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "现在",
+    "pinyin": "xiànzài",
+    "meaning_vi": "bây giờ",
+    "meaning_en": "now",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "后",
+    "pinyin": "hòu",
+    "meaning_vi": "sau",
+    "meaning_en": "after",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "课",
+    "pinyin": "kè",
+    "meaning_vi": "tiết học, bài",
+    "meaning_en": "class",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "事",
+    "pinyin": "shì",
+    "meaning_vi": "việc",
+    "meaning_en": "matter",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "吧",
+    "pinyin": "ba",
+    "meaning_vi": "đi, nhé (trợ từ)",
+    "meaning_en": "particle",
+    "pos": [
+     "part."
+    ]
+   },
+   {
+    "hanzi": "见",
+    "pinyin": "jiàn",
+    "meaning_vi": "gặp",
+    "meaning_en": "to see",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "看",
+    "pinyin": "kàn",
+    "meaning_vi": "xem, nhìn",
+    "meaning_en": "to look",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "电影",
+    "pinyin": "diànyǐng",
+    "meaning_vi": "phim",
+    "meaning_en": "movie",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "电影院",
+    "pinyin": "diànyǐngyuàn",
+    "meaning_vi": "rạp phim",
+    "meaning_en": "cinema",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "店",
+    "pinyin": "diàn",
+    "meaning_vi": "cửa hàng",
+    "meaning_en": "shop",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "里",
+    "pinyin": "lǐ",
+    "meaning_vi": "trong, bên trong",
+    "meaning_en": "inside",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "在",
+    "pinyin": "zài",
+    "meaning_vi": "ở, tại",
+    "meaning_en": "at, in",
+    "pos": [
+     "prep."
+    ]
+   }
+  ]
+ },
+ {
+  "lesson": 8,
+  "title_zh": "我爸爸也在医院工作",
+  "title_full": "第8课 · 我爸爸也在医院工作",
+  "title_vi": "Bố tôi cũng làm việc ở bệnh viện",
+  "words": [
+   {
+    "hanzi": "医生",
+    "pinyin": "yīshēng",
+    "meaning_vi": "bác sĩ",
+    "meaning_en": "doctor",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "医院",
+    "pinyin": "yīyuàn",
+    "meaning_vi": "bệnh viện",
+    "meaning_en": "hospital",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "学校",
+    "pinyin": "xuéxiào",
+    "meaning_vi": "trường học",
+    "meaning_en": "school",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "书店",
+    "pinyin": "shūdiàn",
+    "meaning_vi": "hiệu sách",
+    "meaning_en": "bookstore",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "房间",
+    "pinyin": "fángjiān",
+    "meaning_vi": "phòng",
+    "meaning_en": "room",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "桌子",
+    "pinyin": "zhuōzi",
+    "meaning_vi": "bàn",
+    "meaning_en": "table",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "猫",
+    "pinyin": "māo",
+    "meaning_vi": "con mèo",
+    "meaning_en": "cat",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "大",
+    "pinyin": "dà",
+    "meaning_vi": "to, lớn",
+    "meaning_en": "big",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "小",
+    "pinyin": "xiǎo",
+    "meaning_vi": "nhỏ, bé",
+    "meaning_en": "small",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "漂亮",
+    "pinyin": "piàoliang",
+    "meaning_vi": "đẹp, xinh",
+    "meaning_en": "beautiful",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "到",
+    "pinyin": "dào",
+    "meaning_vi": "đến",
+    "meaning_en": "to arrive",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "看见",
+    "pinyin": "kànjiàn",
+    "meaning_vi": "nhìn thấy",
+    "meaning_en": "to see",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "能",
+    "pinyin": "néng",
+    "meaning_vi": "có thể",
+    "meaning_en": "can",
+    "pos": [
+     "mod."
+    ]
+   },
+   {
+    "hanzi": "没",
+    "pinyin": "méi",
+    "meaning_vi": "không (phủ định)",
+    "meaning_en": "not",
+    "pos": [
+     "adv."
+    ]
+   },
+   {
+    "hanzi": "前",
+    "pinyin": "qián",
+    "meaning_vi": "trước",
+    "meaning_en": "front",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "外",
+    "pinyin": "wài",
+    "meaning_vi": "ngoài",
+    "meaning_en": "outside",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "下",
+    "pinyin": "xià",
+    "meaning_vi": "dưới",
+    "meaning_en": "under",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "只",
+    "pinyin": "zhī",
+    "meaning_vi": "chỉ",
+    "meaning_en": "only",
+    "pos": [
+     "adv."
+    ]
+   },
+   {
+    "hanzi": "饭",
+    "pinyin": "fàn",
+    "meaning_vi": "cơm, bữa ăn",
+    "meaning_en": "meal",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "午饭",
+    "pinyin": "wǔfàn",
+    "meaning_vi": "cơm trưa",
+    "meaning_en": "lunch",
+    "pos": [
+     "n."
+    ]
+   }
+  ]
+ },
+ {
+  "lesson": 9,
+  "title_zh": "我明天上午在学校学习",
+  "title_full": "第9课 · 我明天上午在学校学习",
+  "title_vi": "Sáng mai tôi học ở trường",
+  "words": [
+   {
+    "hanzi": "学习",
+    "pinyin": "xuéxí",
+    "meaning_vi": "học tập",
+    "meaning_en": "to study",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "白天",
+    "pinyin": "báitiān",
+    "meaning_vi": "ban ngày",
+    "meaning_en": "daytime",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "读书",
+    "pinyin": "dúshū",
+    "meaning_vi": "đọc sách",
+    "meaning_en": "to read",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "第",
+    "pinyin": "dì",
+    "meaning_vi": "thứ (số thứ tự)",
+    "meaning_en": "ordinal prefix",
+    "pos": [
+     "pref."
+    ]
+   },
+   {
+    "hanzi": "本",
+    "pinyin": "běn",
+    "meaning_vi": "(lượng từ cho sách)",
+    "meaning_en": "MW for books",
+    "pos": [
+     "m."
+    ]
+   },
+   {
+    "hanzi": "书",
+    "pinyin": "shū",
+    "meaning_vi": "sách",
+    "meaning_en": "book",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "电视",
+    "pinyin": "diànshì",
+    "meaning_vi": "tivi",
+    "meaning_en": "television",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "歌",
+    "pinyin": "gē",
+    "meaning_vi": "bài hát",
+    "meaning_en": "song",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "唱",
+    "pinyin": "chàng",
+    "meaning_vi": "hát",
+    "meaning_en": "to sing",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "好听",
+    "pinyin": "hǎotīng",
+    "meaning_vi": "hay (nghe)",
+    "meaning_en": "pleasant to hear",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "朋友",
+    "pinyin": "péngyou",
+    "meaning_vi": "bạn bè",
+    "meaning_en": "friend",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "玩",
+    "pinyin": "wán",
+    "meaning_vi": "chơi",
+    "meaning_en": "to play",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "椅子",
+    "pinyin": "yǐzi",
+    "meaning_vi": "ghế",
+    "meaning_en": "chair",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "前边",
+    "pinyin": "qiánbiān",
+    "meaning_vi": "phía trước",
+    "meaning_en": "in front",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "外边",
+    "pinyin": "wàibiān",
+    "meaning_vi": "bên ngoài",
+    "meaning_en": "outside",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "边",
+    "pinyin": "biān",
+    "meaning_vi": "bên, phía",
+    "meaning_en": "side",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "上",
+    "pinyin": "shàng",
+    "meaning_vi": "trên",
+    "meaning_en": "on, above",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "那",
+    "pinyin": "nà",
+    "meaning_vi": "đó, kia",
+    "meaning_en": "that",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "那个",
+    "pinyin": "nàge",
+    "meaning_vi": "cái đó",
+    "meaning_en": "that one",
+    "pos": [
+     "pron."
+    ]
+   }
+  ]
+ },
+ {
+  "lesson": 10,
+  "title_zh": "这儿的苹果真便宜！",
+  "title_full": "第10课 · 这儿的苹果真便宜！",
+  "title_vi": "Táo ở đây rẻ thật!",
+  "words": [
+   {
+    "hanzi": "苹果",
+    "pinyin": "píngguǒ",
+    "meaning_vi": "quả táo",
+    "meaning_en": "apple",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "便宜",
+    "pinyin": "piányi",
+    "meaning_vi": "rẻ",
+    "meaning_en": "cheap",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "贵",
+    "pinyin": "guì",
+    "meaning_vi": "đắt, mắc",
+    "meaning_en": "expensive",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "钱",
+    "pinyin": "qián",
+    "meaning_vi": "tiền",
+    "meaning_en": "money",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "元",
+    "pinyin": "yuán",
+    "meaning_vi": "tệ (đơn vị tiền)",
+    "meaning_en": "yuan",
+    "pos": [
+     "m."
+    ]
+   },
+   {
+    "hanzi": "块",
+    "pinyin": "kuài",
+    "meaning_vi": "tệ (khẩu ngữ)",
+    "meaning_en": "kuai",
+    "pos": [
+     "m."
+    ]
+   },
+   {
+    "hanzi": "怎么样",
+    "pinyin": "zěnmeyàng",
+    "meaning_vi": "thế nào",
+    "meaning_en": "how about",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "商店",
+    "pinyin": "shāngdiàn",
+    "meaning_vi": "cửa hàng",
+    "meaning_en": "store",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "水果",
+    "pinyin": "shuǐguǒ",
+    "meaning_vi": "trái cây",
+    "meaning_en": "fruit",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "衣服",
+    "pinyin": "yīfu",
+    "meaning_vi": "quần áo",
+    "meaning_en": "clothes",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "件",
+    "pinyin": "jiàn",
+    "meaning_vi": "(lượng từ quần áo)",
+    "meaning_en": "MW for clothes",
+    "pos": [
+     "m."
+    ]
+   },
+   {
+    "hanzi": "穿",
+    "pinyin": "chuān",
+    "meaning_vi": "mặc",
+    "meaning_en": "to wear",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "杯子",
+    "pinyin": "bēizi",
+    "meaning_vi": "cốc, ly",
+    "meaning_en": "cup",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "男",
+    "pinyin": "nán",
+    "meaning_vi": "nam",
+    "meaning_en": "male",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "女",
+    "pinyin": "nǚ",
+    "meaning_vi": "nữ",
+    "meaning_en": "female",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "少",
+    "pinyin": "shǎo",
+    "meaning_vi": "ít",
+    "meaning_en": "few",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "这边",
+    "pinyin": "zhèbiān",
+    "meaning_vi": "bên này",
+    "meaning_en": "this side",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "这儿",
+    "pinyin": "zhèr",
+    "meaning_vi": "ở đây",
+    "meaning_en": "here",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "这些",
+    "pinyin": "zhèxiē",
+    "meaning_vi": "những cái này",
+    "meaning_en": "these",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "那儿",
+    "pinyin": "nàr",
+    "meaning_vi": "ở đó",
+    "meaning_en": "there",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "那些",
+    "pinyin": "nàxiē",
+    "meaning_vi": "những cái kia",
+    "meaning_en": "those",
+    "pos": [
+     "pron."
+    ]
+   }
+  ]
+ },
+ {
+  "lesson": 11,
+  "title_zh": "我读大学呢",
+  "title_full": "第11课 · 我读大学呢",
+  "title_vi": "Tôi đang học đại học",
+  "words": [
+   {
+    "hanzi": "大学",
+    "pinyin": "dàxué",
+    "meaning_vi": "đại học",
+    "meaning_en": "university",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "大学生",
+    "pinyin": "dàxuéshēng",
+    "meaning_vi": "sinh viên",
+    "meaning_en": "college student",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "读",
+    "pinyin": "dú",
+    "meaning_vi": "đọc, học",
+    "meaning_en": "to read",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "说",
+    "pinyin": "shuō",
+    "meaning_vi": "nói",
+    "meaning_en": "to speak",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "问",
+    "pinyin": "wèn",
+    "meaning_vi": "hỏi",
+    "meaning_en": "to ask",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "车",
+    "pinyin": "chē",
+    "meaning_vi": "xe",
+    "meaning_en": "car",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "开车",
+    "pinyin": "kāichē",
+    "meaning_vi": "lái xe",
+    "meaning_en": "to drive",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "饭店",
+    "pinyin": "fàndiàn",
+    "meaning_vi": "nhà hàng",
+    "meaning_en": "restaurant",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "弟弟",
+    "pinyin": "dìdi",
+    "meaning_vi": "em trai",
+    "meaning_en": "younger brother",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "小朋友",
+    "pinyin": "xiǎopéngyou",
+    "meaning_vi": "bạn nhỏ",
+    "meaning_en": "child",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "哪里",
+    "pinyin": "nǎlǐ",
+    "meaning_vi": "ở đâu",
+    "meaning_en": "where",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "那里",
+    "pinyin": "nàlǐ",
+    "meaning_vi": "ở đó",
+    "meaning_en": "there",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "起床",
+    "pinyin": "qǐchuáng",
+    "meaning_vi": "thức dậy",
+    "meaning_en": "to get up",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "睡",
+    "pinyin": "shuì",
+    "meaning_vi": "ngủ",
+    "meaning_en": "to sleep",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "睡觉",
+    "pinyin": "shuìjiào",
+    "meaning_vi": "đi ngủ",
+    "meaning_en": "to sleep",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "时候",
+    "pinyin": "shíhou",
+    "meaning_vi": "lúc, khi",
+    "meaning_en": "time (when)",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "正在",
+    "pinyin": "zhèngzài",
+    "meaning_vi": "đang",
+    "meaning_en": "in progress",
+    "pos": [
+     "adv."
+    ]
+   },
+   {
+    "hanzi": "找",
+    "pinyin": "zhǎo",
+    "meaning_vi": "tìm",
+    "meaning_en": "to look for",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "知道",
+    "pinyin": "zhīdào",
+    "meaning_vi": "biết",
+    "meaning_en": "to know",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "学",
+    "pinyin": "xué",
+    "meaning_vi": "học",
+    "meaning_en": "to study",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "昨天",
+    "pinyin": "zuótiān",
+    "meaning_vi": "hôm qua",
+    "meaning_en": "yesterday",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "要",
+    "pinyin": "yào",
+    "meaning_vi": "muốn, cần",
+    "meaning_en": "to want",
+    "pos": [
+     "mod."
+    ]
+   }
+  ]
+ },
+ {
+  "lesson": 12,
+  "title_zh": "昨天下雪了",
+  "title_full": "第12课 · 昨天下雪了",
+  "title_vi": "Hôm qua có tuyết rơi",
+  "words": [
+   {
+    "hanzi": "天气",
+    "pinyin": "tiānqì",
+    "meaning_vi": "thời tiết",
+    "meaning_en": "weather",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "下雨",
+    "pinyin": "xià yǔ",
+    "meaning_vi": "mưa",
+    "meaning_en": "to rain",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "雨",
+    "pinyin": "yǔ",
+    "meaning_vi": "mưa",
+    "meaning_en": "rain",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "雪",
+    "pinyin": "xuě",
+    "meaning_vi": "tuyết",
+    "meaning_en": "snow",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "冷",
+    "pinyin": "lěng",
+    "meaning_vi": "lạnh",
+    "meaning_en": "cold",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "热",
+    "pinyin": "rè",
+    "meaning_vi": "nóng",
+    "meaning_en": "hot",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "天",
+    "pinyin": "tiān",
+    "meaning_vi": "ngày, trời",
+    "meaning_en": "day, sky",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "了",
+    "pinyin": "le",
+    "meaning_vi": "rồi (trợ từ)",
+    "meaning_en": "aspect particle",
+    "pos": [
+     "part."
+    ]
+   },
+   {
+    "hanzi": "水",
+    "pinyin": "shuǐ",
+    "meaning_vi": "nước",
+    "meaning_en": "water",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "病",
+    "pinyin": "bìng",
+    "meaning_vi": "bệnh, ốm",
+    "meaning_en": "illness",
+    "pos": [
+     "n./v."
+    ]
+   },
+   {
+    "hanzi": "生病",
+    "pinyin": "shēngbìng",
+    "meaning_vi": "bị bệnh",
+    "meaning_en": "get sick",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "看病",
+    "pinyin": "kànbìng",
+    "meaning_vi": "khám bệnh",
+    "meaning_en": "see doctor",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "公司",
+    "pinyin": "gōngsī",
+    "meaning_vi": "công ty",
+    "meaning_en": "company",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "喝",
+    "pinyin": "hē",
+    "meaning_vi": "uống",
+    "meaning_en": "to drink",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "回",
+    "pinyin": "huí",
+    "meaning_vi": "về",
+    "meaning_en": "to return",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "来",
+    "pinyin": "lái",
+    "meaning_vi": "đến, lại",
+    "meaning_en": "to come",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "觉得",
+    "pinyin": "juéde",
+    "meaning_vi": "cảm thấy",
+    "meaning_en": "to feel",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "一点儿",
+    "pinyin": "yìdiǎnr",
+    "meaning_vi": "một chút",
+    "meaning_en": "a little",
+    "pos": [
+     "m."
+    ]
+   },
+   {
+    "hanzi": "有点儿",
+    "pinyin": "yǒudiǎnr",
+    "meaning_vi": "hơi",
+    "meaning_en": "a bit",
+    "pos": [
+     "adv."
+    ]
+   },
+   {
+    "hanzi": "这里",
+    "pinyin": "zhèlǐ",
+    "meaning_vi": "ở đây",
+    "meaning_en": "here",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "再",
+    "pinyin": "zài",
+    "meaning_vi": "lại, nữa",
+    "meaning_en": "again",
+    "pos": [
+     "adv."
+    ]
+   }
+  ]
+ },
+ {
+  "lesson": 13,
+  "title_zh": "请给我一杯茶",
+  "title_full": "第13课 · 请给我一杯茶",
+  "title_vi": "Cho tôi một tách trà",
+  "words": [
+   {
+    "hanzi": "请",
+    "pinyin": "qǐng",
+    "meaning_vi": "mời, xin",
+    "meaning_en": "please",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "给",
+    "pinyin": "gěi",
+    "meaning_vi": "cho, đưa",
+    "meaning_en": "to give",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "杯",
+    "pinyin": "bēi",
+    "meaning_vi": "cốc, ly (LT)",
+    "meaning_en": "cup (MW)",
+    "pos": [
+     "m."
+    ]
+   },
+   {
+    "hanzi": "茶",
+    "pinyin": "chá",
+    "meaning_vi": "trà",
+    "meaning_en": "tea",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "可以",
+    "pinyin": "kěyǐ",
+    "meaning_vi": "có thể, được",
+    "meaning_en": "can, may",
+    "pos": [
+     "mod."
+    ]
+   },
+   {
+    "hanzi": "一下",
+    "pinyin": "yíxià",
+    "meaning_vi": "một chút",
+    "meaning_en": "briefly |",
+    "pos": []
+   },
+   {
+    "hanzi": "一半",
+    "pinyin": "yíbàn",
+    "meaning_vi": "một nửa",
+    "meaning_en": "half",
+    "pos": [
+     "num."
+    ]
+   },
+   {
+    "hanzi": "先生",
+    "pinyin": "xiānsheng",
+    "meaning_vi": "ông, ngài",
+    "meaning_en": "Mr.",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "女士",
+    "pinyin": "nǚshì",
+    "meaning_vi": "bà, cô",
+    "meaning_en": "Ms.",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "卖",
+    "pinyin": "mài",
+    "meaning_vi": "bán",
+    "meaning_en": "to sell",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "鸡蛋",
+    "pinyin": "jīdàn",
+    "meaning_vi": "trứng gà",
+    "meaning_en": "egg",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "面包",
+    "pinyin": "miànbāo",
+    "meaning_vi": "bánh mì",
+    "meaning_en": "bread",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "早饭",
+    "pinyin": "zǎofàn",
+    "meaning_vi": "bữa sáng",
+    "meaning_en": "breakfast",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "问题",
+    "pinyin": "wèntí",
+    "meaning_vi": "câu hỏi, vấn đề",
+    "meaning_en": "question",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "打电话",
+    "pinyin": "dǎ diànhuà",
+    "meaning_vi": "gọi điện thoại",
+    "meaning_en": "make a call",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "这个",
+    "pinyin": "zhège",
+    "meaning_vi": "cái này",
+    "meaning_en": "this one",
+    "pos": [
+     "pron."
+    ]
+   }
+  ]
+ },
+ {
+  "lesson": 14,
+  "title_zh": "我看了一个电影",
+  "title_full": "第14课 · 我看了一个电影",
+  "title_vi": "Tôi đã xem một bộ phim",
+  "words": [
+   {
+    "hanzi": "了",
+    "pinyin": "le",
+    "meaning_vi": "rồi (hoàn thành)",
+    "meaning_en": "completed action",
+    "pos": [
+     "part."
+    ]
+   },
+   {
+    "hanzi": "都",
+    "pinyin": "dōu",
+    "meaning_vi": "đều, tất cả",
+    "meaning_en": "all",
+    "pos": [
+     "adv."
+    ]
+   },
+   {
+    "hanzi": "不要",
+    "pinyin": "búyào",
+    "meaning_vi": "đừng",
+    "meaning_en": "don't",
+    "pos": [
+     "adv."
+    ]
+   },
+   {
+    "hanzi": "开",
+    "pinyin": "kāi",
+    "meaning_vi": "mở",
+    "meaning_en": "to open",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "上学",
+    "pinyin": "shàngxué",
+    "meaning_vi": "đi học",
+    "meaning_en": "go to school",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "写",
+    "pinyin": "xiě",
+    "meaning_vi": "viết",
+    "meaning_en": "to write",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "字",
+    "pinyin": "zì",
+    "meaning_vi": "chữ",
+    "meaning_en": "character",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "听",
+    "pinyin": "tīng",
+    "meaning_vi": "nghe",
+    "meaning_en": "to listen",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "听见",
+    "pinyin": "tīngjiàn",
+    "meaning_vi": "nghe thấy",
+    "meaning_en": "to hear",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "说话",
+    "pinyin": "shuōhuà",
+    "meaning_vi": "nói chuyện",
+    "meaning_en": "to talk",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "他们",
+    "pinyin": "tāmen",
+    "meaning_vi": "họ (nam)",
+    "meaning_en": "they (m)",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "她们",
+    "pinyin": "tāmen",
+    "meaning_vi": "họ (nữ)",
+    "meaning_en": "they (f)",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "晚",
+    "pinyin": "wǎn",
+    "meaning_vi": "muộn, tối",
+    "meaning_en": "late",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "明年",
+    "pinyin": "míngnián",
+    "meaning_vi": "năm sau",
+    "meaning_en": "next year",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "哪些",
+    "pinyin": "nǎxiē",
+    "meaning_vi": "những cái nào",
+    "meaning_en": "which ones",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "有的",
+    "pinyin": "yǒude",
+    "meaning_vi": "có cái, một số",
+    "meaning_en": "some",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "小学",
+    "pinyin": "xiǎoxué",
+    "meaning_vi": "tiểu học",
+    "meaning_en": "primary school",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "中学",
+    "pinyin": "zhōngxué",
+    "meaning_vi": "trung học",
+    "meaning_en": "middle school",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "中午",
+    "pinyin": "zhōngwǔ",
+    "meaning_vi": "buổi trưa",
+    "meaning_en": "noon",
+    "pos": [
+     "n."
+    ]
+   }
+  ]
+ },
+ {
+  "lesson": 15,
+  "title_zh": "大兴机场见！",
+  "title_full": "第15课 · 大兴机场见！",
+  "title_vi": "Hẹn gặp ở sân bay Đại Hưng!",
+  "words": [
+   {
+    "hanzi": "飞机",
+    "pinyin": "fēijī",
+    "meaning_vi": "máy bay",
+    "meaning_en": "airplane",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "机场",
+    "pinyin": "jīchǎng",
+    "meaning_vi": "sân bay",
+    "meaning_en": "airport",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "火车",
+    "pinyin": "huǒchē",
+    "meaning_vi": "tàu hỏa",
+    "meaning_en": "train",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "爱",
+    "pinyin": "ài",
+    "meaning_vi": "yêu",
+    "meaning_en": "to love",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "家人",
+    "pinyin": "jiārén",
+    "meaning_vi": "người nhà",
+    "meaning_en": "family members",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "男朋友",
+    "pinyin": "nánpéngyou",
+    "meaning_vi": "bạn trai",
+    "meaning_en": "boyfriend",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "年",
+    "pinyin": "nián",
+    "meaning_vi": "năm",
+    "meaning_en": "year",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "去年",
+    "pinyin": "qùnián",
+    "meaning_vi": "năm ngoái",
+    "meaning_en": "last year",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "时间",
+    "pinyin": "shíjiān",
+    "meaning_vi": "thời gian",
+    "meaning_en": "time",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "小时",
+    "pinyin": "xiǎoshí",
+    "meaning_vi": "giờ (thời lượng)",
+    "meaning_en": "hour",
+    "pos": [
+     "n."
+    ]
+   },
+   {
+    "hanzi": "早",
+    "pinyin": "zǎo",
+    "meaning_vi": "sớm",
+    "meaning_en": "early",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "住",
+    "pinyin": "zhù",
+    "meaning_vi": "ở, sống",
+    "meaning_en": "to live",
+    "pos": [
+     "v."
+    ]
+   },
+   {
+    "hanzi": "好玩儿",
+    "pinyin": "hǎowánr",
+    "meaning_vi": "vui, hay",
+    "meaning_en": "fun",
+    "pos": [
+     "adj."
+    ]
+   },
+   {
+    "hanzi": "哪个",
+    "pinyin": "nǎge",
+    "meaning_vi": "cái nào",
+    "meaning_en": "which one",
+    "pos": [
+     "pron."
+    ]
+   },
+   {
+    "hanzi": "接",
+    "pinyin": "jiē",
+    "meaning_vi": "đón",
+    "meaning_en": "to pick up",
+    "pos": [
+     "v."
+    ]
+   }
+  ]
+ }
+]

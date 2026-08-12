@@ -1,0 +1,632 @@
+[
+  {
+    "lesson": 1,
+    "points": [
+      {
+        "hanzi": "\"看上去/看起来\"",
+        "pinyin": "",
+        "vi": "Trông có vẻ",
+        "structure": "Trông/Nhìn có vẻ…",
+        "examples": [
+          {"zh": "她看起来很年轻。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "疑问代词的非疑问用法(1)",
+        "pinyin": "",
+        "vi": "Đại từ phi nghi vấn (1)",
+        "structure": "什么=bất kỳ",
+        "examples": [
+          {"zh": "你想吃什么就吃什么。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "多项定语",
+        "pinyin": "",
+        "vi": "Định ngữ nhiều thành phần",
+        "structure": "Nhiều bổ nghĩa trước N",
+        "examples": [
+          {"zh": "我的那个漂亮的朋友", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 2,
+    "points": [
+      {
+        "hanzi": "\"又……又……\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"vừa…vừa…\"",
+        "structure": "Vừa…vừa… (đã xảy ra)",
+        "examples": [
+          {"zh": "又好吃又便宜。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "疑问代词的非疑问用法(2)(3)",
+        "pinyin": "",
+        "vi": "Đại từ phi nghi vấn (2,3)",
+        "structure": "哪儿/谁 = bất kỳ đâu/ai",
+        "examples": [
+          {"zh": "哪儿都能买到。", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 3,
+    "points": [
+      {
+        "hanzi": "程度副词 \"挺\"",
+        "pinyin": "",
+        "vi": "Phó từ \"挺\"",
+        "structure": "Khá, khá là",
+        "examples": [
+          {"zh": "这个挺好的。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "程度补语(1)",
+        "pinyin": "",
+        "vi": "Bổ ngữ trình độ (1)",
+        "structure": "Adj/V+极了/死了",
+        "examples": [
+          {"zh": "累死了！", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"就\" 和 \"才\"",
+        "pinyin": "",
+        "vi": "Phân biệt \"就\" và \"才\"",
+        "structure": "就=sớm, 才=muộn",
+        "examples": [
+          {"zh": "他八点就来了。/ 十点才来。", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 4,
+    "points": [
+      {
+        "hanzi": "\"一……也/都+不/没\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"一…cũng không\"",
+        "structure": "Một chút cũng không",
+        "examples": [
+          {"zh": "一个人也不认识。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "比较句(9)",
+        "pinyin": "",
+        "vi": "Câu so sánh (9)",
+        "structure": "A跟B不一样",
+        "examples": [
+          {"zh": "这家跟别的不一样。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"除了……(以外)\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"ngoài…ra\"",
+        "structure": "Ngoài…ra, còn…",
+        "examples": [
+          {"zh": "除了汉语，还学日语。", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 5,
+    "points": [
+      {
+        "hanzi": "程度补语(2)",
+        "pinyin": "",
+        "vi": "Bổ ngữ trình độ (2)",
+        "structure": "V/Adj+得+mức độ",
+        "examples": [
+          {"zh": "高兴得跳起来。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "量词重叠",
+        "pinyin": "",
+        "vi": "Lượng từ lặp",
+        "structure": "个个/条条 = mỗi",
+        "examples": [
+          {"zh": "个个都很好。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "存现句(3)",
+        "pinyin": "",
+        "vi": "Câu tồn hiện (3)",
+        "structure": "Nơi+V+了+Vật",
+        "examples": [
+          {"zh": "门口来了一个人。", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 6,
+    "points": [
+      {
+        "hanzi": "\"该……了\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"该…了\"",
+        "structure": "Nên…rồi",
+        "examples": [
+          {"zh": "该吃饭了。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"如果……就……\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"nếu…thì\"",
+        "structure": "Nếu…thì…",
+        "examples": [
+          {"zh": "如果下雨，就不去了。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"越来越\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"càng ngày càng\"",
+        "structure": "Càng ngày càng",
+        "examples": [
+          {"zh": "天气越来越冷了。", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 7,
+    "points": [
+      {
+        "hanzi": "连动句(2)",
+        "pinyin": "",
+        "vi": "Câu liên động (2)",
+        "structure": "V1+来/去+V2",
+        "examples": [
+          {"zh": "我回家吃饭。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "比较句(10)",
+        "pinyin": "",
+        "vi": "Câu so sánh (10)",
+        "structure": "A+比+B+更+Adj",
+        "examples": [
+          {"zh": "裙子比短裤更好看。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "程度补语(3)",
+        "pinyin": "",
+        "vi": "Bổ ngữ trình độ (3)",
+        "structure": "Adj+得+很/不得了",
+        "examples": [
+          {"zh": "好吃得不得了。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"不但……而且……\"",
+        "pinyin": "",
+        "vi": "Không chỉ…mà còn",
+        "structure": "Không chỉ…mà còn…",
+        "examples": [
+          {"zh": "不但会说，而且说得好。", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 8,
+    "points": [
+      {
+        "hanzi": "趋向补语的引申用法(1)",
+        "pinyin": "",
+        "vi": "Bổ ngữ xu hướng mở rộng (1)",
+        "structure": "V+起来/下来/下去",
+        "examples": [
+          {"zh": "天气热起来了。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "离合词(2)",
+        "pinyin": "",
+        "vi": "Ly hợp từ (2)",
+        "structure": "Tách từ chèn thành phần",
+        "examples": [
+          {"zh": "住了三天院", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "时量补语(2)",
+        "pinyin": "",
+        "vi": "Bổ ngữ thời lượng (2)",
+        "structure": "V+了+thời gian+了",
+        "examples": [
+          {"zh": "我学了两年了。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"……以前/以后\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"trước/sau khi\"",
+        "structure": "V+以前/以后",
+        "examples": [
+          {"zh": "吃饭以后去散步。", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 9,
+    "points": [
+      {
+        "hanzi": "\"为了……\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"vì/để\"",
+        "structure": "Vì mục đích…",
+        "examples": [
+          {"zh": "为了学好汉语，每天练习。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "可能补语",
+        "pinyin": "",
+        "vi": "Bổ ngữ khả năng",
+        "structure": "V+得/不+kết quả",
+        "examples": [
+          {"zh": "听得懂 / 看不见", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 10,
+    "points": [
+      {
+        "hanzi": "\"把\" 字句(1)",
+        "pinyin": "",
+        "vi": "Câu \"把\" (1)",
+        "structure": "S+把+O+V+bổ ngữ",
+        "examples": [
+          {"zh": "请把门关上。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"在……上/中/下\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"在…trên/trong\"",
+        "structure": "Trong phạm vi",
+        "examples": [
+          {"zh": "在学习上 / 在生活中", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"把\" 字句(2)",
+        "pinyin": "",
+        "vi": "Câu \"把\" (2)",
+        "structure": "把+O+V+到/在/给",
+        "examples": [
+          {"zh": "把书放在桌子上。", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 11,
+    "points": [
+      {
+        "hanzi": "\"还是\" 和 \"或者\"",
+        "pinyin": "",
+        "vi": "Phân biệt 还是/或者",
+        "structure": "还是: câu hỏi, 或者: trần thuật",
+        "examples": [
+          {"zh": "你喝茶还是咖啡？/ 茶或者咖啡都行。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"看来\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"xem ra\"",
+        "structure": "Xem ra, có vẻ",
+        "examples": [
+          {"zh": "看来他不来了。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"把\" 字句(3)",
+        "pinyin": "",
+        "vi": "Câu \"把\" (3)",
+        "structure": "把+O+V+在+nơi",
+        "examples": [
+          {"zh": "把书放在桌子上。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"对……来说\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"đối với…mà nói\"",
+        "structure": "Đối với…mà nói",
+        "examples": [
+          {"zh": "对我来说不太难。", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 12,
+    "points": [
+      {
+        "hanzi": "\"或者……或者……\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"hoặc…hoặc\"",
+        "structure": "Hoặc…hoặc…",
+        "examples": [
+          {"zh": "或者坐地铁，或者打车。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "趋向补语引申(2)",
+        "pinyin": "",
+        "vi": "Bổ ngữ xu hướng mở rộng (2)",
+        "structure": "V+下来 = dừng/ghi lại",
+        "examples": [
+          {"zh": "记下来 / 停下来", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "范围副词 \"就\"",
+        "pinyin": "",
+        "vi": "Phó từ \"就\"",
+        "structure": "Chỉ (hạn chế phạm vi)",
+        "examples": [
+          {"zh": "就你一个人吗？", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "趋向补语引申(3)",
+        "pinyin": "",
+        "vi": "Bổ ngữ xu hướng mở rộng (3)",
+        "structure": "V+出来 = nhận ra",
+        "examples": [
+          {"zh": "我看出来了。", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 13,
+    "points": [
+      {
+        "hanzi": "\"……的话，就……\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"nếu…thì\" (khẩu ngữ)",
+        "structure": "Nếu…thì…",
+        "examples": [
+          {"zh": "有时间的话，来找我。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"把\" 字句(4)",
+        "pinyin": "",
+        "vi": "Câu \"把\" (4)",
+        "structure": "把+O+V+给+người",
+        "examples": [
+          {"zh": "把书还给我。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"一边……一边……\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"vừa…vừa…\"",
+        "structure": "Vừa…vừa… (đồng thời)",
+        "examples": [
+          {"zh": "一边吃饭一边看电视。", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 14,
+    "points": [
+      {
+        "hanzi": "被动句(1)",
+        "pinyin": "",
+        "vi": "Câu bị động (1)",
+        "structure": "S+被+(tác nhân)+V",
+        "examples": [
+          {"zh": "书被借走了。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"先……再/然后……\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"trước…rồi sau\"",
+        "structure": "Trước…rồi…",
+        "examples": [
+          {"zh": "先做作业，然后看电视。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"×什么(啊)\"",
+        "pinyin": "",
+        "vi": "Cấu trúc phản bác",
+        "structure": "V+什么+啊 = việc gì mà V",
+        "examples": [
+          {"zh": "哭什么啊！(Khóc gì mà khóc!)", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 15,
+    "points": [
+      {
+        "hanzi": "介词 \"根据\"",
+        "pinyin": "",
+        "vi": "Giới từ \"根据\"",
+        "structure": "Căn cứ vào",
+        "examples": [
+          {"zh": "根据天气预报，明天下雨。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "数量重叠",
+        "pinyin": "",
+        "vi": "Số lượng lặp",
+        "structure": "数+量+数+量",
+        "examples": [
+          {"zh": "一条一条地看。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"在……看来\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"theo…\"",
+        "structure": "Theo quan điểm của…",
+        "examples": [
+          {"zh": "在我看来，这很好。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"不一会儿\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"chẳng bao lâu\"",
+        "structure": "Không lâu sau",
+        "examples": [
+          {"zh": "不一会儿就到了。", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 16,
+    "points": [
+      {
+        "hanzi": "\"一会儿……一会儿……\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"lúc…lúc…\"",
+        "structure": "Lúc…lúc… (thay đổi)",
+        "examples": [
+          {"zh": "一会儿冷一会儿热。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "介词 \"关于\"",
+        "pinyin": "",
+        "vi": "Giới từ \"关于\"",
+        "structure": "Về (chủ đề)",
+        "examples": [
+          {"zh": "关于这个问题……", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"一般来说\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"nói chung\"",
+        "structure": "Nói chung, thông thường",
+        "examples": [
+          {"zh": "一般来说，他很准时。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "比较句(11)",
+        "pinyin": "",
+        "vi": "Câu so sánh (11)",
+        "structure": "A+有/没有+B+那么+Adj",
+        "examples": [
+          {"zh": "我没有他那么高。", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 17,
+    "points": [
+      {
+        "hanzi": "介词 \"向\"",
+        "pinyin": "",
+        "vi": "Giới từ \"向\"",
+        "structure": "Về phía, hướng tới",
+        "examples": [
+          {"zh": "向前走 / 向老师学习", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"不是……吗？\"",
+        "pinyin": "",
+        "vi": "Câu hỏi phản vấn",
+        "structure": "Chẳng phải…sao?",
+        "examples": [
+          {"zh": "你不是去过吗？", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"……更……\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"càng…hơn\"",
+        "structure": "Càng…hơn nữa",
+        "examples": [
+          {"zh": "我要更努力学习。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"只有……才……\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"chỉ có…mới\"",
+        "structure": "Chỉ khi…mới…",
+        "examples": [
+          {"zh": "只有努力，才能成功。", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 18,
+    "points": [
+      {
+        "hanzi": "\"刚才\" 和 \"刚刚\"",
+        "pinyin": "",
+        "vi": "Phân biệt \"刚才/刚刚\"",
+        "structure": "刚才=vừa nãy, 刚刚=vừa mới",
+        "examples": [
+          {"zh": "刚才他来过。/ 我刚刚到。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"只要……就……\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"chỉ cần…thì\"",
+        "structure": "Chỉ cần…thì…",
+        "examples": [
+          {"zh": "只要你来，我就高兴。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "\"从……起\"",
+        "pinyin": "",
+        "vi": "Cấu trúc \"từ…bắt đầu\"",
+        "structure": "Từ…bắt đầu",
+        "examples": [
+          {"zh": "从明天起，每天锻炼。", "py": "", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "概数表达法",
+        "pinyin": "",
+        "vi": "Cách nói số ước lượng",
+        "structure": "Số~số / 几+量 / 多",
+        "examples": [
+          {"zh": "七八个人 / 几十块", "py": "", "vi": ""}
+        ]
+      }
+    ]
+  }
+]

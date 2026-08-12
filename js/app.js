@@ -1,0 +1,1016 @@
+/* HSK Ôn Từ — vanilla JS single-page app
+   Tự viết toàn bộ, không sao chép code từ trang nào khác. */
+
+const LEVELS = [
+  { id: "1",   label: "HSK 1",   file: "hsk1.json",   grammar: "grammar1.json" },
+  { id: "2",   label: "HSK 2",   file: "hsk2.json",   grammar: "grammar2.json" },
+  { id: "3",   label: "HSK 3",   file: "hsk3.json",   grammar: "grammar3.json" },
+  { id: "4",   label: "HSK 4",   file: "hsk4.json" },
+  { id: "5",   label: "HSK 5",   file: "hsk5.json" },
+  { id: "6",   label: "HSK 6",   file: "hsk6.json" },
+  { id: "7-9", label: "HSK 7-9", file: "hsk7-9.json" },
+];
+
+const UNIT_SIZE = 20;
+
+const POS_LABEL = {
+  n: "danh từ", v: "động từ", a: "tính từ", d: "phó từ", ad: "phó từ",
+  p: "giới từ", c: "liên từ", cc: "liên từ", m: "số từ", q: "lượng từ",
+  qt: "lượng từ", qv: "lượng từ", r: "đại từ", u: "trợ từ", y: "trợ từ",
+  e: "thán từ", o: "thán từ", i: "thành ngữ", l: "cụm cố định",
+  j: "từ viết tắt", t: "từ chỉ thời gian", s: "từ chỉ vị trí",
+  f: "từ chỉ phương vị", b: "định ngữ", vn: "danh động từ", g: "từ tố", x: "khác",
+  /* Nhãn từ loại rút gọn dùng cho dữ liệu HSK1-3 (theo giáo trình HSK 3.0) */
+  "n.": "danh từ", "v.": "động từ", "adj.": "tính từ", "adv.": "phó từ",
+  "pron.": "đại từ", "conj.": "liên từ", "prep.": "giới từ", "mod.": "định ngữ",
+  "m.": "lượng từ", "part.": "trợ từ", "int.": "thán từ", "pref.": "tiền tố",
+  "suf.": "hậu từ", "num.": "số từ",
+};
+
+const dataCache = {};
+const grammarCache = {};
+
+function levelInfo(id) {
+  return LEVELS.find(l => l.id === id);
+}
+
+function stripTones(py) {
+  const map = {
+    "āáǎàa": "a", "ēéěèe": "e", "īíǐìi": "i", "ōóǒòo": "o",
+    "ūúǔùu": "u", "ǖǘǚǜü": "v", "ńňǹn": "n", "ḿm": "m",
+  };
+  let out = py.toLowerCase();
+  for (const group in map) {
+    for (const ch of group) {
+      out = out.split(ch).join(map[group]);
+    }
+  }
+  return out.replace(/[^a-z]/g, "");
+}
+
+function chunk(arr, size) {
+  const out = [];
+  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+  return out;
+}
+
+async function fetchLevelData(id) {
+  if (dataCache[id]) return dataCache[id];
+  const info = levelInfo(id);
+  const res = await fetch(`data/${info.file}`);
+  const data = await res.json();
+  dataCache[id] = data;
+  return data;
+}
+
+async function fetchGrammarData(id) {
+  if (grammarCache[id]) return grammarCache[id];
+  const info = levelInfo(id);
+  if (!info.grammar) return null;
+  const res = await fetch(`data/${info.grammar}`);
+  const data = await res.json();
+  grammarCache[id] = data;
+  return data;
+}
+
+function speak(text) {
+  if (!("speechSynthesis" in window)) return;
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = "zh-CN";
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+
+function meaningOf(w) {
+  if (w.meaning_vi && w.meaning_vi.trim()) {
+    return { text: w.meaning_vi, pending: false };
+  }
+  return { text: w.meaning_en || "(chưa có nghĩa)", pending: true };
+}
+
+function posLabel(p) {
+  if (POS_LABEL[p]) return POS_LABEL[p];
+  // Nhãn ghép kiểu "n./v." — dịch từng phần rồi nối lại.
+  if (p.includes("/")) {
+    return p.split("/").map(part => POS_LABEL[part.trim()] || part.trim()).join("/");
+  }
+  return p;
+}
+
+function posBadges(pos) {
+  if (!pos || !pos.length) return "";
+  return pos.slice(0, 2).map(p => `<span class="pos-tag">${posLabel(p)}</span>`).join(" ");
+}
+
+/* ---------------- Cấu trúc dữ liệu: theo bài học (HSK1-3) hay theo lô tần suất (HSK4-9) ---------------- */
+
+function isLessonBased(data) {
+  return Array.isArray(data) && data.length > 0 && Array.isArray(data[0].words);
+}
+
+function allWords(data) {
+  return isLessonBased(data) ? data.flatMap(l => l.words) : data;
+}
+
+function wordCount(data) {
+  return allWords(data).length;
+}
+
+/* Trả về danh sách "bài" đồng nhất, dù dữ liệu theo giáo trình thật hay theo lô 20 từ. */
+function getUnits(data) {
+  if (isLessonBased(data)) {
+    return data.map(l => ({
+      title: `Bài ${l.lesson} · ${l.title_zh}`,
+      sub: l.title_vi,
+      sample: l.words.slice(0, 4).map(w => w.hanzi).join(" · "),
+      words: l.words,
+    }));
+  }
+  const chunks = chunk(data, UNIT_SIZE);
+  let start = 0;
+  return chunks.map((w, i) => {
+    const u = {
+      title: `Bài ${i + 1}`,
+      sub: `Từ ${start + 1}–${start + w.length}`,
+      sample: w.slice(0, 4).map(x => x.hanzi).join(" · "),
+      words: w,
+    };
+    start += w.length;
+    return u;
+  });
+}
+
+/* ---------------- Phân quyền theo lớp/trình độ ---------------- */
+
+/* Khách CHƯA đăng nhập không xem được nội dung ôn tập nào cả (chỉ giáo viên
+   mới tạo được tài khoản, nên "đăng nhập được" đồng nghĩa "được giáo viên
+   cấp tài khoản"). Giáo viên xem được mọi trình độ. Học viên chỉ xem được
+   đúng trình độ của lớp mình được phân. Tài khoản đã đăng nhập nhưng chưa có
+   hồ sơ hợp lệ (thiếu document users/{uid}) cũng bị chặn hoàn toàn. */
+function canAccessLevel(levelId) {
+  if (!window.HSKAuth || !HSKAuth.isConfigured) return false;
+  if (!HSKAuth.user) return false;
+  const profile = HSKAuth.profile;
+  if (!profile) return false;
+  if (profile.role === "teacher") return true;
+  if (profile.role === "student") return profile.level === levelId;
+  return false;
+}
+
+function isLoggedIn() {
+  return !!(window.HSKAuth && HSKAuth.user);
+}
+
+function isRestrictedStudent() {
+  return !!(window.HSKAuth && HSKAuth.user && HSKAuth.profile && HSKAuth.profile.role === "student");
+}
+
+function loginPromptNote() {
+  return `<div class="empty-note">
+    Nội dung ôn tập chỉ dành cho tài khoản đã đăng nhập.<br>
+    Tài khoản học viên do giáo viên cấp sẵn (kèm phân lớp) — liên hệ giáo viên phụ trách để được cấp tài khoản.<br><br>
+    <a href="#/login" class="btn primary" style="display:inline-block;">Đăng nhập</a>
+  </div>`;
+}
+
+/* ---------------- Router ---------------- */
+
+function parseHash() {
+  const h = location.hash.replace(/^#\/?/, "");
+  return h.split("/").filter(Boolean);
+}
+
+window.addEventListener("hashchange", render);
+window.addEventListener("DOMContentLoaded", () => {
+  buildNav();
+  render();
+});
+
+function buildNav() {
+  const nav = document.getElementById("level-nav");
+  const visibleLevels = LEVELS.filter(l => canAccessLevel(l.id));
+  let extra = "";
+  if (isRestrictedStudent()) {
+    const own = levelInfo(HSKAuth.profile.level);
+    extra = `<span class="nav-locked-note">🔒 Lớp của bạn: ${escapeHtml(HSKAuth.profile.className || (own ? own.label : HSKAuth.profile.level || "chưa được phân lớp"))}</span>`;
+  } else if (window.HSKAuth && HSKAuth.isConfigured && !HSKAuth.user) {
+    extra = `<span class="nav-locked-note">🔒 Đăng nhập để xem nội dung</span>`;
+  }
+  nav.innerHTML = `<a href="#/" data-nav="home">Trang chủ</a>` +
+    visibleLevels.map(l => `<a href="#/level/${l.id}" data-nav="${l.id}">${l.label}</a>`).join("") +
+    extra;
+}
+
+function markActiveNav(id) {
+  document.querySelectorAll("#level-nav a").forEach(a => {
+    a.classList.toggle("active", a.dataset.nav === (id || "home"));
+  });
+}
+
+async function render() {
+  const parts = parseHash();
+  const app = document.getElementById("app");
+  app.innerHTML = `<p class="empty-note">Đang tải...</p>`;
+  if (window.HSKAuth) HSKAuth.stopHeartbeat(); // chỉ chạy khi đang ở trang một bài học cụ thể
+
+  try {
+    if (parts.length === 0) {
+      markActiveNav(null);
+      await renderHome(app);
+      return;
+    }
+    if (parts[0] === "login") { markActiveNav(null); await renderLogin(app); return; }
+    if (parts[0] === "signup") { markActiveNav(null); await renderSignup(app); return; }
+    if (parts[0] === "teacher") { markActiveNav(null); await renderTeacherPage(app); return; }
+    if (parts[0] === "level") {
+      const id = parts[1];
+      markActiveNav(id);
+      if (!canAccessLevel(id)) {
+        app.innerHTML = accessDeniedNote(id);
+        return;
+      }
+      if (parts[2] === "grammar") {
+        await renderGrammar(app, id);
+      } else if (parts[2] === "unit") {
+        const unitIdx = parts[3];
+        const mode = parts[4] || "list";
+        await renderUnit(app, id, unitIdx, mode);
+      } else {
+        await renderLevel(app, id);
+      }
+      return;
+    }
+    app.innerHTML = `<p class="empty-note">Không tìm thấy trang.</p>`;
+  } catch (err) {
+    console.error(err);
+    app.innerHTML = `<p class="empty-note">Có lỗi khi tải dữ liệu: ${err.message}</p>`;
+  }
+}
+
+if (window.HSKAuth) {
+  HSKAuth.onChange(() => {
+    // Vai trò/lớp có thể vừa thay đổi (đăng nhập/đăng xuất) — làm mới cả
+    // thanh điều hướng (danh sách trình độ được phép) lẫn nội dung trang.
+    buildNav();
+    render();
+  });
+}
+
+function accessDeniedNote(id) {
+  if (!window.HSKAuth || !HSKAuth.isConfigured) return authNotConfiguredNote();
+  if (!HSKAuth.user) return loginPromptNote();
+  const profile = HSKAuth.profile;
+  if (!profile) {
+    return `<div class="empty-note">Tài khoản này chưa được giáo viên cấp hồ sơ học tập.<br>Vui lòng liên hệ giáo viên phụ trách.</div>`;
+  }
+  if (profile && profile.role === "student") {
+    const own = levelInfo(profile.level);
+    return `<div class="empty-note">
+      Tài khoản của bạn được phân vào lớp trình độ <b>${own ? escapeHtml(own.label) : escapeHtml(profile.level || "?")}</b>,
+      nên chỉ ôn tập được nội dung ở trình độ đó.
+      ${own ? `<br><a href="#/level/${own.id}">Đến trang ${escapeHtml(own.label)} →</a>` : ""}
+    </div>`;
+  }
+  return `<div class="empty-note">Bạn không có quyền xem trình độ này.</div>`;
+}
+
+/* ---------------- Home ---------------- */
+
+async function renderHome(app) {
+  // Khách chưa đăng nhập (hoặc đăng nhập chưa được cấu hình) không xem được
+  // nội dung nào — không tải dữ liệu từ vựng, chỉ hiện lời mời đăng nhập.
+  if (!window.HSKAuth || !HSKAuth.isConfigured) {
+    app.innerHTML = `
+      <section class="hero">
+        <h1>Ôn từ vựng HSK 3.0</h1>
+        <p>Trang đang trong quá trình thiết lập đăng nhập.</p>
+      </section>
+      ${authNotConfiguredNote()}
+    `;
+    return;
+  }
+  await HSKAuth.ready;
+  if (!HSKAuth.user) {
+    app.innerHTML = `
+      <section class="hero">
+        <h1>Ôn từ vựng HSK 3.0</h1>
+        <p>Học theo từng cấp độ với 4 chế độ: xem danh sách, lật thẻ ghi nhớ, trắc nghiệm và điền pinyin.</p>
+      </section>
+      ${loginPromptNote()}
+    `;
+    return;
+  }
+
+  const dataSets = await Promise.all(LEVELS.map(l => fetchLevelData(l.id)));
+  const total = dataSets.reduce((s, d) => s + wordCount(d), 0);
+  const restricted = isRestrictedStudent();
+
+  app.innerHTML = `
+    <section class="hero">
+      <h1>Ôn từ vựng HSK 3.0</h1>
+      <p>Học theo từng cấp độ với 4 chế độ: xem danh sách, lật thẻ ghi nhớ, trắc nghiệm và điền pinyin.</p>
+      <div class="stat-row">
+        <div class="stat"><b>${LEVELS.length}</b><span>Cấp độ</span></div>
+        <div class="stat"><b>${total.toLocaleString("vi-VN")}</b><span>Từ vựng</span></div>
+        <div class="stat"><b>4</b><span>Chế độ ôn</span></div>
+      </div>
+      ${restricted ? `<p class="class-banner">🔒 Bạn thuộc lớp <b>${escapeHtml(HSKAuth.profile.className || "")}</b> — chỉ ôn tập được trình độ ${escapeHtml((levelInfo(HSKAuth.profile.level) || {}).label || HSKAuth.profile.level || "")}.</p>` : ""}
+    </section>
+    <div class="level-grid">
+      ${LEVELS.map((l, i) => {
+        const allowed = canAccessLevel(l.id);
+        const inner = `
+          <div class="lc-top">
+            <span class="badge">${l.label}</span>
+            ${l.grammar ? '<span class="badge" style="background:#e5f4ea;color:#1f6b3c;">có ngữ pháp</span>' : ""}
+            ${!allowed ? '<span class="badge lock-badge">🔒</span>' : ""}
+          </div>
+          <h3>Từ vựng ${l.label}</h3>
+          <p>${wordCount(dataSets[i]).toLocaleString("vi-VN")} từ · ${getUnits(dataSets[i]).length} bài học</p>
+        `;
+        return allowed
+          ? `<a class="level-card" href="#/level/${l.id}">${inner}</a>`
+          : `<div class="level-card locked" title="Ngoài trình độ lớp bạn được phân">${inner}</div>`;
+      }).join("")}
+    </div>
+  `;
+}
+
+/* ---------------- Level page ---------------- */
+
+async function renderLevel(app, id) {
+  const info = levelInfo(id);
+  if (!info) { app.innerHTML = `<p class="empty-note">Cấp độ không tồn tại.</p>`; return; }
+  const data = await fetchLevelData(id);
+  const units = getUnits(data);
+  const total = wordCount(data);
+  const lessonBased = isLessonBased(data);
+  const orderNote = lessonBased
+    ? "sắp theo đúng thứ tự giáo trình HSK 3.0"
+    : `mỗi bài ${UNIT_SIZE} từ, sắp theo độ thông dụng`;
+
+  app.innerHTML = `
+    <div class="crumbs"><a href="#/">Trang chủ</a> / ${info.label}</div>
+    <div class="section-title"><h2>Từ vựng ${info.label}</h2></div>
+    <p class="section-sub">${total.toLocaleString("vi-VN")} từ · ${units.length} bài học (${orderNote})</p>
+
+    <div class="unit-grid">
+      <a class="unit-card highlight-card" href="#/level/${id}/unit/all/list">
+        <div class="u-title">⭐ Ôn toàn bộ ${info.label}</div>
+        <div class="u-sub">${total.toLocaleString("vi-VN")} từ</div>
+        <div class="u-sample">Danh sách · Lật thẻ · Trắc nghiệm · Điền từ</div>
+      </a>
+      ${info.grammar ? `
+      <a class="unit-card highlight-card" href="#/level/${id}/grammar">
+        <div class="u-title">📖 Ngữ pháp ${info.label}</div>
+        <div class="u-sub">Lý thuyết + ví dụ</div>
+        <div class="u-sample">Xem điểm ngữ pháp</div>
+      </a>` : ""}
+      ${units.map((u, i) => `
+        <a class="unit-card" href="#/level/${id}/unit/${i}/list">
+          <div class="u-title">${u.title}</div>
+          <div class="u-sub">${u.sub}</div>
+          <div class="u-sample">${u.sample}…</div>
+          <span class="pill">${u.words.length} từ</span>
+        </a>
+      `).join("")}
+    </div>
+  `;
+}
+
+/* ---------------- Unit (4 modes) ---------------- */
+
+async function renderUnit(app, id, unitIdx, mode) {
+  const info = levelInfo(id);
+  const data = await fetchLevelData(id);
+  const units = getUnits(data);
+  const isAll = unitIdx === "all";
+  const unit = isAll ? null : units[Number(unitIdx)];
+  const words = isAll ? allWords(data) : (unit && unit.words);
+
+  if (!words) { app.innerHTML = `<p class="empty-note">Không tìm thấy bài học.</p>`; return; }
+
+  const unitLabel = isAll ? `Ôn toàn bộ ${info.label}` : `${unit.title}${unit.sub ? ` — ${unit.sub}` : ""}`;
+  const baseUrl = `#/level/${id}/unit/${unitIdx}`;
+
+  const tabs = [
+    ["list", "📋 Danh sách"],
+    ["flash", "🔄 Lật thẻ"],
+    ["quiz", "✏️ Trắc nghiệm"],
+    ["fill", "⌨️ Điền pinyin"],
+  ];
+
+  const header = `
+    <div class="crumbs"><a href="#/">Trang chủ</a> / <a href="#/level/${id}">${info.label}</a> / ${unitLabel}</div>
+    <div class="section-title"><h2>${unitLabel}</h2></div>
+    <p class="section-sub">${words.length.toLocaleString("vi-VN")} từ</p>
+    <div class="tab-row">
+      ${tabs.map(([m, label]) => `<a class="${mode === m ? "active" : ""}" href="${baseUrl}/${m}">${label}</a>`).join("")}
+    </div>
+    <div id="unit-body"></div>
+  `;
+  app.innerHTML = header;
+  const body = document.getElementById("unit-body");
+  const ctx = { level: id, unitKey: unitIdx, unitLabel };
+
+  if (window.HSKAuth && HSKAuth.user) {
+    HSKAuth.recordUnitViewed(id, unitIdx, unitLabel);
+    HSKAuth.startHeartbeat();
+  }
+
+  if (mode === "list") renderListMode(body, words, id);
+  else if (mode === "flash") renderFlashMode(body, words);
+  else if (mode === "quiz") renderQuizMode(body, words, ctx);
+  else if (mode === "fill") renderFillMode(body, words, ctx);
+  else body.innerHTML = `<p class="empty-note">Chế độ không hợp lệ.</p>`;
+}
+
+/* Các cấp có nút "cách viết" (hoạt hình nét bút) — dùng thư viện HanziWriter,
+   giống tính năng trên trang Meiday Chinese. */
+const STROKE_ORDER_LEVELS = ["1", "2", "3"];
+const HANZI_RE = /[一-鿿]/;
+
+function renderListMode(body, words, levelId) {
+  const canWrite = STROKE_ORDER_LEVELS.includes(levelId) && typeof HanziWriter !== "undefined";
+
+  body.innerHTML = `<div class="word-list">
+    ${words.map((w, i) => {
+      const m = meaningOf(w);
+      const chars = canWrite ? [...w.hanzi].filter(ch => HANZI_RE.test(ch)) : [];
+      return `
+        <div class="word-item">
+          <div class="word-row${canWrite ? " word-row-clickable" : ""}" ${canWrite ? `data-toggle-write="${i}"` : ""}>
+            <button class="speak-btn" data-say="${encodeURIComponent(w.hanzi)}">🔊</button>
+            <div class="hz">${w.hanzi}</div>
+            <div class="py">${w.pinyin}</div>
+            <div class="mn">
+              ${m.text}${m.pending ? '<span class="vi-pending">EN · chưa dịch</span>' : ""}
+            </div>
+            ${posBadges(w.pos)}
+            ${canWrite ? `<span class="write-toggle-hint">✏️ Cách viết</span>` : ""}
+          </div>
+          ${canWrite ? `
+            <div class="write-panel" id="write-panel-${i}" hidden>
+              ${chars.map((ch, ci) => `
+                <div class="write-char">
+                  <div class="write-target" id="write-target-${i}-${ci}" data-char="${ch}"></div>
+                  <button class="write-play" data-play="${i}-${ci}">▶ Xem viết</button>
+                </div>
+              `).join("")}
+            </div>
+          ` : ""}
+        </div>
+      `;
+    }).join("")}
+  </div>`;
+
+  body.querySelectorAll("[data-say]").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      speak(decodeURIComponent(btn.dataset.say));
+    });
+  });
+
+  if (!canWrite) return;
+
+  const writers = {};
+  body.querySelectorAll("[data-toggle-write]").forEach(row => {
+    row.addEventListener("click", () => {
+      const panel = document.getElementById(`write-panel-${row.dataset.toggleWrite}`);
+      if (panel) panel.hidden = !panel.hidden;
+    });
+  });
+  body.querySelectorAll("[data-play]").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const key = btn.dataset.play;
+      const target = document.getElementById(`write-target-${key}`);
+      if (!target) return;
+      if (!writers[key]) {
+        writers[key] = HanziWriter.create(target, target.dataset.char, {
+          width: 88, height: 88, padding: 4,
+          strokeAnimationSpeed: 1,
+          delayBetweenStrokes: 200,
+          showOutline: true,
+          strokeColor: "#2b3a55",
+          outlineColor: "#d8dee5",
+        });
+      } else {
+        writers[key].showCharacter({ duration: 0 });
+      }
+      writers[key].animateCharacter();
+    });
+  });
+}
+
+/* ---- Flashcard mode ---- */
+function renderFlashMode(body, words) {
+  let order = words.map((_, i) => i);
+  let pos = 0;
+
+  function draw() {
+    const w = words[order[pos]];
+    const m = meaningOf(w);
+    body.innerHTML = `
+      <div class="flash-wrap">
+        <div class="flash-progress">${pos + 1} / ${order.length}</div>
+        <div class="flashcard" id="fc">
+          <div class="flashcard-inner">
+            <div class="flash-face front">
+              <div class="big-hz">${w.hanzi}</div>
+              <div class="big-py">${w.pinyin}</div>
+              ${posBadges(w.pos)}
+            </div>
+            <div class="flash-face back">
+              <div class="big-mn">${m.text}</div>
+              ${m.pending ? '<div class="small-mn">(nghĩa tiếng Anh — chưa có bản dịch tiếng Việt)</div>' : ""}
+              <div class="big-py" style="margin-top:10px;">${w.pinyin}</div>
+            </div>
+          </div>
+        </div>
+        <div class="flash-controls">
+          <button class="btn" id="fc-prev" ${pos === 0 ? "disabled" : ""}>← Trước</button>
+          <button class="btn amber" id="fc-shuffle">🔀 Trộn</button>
+          <button class="btn primary" id="fc-next" ${pos === order.length - 1 ? "disabled" : ""}>Tiếp →</button>
+        </div>
+      </div>
+    `;
+    document.getElementById("fc").addEventListener("click", (e) => {
+      document.getElementById("fc").classList.toggle("flipped");
+    });
+    document.getElementById("fc-prev").addEventListener("click", (e) => { e.stopPropagation(); if (pos > 0) { pos--; draw(); } });
+    document.getElementById("fc-next").addEventListener("click", (e) => { e.stopPropagation(); if (pos < order.length - 1) { pos++; draw(); } });
+    document.getElementById("fc-shuffle").addEventListener("click", (e) => {
+      e.stopPropagation();
+      for (let i = order.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [order[i], order[j]] = [order[j], order[i]];
+      }
+      pos = 0;
+      draw();
+    });
+  }
+  draw();
+}
+
+/* ---- Quiz mode ---- */
+function renderQuizMode(body, words, ctx) {
+  const pool = [...words];
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  const questions = pool.slice(0, Math.min(10, pool.length));
+  let qi = 0, score = 0, answered = false;
+
+  function draw() {
+    if (qi >= questions.length) {
+      if (window.HSKAuth && HSKAuth.user && ctx) {
+        HSKAuth.recordAttempt({ level: ctx.level, unitKey: ctx.unitKey, unitLabel: ctx.unitLabel, mode: "quiz", score, total: questions.length });
+      }
+      body.innerHTML = `
+        <div class="quiz-result-box">
+          <div class="score-big">${score}/${questions.length}</div>
+          <p>Bạn đã trả lời đúng ${score} trên ${questions.length} câu.</p>
+          <button class="btn primary" id="q-retry">Làm lại</button>
+        </div>`;
+      document.getElementById("q-retry").addEventListener("click", () => renderQuizMode(body, words, ctx));
+      return;
+    }
+    const w = questions[qi];
+    const correct = meaningOf(w).text;
+    const distractorPool = words.filter(x => x.hanzi !== w.hanzi);
+    const distractors = [];
+    const used = new Set([correct]);
+    while (distractors.length < 3 && distractorPool.length) {
+      const idx = Math.floor(Math.random() * distractorPool.length);
+      const cand = meaningOf(distractorPool[idx]).text;
+      if (!used.has(cand)) { used.add(cand); distractors.push(cand); }
+      distractorPool.splice(idx, 1);
+    }
+    const options = [correct, ...distractors];
+    for (let i = options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [options[i], options[j]] = [options[j], options[i]];
+    }
+    answered = false;
+
+    body.innerHTML = `
+      <div class="quiz-wrap">
+        <div class="quiz-progress">Câu ${qi + 1} / ${questions.length} · Điểm: ${score}</div>
+        <div class="quiz-card">
+          <div class="quiz-hz">${w.hanzi}</div>
+          <div class="quiz-py">${w.pinyin}</div>
+          <div class="quiz-options">
+            ${options.map(o => `<button class="quiz-option" data-val="${encodeURIComponent(o)}">${o}</button>`).join("")}
+          </div>
+        </div>
+      </div>
+    `;
+    body.querySelectorAll(".quiz-option").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (answered) return;
+        answered = true;
+        const val = decodeURIComponent(btn.dataset.val);
+        if (val === correct) { btn.classList.add("correct"); score++; }
+        else {
+          btn.classList.add("wrong");
+          body.querySelectorAll(".quiz-option").forEach(b => {
+            if (decodeURIComponent(b.dataset.val) === correct) b.classList.add("correct");
+          });
+          if (window.HSKAuth && HSKAuth.user) HSKAuth.recordWrongWord(w.hanzi);
+        }
+        setTimeout(() => { qi++; draw(); }, 900);
+      });
+    });
+  }
+  draw();
+}
+
+/* ---- Fill-in-pinyin mode ---- */
+function renderFillMode(body, words, ctx) {
+  const pool = [...words];
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  const questions = pool.slice(0, Math.min(15, pool.length));
+  let qi = 0, score = 0;
+
+  function draw() {
+    if (qi >= questions.length) {
+      if (window.HSKAuth && HSKAuth.user && ctx) {
+        HSKAuth.recordAttempt({ level: ctx.level, unitKey: ctx.unitKey, unitLabel: ctx.unitLabel, mode: "fill", score, total: questions.length });
+      }
+      body.innerHTML = `
+        <div class="quiz-result-box">
+          <div class="score-big">${score}/${questions.length}</div>
+          <p>Bạn đã điền đúng pinyin ${score} trên ${questions.length} từ.</p>
+          <button class="btn primary" id="f-retry">Làm lại</button>
+        </div>`;
+      document.getElementById("f-retry").addEventListener("click", () => renderFillMode(body, words, ctx));
+      return;
+    }
+    const w = questions[qi];
+    const m = meaningOf(w);
+    body.innerHTML = `
+      <div class="quiz-progress" style="text-align:center;">Câu ${qi + 1} / ${questions.length} · Điểm: ${score}</div>
+      <div class="fill-card">
+        <div class="fill-hz">${w.hanzi}</div>
+        <div class="fill-mn">${m.text}</div>
+        <input type="text" id="f-input" placeholder="Nhập pinyin (không cần dấu thanh)" autocomplete="off">
+        <div class="fill-hint" id="f-hint">Gõ pinyin rồi nhấn Enter hoặc bấm Kiểm tra.</div>
+        <div class="flash-controls" style="justify-content:center; margin-top:10px;">
+          <button class="btn primary" id="f-check">Kiểm tra</button>
+          <button class="btn" id="f-skip">Bỏ qua →</button>
+        </div>
+      </div>
+    `;
+    const input = document.getElementById("f-input");
+    input.focus();
+    const hint = document.getElementById("f-hint");
+    let checked = false;
+
+    function check() {
+      if (checked) return;
+      checked = true;
+      const ans = stripTones(input.value.trim());
+      const target = stripTones(w.pinyin);
+      if (ans && ans === target) {
+        input.classList.add("correct");
+        hint.textContent = "✓ Chính xác!";
+        score++;
+      } else {
+        input.classList.add("wrong");
+        hint.textContent = `✗ Đáp án đúng: ${w.pinyin}`;
+        if (window.HSKAuth && HSKAuth.user) HSKAuth.recordWrongWord(w.hanzi);
+      }
+      setTimeout(() => { qi++; draw(); }, 1100);
+    }
+    document.getElementById("f-check").addEventListener("click", check);
+    document.getElementById("f-skip").addEventListener("click", () => { qi++; draw(); });
+    input.addEventListener("keydown", (e) => { if (e.key === "Enter") check(); });
+  }
+  draw();
+}
+
+/* ---------------- Grammar page ---------------- */
+
+async function renderGrammar(app, id) {
+  const info = levelInfo(id);
+  const lessons = await fetchGrammarData(id);
+  const totalPoints = lessons ? lessons.reduce((sum, l) => sum + l.points.length, 0) : 0;
+
+  app.innerHTML = `
+    <div class="crumbs"><a href="#/">Trang chủ</a> / <a href="#/level/${id}">${info.label}</a> / Ngữ pháp</div>
+    <div class="section-title"><h2>Ngữ pháp ${info.label}</h2></div>
+    <p class="section-sub">${lessons ? `${totalPoints} điểm ngữ pháp · ${lessons.length} bài` : ""}</p>
+    <div id="gram-body"></div>
+  `;
+  const gbody = document.getElementById("gram-body");
+
+  if (!lessons) {
+    gbody.innerHTML = `<div class="empty-note">Phần ngữ pháp cho ${info.label} đang được biên soạn, sẽ cập nhật sau.</div>`;
+    return;
+  }
+
+  gbody.innerHTML = lessons.map(l => `
+    <div class="gram-lesson">
+      <h3 class="gram-lesson-title">Bài ${l.lesson}</h3>
+      <div class="grammar-list">
+        ${l.points.map(p => `
+          <div class="gram-card">
+            <h4 class="gram-name">${p.hanzi}${p.pinyin ? ` <span class="gram-py">(${p.pinyin})</span>` : ""}</h4>
+            ${p.vi ? `<div class="gram-vi">${p.vi}</div>` : ""}
+            ${p.structure ? `<div class="gram-struct">${p.structure}</div>` : ""}
+            ${p.examples.map(ex => `
+              <div class="gram-ex">
+                <div class="zh">${ex.zh}</div>
+                ${ex.py ? `<div class="py">${ex.py}</div>` : ""}
+                ${ex.vi ? `<div class="vi">${ex.vi}</div>` : ""}
+              </div>
+            `).join("")}
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `).join("");
+}
+
+/* ---------------- Đăng nhập / đăng ký / trang giáo viên ---------------- */
+
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"']/g, (c) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+  }[c]));
+}
+
+function authNotConfiguredNote() {
+  return `<div class="empty-note">
+    Tính năng đăng nhập / theo dõi tiến độ chưa được bật.<br>
+    Chủ trang cần làm theo hướng dẫn trong file <code>FIREBASE_SETUP.md</code> đi kèm để bật (miễn phí, khoảng 10 phút).
+  </div>`;
+}
+
+async function renderLogin(app) {
+  if (!window.HSKAuth || !HSKAuth.isConfigured) { app.innerHTML = authNotConfiguredNote(); return; }
+  await HSKAuth.ready;
+  if (HSKAuth.user) {
+    app.innerHTML = `<div class="empty-note">Bạn đã đăng nhập rồi. <a href="#/">Về trang chủ</a></div>`;
+    return;
+  }
+  app.innerHTML = `
+    <div class="auth-page">
+      <h2>Đăng nhập</h2>
+      <form id="login-form" class="auth-form">
+        <label>Email<input type="email" name="email" required autocomplete="email"></label>
+        <label>Mật khẩu<input type="password" name="password" required autocomplete="current-password"></label>
+        <div id="login-err" class="auth-err"></div>
+        <button class="btn primary" type="submit">Đăng nhập</button>
+      </form>
+      <p class="auth-links">
+        <a href="#" id="reset-pw-link">Quên mật khẩu?</a>
+      </p>
+      <p class="auth-note-small">Chưa có tài khoản? Tài khoản học viên do giáo viên tạo sẵn — liên hệ giáo viên phụ trách để được cấp.</p>
+    </div>
+  `;
+  const form = document.getElementById("login-form");
+  const errBox = document.getElementById("login-err");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    errBox.className = "auth-err";
+    errBox.textContent = "";
+    const fd = new FormData(form);
+    try {
+      await HSKAuth.logIn(fd.get("email"), fd.get("password"));
+      location.hash = "#/";
+    } catch (err) {
+      errBox.textContent = HSKAuth.friendlyError(err);
+    }
+  });
+  document.getElementById("reset-pw-link").addEventListener("click", async (e) => {
+    e.preventDefault();
+    const email = form.email.value.trim();
+    if (!email) { errBox.textContent = 'Nhập email trước, rồi bấm lại "Quên mật khẩu?".'; return; }
+    try {
+      await HSKAuth.resetPassword(email);
+      errBox.className = "auth-err ok";
+      errBox.textContent = "Đã gửi email đặt lại mật khẩu — kiểm tra hộp thư của bạn.";
+    } catch (err) {
+      errBox.className = "auth-err";
+      errBox.textContent = HSKAuth.friendlyError(err);
+    }
+  });
+}
+
+async function renderSignup(app) {
+  // Không còn đường tự đăng ký công khai — chỉ giáo viên mới tạo được tài
+  // khoản học viên (từ Trang giáo viên), để đảm bảo mỗi học viên luôn được
+  // gán sẵn vào đúng lớp/trình độ ngay từ khi có tài khoản.
+  app.innerHTML = `<div class="empty-note">
+    Trang này không còn được dùng để tự đăng ký.<br>
+    Tài khoản học viên do <b>giáo viên</b> tạo sẵn (kèm phân lớp) — vui lòng liên hệ giáo viên phụ trách để được cấp tài khoản.<br><br>
+    Đã có tài khoản? <a href="#/login">Đăng nhập tại đây</a>.
+  </div>`;
+}
+
+let teacherFlash = null; // thông báo ngắn hạn hiển thị lại sau khi trang giáo viên tự tải lại
+
+function randomPassword() {
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789";
+  let out = "";
+  for (let i = 0; i < 8; i++) out += chars[Math.floor(Math.random() * chars.length)];
+  return out;
+}
+
+async function renderTeacherPage(app) {
+  if (!window.HSKAuth || !HSKAuth.isConfigured) { app.innerHTML = authNotConfiguredNote(); return; }
+  await HSKAuth.ready;
+  if (!HSKAuth.user) {
+    app.innerHTML = `<div class="empty-note">Bạn cần <a href="#/login">đăng nhập</a> để xem trang này.</div>`;
+    return;
+  }
+  if (!HSKAuth.profile || HSKAuth.profile.role !== "teacher") {
+    app.innerHTML = `<div class="empty-note">Tài khoản này chưa có quyền giáo viên.<br>Xem hướng dẫn nâng quyền trong file <code>FIREBASE_SETUP.md</code>.</div>`;
+    return;
+  }
+
+  app.innerHTML = `<div class="section-title"><h2>📊 Trang giáo viên</h2></div>
+    <p class="section-sub">Đang tải dữ liệu...</p>`;
+
+  let students, classes;
+  try {
+    [students, classes] = await Promise.all([HSKAuth.fetchAllStudents(), HSKAuth.fetchClasses()]);
+  } catch (err) {
+    app.innerHTML = `<p class="empty-note">Không tải được dữ liệu: ${HSKAuth.friendlyError(err)}</p>`;
+    return;
+  }
+
+  const flash = teacherFlash;
+  teacherFlash = null;
+
+  app.innerHTML = `
+    <div class="section-title"><h2>📊 Trang giáo viên</h2></div>
+    <p class="section-sub">Quản lý lớp học, tạo tài khoản học viên (đã gán sẵn trình độ), và theo dõi tiến độ ôn tập.</p>
+    ${flash ? `<div class="auth-err ok flash-note">${flash}</div>` : ""}
+
+    <div class="teacher-panels">
+      <div class="teacher-panel">
+        <h3>➕ Tạo lớp mới</h3>
+        <form id="class-form" class="inline-form">
+          <input type="text" name="name" placeholder="Tên lớp, ví dụ: HSK1 - Tối 2/4/6" required>
+          <select name="level" required>${LEVELS.map(l => `<option value="${l.id}">${l.label}</option>`).join("")}</select>
+          <button class="btn primary" type="submit">Tạo lớp</button>
+        </form>
+        <div id="class-err" class="auth-err"></div>
+        ${classes.length
+          ? `<p class="section-sub" style="margin-top:10px;">Lớp hiện có: ${classes.map(c => `${escapeHtml(c.name)} (${(levelInfo(c.level) || {}).label || c.level})`).join(" · ")}</p>`
+          : `<p class="section-sub" style="margin-top:10px;">Chưa có lớp nào — tạo lớp trước khi thêm học viên.</p>`}
+      </div>
+
+      <div class="teacher-panel">
+        <h3>➕ Tạo tài khoản học viên</h3>
+        ${classes.length === 0 ? `<p class="section-sub">Hãy tạo ít nhất một lớp ở khung bên trái trước.</p>` : `
+        <form id="student-form" class="inline-form">
+          <input type="text" name="name" placeholder="Họ tên học viên" required>
+          <input type="email" name="email" placeholder="Email học viên" required>
+          <input type="text" name="password" placeholder="Mật khẩu tạm (bỏ trống để tự sinh)">
+          <select name="classId" required>
+            ${classes.map(c => `<option value="${c.id}">${escapeHtml(c.name)} — ${(levelInfo(c.level) || {}).label || c.level}</option>`).join("")}
+          </select>
+          <button class="btn primary" type="submit">Tạo tài khoản</button>
+        </form>
+        <div id="student-err" class="auth-err"></div>
+        `}
+      </div>
+    </div>
+
+    <div id="teacher-table-container"></div>
+  `;
+
+  renderStudentTable(document.getElementById("teacher-table-container"), students, classes);
+
+  const classForm = document.getElementById("class-form");
+  if (classForm) {
+    const err = document.getElementById("class-err");
+    classForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      err.textContent = "";
+      const fd = new FormData(classForm);
+      const name = (fd.get("name") || "").trim();
+      try {
+        await HSKAuth.createClass(name, fd.get("level"));
+        teacherFlash = `Đã tạo lớp "${escapeHtml(name)}".`;
+        await renderTeacherPage(app);
+      } catch (ex) {
+        err.textContent = HSKAuth.friendlyError(ex);
+      }
+    });
+  }
+
+  const studentForm = document.getElementById("student-form");
+  if (studentForm) {
+    const err = document.getElementById("student-err");
+    studentForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      err.textContent = "";
+      const fd = new FormData(studentForm);
+      const name = (fd.get("name") || "").trim();
+      const email = (fd.get("email") || "").trim();
+      let password = (fd.get("password") || "").trim();
+      if (!password) password = randomPassword();
+      if (password.length < 6) { err.textContent = "Mật khẩu cần ít nhất 6 ký tự."; return; }
+      const cls = classes.find((c) => c.id === fd.get("classId"));
+      if (!cls) { err.textContent = "Hãy chọn lớp."; return; }
+      const submitBtn = studentForm.querySelector("button[type=submit]");
+      submitBtn.disabled = true;
+      try {
+        await HSKAuth.createStudentAccount({ name, email, password, classId: cls.id, level: cls.level, className: cls.name });
+        teacherFlash = `Đã tạo tài khoản cho <b>${escapeHtml(name)}</b> — Email: <b>${escapeHtml(email)}</b> · Mật khẩu tạm: <b>${escapeHtml(password)}</b>. Hãy gửi thông tin này cho học viên (học viên có thể tự đổi mật khẩu bằng "Quên mật khẩu?" ở trang đăng nhập).`;
+        await renderTeacherPage(app);
+      } catch (ex) {
+        err.textContent = HSKAuth.friendlyError(ex);
+        submitBtn.disabled = false;
+      }
+    });
+  }
+}
+
+function renderStudentTable(container, students, classes) {
+  function dateKey(offsetDays) {
+    const d = new Date();
+    d.setDate(d.getDate() - offsetDays);
+    const p = (n) => String(n).padStart(2, "0");
+    return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+  }
+  const todayK = dateKey(0);
+
+  const rows = students.map((s) => {
+    const stats = s.stats || {};
+    const viewedCount = (stats.viewedUnitKeys || []).length;
+    const quizAvg = stats.quizQuestionsTotal ? Math.round((100 * stats.quizCorrectTotal) / stats.quizQuestionsTotal) : null;
+    const fillAvg = stats.fillQuestionsTotal ? Math.round((100 * stats.fillCorrectTotal) / stats.fillQuestionsTotal) : null;
+    const wrongEntries = Object.entries(stats.wrongWords || {}).sort((a, b) => b[1] - a[1]).slice(0, 5);
+    const studyDays = stats.studyDays || {};
+    const minsToday = studyDays[todayK] || 0;
+    let minsWeek = 0;
+    for (let i = 0; i < 7; i++) minsWeek += studyDays[dateKey(i)] || 0;
+    const lastActive = s.lastActiveTs && s.lastActiveTs.toDate ? s.lastActiveTs.toDate() : null;
+    return { s, viewedCount, quizAvg, fillAvg, wrongEntries, minsToday, minsWeek, lastActive };
+  }).sort((a, b) => (b.lastActive ? b.lastActive.getTime() : 0) - (a.lastActive ? a.lastActive.getTime() : 0));
+
+  container.innerHTML = `
+    <p class="section-sub">${students.length} học viên đã có tài khoản · dữ liệu cập nhật theo thời gian thực từ Firestore</p>
+    ${students.length === 0 ? `<p class="empty-note">Chưa có học viên nào. Hãy tạo tài khoản ở khung phía trên.</p>` : `
+    <div class="teacher-table-wrap">
+      <table class="teacher-table">
+        <thead><tr>
+          <th>Học viên</th><th>Lớp</th><th>Hoạt động gần nhất</th><th>Bài đã ôn</th>
+          <th>Điểm TB trắc nghiệm</th><th>Điểm TB điền pinyin</th>
+          <th>Từ hay sai</th><th>Học hôm nay</th><th>Học 7 ngày qua</th>
+        </tr></thead>
+        <tbody>
+          ${rows.map((r) => `
+            <tr>
+              <td><b>${escapeHtml(r.s.name || "(chưa đặt tên)")}</b><br><span class="tt-sub">${escapeHtml(r.s.email || "")}</span></td>
+              <td>
+                <div class="reassign-wrap">
+                  <select class="reassign-select" data-uid="${r.s.uid}">
+                    ${!r.s.classId ? `<option value="" selected disabled>— chưa phân lớp —</option>` : ""}
+                    ${classes.map(c => `<option value="${c.id}" ${c.id === r.s.classId ? "selected" : ""}>${escapeHtml(c.name)} — ${(levelInfo(c.level) || {}).label || c.level}</option>`).join("")}
+                  </select>
+                  <span class="reassign-status"></span>
+                </div>
+              </td>
+              <td>${r.lastActive ? r.lastActive.toLocaleString("vi-VN") : "chưa hoạt động"}</td>
+              <td>${r.viewedCount} bài</td>
+              <td>${r.quizAvg === null ? "—" : r.quizAvg + "%"}</td>
+              <td>${r.fillAvg === null ? "—" : r.fillAvg + "%"}</td>
+              <td>${r.wrongEntries.length ? escapeHtml(r.wrongEntries.map(([w, c]) => `${w} (${c})`).join(", ")) : "—"}</td>
+              <td>${r.minsToday.toFixed(1)} phút</td>
+              <td>${r.minsWeek.toFixed(1)} phút</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>`}
+  `;
+
+  container.querySelectorAll(".reassign-select").forEach((sel) => {
+    sel.addEventListener("change", async () => {
+      const uid = sel.dataset.uid;
+      const statusEl = sel.parentElement.querySelector(".reassign-status");
+      const cls = classes.find((c) => c.id === sel.value);
+      if (!cls) return;
+      sel.disabled = true;
+      if (statusEl) { statusEl.textContent = "Đang lưu..."; statusEl.className = "reassign-status"; }
+      try {
+        await HSKAuth.updateStudentClass(uid, cls.id, cls.level, cls.name);
+        if (statusEl) { statusEl.textContent = "✓ Đã lưu"; statusEl.className = "reassign-status ok"; }
+      } catch (ex) {
+        if (statusEl) { statusEl.textContent = HSKAuth.friendlyError(ex); statusEl.className = "reassign-status err"; }
+      }
+      sel.disabled = false;
+    });
+  });
+}

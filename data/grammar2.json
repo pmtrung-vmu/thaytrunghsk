@@ -1,0 +1,277 @@
+[
+  {
+    "lesson": 1,
+    "points": [
+      {
+        "hanzi": "是……的",
+        "pinyin": "shì…de",
+        "vi": "Câu \"是…的\"",
+        "structure": "Nhấn mạnh thời gian/cách thức",
+        "examples": [
+          {"zh": "我是坐飞机来的。", "py": "Wǒ shì zuò fēijī lái de.", "vi": "Tôi đến bằng máy bay."},
+          {"zh": "她是昨天到的。", "py": "Tā shì zuótiān dào de.", "vi": "Cô ấy đến hôm qua."},
+          {"zh": "你是在哪儿买的？", "py": "Nǐ shì zài nǎr mǎi de?", "vi": "Bạn mua ở đâu?"}
+        ]
+      },
+      {
+        "hanzi": "兼语句",
+        "pinyin": "jiānyǔ jù",
+        "vi": "Câu kiêm ngữ",
+        "structure": "V1+người+V2",
+        "examples": [
+          {"zh": "老师让我们读课文。", "py": "Lǎoshī ràng wǒmen dú kèwén.", "vi": "Cô bảo chúng tôi đọc bài."},
+          {"zh": "妈妈叫我去买菜。", "py": "Māma jiào wǒ qù mǎi cài.", "vi": ""},
+          {"zh": "他请我吃饭。", "py": "Tā qǐng wǒ chīfàn.", "vi": "Anh ấy mời tôi ăn."}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 2,
+    "points": [
+      {
+        "hanzi": "还是……吧",
+        "pinyin": "háishi…ba",
+        "vi": "Cấu trúc \"hay là…đi\"",
+        "structure": "Đề nghị lựa chọn",
+        "examples": [
+          {"zh": "还是打车去吧。", "py": "Háishi dǎchē qù ba.", "vi": "Hay là đi taxi đi."},
+          {"zh": "还是在家吧。", "py": "Háishi zài jiā ba.", "vi": "Hay ở nhà đi."},
+          {"zh": "还是你来吧。", "py": "Háishi nǐ lái ba.", "vi": "Hay là bạn đến đi."}
+        ]
+      },
+      {
+        "hanzi": "用 \"多\" 表达概数",
+        "pinyin": "yòng \"duō\" biǎodá gàishù",
+        "vi": "Dùng \"多\" nói ước lượng",
+        "structure": "Số+多 = hơn",
+        "examples": [
+          {"zh": "三十多个人", "py": "sānshí duō ge rén", "vi": "hơn 30 người"},
+          {"zh": "一百多块", "py": "yìbǎi duō kuài", "vi": "hơn 100 tệ"},
+          {"zh": "二十多岁", "py": "èrshí duō suì", "vi": "hơn 20 tuổi"}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 3,
+    "points": [
+      {
+        "hanzi": "结果补语",
+        "pinyin": "jiéguǒ bǔyǔ",
+        "vi": "Bổ ngữ kết quả",
+        "structure": "V+kết quả",
+        "examples": [
+          {"zh": "听懂了。", "py": "Tīngdǒng le.", "vi": "Nghe hiểu rồi."},
+          {"zh": "做完了。", "py": "Zuòwán le.", "vi": "Làm xong rồi."},
+          {"zh": "学会了。", "py": "Xuéhuì le.", "vi": "Học được rồi."}
+        ]
+      },
+      {
+        "hanzi": "动词重叠",
+        "pinyin": "dòngcí chóngdié",
+        "vi": "Động từ lặp",
+        "structure": "VV / V一V",
+        "examples": [
+          {"zh": "看看", "py": "kànkan", "vi": "xem thử"},
+          {"zh": "试一试", "py": "shì yi shì", "vi": "thử một chút"},
+          {"zh": "想想", "py": "xiǎngxiang", "vi": "nghĩ thử"}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 4,
+    "points": [
+      {
+        "hanzi": "动态助词 \"过\"",
+        "pinyin": "dòngtài zhùcí \"guo\"",
+        "vi": "Trợ từ \"过\"",
+        "structure": "Đã từng",
+        "examples": [
+          {"zh": "我去过中国。", "py": "Wǒ qùguo Zhōngguó.", "vi": "Tôi đã từng đi TQ."},
+          {"zh": "你吃过北京烤鸭吗？", "py": "Nǐ chīguo Běijīng kǎoyā ma?", "vi": "Bạn đã ăn vịt quay BK chưa?"},
+          {"zh": "她没学过日语。", "py": "Tā méi xuéguo Rìyǔ.", "vi": "Cô ấy chưa học tiếng Nhật."}
+        ]
+      },
+      {
+        "hanzi": "因为……所以……",
+        "pinyin": "yīnwèi…suǒyǐ…",
+        "vi": "Cấu trúc nhân quả",
+        "structure": "Vì…cho nên…",
+        "examples": [
+          {"zh": "因为下雨，所以我没去。", "py": "Yīnwèi xià yǔ, suǒyǐ wǒ méi qù.", "vi": ""},
+          {"zh": "因为太累，所以早睡了。", "py": "Yīnwèi tài lèi, suǒyǐ zǎo shuì le.", "vi": ""},
+          {"zh": "因为喜欢，所以学习。", "py": "Yīnwèi xǐhuan, suǒyǐ xuéxí.", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 5,
+    "points": [
+      {
+        "hanzi": "简单趋向补语",
+        "pinyin": "jiǎndān qūxiàng bǔyǔ",
+        "vi": "Bổ ngữ xu hướng đơn giản",
+        "structure": "V+来/去",
+        "examples": [
+          {"zh": "请进来！", "py": "Qǐng jìnlái!", "vi": "Mời vào!"},
+          {"zh": "走出去。", "py": "Zǒu chūqù.", "vi": "Đi ra ngoài."},
+          {"zh": "跑上来。", "py": "Pǎo shànglái.", "vi": "Chạy lên đây."}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 7,
+    "points": [
+      {
+        "hanzi": "一……就……",
+        "pinyin": "yī…jiù…",
+        "vi": "Cấu trúc \"vừa…liền\"",
+        "structure": "Vừa…liền",
+        "examples": [
+          {"zh": "一回家就做作业。", "py": "Yī huíjiā jiù zuò zuòyè.", "vi": "Về nhà là làm bài ngay."},
+          {"zh": "一看就懂。", "py": "Yī kàn jiù dǒng.", "vi": "Nhìn là hiểu."},
+          {"zh": "一说就笑。", "py": "Yī shuō jiù xiào.", "vi": "Vừa nói liền cười."}
+        ]
+      },
+      {
+        "hanzi": "状态补语",
+        "pinyin": "zhuàngtài bǔyǔ",
+        "vi": "Bổ ngữ trạng thái",
+        "structure": "V+得+Adj",
+        "examples": [
+          {"zh": "他跑得很快。", "py": "Tā pǎo de hěn kuài.", "vi": "Anh ấy chạy rất nhanh."},
+          {"zh": "她说得很好。", "py": "Tā shuō de hěn hǎo.", "vi": "Cô ấy nói rất giỏi."},
+          {"zh": "他唱得不错。", "py": "Tā chàng de búcuò.", "vi": "Anh ấy hát không tệ."}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 8,
+    "points": [
+      {
+        "hanzi": "比较句(1)",
+        "pinyin": "bǐjiào jù",
+        "vi": "Câu so sánh (1)",
+        "structure": "A比B+Adj",
+        "examples": [
+          {"zh": "他比我高。", "py": "Tā bǐ wǒ gāo.", "vi": "Anh ấy cao hơn tôi."},
+          {"zh": "今天比昨天冷。", "py": "Jīntiān bǐ zuótiān lěng.", "vi": "Hôm nay lạnh hơn hôm qua."},
+          {"zh": "苹果比香蕉贵。", "py": "Píngguǒ bǐ xiāngjiāo guì.", "vi": "Táo đắt hơn chuối."}
+        ]
+      },
+      {
+        "hanzi": "虽然……但是……",
+        "pinyin": "suīrán…dànshì…",
+        "vi": "Cấu trúc tuy…nhưng",
+        "structure": "Mặc dù…nhưng",
+        "examples": [
+          {"zh": "虽然很累，但是很开心。", "py": "Suīrán hěn lèi, dànshì hěn kāixīn.", "vi": "Tuy mệt nhưng rất vui."},
+          {"zh": "虽然贵，但是质量好。", "py": "Suīrán guì, dànshì zhìliàng hǎo.", "vi": ""},
+          {"zh": "虽然难，但是有趣。", "py": "Suīrán nán, dànshì yǒuqù.", "vi": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 9,
+    "points": [
+      {
+        "hanzi": "动词 \"离\"",
+        "pinyin": "dòngcí \"lí\"",
+        "vi": "Động từ \"离\"",
+        "structure": "Cách (khoảng cách)",
+        "examples": [
+          {"zh": "学校离我家很近。", "py": "Xuéxiào lí wǒ jiā hěn jìn.", "vi": "Trường gần nhà tôi."},
+          {"zh": "这里离机场很远。", "py": "Zhèlǐ lí jīchǎng hěn yuǎn.", "vi": "Đây cách sân bay rất xa."},
+          {"zh": "医院离公司不远。", "py": "Yīyuàn lí gōngsī bù yuǎn.", "vi": "BV không xa công ty."}
+        ]
+      },
+      {
+        "hanzi": "时量补语(1)",
+        "pinyin": "shíliàng bǔyǔ",
+        "vi": "Bổ ngữ thời lượng",
+        "structure": "V+thời gian",
+        "examples": [
+          {"zh": "我学了两年汉语。", "py": "Wǒ xuéle liǎng nián Hànyǔ.", "vi": "Tôi học tiếng Trung 2 năm."},
+          {"zh": "等了半个小时。", "py": "Děngle bàn ge xiǎoshí.", "vi": "Đợi nửa tiếng."},
+          {"zh": "他睡了八个小时。", "py": "Tā shuìle bā ge xiǎoshí.", "vi": "Anh ấy ngủ 8 tiếng."}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 10,
+    "points": [
+      {
+        "hanzi": "选择问句",
+        "pinyin": "xuǎnzé wènjù",
+        "vi": "Câu hỏi lựa chọn",
+        "structure": "A还是B",
+        "examples": [
+          {"zh": "你喝茶还是咖啡？", "py": "Nǐ hē chá háishi kāfēi?", "vi": "Uống trà hay cà phê?"},
+          {"zh": "去还是不去？", "py": "Qù háishi bú qù?", "vi": "Đi hay không?"},
+          {"zh": "你是中国人还是日本人？", "py": "Nǐ shì Zhōngguó rén háishi Rìběn rén?", "vi": ""}
+        ]
+      },
+      {
+        "hanzi": "快要……了",
+        "pinyin": "kuàiyào…le",
+        "vi": "Cấu trúc \"sắp…rồi\"",
+        "structure": "Sắp…rồi",
+        "examples": [
+          {"zh": "电影快要开始了。", "py": "Diànyǐng kuàiyào kāishǐ le.", "vi": "Phim sắp bắt đầu."},
+          {"zh": "他快要毕业了。", "py": "Tā kuàiyào bìyè le.", "vi": "Anh ấy sắp tốt nghiệp."},
+          {"zh": "春天快要来了。", "py": "Chūntiān kuàiyào lái le.", "vi": "Mùa xuân sắp đến."}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 11,
+    "points": [
+      {
+        "hanzi": "动态助词 \"着\"",
+        "pinyin": "dòngtài zhùcí \"zhe\"",
+        "vi": "Trợ từ \"着\"",
+        "structure": "Trạng thái duy trì",
+        "examples": [
+          {"zh": "他穿着黑衣服。", "py": "Tā chuānzhe hēi yīfu.", "vi": "Anh ấy đang mặc áo đen."},
+          {"zh": "门开着。", "py": "Mén kāizhe.", "vi": "Cửa đang mở."},
+          {"zh": "墙上挂着画。", "py": "Qiáng shang guàzhe huà.", "vi": "Trên tường treo tranh."}
+        ]
+      },
+      {
+        "hanzi": "程度副词 \"最\"",
+        "pinyin": "chéngdù fùcí \"zuì\"",
+        "vi": "Phó từ \"最\"",
+        "structure": "Nhất",
+        "examples": [
+          {"zh": "我最喜欢吃中国菜。", "py": "Wǒ zuì xǐhuan chī Zhōngguó cài.", "vi": "Tôi thích ăn đồ TQ nhất."},
+          {"zh": "他最聪明。", "py": "Tā zuì cōngmíng.", "vi": "Anh ấy thông minh nhất."},
+          {"zh": "这个最便宜。", "py": "Zhège zuì piányi.", "vi": "Cái này rẻ nhất."}
+        ]
+      }
+    ]
+  },
+  {
+    "lesson": 15,
+    "points": [
+      {
+        "hanzi": "动量补语",
+        "pinyin": "dòngliàng bǔyǔ",
+        "vi": "Bổ ngữ động lượng",
+        "structure": "V+数+次/遍",
+        "examples": [
+          {"zh": "我去过两次中国。", "py": "Wǒ qùguo liǎng cì Zhōngguó.", "vi": "Tôi đã đi TQ 2 lần."},
+          {"zh": "这本书我看了三遍。", "py": "Zhè běn shū wǒ kànle sān biàn.", "vi": "Sách này tôi đọc 3 lượt."},
+          {"zh": "他打了两次电话。", "py": "Tā dǎle liǎng cì diànhuà.", "vi": "Anh ấy gọi ĐT 2 lần."}
+        ]
+      }
+    ]
+  }
+]
