@@ -3,10 +3,10 @@
    Khi chưa dán, trang vẫn chạy bình thường — chỉ riêng phần đăng nhập/
    theo dõi tiến độ sẽ hiện thông báo "chưa cấu hình". */
 const firebaseConfig = {
-  apiKey: "DÁN_API_KEY_CỦA_BẠN",
-  authDomain: "DÁN_AUTH_DOMAIN_CỦA_BẠN",
-  projectId: "DÁN_PROJECT_ID_CỦA_BẠN",
-  storageBucket: "DÁN_STORAGE_BUCKET_CỦA_BẠN",
-  messagingSenderId: "DÁN_MESSAGING_SENDER_ID_CỦA_BẠN",
-  appId: "DÁN_APP_ID_CỦA_BẠN",
+  apiKey: "AIzaSyAzTkX4fvzjae2JKfe0MeHe_Q3AZrrJM1k",
+  authDomain: "hsk-on-tu.firebaseapp.com",
+  projectId: "hsk-on-tu",
+  storageBucket: "hsk-on-tu.firebasestorage.app",
+  messagingSenderId: "201352286455",
+  appId: "1:201352286455:web:14f17f21da0413ae5243f2",
 };
