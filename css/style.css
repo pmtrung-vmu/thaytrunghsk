@@ -203,6 +203,24 @@ a { color: inherit; text-decoration: none; }
 .reassign-status.ok { color: var(--ok); }
 .reassign-status.err { color: var(--danger); }
 
+/* ---------- Sửa/xóa lớp & học viên (trang giáo viên) ---------- */
+.btn-sm { padding: 5px 10px; font-size: 12.5px; border-radius: 7px; }
+.btn.danger { background: #fbe7e7; color: #9c3a3a; border-color: #f3c9c9; }
+.btn.danger:hover { background: #f7d5d5; }
+.row-actions { display: flex; gap: 6px; flex-wrap: wrap; white-space: normal; }
+.class-name-cell { min-width: 180px; }
+.class-edit-form { display: flex; flex-direction: column; gap: 6px; min-width: 200px; }
+.class-edit-form[hidden] { display: none; }
+.class-edit-form input, .class-edit-form select {
+  font: inherit; font-size: 13px; padding: 6px 8px; border-radius: 6px; border: 1px solid var(--line);
+}
+.class-edit-actions { display: flex; gap: 6px; }
+.class-edit-err, .student-edit-err { font-size: 11.5px; min-height: 1.2em; margin-top: 2px; }
+.student-name-edit {
+  font: inherit; font-size: 13.5px; padding: 4px 7px; border-radius: 6px; border: 1px solid var(--line);
+  width: 140px;
+}
+
 /* ---------- Layout ---------- */
 .app {
   max-width: 1080px;

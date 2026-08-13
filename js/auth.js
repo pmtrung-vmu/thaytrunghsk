@@ -157,6 +157,60 @@
     });
   }
 
+  /* Giáo viên sửa hồ sơ học viên — hiện chỉ cho sửa tên hiển thị (đổi lớp
+     vẫn dùng updateStudentClass ở trên). Không cho sửa vai trò ở đây. */
+  async function updateStudent(uid, { name }) {
+    requireConfigured();
+    requireTeacher();
+    const payload = { lastActiveTs: firebase.firestore.FieldValue.serverTimestamp() };
+    if (name !== undefined) payload.name = name;
+    await db.collection("users").doc(uid).update(payload);
+  }
+
+  /* Giáo viên xóa hồ sơ học viên khỏi hệ thống. Vì đây là trang tĩnh không có
+     máy chủ riêng (Cloud Functions/Admin SDK), Firebase KHÔNG cho phép một
+     tài khoản (giáo viên) xóa tài khoản ĐĂNG NHẬP (Firebase Authentication)
+     của người khác từ trình duyệt — chỉ chủ tài khoản mới tự xóa được tài
+     khoản đăng nhập của chính mình. Hàm này xóa hồ sơ Firestore
+     (users/{uid}), có tác dụng thu hồi quyền xem nội dung ngay lập tức (mọi
+     trang đều yêu cầu hồ sơ hợp lệ mới cho xem). Nếu muốn xóa hẳn cả tài
+     khoản đăng nhập gốc, giáo viên cần vào Firebase Console →
+     Authentication → xóa thủ công (xem FIREBASE_SETUP.md). */
+  async function deleteStudent(uid) {
+    requireConfigured();
+    requireTeacher();
+    await db.collection("users").doc(uid).delete();
+  }
+
+  /* Giáo viên đổi tên/trình độ một lớp — đồng thời cập nhật lại className/
+     level cho MỌI học viên đang thuộc lớp đó, để dữ liệu không bị lệch
+     (nếu không, học viên cũ vẫn giữ trình độ lớp trước khi đổi). */
+  async function updateClass(classId, { name, level }) {
+    requireConfigured();
+    requireTeacher();
+    await db.collection("classes").doc(classId).update({ name, level });
+    const snap = await db.collection("users").where("classId", "==", classId).get();
+    if (!snap.empty) {
+      const batch = db.batch();
+      snap.docs.forEach((d) => batch.update(d.ref, { className: name, level }));
+      await batch.commit();
+    }
+  }
+
+  /* Giáo viên xóa một lớp — chỉ cho phép khi lớp không còn học viên nào,
+     để tránh học viên bị "mồ côi" lớp mà giáo viên không để ý. */
+  async function deleteClass(classId) {
+    requireConfigured();
+    requireTeacher();
+    const snap = await db.collection("users").where("classId", "==", classId).get();
+    if (!snap.empty) {
+      const err = new Error(`Lớp này còn ${snap.size} học viên — hãy chuyển hết học viên sang lớp khác trước khi xóa lớp.`);
+      err.code = "class-not-empty";
+      throw err;
+    }
+    await db.collection("classes").doc(classId).delete();
+  }
+
   async function logIn(email, password) {
     requireConfigured();
     const cred = await auth.signInWithEmailAndPassword(email, password);
@@ -290,6 +344,7 @@
     startHeartbeat, stopHeartbeat,
     fetchAllStudents,
     createClass, fetchClasses, createStudentAccount, updateStudentClass,
+    updateStudent, deleteStudent, updateClass, deleteClass,
   };
 
   document.addEventListener("DOMContentLoaded", renderAuthSlot);

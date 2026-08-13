@@ -221,7 +221,15 @@ async function render() {
     }
     if (parts[0] === "login") { markActiveNav(null); await renderLogin(app); return; }
     if (parts[0] === "signup") { markActiveNav(null); await renderSignup(app); return; }
-    if (parts[0] === "teacher") { markActiveNav(null); await renderTeacherPage(app); return; }
+    if (parts[0] === "teacher") {
+      markActiveNav(null);
+      if (parts[1] === "class" && parts[2]) {
+        await renderClassDetailPage(app, parts[2]);
+      } else {
+        await renderTeacherPage(app);
+      }
+      return;
+    }
     if (parts[0] === "level") {
       const id = parts[1];
       markActiveNav(id);
@@ -993,9 +1001,7 @@ async function renderTeacherPage(app) {
           <button class="btn primary" type="submit">Tạo lớp</button>
         </form>
         <div id="class-err" class="auth-err"></div>
-        ${classes.length
-          ? `<p class="section-sub" style="margin-top:10px;">Lớp hiện có: ${classes.map(c => `${escapeHtml(c.name)} (${(levelInfo(c.level) || {}).label || c.level})`).join(" · ")}</p>`
-          : `<p class="section-sub" style="margin-top:10px;">Chưa có lớp nào — tạo lớp trước khi thêm học viên.</p>`}
+        ${classes.length === 0 ? `<p class="section-sub" style="margin-top:10px;">Chưa có lớp nào — tạo lớp trước khi thêm học viên.</p>` : ""}
       </div>
 
       <div class="teacher-panel">
@@ -1015,10 +1021,17 @@ async function renderTeacherPage(app) {
       </div>
     </div>
 
+    <div class="section-title" style="margin-top:8px;"><h3>📚 Danh sách lớp</h3></div>
+    <div id="teacher-class-table-container"></div>
+
+    <div class="section-title" style="margin-top:28px;"><h3>👥 Danh sách học viên</h3></div>
     <div id="teacher-table-container"></div>
   `;
 
-  renderStudentTable(document.getElementById("teacher-table-container"), students, classes);
+  const refresh = () => renderTeacherPage(app);
+
+  renderClassTable(document.getElementById("teacher-class-table-container"), classes, students, refresh);
+  renderStudentTable(document.getElementById("teacher-table-container"), students, classes, refresh);
 
   const classForm = document.getElementById("class-form");
   if (classForm) {
@@ -1066,13 +1079,127 @@ async function renderTeacherPage(app) {
   }
 }
 
-function renderStudentTable(container, students, classes) {
-  function dateKey(offsetDays) {
-    const d = new Date();
-    d.setDate(d.getDate() - offsetDays);
-    const p = (n) => String(n).padStart(2, "0");
-    return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
-  }
+function dateKey(offsetDays) {
+  const d = new Date();
+  d.setDate(d.getDate() - offsetDays);
+  const p = (n) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+}
+
+/* Tổng hợp điểm/tiến độ của tất cả học viên thuộc một lớp — dùng cho cả
+   bảng danh sách lớp (tổng quan) và trang chi tiết lớp. */
+function classAggStats(students, classId) {
+  const inClass = students.filter((s) => s.classId === classId);
+  let quizC = 0, quizQ = 0, fillC = 0, fillQ = 0;
+  inClass.forEach((s) => {
+    const st = s.stats || {};
+    quizC += st.quizCorrectTotal || 0; quizQ += st.quizQuestionsTotal || 0;
+    fillC += st.fillCorrectTotal || 0; fillQ += st.fillQuestionsTotal || 0;
+  });
+  return {
+    count: inClass.length,
+    quizAvg: quizQ ? Math.round((100 * quizC) / quizQ) : null,
+    fillAvg: fillQ ? Math.round((100 * fillC) / fillQ) : null,
+  };
+}
+
+/* onRefresh: hàm async gọi lại sau khi sửa/xóa lớp thành công, để tải lại
+   toàn bộ trang (danh sách lớp + học viên đều có thể bị ảnh hưởng). */
+function renderClassTable(container, classes, students, onRefresh) {
+  container.innerHTML = `
+    ${classes.length === 0 ? `<p class="empty-note">Chưa có lớp nào.</p>` : `
+    <div class="teacher-table-wrap">
+      <table class="teacher-table">
+        <thead><tr>
+          <th>Tên lớp</th><th>Trình độ</th><th>Số học viên</th>
+          <th>Điểm TB trắc nghiệm</th><th>Điểm TB điền pinyin</th><th>Thao tác</th>
+        </tr></thead>
+        <tbody>
+          ${classes.map((c) => {
+            const agg = classAggStats(students, c.id);
+            return `
+            <tr data-class-id="${c.id}">
+              <td class="class-name-cell">
+                <span class="class-name-display">${escapeHtml(c.name)}</span>
+                <div class="class-edit-form" hidden>
+                  <input type="text" class="class-edit-name" value="${escapeHtml(c.name)}">
+                  <select class="class-edit-level">
+                    ${LEVELS.map(l => `<option value="${l.id}" ${l.id === c.level ? "selected" : ""}>${l.label}</option>`).join("")}
+                  </select>
+                  <div class="class-edit-actions">
+                    <button class="btn primary btn-sm class-save-btn">💾 Lưu</button>
+                    <button class="btn btn-sm class-cancel-btn">✕ Hủy</button>
+                  </div>
+                  <div class="class-edit-err auth-err"></div>
+                </div>
+              </td>
+              <td class="class-level-display">${(levelInfo(c.level) || {}).label || c.level}</td>
+              <td>${agg.count} học viên</td>
+              <td>${agg.quizAvg === null ? "—" : agg.quizAvg + "%"}</td>
+              <td>${agg.fillAvg === null ? "—" : agg.fillAvg + "%"}</td>
+              <td class="row-actions">
+                <a class="btn btn-sm" href="#/teacher/class/${c.id}">Xem chi tiết →</a>
+                <button class="btn btn-sm class-edit-btn">✏️ Sửa</button>
+                <button class="btn btn-sm danger class-delete-btn">🗑 Xóa</button>
+              </td>
+            </tr>
+          `;
+          }).join("")}
+        </tbody>
+      </table>
+    </div>`}
+  `;
+
+  container.querySelectorAll("tr[data-class-id]").forEach((row) => {
+    const classId = row.dataset.classId;
+    const cls = classes.find((c) => c.id === classId);
+    const nameDisplay = row.querySelector(".class-name-display");
+    const editForm = row.querySelector(".class-edit-form");
+    const editErr = row.querySelector(".class-edit-err");
+
+    row.querySelector(".class-edit-btn").addEventListener("click", () => {
+      nameDisplay.hidden = true;
+      editForm.hidden = false;
+    });
+    row.querySelector(".class-cancel-btn").addEventListener("click", () => {
+      editForm.hidden = true;
+      nameDisplay.hidden = false;
+      editErr.textContent = "";
+    });
+    row.querySelector(".class-save-btn").addEventListener("click", async () => {
+      const newName = row.querySelector(".class-edit-name").value.trim();
+      const newLevel = row.querySelector(".class-edit-level").value;
+      if (!newName) { editErr.textContent = "Tên lớp không được để trống."; return; }
+      const btn = row.querySelector(".class-save-btn");
+      btn.disabled = true;
+      editErr.textContent = "";
+      try {
+        await HSKAuth.updateClass(classId, { name: newName, level: newLevel });
+        await onRefresh();
+      } catch (ex) {
+        editErr.textContent = HSKAuth.friendlyError(ex);
+        btn.disabled = false;
+      }
+    });
+    row.querySelector(".class-delete-btn").addEventListener("click", async () => {
+      if (!confirm(`Xóa lớp "${cls ? cls.name : ""}"? Thao tác này không thể hoàn tác.`)) return;
+      const btn = row.querySelector(".class-delete-btn");
+      btn.disabled = true;
+      try {
+        await HSKAuth.deleteClass(classId);
+        await onRefresh();
+      } catch (ex) {
+        alert(HSKAuth.friendlyError(ex));
+        btn.disabled = false;
+      }
+    });
+  });
+}
+
+/* onRefresh: hàm async gọi lại sau khi sửa tên/xóa học viên hoặc đổi lớp
+   thành công. Trang giáo viên và trang chi tiết lớp cùng dùng hàm này,
+   mỗi trang truyền vào cách tự tải lại của mình. */
+function renderStudentTable(container, students, classes, onRefresh) {
   const todayK = dateKey(0);
 
   const rows = students.map((s) => {
@@ -1097,12 +1224,17 @@ function renderStudentTable(container, students, classes) {
         <thead><tr>
           <th>Học viên</th><th>Lớp</th><th>Hoạt động gần nhất</th><th>Bài đã ôn</th>
           <th>Điểm TB trắc nghiệm</th><th>Điểm TB điền pinyin</th>
-          <th>Từ hay sai</th><th>Học hôm nay</th><th>Học 7 ngày qua</th>
+          <th>Từ hay sai</th><th>Học hôm nay</th><th>Học 7 ngày qua</th><th>Thao tác</th>
         </tr></thead>
         <tbody>
           ${rows.map((r) => `
-            <tr>
-              <td><b>${escapeHtml(r.s.name || "(chưa đặt tên)")}</b><br><span class="tt-sub">${escapeHtml(r.s.email || "")}</span></td>
+            <tr data-uid="${r.s.uid}">
+              <td>
+                <b class="student-name-display">${escapeHtml(r.s.name || "(chưa đặt tên)")}</b>
+                <input type="text" class="student-name-edit" value="${escapeHtml(r.s.name || "")}" hidden>
+                <br><span class="tt-sub">${escapeHtml(r.s.email || "")}</span>
+                <div class="student-edit-err auth-err"></div>
+              </td>
               <td>
                 <div class="reassign-wrap">
                   <select class="reassign-select" data-uid="${r.s.uid}">
@@ -1119,6 +1251,12 @@ function renderStudentTable(container, students, classes) {
               <td>${r.wrongEntries.length ? escapeHtml(r.wrongEntries.map(([w, c]) => `${w} (${c})`).join(", ")) : "—"}</td>
               <td>${r.minsToday.toFixed(1)} phút</td>
               <td>${r.minsWeek.toFixed(1)} phút</td>
+              <td class="row-actions">
+                <button class="btn btn-sm student-edit-btn">✏️ Sửa tên</button>
+                <button class="btn primary btn-sm student-save-btn" hidden>💾 Lưu</button>
+                <button class="btn btn-sm student-cancel-btn" hidden>✕ Hủy</button>
+                <button class="btn btn-sm danger student-delete-btn">🗑 Xóa</button>
+              </td>
             </tr>
           `).join("")}
         </tbody>
@@ -1136,11 +1274,112 @@ function renderStudentTable(container, students, classes) {
       if (statusEl) { statusEl.textContent = "Đang lưu..."; statusEl.className = "reassign-status"; }
       try {
         await HSKAuth.updateStudentClass(uid, cls.id, cls.level, cls.name);
-        if (statusEl) { statusEl.textContent = "✓ Đã lưu"; statusEl.className = "reassign-status ok"; }
+        await onRefresh();
       } catch (ex) {
         if (statusEl) { statusEl.textContent = HSKAuth.friendlyError(ex); statusEl.className = "reassign-status err"; }
+        sel.disabled = false;
       }
-      sel.disabled = false;
     });
   });
+
+  container.querySelectorAll("tr[data-uid]").forEach((row) => {
+    const uid = row.dataset.uid;
+    const nameDisplay = row.querySelector(".student-name-display");
+    const nameEdit = row.querySelector(".student-name-edit");
+    const editErr = row.querySelector(".student-edit-err");
+    const editBtn = row.querySelector(".student-edit-btn");
+    const saveBtn = row.querySelector(".student-save-btn");
+    const cancelBtn = row.querySelector(".student-cancel-btn");
+    const deleteBtn = row.querySelector(".student-delete-btn");
+
+    editBtn.addEventListener("click", () => {
+      nameDisplay.hidden = true; nameEdit.hidden = false;
+      editBtn.hidden = true; deleteBtn.hidden = true;
+      saveBtn.hidden = false; cancelBtn.hidden = false;
+      nameEdit.focus();
+    });
+    cancelBtn.addEventListener("click", () => {
+      nameEdit.value = nameDisplay.textContent;
+      nameDisplay.hidden = false; nameEdit.hidden = true;
+      editBtn.hidden = false; deleteBtn.hidden = false;
+      saveBtn.hidden = true; cancelBtn.hidden = true;
+      editErr.textContent = "";
+    });
+    saveBtn.addEventListener("click", async () => {
+      const newName = nameEdit.value.trim();
+      if (!newName) { editErr.textContent = "Tên không được để trống."; return; }
+      saveBtn.disabled = true;
+      editErr.textContent = "";
+      try {
+        await HSKAuth.updateStudent(uid, { name: newName });
+        await onRefresh();
+      } catch (ex) {
+        editErr.textContent = HSKAuth.friendlyError(ex);
+        saveBtn.disabled = false;
+      }
+    });
+    deleteBtn.addEventListener("click", async () => {
+      const name = nameDisplay.textContent;
+      if (!confirm(`Xóa hồ sơ học viên "${name}"? Học viên sẽ không đăng nhập/xem được nội dung nữa. Thao tác này không thể hoàn tác.`)) return;
+      deleteBtn.disabled = true;
+      try {
+        await HSKAuth.deleteStudent(uid);
+        await onRefresh();
+      } catch (ex) {
+        alert(HSKAuth.friendlyError(ex));
+        deleteBtn.disabled = false;
+      }
+    });
+  });
+}
+
+/* ---------------- Trang chi tiết một lớp (theo dõi riêng từng lớp) ---------------- */
+async function renderClassDetailPage(app, classId) {
+  if (!window.HSKAuth || !HSKAuth.isConfigured) { app.innerHTML = authNotConfiguredNote(); return; }
+  await HSKAuth.ready;
+  if (!HSKAuth.user) {
+    app.innerHTML = `<div class="empty-note">Bạn cần <a href="#/login">đăng nhập</a> để xem trang này.</div>`;
+    return;
+  }
+  if (!HSKAuth.profile || HSKAuth.profile.role !== "teacher") {
+    app.innerHTML = `<div class="empty-note">Tài khoản này chưa có quyền giáo viên.</div>`;
+    return;
+  }
+
+  app.innerHTML = `<p class="section-sub">Đang tải dữ liệu...</p>`;
+
+  let students, classes;
+  try {
+    [students, classes] = await Promise.all([HSKAuth.fetchAllStudents(), HSKAuth.fetchClasses()]);
+  } catch (err) {
+    app.innerHTML = `<p class="empty-note">Không tải được dữ liệu: ${HSKAuth.friendlyError(err)}</p>`;
+    return;
+  }
+
+  const cls = classes.find((c) => c.id === classId);
+  if (!cls) {
+    app.innerHTML = `<div class="empty-note">Không tìm thấy lớp này (có thể đã bị xóa).<br><a href="#/teacher">← Về trang giáo viên</a></div>`;
+    return;
+  }
+
+  const classStudents = students.filter((s) => s.classId === classId);
+  const agg = classAggStats(students, classId);
+
+  app.innerHTML = `
+    <div class="crumbs"><a href="#/teacher">📊 Trang giáo viên</a> / ${escapeHtml(cls.name)}</div>
+    <div class="section-title"><h2>${escapeHtml(cls.name)}</h2></div>
+    <p class="section-sub">
+      ${(levelInfo(cls.level) || {}).label || cls.level} · ${agg.count} học viên ·
+      Điểm TB trắc nghiệm ${agg.quizAvg === null ? "—" : agg.quizAvg + "%"} ·
+      Điểm TB điền pinyin ${agg.fillAvg === null ? "—" : agg.fillAvg + "%"}
+    </p>
+    <div id="class-detail-table"></div>
+  `;
+
+  renderStudentTable(
+    document.getElementById("class-detail-table"),
+    classStudents,
+    classes,
+    () => renderClassDetailPage(app, classId)
+  );
 }

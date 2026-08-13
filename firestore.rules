@@ -33,7 +33,12 @@ service cloud.firestore {
         (isTeacher() && request.resource.data.role == resource.data.role)
       );
 
-      allow delete: if false;
+      // Giáo viên được xóa hồ sơ của HỌC VIÊN (không được xóa hồ sơ giáo
+      // viên khác) — dùng khi cần gỡ một học viên khỏi hệ thống. Đây chỉ
+      // xóa hồ sơ Firestore (thu hồi quyền xem nội dung ngay lập tức),
+      // KHÔNG xóa được tài khoản đăng nhập gốc (Firebase Authentication) —
+      // xem ghi chú trong FIREBASE_SETUP.md.
+      allow delete: if isTeacher() && resource.data.role == 'student';
     }
 
     match /classes/{classId} {

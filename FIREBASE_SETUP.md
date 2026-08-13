@@ -82,9 +82,23 @@ Sau khi đăng nhập bằng tài khoản giáo viên, vào **"📊 Trang giáo 
 
 **Lưu ý quan trọng:** việc giới hạn trình độ này hoạt động ở tầng ứng dụng (ẩn menu, chặn điều hướng) chứ **không phải khoá dữ liệu tuyệt đối** — vì các file từ vựng (`data/hsk*.json`) vẫn là file tĩnh công khai trên GitHub Pages, ai có đường dẫn trực tiếp vẫn tải được. Mức độ này phù hợp cho một lớp học bình thường (ngăn học viên vô tình lạc sang bài chưa học), không phải một hệ thống bảo mật thi cử nghiêm ngặt.
 
+## Sửa/xóa lớp & học viên
+
+Trang giáo viên có 2 bảng riêng: **"📚 Danh sách lớp"** và **"👥 Danh sách học viên"**.
+
+- **Sửa lớp**: bấm **"✏️ Sửa"** ở dòng lớp cần sửa → đổi tên và/hoặc trình độ → **Lưu**. Việc đổi tên/trình độ được áp dụng ngay cho **tất cả học viên đang thuộc lớp đó** (không cần sửa từng học viên).
+- **Xóa lớp**: bấm **"🗑 Xóa"**. Hệ thống chỉ cho xóa khi lớp **không còn học viên nào** — nếu còn, hãy chuyển hết học viên sang lớp khác trước (đổi cột "Lớp" trong bảng học viên), rồi xóa lớp sau.
+- **Xem chi tiết một lớp**: bấm **"Xem chi tiết →"** để mở trang riêng của lớp đó — tổng số học viên, điểm trung bình cả lớp, và bảng chỉ hiển thị học viên của riêng lớp này (tiện theo dõi từng lớp thay vì lọc trong danh sách chung).
+- **Sửa tên học viên**: bấm **"✏️ Sửa tên"** ở dòng học viên → đổi tên → **Lưu**.
+- **Xóa học viên**: bấm **"🗑 Xóa"** ở dòng học viên → xác nhận. Thao tác này **xóa ngay hồ sơ học viên trong Firestore**, nghĩa là học viên đó **mất quyền truy cập nội dung ngay lập tức** (không đăng nhập/xem bài được nữa) và biến mất khỏi mọi danh sách/thống kê.
+
+  ⚠️ **Giới hạn quan trọng cần biết**: do trang này chỉ chạy hoàn toàn trên trình duyệt (không có máy chủ riêng), nút "Xóa học viên" **không xóa được tài khoản đăng nhập gốc** trong Firebase Authentication — chỉ nền tảng Firebase mới cho phép xóa tài khoản đăng nhập của người khác từ phía máy chủ (Admin SDK), việc này không làm được từ trình duyệt. Sau khi xóa, tài khoản đăng nhập đó vẫn tồn tại (ở dạng "mồ côi", không có hồ sơ/quyền gì) nhưng **không đăng nhập vào được nội dung nào** vì hồ sơ Firestore đã mất. Nếu muốn dọn sạch hoàn toàn (ví dụ để dùng lại đúng email đó cho học viên khác), vào **Firebase Console → Authentication → Users**, tìm đúng email, bấm menu **⋮ → Delete account**.
+
+**Sau khi cập nhật lên bản có tính năng xóa học viên, bạn cần dán lại `firestore.rules`:** file luật bảo mật đã đổi (thêm quyền cho giáo viên xóa hồ sơ học viên). Hãy làm lại **Bước 5** ở trên — mở `firestore.rules` mới, copy toàn bộ, dán đè vào Firebase Console → Firestore Database → Rules → **Publish**. Nếu bỏ qua bước này, nút "Xóa học viên" sẽ báo lỗi quyền truy cập (permission-denied).
+
 ## Trang giáo viên hiển thị gì?
 
-Với mỗi học viên: lớp đang học, hoạt động gần nhất, số bài đã ôn qua, điểm trung bình trắc nghiệm & điền pinyin, danh sách từ hay điền/chọn sai nhất, và số phút học hôm nay / 7 ngày qua (tự động cộng dồn khi học viên mở một bài học và ở lại trang).
+Với mỗi học viên: lớp đang học, hoạt động gần nhất, số bài đã ôn qua, điểm trung bình trắc nghiệm & điền pinyin, danh sách từ hay điền/chọn sai nhất, và số phút học hôm nay / 7 ngày qua (tự động cộng dồn khi học viên mở một bài học và ở lại trang). Bảng **"📚 Danh sách lớp"** cho xem nhanh sĩ số + điểm trung bình từng lớp, và trang chi tiết từng lớp (bấm "Xem chi tiết →") gom đúng các số liệu đó cho riêng lớp đang xem.
 
 ## Giới hạn cần biết
 

@@ -34,7 +34,7 @@ Trang dùng Firebase (miễn phí) để quản lý tài khoản, phân lớp v�
 
 Để bật: làm theo hướng dẫn từng bước trong file **`FIREBASE_SETUP.md`** (khoảng 10-15 phút, không cần biết lập trình, không cần thẻ tín dụng, và **bắt buộc phải làm** để trang có nội dung xem được).
 
-Sau khi bật, trang giáo viên (`#/teacher`, chỉ tài khoản có quyền giáo viên mới vào được) cho phép tạo lớp, tạo tài khoản học viên, đổi lớp học viên, và xem theo từng học viên: lớp đang học, hoạt động gần nhất, số bài đã ôn, điểm trung bình trắc nghiệm/điền pinyin, các từ hay sai nhất, và số phút học hôm nay/7 ngày qua.
+Sau khi bật, trang giáo viên (`#/teacher`, chỉ tài khoản có quyền giáo viên mới vào được) cho phép tạo lớp, tạo tài khoản học viên, đổi lớp học viên, **sửa tên/xóa học viên, sửa tên-trình độ/xóa lớp**, và xem theo từng học viên: lớp đang học, hoạt động gần nhất, số bài đã ôn, điểm trung bình trắc nghiệm/điền pinyin, các từ hay sai nhất, và số phút học hôm nay/7 ngày qua. Mỗi lớp còn có **trang chi tiết riêng** (bấm "Xem chi tiết →" trong bảng "Danh sách lớp") để theo dõi tách biệt từng lớp thay vì xem chung một danh sách toàn bộ học viên. Chi tiết cách dùng và các giới hạn (ví dụ: xóa học viên chỉ thu hồi quyền truy cập chứ chưa xóa được tài khoản đăng nhập gốc) — xem `FIREBASE_SETUP.md`.
 
 ## Cấu trúc thư mục
 
