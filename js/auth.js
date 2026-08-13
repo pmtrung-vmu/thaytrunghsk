@@ -277,12 +277,14 @@
   }
 
   /* prefix dùng làm tiền tố tên trường lưu điểm trong classStats — TÁCH RIÊNG
-     3 chế độ: "quiz" (trắc nghiệm Hán tự↔nghĩa), "fill" (điền pinyin), và
-     "cloze" (điền từ vào chỗ trống). Trước đây "cloze" từng bị gộp chung vào
-     "quiz" (một sơ suất cũ) — từ bản này, điểm điền từ được tính riêng. */
+     4 chế độ: "quiz" (trắc nghiệm Hán tự↔nghĩa), "fill" (điền pinyin),
+     "cloze" (điền từ vào chỗ trống), và "write" (viết chữ tay). Trước đây
+     "cloze" từng bị gộp chung vào "quiz" (một sơ suất cũ) — từ bản có điểm
+     điền từ riêng, các chế độ được tính tách biệt hoàn toàn. */
   function statPrefix(mode) {
     if (mode === "fill") return "fill";
     if (mode === "cloze") return "cloze";
+    if (mode === "write") return "write";
     return "quiz";
   }
 
@@ -293,11 +295,17 @@
     const key = unitKeyOf(level, unitKey);
     const prefix = statPrefix(mode);
     const payload = { lastActiveTs: firebase.firestore.FieldValue.serverTimestamp() };
+    // Lưu LỊCH SỬ từng lần làm (mảng, không ghi đè) để giáo viên/học viên xem
+    // được đã làm bao nhiêu lần và điểm của từng lần — không chỉ lần gần
+    // nhất. Bên trong một mảng arrayUnion, Firestore KHÔNG cho dùng sentinel
+    // serverTimestamp() nên phải dùng giờ máy khách (new Date()); sai lệch vài
+    // giây so với giờ máy chủ là chấp nhận được cho mục đích hiển thị lịch sử.
+    const attempt = { score, total, unitLabel, ts: new Date() };
     cids.forEach((cid) => {
       payload[`classStats.${cid}.${prefix}Attempts`] = firebase.firestore.FieldValue.increment(1);
       payload[`classStats.${cid}.${prefix}CorrectTotal`] = firebase.firestore.FieldValue.increment(score);
       payload[`classStats.${cid}.${prefix}QuestionsTotal`] = firebase.firestore.FieldValue.increment(total);
-      payload[`classStats.${cid}.scores.${mode}_${key}`] = { score, total, unitLabel, ts: firebase.firestore.FieldValue.serverTimestamp() };
+      payload[`classStats.${cid}.scores.${mode}_${key}`] = firebase.firestore.FieldValue.arrayUnion(attempt);
       payload[`classStats.${cid}.viewedUnitKeys`] = firebase.firestore.FieldValue.arrayUnion(key);
       payload[`classStats.${cid}.unitLabels.${key}`] = unitLabel;
     });

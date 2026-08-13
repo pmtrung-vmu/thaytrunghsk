@@ -416,12 +416,14 @@ async function renderUnit(app, id, unitIdx, mode) {
   const unitLabel = isAll ? `Ôn toàn bộ ${info.label}` : `${unit.title}${unit.sub ? ` — ${unit.sub}` : ""}`;
   const baseUrl = `#/level/${id}/unit/${unitIdx}`;
 
+  const canWriteQuiz = STROKE_ORDER_LEVELS.includes(id) && typeof HanziWriter !== "undefined";
   const tabs = [
     ["list", "📋 Danh sách"],
     ["flash", "🔄 Lật thẻ"],
     ["quiz", "✏️ Trắc nghiệm"],
     ["fill", "⌨️ Điền pinyin"],
     ["cloze", "📝 Điền từ"],
+    ...(canWriteQuiz ? [["write", "🖌️ Viết chữ"]] : []),
   ];
 
   const header = `
@@ -447,6 +449,10 @@ async function renderUnit(app, id, unitIdx, mode) {
   else if (mode === "quiz") renderQuizMode(body, words, ctx);
   else if (mode === "fill") renderFillMode(body, words, ctx);
   else if (mode === "cloze") renderClozeMode(body, words, ctx);
+  else if (mode === "write") {
+    if (canWriteQuiz) renderWriteQuizMode(body, words, ctx);
+    else body.innerHTML = `<div class="empty-note">Luyện viết chữ hiện chỉ hỗ trợ HSK 1-3.</div>`;
+  }
   else body.innerHTML = `<p class="empty-note">Chế độ không hợp lệ.</p>`;
 }
 
@@ -847,6 +853,115 @@ function renderClozeMode(body, words, ctx) {
   draw();
 }
 
+/* ---- Viết chữ (kiểm tra viết tay) mode — cho xem nghĩa tiếng Việt, yêu cầu
+   viết tay đúng thứ tự nét bằng chuột/ngón tay, dùng công cụ quiz có sẵn của
+   thư viện HanziWriter (thư viện tự nhận diện nét vẽ đúng/sai theo dữ liệu
+   nét chuẩn — không phải Claude tự chấm). Chỉ có ở HSK1-3 (đúng những cấp đã
+   có dữ liệu nét bút cho tính năng "✏️ Cách viết"). */
+function renderWriteQuizMode(body, words, ctx) {
+  if (typeof HanziWriter === "undefined") {
+    body.innerHTML = `<div class="empty-note">Không tải được thư viện luyện viết — hãy thử tải lại trang.</div>`;
+    return;
+  }
+  const pool = words.filter(w => [...w.hanzi].some(ch => HANZI_RE.test(ch)));
+  if (!pool.length) {
+    body.innerHTML = `<div class="empty-note">Bài này chưa có từ nào để luyện viết.</div>`;
+    return;
+  }
+  const shuffled = [...pool];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  const questions = shuffled.slice(0, Math.min(10, shuffled.length));
+  let qi = 0, score = 0;
+
+  function draw() {
+    if (qi >= questions.length) {
+      if (window.HSKAuth && HSKAuth.user && ctx) {
+        HSKAuth.recordAttempt({ level: ctx.level, unitKey: ctx.unitKey, unitLabel: ctx.unitLabel, mode: "write", score, total: questions.length });
+      }
+      body.innerHTML = `
+        <div class="quiz-result-box">
+          <div class="score-big">${score}/${questions.length}</div>
+          <p>Bạn đã viết đúng ngay từ lần đầu ${score} trên ${questions.length} từ.</p>
+          <button class="btn primary" id="w-retry">Làm lại</button>
+        </div>`;
+      document.getElementById("w-retry").addEventListener("click", () => renderWriteQuizMode(body, words, ctx));
+      return;
+    }
+    const w = questions[qi];
+    const m = meaningOf(w);
+    const chars = [...w.hanzi].filter(ch => HANZI_RE.test(ch));
+    let charsLeft = chars.length;
+    let wordMistakes = 0;
+    let finished = false;
+    const writers = [];
+
+    body.innerHTML = `
+      <div class="quiz-progress" style="text-align:center;">Câu ${qi + 1} / ${questions.length} · Điểm: ${score}</div>
+      <div class="write-quiz-card">
+        <div class="write-quiz-mn">${m.text}</div>
+        <div class="write-quiz-hint-row">
+          <button class="btn btn-sm" id="w-hint-btn">💡 Gợi ý pinyin</button>
+          <span class="write-quiz-hint-text" id="w-hint-text"></span>
+        </div>
+        <div class="write-quiz-targets">
+          ${chars.map((ch, i) => `<div class="write-quiz-target" id="w-quiz-target-${i}"></div>`).join("")}
+        </div>
+        <div class="write-quiz-feedback" id="w-feedback">Viết từng chữ theo đúng thứ tự nét — sai nét sẽ được báo ngay để bạn thử lại.</div>
+        <div class="flash-controls" style="justify-content:center; margin-top:14px;">
+          <button class="btn" id="w-skip">Bỏ qua →</button>
+        </div>
+      </div>
+    `;
+
+    document.getElementById("w-hint-btn").addEventListener("click", () => {
+      document.getElementById("w-hint-text").textContent = w.pinyin;
+    });
+
+    const feedback = document.getElementById("w-feedback");
+
+    function finishWord(skipped) {
+      if (finished) return;
+      finished = true;
+      writers.forEach((wr) => { try { wr.cancelQuiz(); } catch (e) {} });
+      const correct = !skipped && wordMistakes === 0;
+      if (correct) {
+        score++;
+      } else if (window.HSKAuth && HSKAuth.user && ctx) {
+        HSKAuth.recordWrongWord(w.hanzi, ctx.level);
+      }
+      feedback.textContent = skipped
+        ? `Đã bỏ qua — đáp án: ${w.hanzi}`
+        : (correct ? "✓ Viết đúng ngay từ lần đầu!" : `✗ Có ${wordMistakes} nét viết sai — nhưng đã viết đúng ở lần cuối.`);
+      feedback.className = "write-quiz-feedback " + (skipped ? "" : (correct ? "ok" : "err"));
+      setTimeout(() => { qi++; draw(); }, 1300);
+    }
+
+    chars.forEach((ch, i) => {
+      const writer = HanziWriter.create(`w-quiz-target-${i}`, ch, {
+        width: 150, height: 150, padding: 6,
+        showOutline: true,
+        strokeColor: "#2b3a55",
+        outlineColor: "#d8dee5",
+        highlightColor: "#e2984a",
+      });
+      writers.push(writer);
+      writer.quiz({
+        onMistake: () => { wordMistakes++; },
+        onComplete: () => {
+          charsLeft--;
+          if (charsLeft <= 0) finishWord(false);
+        },
+      });
+    });
+
+    document.getElementById("w-skip").addEventListener("click", () => finishWord(true));
+  }
+  draw();
+}
+
 /* ---------------- Grammar page ---------------- */
 
 async function renderGrammar(app, id) {
@@ -1113,18 +1228,20 @@ function dateKey(offsetDays) {
    bảng danh sách lớp (tổng quan) và trang chi tiết lớp. */
 function classAggStats(students, classId) {
   const inClass = students.filter((s) => Array.isArray(s.classIds) && s.classIds.includes(classId));
-  let quizC = 0, quizQ = 0, fillC = 0, fillQ = 0, clozeC = 0, clozeQ = 0;
+  let quizC = 0, quizQ = 0, fillC = 0, fillQ = 0, clozeC = 0, clozeQ = 0, writeC = 0, writeQ = 0;
   inClass.forEach((s) => {
     const st = (s.classStats && s.classStats[classId]) || {};
     quizC += st.quizCorrectTotal || 0; quizQ += st.quizQuestionsTotal || 0;
     fillC += st.fillCorrectTotal || 0; fillQ += st.fillQuestionsTotal || 0;
     clozeC += st.clozeCorrectTotal || 0; clozeQ += st.clozeQuestionsTotal || 0;
+    writeC += st.writeCorrectTotal || 0; writeQ += st.writeQuestionsTotal || 0;
   });
   return {
     count: inClass.length,
     quizAvg: quizQ ? Math.round((100 * quizC) / quizQ) : null,
     fillAvg: fillQ ? Math.round((100 * fillC) / fillQ) : null,
     clozeAvg: clozeQ ? Math.round((100 * clozeC) / clozeQ) : null,
+    writeAvg: writeQ ? Math.round((100 * writeC) / writeQ) : null,
   };
 }
 
@@ -1137,7 +1254,7 @@ function renderClassTable(container, classes, students, onRefresh) {
       <table class="teacher-table">
         <thead><tr>
           <th>Tên lớp</th><th>Trình độ</th><th>Số học viên</th>
-          <th>Điểm TB trắc nghiệm</th><th>Điểm TB điền pinyin</th><th>Điểm TB điền từ</th><th>Thao tác</th>
+          <th>Điểm TB trắc nghiệm</th><th>Điểm TB điền pinyin</th><th>Điểm TB điền từ</th><th>Điểm TB viết chữ</th><th>Thao tác</th>
         </tr></thead>
         <tbody>
           ${classes.map((c) => {
@@ -1163,6 +1280,7 @@ function renderClassTable(container, classes, students, onRefresh) {
               <td>${agg.quizAvg === null ? "—" : agg.quizAvg + "%"}</td>
               <td>${agg.fillAvg === null ? "—" : agg.fillAvg + "%"}</td>
               <td>${agg.clozeAvg === null ? "—" : agg.clozeAvg + "%"}</td>
+              <td>${agg.writeAvg === null ? "—" : agg.writeAvg + "%"}</td>
               <td class="row-actions">
                 <a class="btn btn-sm" href="#/teacher/class/${c.id}">Xem chi tiết →</a>
                 <button class="btn btn-sm class-edit-btn">✏️ Sửa</button>
@@ -1235,7 +1353,7 @@ function mergedStatsForStudent(s, scopedClassId) {
   const buckets = scopedClassId ? [classStats[scopedClassId] || {}] : Object.values(classStats);
   const merged = {
     quizCorrectTotal: 0, quizQuestionsTotal: 0, fillCorrectTotal: 0, fillQuestionsTotal: 0,
-    clozeCorrectTotal: 0, clozeQuestionsTotal: 0,
+    clozeCorrectTotal: 0, clozeQuestionsTotal: 0, writeCorrectTotal: 0, writeQuestionsTotal: 0,
     viewedUnitKeys: [], wrongWords: {}, studyDays: {},
   };
   buckets.forEach((b) => {
@@ -1245,6 +1363,8 @@ function mergedStatsForStudent(s, scopedClassId) {
     merged.fillQuestionsTotal += b.fillQuestionsTotal || 0;
     merged.clozeCorrectTotal += b.clozeCorrectTotal || 0;
     merged.clozeQuestionsTotal += b.clozeQuestionsTotal || 0;
+    merged.writeCorrectTotal += b.writeCorrectTotal || 0;
+    merged.writeQuestionsTotal += b.writeQuestionsTotal || 0;
     merged.viewedUnitKeys.push(...(b.viewedUnitKeys || []));
     Object.entries(b.wrongWords || {}).forEach(([w, c]) => { merged.wrongWords[w] = (merged.wrongWords[w] || 0) + c; });
     Object.entries(b.studyDays || {}).forEach(([d, m]) => { merged.studyDays[d] = (merged.studyDays[d] || 0) + m; });
@@ -1258,6 +1378,19 @@ function mergedStatsForStudent(s, scopedClassId) {
    để xem "học viên A làm bài 1 HSK1 được bao nhiêu điểm mỗi chế độ" trong 1
    bảng duy nhất. Dùng cho cả trang chi tiết học viên (giáo viên xem) và trang
    "Tiến độ của tôi" (học viên tự xem). */
+/* Dữ liệu cũ (trước khi đổi sang lưu lịch sử) lưu MỘT object điểm duy nhất
+   (lần gần nhất, bị ghi đè mỗi lần làm lại) thay vì một mảng. Chuẩn hoá về
+   dạng mảng để mã hiển thị dùng chung một kiểu dữ liệu, coi bản ghi cũ đó là
+   "1 lần làm" (không có lịch sử đầy đủ hơn vì dữ liệu cũ không lưu). */
+function normalizeAttempts(val) {
+  if (!val) return [];
+  const list = Array.isArray(val) ? val : [val];
+  return list.map((a) => ({
+    score: a.score, total: a.total,
+    ts: a.ts && a.ts.toDate ? a.ts.toDate() : (a.ts instanceof Date ? a.ts : null),
+  })).sort((a, b) => (a.ts ? a.ts.getTime() : 0) - (b.ts ? b.ts.getTime() : 0));
+}
+
 function unitBreakdownRows(bucket) {
   const scores = (bucket && bucket.scores) || {};
   const labels = (bucket && bucket.unitLabels) || {};
@@ -1267,18 +1400,25 @@ function unitBreakdownRows(bucket) {
     if (sep < 0) return;
     const mode = fullKey.slice(0, sep);
     const key = fullKey.slice(sep + 1);
-    if (!rows[key]) rows[key] = { key, label: labels[key] || key, quiz: null, fill: null, cloze: null, lastTs: null };
-    if (mode === "quiz" || mode === "fill" || mode === "cloze") rows[key][mode] = val;
-    const ts = val && val.ts && val.ts.toDate ? val.ts.toDate() : null;
-    if (ts && (!rows[key].lastTs || ts > rows[key].lastTs)) rows[key].lastTs = ts;
+    if (!rows[key]) rows[key] = { key, label: labels[key] || key, quiz: [], fill: [], cloze: [], write: [], lastTs: null };
+    if (mode === "quiz" || mode === "fill" || mode === "cloze" || mode === "write") {
+      const attempts = normalizeAttempts(val);
+      rows[key][mode] = attempts;
+      attempts.forEach((a) => { if (a.ts && (!rows[key].lastTs || a.ts > rows[key].lastTs)) rows[key].lastTs = a.ts; });
+    }
   });
   return Object.values(rows).sort((a, b) => (b.lastTs ? b.lastTs.getTime() : 0) - (a.lastTs ? a.lastTs.getTime() : 0));
 }
 
-function scoreCell(entry) {
-  if (!entry) return "—";
-  const pct = entry.total ? Math.round((100 * entry.score) / entry.total) : 0;
-  return `${entry.score}/${entry.total} <span class="tt-sub">(${pct}%)</span>`;
+/* attempts: mảng {score,total,ts} theo THỨ TỰ THỜI GIAN (cũ→mới) — hiện đủ
+   "làm mấy lần, điểm từng lần" thay vì chỉ điểm lần gần nhất. */
+function scoreCell(attempts) {
+  if (!attempts || !attempts.length) return "—";
+  const list = attempts.map((a) => {
+    const pct = a.total ? Math.round((100 * a.score) / a.total) : 0;
+    return `${a.score}/${a.total} (${pct}%)`;
+  });
+  return `<div class="attempt-count">${attempts.length} lần</div><div class="attempt-list">${escapeHtml(list.join(", "))}</div>`;
 }
 
 function unitBreakdownTableHtml(bucket) {
@@ -1288,7 +1428,7 @@ function unitBreakdownTableHtml(bucket) {
     <div class="teacher-table-wrap">
       <table class="teacher-table">
         <thead><tr>
-          <th>Bài học</th><th>Trắc nghiệm</th><th>Điền pinyin</th><th>Điền từ</th><th>Lần làm gần nhất</th>
+          <th>Bài học</th><th>Trắc nghiệm</th><th>Điền pinyin</th><th>Điền từ</th><th>Viết chữ</th><th>Lần làm gần nhất</th>
         </tr></thead>
         <tbody>
           ${rows.map((r) => `
@@ -1297,6 +1437,7 @@ function unitBreakdownTableHtml(bucket) {
               <td>${scoreCell(r.quiz)}</td>
               <td>${scoreCell(r.fill)}</td>
               <td>${scoreCell(r.cloze)}</td>
+              <td>${scoreCell(r.write)}</td>
               <td>${r.lastTs ? r.lastTs.toLocaleString("vi-VN") : "—"}</td>
             </tr>
           `).join("")}
@@ -1320,22 +1461,23 @@ function renderStudentTable(container, students, classes, onRefresh, scopedClass
     const quizAvg = stats.quizQuestionsTotal ? Math.round((100 * stats.quizCorrectTotal) / stats.quizQuestionsTotal) : null;
     const fillAvg = stats.fillQuestionsTotal ? Math.round((100 * stats.fillCorrectTotal) / stats.fillQuestionsTotal) : null;
     const clozeAvg = stats.clozeQuestionsTotal ? Math.round((100 * stats.clozeCorrectTotal) / stats.clozeQuestionsTotal) : null;
+    const writeAvg = stats.writeQuestionsTotal ? Math.round((100 * stats.writeCorrectTotal) / stats.writeQuestionsTotal) : null;
     const wrongEntries = Object.entries(stats.wrongWords).sort((a, b) => b[1] - a[1]).slice(0, 5);
     const minsToday = stats.studyDays[todayK] || 0;
     let minsWeek = 0;
     for (let i = 0; i < 7; i++) minsWeek += stats.studyDays[dateKey(i)] || 0;
     const lastActive = s.lastActiveTs && s.lastActiveTs.toDate ? s.lastActiveTs.toDate() : null;
-    return { s, viewedCount, quizAvg, fillAvg, clozeAvg, wrongEntries, minsToday, minsWeek, lastActive };
+    return { s, viewedCount, quizAvg, fillAvg, clozeAvg, writeAvg, wrongEntries, minsToday, minsWeek, lastActive };
   }).sort((a, b) => (b.lastActive ? b.lastActive.getTime() : 0) - (a.lastActive ? a.lastActive.getTime() : 0));
 
   container.innerHTML = `
-    <p class="section-sub">${students.length} học viên đã có tài khoản · dữ liệu cập nhật theo thời gian thực từ Firestore${scopedClassId ? " · điểm/hoạt động chỉ tính riêng cho lớp này" : " · điểm/hoạt động là tổng của tất cả các lớp học viên đang tham gia"}</p>
+    <p class="section-sub">${students.length} học viên đã có tài khoản · dữ liệu cập nhật theo thời gian thực từ Firestore${scopedClassId ? " · điểm/hoạt động chỉ tính riêng cho lớp này" : " · điểm/hoạt động là tổng của tất cả các lớp học viên đang tham gia"} · bấm vào tên học viên để xem chi tiết từng lần làm bài</p>
     ${students.length === 0 ? `<p class="empty-note">Chưa có học viên nào. Hãy tạo tài khoản ở khung phía trên.</p>` : `
     <div class="teacher-table-wrap">
       <table class="teacher-table">
         <thead><tr>
           <th>Học viên</th><th>Lớp</th><th>Hoạt động gần nhất</th><th>Bài đã ôn</th>
-          <th>Điểm TB trắc nghiệm</th><th>Điểm TB điền pinyin</th><th>Điểm TB điền từ</th>
+          <th>Điểm TB trắc nghiệm</th><th>Điểm TB điền pinyin</th><th>Điểm TB điền từ</th><th>Điểm TB viết chữ</th>
           <th>Từ hay sai</th><th>Học hôm nay</th><th>Học 7 ngày qua</th><th>Thao tác</th>
         </tr></thead>
         <tbody>
@@ -1345,7 +1487,7 @@ function renderStudentTable(container, students, classes, onRefresh, scopedClass
             return `
             <tr data-uid="${r.s.uid}">
               <td>
-                <b class="student-name-display">${escapeHtml(r.s.name || "(chưa đặt tên)")}</b>
+                <a href="#/teacher/student/${r.s.uid}" class="student-name-display" title="Xem chi tiết học viên này">${escapeHtml(r.s.name || "(chưa đặt tên)")}</a>
                 <input type="text" class="student-name-edit" value="${escapeHtml(r.s.name || "")}" hidden>
                 <br><span class="tt-sub">${escapeHtml(r.s.email || "")}</span>
                 <div class="student-edit-err auth-err"></div>
@@ -1374,6 +1516,7 @@ function renderStudentTable(container, students, classes, onRefresh, scopedClass
               <td>${r.quizAvg === null ? "—" : r.quizAvg + "%"}</td>
               <td>${r.fillAvg === null ? "—" : r.fillAvg + "%"}</td>
               <td>${r.clozeAvg === null ? "—" : r.clozeAvg + "%"}</td>
+              <td>${r.writeAvg === null ? "—" : r.writeAvg + "%"}</td>
               <td>${r.wrongEntries.length ? escapeHtml(r.wrongEntries.map(([w, c]) => `${w} (${c})`).join(", ")) : "—"}</td>
               <td>${r.minsToday.toFixed(1)} phút</td>
               <td>${r.minsWeek.toFixed(1)} phút</td>
@@ -1518,7 +1661,8 @@ async function renderClassDetailPage(app, classId) {
       ${(levelInfo(cls.level) || {}).label || cls.level} · ${agg.count} học viên ·
       Điểm TB trắc nghiệm ${agg.quizAvg === null ? "—" : agg.quizAvg + "%"} ·
       Điểm TB điền pinyin ${agg.fillAvg === null ? "—" : agg.fillAvg + "%"} ·
-      Điểm TB điền từ ${agg.clozeAvg === null ? "—" : agg.clozeAvg + "%"}
+      Điểm TB điền từ ${agg.clozeAvg === null ? "—" : agg.clozeAvg + "%"} ·
+      Điểm TB viết chữ ${agg.writeAvg === null ? "—" : agg.writeAvg + "%"}
     </p>
     <div id="class-detail-table"></div>
   `;
@@ -1566,6 +1710,7 @@ async function renderStudentDetailPage(app, uid) {
   const overallQuizAvg = overall.quizQuestionsTotal ? Math.round((100 * overall.quizCorrectTotal) / overall.quizQuestionsTotal) : null;
   const overallFillAvg = overall.fillQuestionsTotal ? Math.round((100 * overall.fillCorrectTotal) / overall.fillQuestionsTotal) : null;
   const overallClozeAvg = overall.clozeQuestionsTotal ? Math.round((100 * overall.clozeCorrectTotal) / overall.clozeQuestionsTotal) : null;
+  const overallWriteAvg = overall.writeQuestionsTotal ? Math.round((100 * overall.writeCorrectTotal) / overall.writeQuestionsTotal) : null;
 
   app.innerHTML = `
     <div class="crumbs"><a href="#/teacher">📊 Trang giáo viên</a> / ${escapeHtml(s.name || "(chưa đặt tên)")}</div>
@@ -1577,7 +1722,8 @@ async function renderStudentDetailPage(app, uid) {
     <p class="section-sub">
       Tổng tất cả các lớp — Trắc nghiệm ${overallQuizAvg === null ? "—" : overallQuizAvg + "%"} ·
       Điền pinyin ${overallFillAvg === null ? "—" : overallFillAvg + "%"} ·
-      Điền từ ${overallClozeAvg === null ? "—" : overallClozeAvg + "%"}
+      Điền từ ${overallClozeAvg === null ? "—" : overallClozeAvg + "%"} ·
+      Viết chữ ${overallWriteAvg === null ? "—" : overallWriteAvg + "%"}
     </p>
     ${myClasses.length === 0 ? `<p class="empty-note">Học viên chưa thuộc lớp nào nên chưa có bài nào để hiện chi tiết.</p>` : myClasses.map((c) => {
       const bucket = (s.classStats && s.classStats[c.classId]) || {};
@@ -1617,6 +1763,7 @@ async function renderMyProgressPage(app) {
   const overallQuizAvg = overall.quizQuestionsTotal ? Math.round((100 * overall.quizCorrectTotal) / overall.quizQuestionsTotal) : null;
   const overallFillAvg = overall.fillQuestionsTotal ? Math.round((100 * overall.fillCorrectTotal) / overall.fillQuestionsTotal) : null;
   const overallClozeAvg = overall.clozeQuestionsTotal ? Math.round((100 * overall.clozeCorrectTotal) / overall.clozeQuestionsTotal) : null;
+  const overallWriteAvg = overall.writeQuestionsTotal ? Math.round((100 * overall.writeCorrectTotal) / overall.writeQuestionsTotal) : null;
   const wrongEntries = Object.entries(overall.wrongWords).sort((a, b) => b[1] - a[1]).slice(0, 10);
   const todayK = dateKey(0);
   const minsToday = overall.studyDays[todayK] || 0;
@@ -1634,6 +1781,7 @@ async function renderMyProgressPage(app) {
       <div class="progress-stat"><b>${overallQuizAvg === null ? "—" : overallQuizAvg + "%"}</b><span>Điểm TB trắc nghiệm</span></div>
       <div class="progress-stat"><b>${overallFillAvg === null ? "—" : overallFillAvg + "%"}</b><span>Điểm TB điền pinyin</span></div>
       <div class="progress-stat"><b>${overallClozeAvg === null ? "—" : overallClozeAvg + "%"}</b><span>Điểm TB điền từ</span></div>
+      <div class="progress-stat"><b>${overallWriteAvg === null ? "—" : overallWriteAvg + "%"}</b><span>Điểm TB viết chữ</span></div>
       <div class="progress-stat"><b>${minsToday.toFixed(1)}</b><span>Phút học hôm nay</span></div>
       <div class="progress-stat"><b>${minsWeek.toFixed(1)}</b><span>Phút học 7 ngày qua</span></div>
     </div>

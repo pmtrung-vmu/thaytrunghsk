@@ -220,6 +220,14 @@ a { color: inherit; text-decoration: none; }
   font: inherit; font-size: 13.5px; padding: 4px 7px; border-radius: 6px; border: 1px solid var(--line);
   width: 140px;
 }
+a.student-name-display {
+  color: var(--indigo-deep);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+a.student-name-display:hover { text-decoration: underline; }
+a.student-name-display[hidden] { display: none; }
 
 /* ---------- Học viên nhiều lớp cùng lúc ---------- */
 .class-checkbox-group {
@@ -627,6 +635,49 @@ a { color: inherit; text-decoration: none; }
 .fill-card input.wrong { border-color: var(--danger); background: #fbe7e7; }
 .fill-hint { font-size: 12.5px; color: var(--ink-soft); margin-top: 6px; }
 
+/* ---------- Viết chữ (handwriting quiz, HanziWriter .quiz()) ---------- */
+.write-quiz-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 26px 24px;
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.write-quiz-mn { font-size: 24px; font-weight: 600; color: var(--ink); margin-bottom: 14px; }
+.write-quiz-hint-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.write-quiz-hint-text { color: var(--teal); font-weight: 600; font-size: 15px; }
+.write-quiz-targets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.write-quiz-target {
+  width: 150px;
+  height: 150px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.write-quiz-feedback {
+  font-size: 14px;
+  color: var(--ink-soft);
+  min-height: 20px;
+  margin-top: 6px;
+}
+.write-quiz-feedback.ok { color: #1f6b3c; font-weight: 600; }
+.write-quiz-feedback.err { color: #9c3a3a; font-weight: 600; }
+
 /* ---------- Grammar ---------- */
 .gram-lesson { margin-bottom: 26px; }
 .gram-lesson-title {
@@ -672,6 +723,10 @@ a { color: inherit; text-decoration: none; }
   border: 1px dashed var(--line);
   border-radius: var(--radius);
 }
+
+/* ---------- Lịch sử từng lần làm bài (bảng chi tiết học viên) ---------- */
+.attempt-count { font-weight: 600; color: var(--indigo-deep); font-size: 13px; }
+.attempt-list { color: var(--ink-soft); font-size: 12.5px; margin-top: 2px; line-height: 1.5; }
 
 @media (max-width: 640px) {
   .word-row { flex-wrap: wrap; }

@@ -102,19 +102,30 @@ Trang giáo viên có 2 bảng riêng: **"📚 Danh sách lớp"** và **"👥 D
 
 ## Trang giáo viên hiển thị gì?
 
-Với mỗi học viên: lớp đang học, hoạt động gần nhất, số bài đã ôn qua, điểm trung bình **trắc nghiệm, điền pinyin, và điền từ** (3 chế độ được tính riêng), danh sách từ hay điền/chọn sai nhất, và số phút học hôm nay / 7 ngày qua (tự động cộng dồn khi học viên mở một bài học và ở lại trang). Bảng **"📚 Danh sách lớp"** cho xem nhanh sĩ số + điểm trung bình từng lớp, và trang chi tiết từng lớp (bấm "Xem chi tiết →") gom đúng các số liệu đó cho riêng lớp đang xem.
+Với mỗi học viên: lớp đang học, hoạt động gần nhất, số bài đã ôn qua, điểm trung bình **trắc nghiệm, điền pinyin, điền từ, và viết chữ** (4 chế độ được tính riêng), danh sách từ hay điền/chọn sai nhất, và số phút học hôm nay / 7 ngày qua (tự động cộng dồn khi học viên mở một bài học và ở lại trang). Bảng **"📚 Danh sách lớp"** cho xem nhanh sĩ số + điểm trung bình từng lớp, và trang chi tiết từng lớp (bấm "Xem chi tiết →") gom đúng các số liệu đó cho riêng lớp đang xem.
 
-**Xem điểm theo từng bài học của một học viên:** bấm **"📖 Chi tiết"** ở dòng học viên (trong bảng "Danh sách học viên") để mở trang riêng của học viên đó — liệt kê từng bài học viên đã làm (ví dụ "HSK1 · Bài 1"), kèm điểm số/tỉ lệ đúng của cả 3 chế độ (trắc nghiệm, điền pinyin, điền từ) và thời điểm làm gần nhất, tách riêng theo từng lớp nếu học viên thuộc nhiều lớp.
+**Xem chi tiết một học viên — kể cả lịch sử từng lần làm bài:** bấm **vào tên học viên** (hoặc nút "📖 Chi tiết") ở dòng học viên (trong bảng "Danh sách học viên") để mở trang riêng của học viên đó — liệt kê từng bài học viên đã làm (ví dụ "HSK1 · Bài 1"), kèm điểm số/tỉ lệ đúng của cả 4 chế độ (trắc nghiệm, điền pinyin, điền từ, viết chữ) và thời điểm làm gần nhất, tách riêng theo từng lớp nếu học viên thuộc nhiều lớp.
 
-⚠️ **Về điểm "Điền từ" (điền từ vào chỗ trống):** trước bản cập nhật này, điểm của chế độ "📝 Điền từ" từng bị gộp chung vào điểm "Trắc nghiệm" (một sơ suất trong bản cũ). Từ bản này, hai chế độ được tính hoàn toàn tách biệt — nhưng các con số "Điểm TB trắc nghiệm" đã ghi nhận **trước** khi cập nhật vẫn giữ nguyên phần đã bị gộp trước đó (không tự tách lại được); chỉ có hoạt động ôn tập **mới, sau khi cập nhật** mới được tính đúng riêng theo từng chế độ.
+Mỗi ô điểm ở đây không chỉ hiện điểm lần gần nhất — mà hiện **toàn bộ lịch sử các lần làm bài đó**: số lần đã làm (ví dụ "3 lần") và điểm chi tiết của từng lần theo đúng thứ tự thời gian (ví dụ "6/10 (60%), 8/10 (80%), 9/10 (90%)"). Nhờ vậy giáo viên thấy được cả quá trình học viên tiến bộ qua từng lần luyện, không chỉ kết quả cuối cùng.
+
+⚠️ **Về điểm "Điền từ" (điền từ vào chỗ trống):** trước bản cập nhật thêm chế độ này, điểm của chế độ "📝 Điền từ" từng bị gộp chung vào điểm "Trắc nghiệm" (một sơ suất trong bản cũ). Từ bản đó trở đi, hai chế độ được tính hoàn toàn tách biệt — nhưng các con số "Điểm TB trắc nghiệm" đã ghi nhận **trước** khi cập nhật vẫn giữ nguyên phần đã bị gộp trước đó (không tự tách lại được); chỉ có hoạt động ôn tập **mới, sau khi cập nhật** mới được tính đúng riêng theo từng chế độ.
+
+⚠️ **Về lịch sử từng lần làm bài:** tính năng này (lưu mọi lần làm thay vì chỉ lần gần nhất) chỉ bắt đầu ghi nhận từ bản cập nhật thêm chế độ "🖌️ Viết chữ". Điểm đã ghi nhận **trước đó** (kể cả trắc nghiệm/điền pinyin/điền từ) vẫn hiển thị được bình thường, nhưng chỉ tính là **"1 lần"** trong bảng chi tiết (vì dữ liệu cũ chỉ lưu snapshot lần gần nhất, không có lịch sử đầy đủ hơn để hiển thị lại).
+
+## Chế độ luyện tập mới: "🖌️ Viết chữ"
+
+Mỗi bài học (HSK1-3) giờ có thêm tab **"🖌️ Viết chữ"** bên cạnh 5 chế độ cũ. Hệ thống đưa ra nghĩa tiếng Việt của một từ ngẫu nhiên trong bài, học viên phải **viết tay từng chữ Hán** của từ đó lên khung vẽ trên màn hình — sai nét sẽ được báo ngay để viết lại, viết đúng ngay từ lần đầu (không sai nét nào) mới được tính đúng câu đó. Có nút gợi ý pinyin và nút bỏ qua nếu cần.
+
+Tính năng này dùng API `.quiz()` có sẵn của thư viện HanziWriter (cùng thư viện đang dùng cho "✏️ Cách viết") để tự động chấm đúng/sai từng nét vẽ — không cần xây dựng công cụ nhận diện chữ viết tay riêng. Vì cùng phụ thuộc vào dữ liệu nét bút của HanziWriter, "Viết chữ" **chỉ áp dụng cho HSK1-3** giống "Cách viết" (xem mục `STROKE_ORDER_LEVELS` trong `js/app.js` nếu muốn mở rộng).
 
 ## Trang "Tiến độ của tôi" (dành cho học viên)
 
-Học viên đăng nhập sẽ thấy mục **"📈 Tiến độ của tôi"** trên thanh đăng nhập (cạnh nút Đăng xuất). Trang này để học viên **tự theo dõi kết quả luyện tập của chính mình** — không cần hỏi giáo viên: tổng số bài đã ôn, điểm trung bình cả 3 chế độ (trắc nghiệm/điền pinyin/điền từ), số phút học hôm nay/7 ngày qua, danh sách từ hay sai nhất, và bảng chi tiết điểm theo từng bài học (giống hệt trang "📖 Chi tiết" mà giáo viên xem, chỉ khác là học viên chỉ xem được của chính mình). Nếu học viên thuộc nhiều lớp, dữ liệu được chia rõ theo từng lớp.
+Học viên đăng nhập sẽ thấy mục **"📈 Tiến độ của tôi"** trên thanh đăng nhập (cạnh nút Đăng xuất). Trang này để học viên **tự theo dõi kết quả luyện tập của chính mình** — không cần hỏi giáo viên: tổng số bài đã ôn, điểm trung bình cả 4 chế độ (trắc nghiệm/điền pinyin/điền từ/viết chữ), số phút học hôm nay/7 ngày qua, danh sách từ hay sai nhất, và bảng chi tiết điểm theo từng bài học kèm lịch sử từng lần làm (giống hệt trang chi tiết mà giáo viên xem, chỉ khác là học viên chỉ xem được của chính mình). Nếu học viên thuộc nhiều lớp, dữ liệu được chia rõ theo từng lớp.
 
 ## Giới hạn cần biết
 
 - Gói Firebase miễn phí (Spark) đủ dùng cho quy mô vài chục–vài trăm học viên hoạt động bình thường; nếu lớp rất lớn, xem thêm gói trả phí "Blaze" (vẫn có hạn mức miễn phí hào phóng ở đầu mỗi tháng).
 - Thời gian học hiện được đo bằng cách kiểm tra mỗi 30 giây khi trình duyệt đang mở và ở tab đó (tab ẩn/máy khoá sẽ không tính) — là số gần đúng, không phải đồng hồ bấm giờ chính xác tuyệt đối.
-- "Bài đã ôn" tính khi học viên mở bất kỳ chế độ nào (danh sách/lật thẻ/trắc nghiệm/điền từ) của bài đó — chưa phân biệt mức độ thành thạo.
+- "Bài đã ôn" tính khi học viên mở bất kỳ chế độ nào (danh sách/lật thẻ/trắc nghiệm/điền từ/viết chữ) của bài đó — chưa phân biệt mức độ thành thạo.
 - Học viên được tạo trước khi cập nhật tính năng phân lớp/nhiều lớp (nếu có) sẽ chưa có lớp — vào Trang giáo viên, bấm "✏️ Sửa lớp" cho học viên đó để gán lại (xem lưu ý ⚠️ ở mục "Sửa/xóa lớp & học viên" phía trên).
+- Lịch sử từng lần làm bài được lưu dưới dạng mảng trong Firestore (mỗi lần làm thêm một phần tử) — với quy mô dùng thực tế của một trang ôn từ vựng (nhiều nhất vài trăm lần làm/bài/năm), mảng này vẫn rất nhỏ so với giới hạn dung lượng một tài liệu Firestore (1MB), nên không cần lo về hiệu năng hay chi phí.
