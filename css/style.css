@@ -221,6 +221,29 @@ a { color: inherit; text-decoration: none; }
   width: 140px;
 }
 
+/* ---------- Học viên nhiều lớp cùng lúc ---------- */
+.class-checkbox-group {
+  display: flex; flex-direction: column; gap: 4px; margin: 4px 0 8px;
+  padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: #fbfaf7;
+  max-width: 320px;
+}
+.class-checkbox-label { font-size: 12px; color: var(--ink-soft); margin-bottom: 2px; }
+.class-checkbox-item { display: flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer; }
+.class-checkbox-item input { margin: 0; }
+
+.class-cell { min-width: 190px; }
+.student-class-display { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.class-tag {
+  display: inline-block; background: #eef1fb; color: #33406b; border-radius: 999px;
+  padding: 2px 9px; font-size: 12px; white-space: nowrap;
+}
+.student-class-edit {
+  display: flex; flex-direction: column; gap: 4px; min-width: 210px;
+  padding: 8px; border: 1px solid var(--line); border-radius: 8px; background: #fbfaf7;
+}
+.student-class-edit[hidden] { display: none; }
+.student-class-err { font-size: 11.5px; min-height: 1.2em; margin-top: 2px; }
+
 /* ---------- Layout ---------- */
 .app {
   max-width: 1080px;

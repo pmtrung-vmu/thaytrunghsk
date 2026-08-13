@@ -76,25 +76,29 @@ Từ giờ, **mọi tài khoản học viên đều được tạo từ Trang gi
 Sau khi đăng nhập bằng tài khoản giáo viên, vào **"📊 Trang giáo viên"**:
 
 1. **Tạo lớp mới**: đặt tên lớp (ví dụ "HSK1 - Tối 2/4/6") và chọn đúng trình độ HSK của lớp đó.
-2. **Tạo tài khoản học viên**: nhập họ tên + email học viên, chọn lớp (mật khẩu có thể để trống để hệ thống tự sinh). Sau khi tạo, trang sẽ hiện email + mật khẩu tạm — gửi thông tin này cho học viên để họ tự đăng nhập.
-3. Học viên đăng nhập bằng thông tin được cấp sẽ **chỉ ôn tập được đúng trình độ của lớp mình** — các trình độ khác bị khoá (hiện biểu tượng 🔒), kể cả khi họ cố vào thẳng bằng đường dẫn.
-4. Muốn chuyển học viên sang lớp khác (đổi cả trình độ được phép ôn): trong bảng danh sách học viên, đổi lựa chọn ở cột **"Lớp"** — hệ thống lưu ngay lập tức.
+2. **Tạo tài khoản học viên**: nhập họ tên + email học viên, tick chọn **một hoặc nhiều lớp cùng lúc** (mật khẩu có thể để trống để hệ thống tự sinh). Sau khi tạo, trang sẽ hiện email + mật khẩu tạm — gửi thông tin này cho học viên để họ tự đăng nhập.
+3. Học viên đăng nhập bằng thông tin được cấp sẽ **chỉ ôn tập được đúng (các) trình độ của (các) lớp mình đang thuộc** — trình độ nào không có lớp tương ứng sẽ bị khoá (hiện biểu tượng 🔒), kể cả khi họ cố vào thẳng bằng đường dẫn. Một học viên thuộc đồng thời lớp HSK1 và lớp HSK2 sẽ ôn được cả hai trình độ đó.
+4. Muốn đổi (các) lớp của một học viên (thêm lớp, bớt lớp, hoặc chuyển hẳn sang lớp khác): trong bảng danh sách học viên, bấm **"✏️ Sửa lớp"** ở cột "Lớp" → tick/bỏ tick các lớp cần → **Lưu**.
 
 **Lưu ý quan trọng:** việc giới hạn trình độ này hoạt động ở tầng ứng dụng (ẩn menu, chặn điều hướng) chứ **không phải khoá dữ liệu tuyệt đối** — vì các file từ vựng (`data/hsk*.json`) vẫn là file tĩnh công khai trên GitHub Pages, ai có đường dẫn trực tiếp vẫn tải được. Mức độ này phù hợp cho một lớp học bình thường (ngăn học viên vô tình lạc sang bài chưa học), không phải một hệ thống bảo mật thi cử nghiêm ngặt.
+
+**Tiến độ ôn tập được lưu riêng theo từng lớp:** nếu một học viên thuộc nhiều lớp, điểm trắc nghiệm/điền pinyin/bài đã ôn của họ được cộng dồn riêng cho từng lớp (theo đúng trình độ đang ôn thuộc lớp nào). Trang chi tiết một lớp (mục dưới đây) chỉ hiện đúng số liệu của lớp đó; bảng "Danh sách học viên" chung ở trang giáo viên hiện **tổng số liệu của tất cả các lớp** học viên đang tham gia, để dễ nhìn tổng quan.
 
 ## Sửa/xóa lớp & học viên
 
 Trang giáo viên có 2 bảng riêng: **"📚 Danh sách lớp"** và **"👥 Danh sách học viên"**.
 
-- **Sửa lớp**: bấm **"✏️ Sửa"** ở dòng lớp cần sửa → đổi tên và/hoặc trình độ → **Lưu**. Việc đổi tên/trình độ được áp dụng ngay cho **tất cả học viên đang thuộc lớp đó** (không cần sửa từng học viên).
-- **Xóa lớp**: bấm **"🗑 Xóa"**. Hệ thống chỉ cho xóa khi lớp **không còn học viên nào** — nếu còn, hãy chuyển hết học viên sang lớp khác trước (đổi cột "Lớp" trong bảng học viên), rồi xóa lớp sau.
-- **Xem chi tiết một lớp**: bấm **"Xem chi tiết →"** để mở trang riêng của lớp đó — tổng số học viên, điểm trung bình cả lớp, và bảng chỉ hiển thị học viên của riêng lớp này (tiện theo dõi từng lớp thay vì lọc trong danh sách chung).
+- **Sửa lớp**: bấm **"✏️ Sửa"** ở dòng lớp cần sửa → đổi tên và/hoặc trình độ → **Lưu**. Việc đổi tên/trình độ được áp dụng ngay cho **tất cả học viên đang thuộc lớp đó** (không cần sửa từng học viên) — kể cả những học viên đang thuộc thêm lớp khác nữa (chỉ mục ứng với lớp này của họ được cập nhật, các lớp khác của họ giữ nguyên).
+- **Xóa lớp**: bấm **"🗑 Xóa"**. Hệ thống chỉ cho xóa khi lớp **không còn học viên nào** (kể cả học viên đang thuộc lớp này cùng lúc với lớp khác) — nếu còn, hãy bấm "✏️ Sửa lớp" ở từng học viên đó và bỏ tick lớp này trước, rồi xóa lớp sau.
+- **Xem chi tiết một lớp**: bấm **"Xem chi tiết →"** để mở trang riêng của lớp đó — tổng số học viên, điểm trung bình cả lớp, và bảng chỉ hiển thị học viên đang thuộc lớp này, với điểm/hoạt động **chỉ tính riêng cho lớp này** (không gộp các lớp khác của cùng học viên).
 - **Sửa tên học viên**: bấm **"✏️ Sửa tên"** ở dòng học viên → đổi tên → **Lưu**.
-- **Xóa học viên**: bấm **"🗑 Xóa"** ở dòng học viên → xác nhận. Thao tác này **xóa ngay hồ sơ học viên trong Firestore**, nghĩa là học viên đó **mất quyền truy cập nội dung ngay lập tức** (không đăng nhập/xem bài được nữa) và biến mất khỏi mọi danh sách/thống kê.
+- **Xóa học viên**: bấm **"🗑 Xóa"** ở dòng học viên → xác nhận. Thao tác này **xóa ngay hồ sơ học viên trong Firestore**, nghĩa là học viên đó **mất quyền truy cập nội dung ngay lập tức** (không đăng nhập/xem bài được nữa) và biến mất khỏi mọi danh sách/thống kê, kể cả khi họ đang thuộc nhiều lớp.
 
   ⚠️ **Giới hạn quan trọng cần biết**: do trang này chỉ chạy hoàn toàn trên trình duyệt (không có máy chủ riêng), nút "Xóa học viên" **không xóa được tài khoản đăng nhập gốc** trong Firebase Authentication — chỉ nền tảng Firebase mới cho phép xóa tài khoản đăng nhập của người khác từ phía máy chủ (Admin SDK), việc này không làm được từ trình duyệt. Sau khi xóa, tài khoản đăng nhập đó vẫn tồn tại (ở dạng "mồ côi", không có hồ sơ/quyền gì) nhưng **không đăng nhập vào được nội dung nào** vì hồ sơ Firestore đã mất. Nếu muốn dọn sạch hoàn toàn (ví dụ để dùng lại đúng email đó cho học viên khác), vào **Firebase Console → Authentication → Users**, tìm đúng email, bấm menu **⋮ → Delete account**.
 
-**Sau khi cập nhật lên bản có tính năng xóa học viên, bạn cần dán lại `firestore.rules`:** file luật bảo mật đã đổi (thêm quyền cho giáo viên xóa hồ sơ học viên). Hãy làm lại **Bước 5** ở trên — mở `firestore.rules` mới, copy toàn bộ, dán đè vào Firebase Console → Firestore Database → Rules → **Publish**. Nếu bỏ qua bước này, nút "Xóa học viên" sẽ báo lỗi quyền truy cập (permission-denied).
+**Sau khi cập nhật lên bản có tính năng xóa học viên / nhiều lớp cùng lúc, bạn cần dán lại `firestore.rules`:** file luật bảo mật đã đổi (thêm quyền cho giáo viên xóa hồ sơ học viên, và đổi tên trường `classId` → `classIds`). Hãy làm lại **Bước 5** ở trên — mở `firestore.rules` mới, copy toàn bộ, dán đè vào Firebase Console → Firestore Database → Rules → **Publish**. Nếu bỏ qua bước này, nút "Xóa học viên"/"Sửa lớp" sẽ báo lỗi quyền truy cập (permission-denied).
+
+⚠️ **Nếu bạn đã có học viên thật từ trước khi nâng cấp lên bản "nhiều lớp cùng lúc":** đây là một thay đổi lớn về cách lưu dữ liệu — học viên cũ dùng trường `classId` (1 lớp duy nhất), bản mới dùng `classIds`/`classes` (nhiều lớp). Sau khi đưa bản mới lên, **các học viên đã tạo từ trước sẽ hiện "— chưa có lớp —"** (mất quyền ôn tập tạm thời) cho tới khi bạn vào Trang giáo viên, bấm **"✏️ Sửa lớp"** ở từng học viên đó và tick lại đúng lớp của họ (chỉ mất vài giây mỗi học viên). Tiến độ ôn tập cũ (điểm số, từ hay sai...) của họ vẫn còn nguyên trong Firestore nhưng sẽ không hiển thị ở đâu nữa (dữ liệu cũ không tự chuyển sang định dạng mới) — hoạt động ôn tập mới sau khi gán lại lớp sẽ được ghi nhận bình thường.
 
 ## Trang giáo viên hiển thị gì?
 
@@ -105,4 +109,4 @@ Với mỗi học viên: lớp đang học, hoạt động gần nhất, số b�
 - Gói Firebase miễn phí (Spark) đủ dùng cho quy mô vài chục–vài trăm học viên hoạt động bình thường; nếu lớp rất lớn, xem thêm gói trả phí "Blaze" (vẫn có hạn mức miễn phí hào phóng ở đầu mỗi tháng).
 - Thời gian học hiện được đo bằng cách kiểm tra mỗi 30 giây khi trình duyệt đang mở và ở tab đó (tab ẩn/máy khoá sẽ không tính) — là số gần đúng, không phải đồng hồ bấm giờ chính xác tuyệt đối.
 - "Bài đã ôn" tính khi học viên mở bất kỳ chế độ nào (danh sách/lật thẻ/trắc nghiệm/điền từ) của bài đó — chưa phân biệt mức độ thành thạo.
-- Học viên được tạo trước khi cập nhật tính năng phân lớp (nếu có) sẽ chưa có lớp — vào Trang giáo viên, đổi cột "Lớp" cho học viên đó để gán trình độ.
+- Học viên được tạo trước khi cập nhật tính năng phân lớp/nhiều lớp (nếu có) sẽ chưa có lớp — vào Trang giáo viên, bấm "✏️ Sửa lớp" cho học viên đó để gán lại (xem lưu ý ⚠️ ở mục "Sửa/xóa lớp & học viên" phía trên).

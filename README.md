@@ -28,13 +28,13 @@ Trang dùng Firebase (miễn phí) để quản lý tài khoản, phân lớp v�
 
 Điểm quan trọng về mô hình tài khoản:
 
-- **Không có tự đăng ký, không có khách xem thử.** Chỉ giáo viên mới tạo được tài khoản học viên (từ Trang giáo viên trong app), luôn kèm theo việc gán học viên vào một **lớp** (mỗi lớp ứng với một trình độ HSK). Tài khoản giáo viên đầu tiên được tạo thủ công qua Firebase Console.
-- **Học viên chỉ ôn tập được đúng trình độ của lớp mình** — các trình độ khác bị ẩn/khoá trên giao diện, kể cả khi cố vào thẳng bằng đường dẫn. Đây là giới hạn ở tầng ứng dụng, không phải khoá dữ liệu tuyệt đối (xem chi tiết trong `FIREBASE_SETUP.md`).
-- Giáo viên đăng nhập thì xem được tất cả trình độ (để quản lý/kiểm tra nội dung), và có thể tạo nhiều lớp, chuyển học viên giữa các lớp bất cứ lúc nào.
+- **Không có tự đăng ký, không có khách xem thử.** Chỉ giáo viên mới tạo được tài khoản học viên (từ Trang giáo viên trong app), luôn kèm theo việc gán học viên vào **một hoặc nhiều lớp cùng lúc** (mỗi lớp ứng với một trình độ HSK). Tài khoản giáo viên đầu tiên được tạo thủ công qua Firebase Console.
+- **Học viên chỉ ôn tập được đúng (các) trình độ của (các) lớp mình đang thuộc** — các trình độ khác bị ẩn/khoá trên giao diện, kể cả khi cố vào thẳng bằng đường dẫn. Một học viên có thể thuộc đồng thời nhiều lớp (kể cả khác trình độ), và tiến độ ôn tập được lưu riêng theo từng lớp. Đây là giới hạn ở tầng ứng dụng, không phải khoá dữ liệu tuyệt đối (xem chi tiết trong `FIREBASE_SETUP.md`).
+- Giáo viên đăng nhập thì xem được tất cả trình độ (để quản lý/kiểm tra nội dung), và có thể tạo nhiều lớp, thêm/bớt lớp của từng học viên bất cứ lúc nào.
 
 Để bật: làm theo hướng dẫn từng bước trong file **`FIREBASE_SETUP.md`** (khoảng 10-15 phút, không cần biết lập trình, không cần thẻ tín dụng, và **bắt buộc phải làm** để trang có nội dung xem được).
 
-Sau khi bật, trang giáo viên (`#/teacher`, chỉ tài khoản có quyền giáo viên mới vào được) cho phép tạo lớp, tạo tài khoản học viên, đổi lớp học viên, **sửa tên/xóa học viên, sửa tên-trình độ/xóa lớp**, và xem theo từng học viên: lớp đang học, hoạt động gần nhất, số bài đã ôn, điểm trung bình trắc nghiệm/điền pinyin, các từ hay sai nhất, và số phút học hôm nay/7 ngày qua. Mỗi lớp còn có **trang chi tiết riêng** (bấm "Xem chi tiết →" trong bảng "Danh sách lớp") để theo dõi tách biệt từng lớp thay vì xem chung một danh sách toàn bộ học viên. Chi tiết cách dùng và các giới hạn (ví dụ: xóa học viên chỉ thu hồi quyền truy cập chứ chưa xóa được tài khoản đăng nhập gốc) — xem `FIREBASE_SETUP.md`.
+Sau khi bật, trang giáo viên (`#/teacher`, chỉ tài khoản có quyền giáo viên mới vào được) cho phép tạo lớp, tạo tài khoản học viên (chọn nhiều lớp cùng lúc), thêm/bớt lớp của học viên bất kỳ lúc nào, **sửa tên/xóa học viên, sửa tên-trình độ/xóa lớp**, và xem theo từng học viên: (các) lớp đang học, hoạt động gần nhất, số bài đã ôn, điểm trung bình trắc nghiệm/điền pinyin, các từ hay sai nhất, và số phút học hôm nay/7 ngày qua. Mỗi lớp còn có **trang chi tiết riêng** (bấm "Xem chi tiết →" trong bảng "Danh sách lớp") để theo dõi tách biệt từng lớp — điểm/hoạt động ở đây chỉ tính riêng cho lớp đang xem, ngay cả khi học viên đó còn thuộc thêm lớp khác. Chi tiết cách dùng và các giới hạn (ví dụ: xóa học viên chỉ thu hồi quyền truy cập chứ chưa xóa được tài khoản đăng nhập gốc; học viên tạo từ trước khi có tính năng nhiều lớp cần được gán lại lớp) — xem `FIREBASE_SETUP.md`.
 
 ## Cấu trúc thư mục
 

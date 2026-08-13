@@ -90,14 +90,6 @@
     return secApp.auth();
   }
 
-  function defaultStats() {
-    return {
-      quizAttempts: 0, quizCorrectTotal: 0, quizQuestionsTotal: 0,
-      fillAttempts: 0, fillCorrectTotal: 0, fillQuestionsTotal: 0,
-      viewedUnitKeys: [], unitLabels: {}, scores: {}, wrongWords: {}, studyDays: {},
-    };
-  }
-
   function requireTeacher() {
     if (!state.profile || state.profile.role !== "teacher") {
       throw new Error("Chỉ tài khoản giáo viên mới thực hiện được thao tác này.");
@@ -122,12 +114,16 @@
     return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
   }
 
-  /* Giáo viên tạo tài khoản đăng nhập cho một học viên, gán sẵn vào một lớp
-     (và do đó gán sẵn trình độ HSK học viên đó được phép ôn tập). Không có
-     đường nào để học viên tự đăng ký tài khoản trong ứng dụng này nữa. */
-  async function createStudentAccount({ name, email, password, classId, level, className }) {
+  /* Giáo viên tạo tài khoản đăng nhập cho một học viên, gán sẵn vào MỘT HOẶC
+     NHIỀU lớp cùng lúc (và do đó gán sẵn (các) trình độ HSK học viên đó được
+     phép ôn tập — hợp của trình độ tất cả các lớp). `classes` là mảng
+     [{classId, name, level}, ...] do trang giáo viên tra từ danh sách lớp đã
+     tải sẵn. Không có đường nào để học viên tự đăng ký tài khoản trong ứng
+     dụng này nữa. */
+  async function createStudentAccount({ name, email, password, classes }) {
     requireConfigured();
     requireTeacher();
+    const selected = classes || [];
     const secAuth = getSecondaryAuth();
     const cred = await secAuth.createUserWithEmailAndPassword(email, password);
     try {
@@ -136,10 +132,12 @@
       // phải phiên tạm vừa tạo — để khớp với luật bảo mật "chỉ giáo viên
       // mới được tạo document users/* cho người khác".
       await db.collection("users").doc(cred.user.uid).set({
-        name, email, role: "student", classId, level, className,
+        name, email, role: "student",
+        classIds: selected.map((c) => c.classId),
+        classes: selected,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         lastActiveTs: firebase.firestore.FieldValue.serverTimestamp(),
-        stats: defaultStats(),
+        classStats: {},
       });
     } finally {
       await secAuth.signOut().catch(() => {});
@@ -147,18 +145,24 @@
     return { uid: cred.user.uid, email, password };
   }
 
-  /* Giáo viên chuyển một học viên sang lớp khác (đổi cả trình độ được phép ôn). */
-  async function updateStudentClass(uid, classId, level, className) {
+  /* Giáo viên đổi TOÀN BỘ danh sách lớp của một học viên cùng lúc (thêm/bớt
+     lớp) — `classes` là mảng đầy đủ [{classId, name, level}, ...] học viên
+     nên thuộc SAU khi lưu (không phải chỉ phần thêm/bớt). Tiến độ ôn tập của
+     từng lớp (classStats.{classId}) không bị xóa khi gỡ khỏi lớp đó — nếu
+     sau này thêm lại đúng lớp, số liệu cũ vẫn còn. */
+  async function setStudentClasses(uid, classes) {
     requireConfigured();
     requireTeacher();
+    const selected = classes || [];
     await db.collection("users").doc(uid).update({
-      classId, level, className,
+      classIds: selected.map((c) => c.classId),
+      classes: selected,
       lastActiveTs: firebase.firestore.FieldValue.serverTimestamp(),
     });
   }
 
   /* Giáo viên sửa hồ sơ học viên — hiện chỉ cho sửa tên hiển thị (đổi lớp
-     vẫn dùng updateStudentClass ở trên). Không cho sửa vai trò ở đây. */
+     dùng setStudentClasses ở trên). Không cho sửa vai trò ở đây. */
   async function updateStudent(uid, { name }) {
     requireConfigured();
     requireTeacher();
@@ -182,29 +186,39 @@
     await db.collection("users").doc(uid).delete();
   }
 
-  /* Giáo viên đổi tên/trình độ một lớp — đồng thời cập nhật lại className/
-     level cho MỌI học viên đang thuộc lớp đó, để dữ liệu không bị lệch
-     (nếu không, học viên cũ vẫn giữ trình độ lớp trước khi đổi). */
+  /* Giáo viên đổi tên/trình độ một lớp — đồng thời cập nhật lại đúng mục
+     tương ứng trong mảng `classes` (kèm `classIds`) của MỌI học viên đang
+     thuộc lớp đó (một học viên có thể đang thuộc thêm các lớp khác nữa —
+     những lớp khác giữ nguyên, chỉ mục ứng với `classId` này được cập nhật),
+     để dữ liệu không bị lệch (nếu không, học viên cũ vẫn giữ tên/trình độ
+     lớp trước khi đổi). */
   async function updateClass(classId, { name, level }) {
     requireConfigured();
     requireTeacher();
     await db.collection("classes").doc(classId).update({ name, level });
-    const snap = await db.collection("users").where("classId", "==", classId).get();
+    const snap = await db.collection("users").where("classIds", "array-contains", classId).get();
     if (!snap.empty) {
       const batch = db.batch();
-      snap.docs.forEach((d) => batch.update(d.ref, { className: name, level }));
+      snap.docs.forEach((d) => {
+        const data = d.data();
+        const newClasses = (data.classes || []).map((c) =>
+          c.classId === classId ? { ...c, name, level } : c
+        );
+        batch.update(d.ref, { classes: newClasses });
+      });
       await batch.commit();
     }
   }
 
-  /* Giáo viên xóa một lớp — chỉ cho phép khi lớp không còn học viên nào,
-     để tránh học viên bị "mồ côi" lớp mà giáo viên không để ý. */
+  /* Giáo viên xóa một lớp — chỉ cho phép khi lớp không còn học viên nào (kể
+     cả học viên đang thuộc lớp này CÙNG VỚI các lớp khác), để tránh mất dấu
+     một liên kết học viên-lớp mà giáo viên không để ý. */
   async function deleteClass(classId) {
     requireConfigured();
     requireTeacher();
-    const snap = await db.collection("users").where("classId", "==", classId).get();
+    const snap = await db.collection("users").where("classIds", "array-contains", classId).get();
     if (!snap.empty) {
-      const err = new Error(`Lớp này còn ${snap.size} học viên — hãy chuyển hết học viên sang lớp khác trước khi xóa lớp.`);
+      const err = new Error(`Lớp này còn ${snap.size} học viên — hãy gỡ hết học viên khỏi lớp này (sửa lớp cho từng học viên) trước khi xóa lớp.`);
       err.code = "class-not-empty";
       throw err;
     }
@@ -237,53 +251,74 @@
     return `${level}_${unitKey}`;
   }
 
+  /* Một học viên có thể thuộc NHIỀU lớp cùng lúc, có thể cùng trình độ. Khi
+     học viên ôn tập ở một trình độ nào đó, kết quả được cộng vào TẤT CẢ các
+     lớp của học viên đang có đúng trình độ đó (không có khái niệm "đang chọn
+     lớp nào" khi ôn bài — ôn theo trình độ, không theo lớp). Nếu học viên
+     chưa thuộc lớp nào ở trình độ đang ôn (trường hợp lẽ ra không xảy ra vì
+     canAccessLevel đã chặn trước), không ghi gì cả. */
+  function classIdsForLevel(level) {
+    const profile = state.profile;
+    if (!profile || !Array.isArray(profile.classes)) return [];
+    return profile.classes.filter((c) => c.level === level).map((c) => c.classId);
+  }
+
   function recordUnitViewed(level, unitKey, unitLabel) {
     const ref = userRef();
-    if (!ref) return;
+    const cids = classIdsForLevel(level);
+    if (!ref || !cids.length) return;
     const key = unitKeyOf(level, unitKey);
-    ref.update({
-      "stats.viewedUnitKeys": firebase.firestore.FieldValue.arrayUnion(key),
-      [`stats.unitLabels.${key}`]: unitLabel,
-      lastActiveTs: firebase.firestore.FieldValue.serverTimestamp(),
-    }).catch((e) => console.warn("recordUnitViewed:", e.message));
+    const payload = { lastActiveTs: firebase.firestore.FieldValue.serverTimestamp() };
+    cids.forEach((cid) => {
+      payload[`classStats.${cid}.viewedUnitKeys`] = firebase.firestore.FieldValue.arrayUnion(key);
+      payload[`classStats.${cid}.unitLabels.${key}`] = unitLabel;
+    });
+    ref.update(payload).catch((e) => console.warn("recordUnitViewed:", e.message));
   }
 
   function recordAttempt({ level, unitKey, unitLabel, mode, score, total }) {
     const ref = userRef();
-    if (!ref) return;
+    const cids = classIdsForLevel(level);
+    if (!ref || !cids.length) return;
     const key = unitKeyOf(level, unitKey);
     const prefix = mode === "fill" ? "fill" : "quiz";
-    ref.update({
-      [`stats.${prefix}Attempts`]: firebase.firestore.FieldValue.increment(1),
-      [`stats.${prefix}CorrectTotal`]: firebase.firestore.FieldValue.increment(score),
-      [`stats.${prefix}QuestionsTotal`]: firebase.firestore.FieldValue.increment(total),
-      [`stats.scores.${mode}_${key}`]: { score, total, unitLabel, ts: firebase.firestore.FieldValue.serverTimestamp() },
-      "stats.viewedUnitKeys": firebase.firestore.FieldValue.arrayUnion(key),
-      [`stats.unitLabels.${key}`]: unitLabel,
-      lastActiveTs: firebase.firestore.FieldValue.serverTimestamp(),
-    }).catch((e) => console.warn("recordAttempt:", e.message));
+    const payload = { lastActiveTs: firebase.firestore.FieldValue.serverTimestamp() };
+    cids.forEach((cid) => {
+      payload[`classStats.${cid}.${prefix}Attempts`] = firebase.firestore.FieldValue.increment(1);
+      payload[`classStats.${cid}.${prefix}CorrectTotal`] = firebase.firestore.FieldValue.increment(score);
+      payload[`classStats.${cid}.${prefix}QuestionsTotal`] = firebase.firestore.FieldValue.increment(total);
+      payload[`classStats.${cid}.scores.${mode}_${key}`] = { score, total, unitLabel, ts: firebase.firestore.FieldValue.serverTimestamp() };
+      payload[`classStats.${cid}.viewedUnitKeys`] = firebase.firestore.FieldValue.arrayUnion(key);
+      payload[`classStats.${cid}.unitLabels.${key}`] = unitLabel;
+    });
+    ref.update(payload).catch((e) => console.warn("recordAttempt:", e.message));
   }
 
-  function recordWrongWord(hanzi) {
+  function recordWrongWord(hanzi, level) {
     const ref = userRef();
-    if (!ref || !hanzi) return;
-    ref.update({
-      [`stats.wrongWords.${hanzi}`]: firebase.firestore.FieldValue.increment(1),
-      lastActiveTs: firebase.firestore.FieldValue.serverTimestamp(),
-    }).catch((e) => console.warn("recordWrongWord:", e.message));
+    const cids = classIdsForLevel(level);
+    if (!ref || !hanzi || !cids.length) return;
+    const payload = { lastActiveTs: firebase.firestore.FieldValue.serverTimestamp() };
+    cids.forEach((cid) => {
+      payload[`classStats.${cid}.wrongWords.${hanzi}`] = firebase.firestore.FieldValue.increment(1);
+    });
+    ref.update(payload).catch((e) => console.warn("recordWrongWord:", e.message));
   }
 
   let heartbeatTimer = null;
-  function startHeartbeat() {
+  function startHeartbeat(level) {
     stopHeartbeat();
     const ref = userRef();
-    if (!ref) return;
+    const cids = classIdsForLevel(level);
+    if (!ref || !cids.length) return;
     const tick = () => {
       if (document.visibilityState !== "visible") return;
-      ref.update({
-        [`stats.studyDays.${todayKey()}`]: firebase.firestore.FieldValue.increment(0.5),
-        lastActiveTs: firebase.firestore.FieldValue.serverTimestamp(),
-      }).catch((e) => console.warn("heartbeat:", e.message));
+      const today = todayKey();
+      const payload = { lastActiveTs: firebase.firestore.FieldValue.serverTimestamp() };
+      cids.forEach((cid) => {
+        payload[`classStats.${cid}.studyDays.${today}`] = firebase.firestore.FieldValue.increment(0.5);
+      });
+      ref.update(payload).catch((e) => console.warn("heartbeat:", e.message));
     };
     heartbeatTimer = setInterval(tick, 30000);
   }
@@ -343,7 +378,7 @@
     recordUnitViewed, recordAttempt, recordWrongWord,
     startHeartbeat, stopHeartbeat,
     fetchAllStudents,
-    createClass, fetchClasses, createStudentAccount, updateStudentClass,
+    createClass, fetchClasses, createStudentAccount, setStudentClasses,
     updateStudent, deleteStudent, updateClass, deleteClass,
   };
 

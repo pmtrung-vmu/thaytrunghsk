@@ -153,8 +153,16 @@ function canAccessLevel(levelId) {
   const profile = HSKAuth.profile;
   if (!profile) return false;
   if (profile.role === "teacher") return true;
-  if (profile.role === "student") return profile.level === levelId;
+  if (profile.role === "student") {
+    return Array.isArray(profile.classes) && profile.classes.some((c) => c.level === levelId);
+  }
   return false;
+}
+
+/* Trình độ (không trùng lặp) của tất cả các lớp một học viên đang thuộc. */
+function studentLevels(profile) {
+  if (!profile || !Array.isArray(profile.classes)) return [];
+  return [...new Set(profile.classes.map((c) => c.level))];
 }
 
 function isLoggedIn() {
@@ -191,8 +199,8 @@ function buildNav() {
   const visibleLevels = LEVELS.filter(l => canAccessLevel(l.id));
   let extra = "";
   if (isRestrictedStudent()) {
-    const own = levelInfo(HSKAuth.profile.level);
-    extra = `<span class="nav-locked-note">🔒 Lớp của bạn: ${escapeHtml(HSKAuth.profile.className || (own ? own.label : HSKAuth.profile.level || "chưa được phân lớp"))}</span>`;
+    const names = (HSKAuth.profile.classes || []).map((c) => c.name).filter(Boolean);
+    extra = `<span class="nav-locked-note">🔒 Lớp của bạn: ${escapeHtml(names.length ? names.join(", ") : "chưa được phân lớp")}</span>`;
   } else if (window.HSKAuth && HSKAuth.isConfigured && !HSKAuth.user) {
     extra = `<span class="nav-locked-note">🔒 Đăng nhập để xem nội dung</span>`;
   }
@@ -272,11 +280,11 @@ function accessDeniedNote(id) {
     return `<div class="empty-note">Tài khoản này chưa được giáo viên cấp hồ sơ học tập.<br>Vui lòng liên hệ giáo viên phụ trách.</div>`;
   }
   if (profile && profile.role === "student") {
-    const own = levelInfo(profile.level);
+    const levels = studentLevels(profile).map(levelInfo).filter(Boolean);
     return `<div class="empty-note">
-      Tài khoản của bạn được phân vào lớp trình độ <b>${own ? escapeHtml(own.label) : escapeHtml(profile.level || "?")}</b>,
-      nên chỉ ôn tập được nội dung ở trình độ đó.
-      ${own ? `<br><a href="#/level/${own.id}">Đến trang ${escapeHtml(own.label)} →</a>` : ""}
+      Tài khoản của bạn được phân vào ${levels.length ? `lớp trình độ ${levels.map((l) => `<b>${escapeHtml(l.label)}</b>`).join(", ")}` : "chưa có lớp nào"},
+      nên chỉ ôn tập được nội dung ở (các) trình độ đó.
+      ${levels.length ? `<br>${levels.map((l) => `<a href="#/level/${l.id}">Đến trang ${escapeHtml(l.label)} →</a>`).join(" · ")}` : ""}
     </div>`;
   }
   return `<div class="empty-note">Bạn không có quyền xem trình độ này.</div>`;
@@ -322,7 +330,11 @@ async function renderHome(app) {
         <div class="stat"><b>${total.toLocaleString("vi-VN")}</b><span>Từ vựng</span></div>
         <div class="stat"><b>4</b><span>Chế độ ôn</span></div>
       </div>
-      ${restricted ? `<p class="class-banner">🔒 Bạn thuộc lớp <b>${escapeHtml(HSKAuth.profile.className || "")}</b> — chỉ ôn tập được trình độ ${escapeHtml((levelInfo(HSKAuth.profile.level) || {}).label || HSKAuth.profile.level || "")}.</p>` : ""}
+      ${restricted ? (() => {
+        const names = (HSKAuth.profile.classes || []).map((c) => c.name).filter(Boolean);
+        const labels = studentLevels(HSKAuth.profile).map((lv) => (levelInfo(lv) || {}).label || lv);
+        return `<p class="class-banner">🔒 Bạn thuộc ${escapeHtml(names.join(", ") || "chưa có lớp nào")} — chỉ ôn tập được trình độ ${escapeHtml(labels.join(", ") || "—")}.</p>`;
+      })() : ""}
     </section>
     <div class="level-grid">
       ${LEVELS.map((l, i) => {
@@ -424,7 +436,7 @@ async function renderUnit(app, id, unitIdx, mode) {
 
   if (window.HSKAuth && HSKAuth.user) {
     HSKAuth.recordUnitViewed(id, unitIdx, unitLabel);
-    HSKAuth.startHeartbeat();
+    HSKAuth.startHeartbeat(id);
   }
 
   if (mode === "list") renderListMode(body, words, id);
@@ -675,7 +687,7 @@ function renderQuizMode(body, words, ctx, direction) {
           body.querySelectorAll(".quiz-option").forEach(b => {
             if (decodeURIComponent(b.dataset.val) === correct) b.classList.add("correct");
           });
-          if (window.HSKAuth && HSKAuth.user) HSKAuth.recordWrongWord(w.hanzi);
+          if (window.HSKAuth && HSKAuth.user && ctx) HSKAuth.recordWrongWord(w.hanzi, ctx.level);
         }
         setTimeout(() => { qi++; draw(); }, 900);
       });
@@ -740,7 +752,7 @@ function renderFillMode(body, words, ctx) {
       } else {
         input.classList.add("wrong");
         hint.textContent = `✗ Đáp án đúng: ${w.pinyin}`;
-        if (window.HSKAuth && HSKAuth.user) HSKAuth.recordWrongWord(w.hanzi);
+        if (window.HSKAuth && HSKAuth.user && ctx) HSKAuth.recordWrongWord(w.hanzi, ctx.level);
       }
       setTimeout(() => { qi++; draw(); }, 1100);
     }
@@ -823,7 +835,7 @@ function renderClozeMode(body, words, ctx) {
           body.querySelectorAll(".quiz-option").forEach(b => {
             if (decodeURIComponent(b.dataset.val) === w.hanzi) b.classList.add("correct");
           });
-          if (window.HSKAuth && HSKAuth.user) HSKAuth.recordWrongWord(w.hanzi);
+          if (window.HSKAuth && HSKAuth.user && ctx) HSKAuth.recordWrongWord(w.hanzi, ctx.level);
         }
         setTimeout(() => { qi++; draw(); }, 1000);
       });
@@ -1011,9 +1023,15 @@ async function renderTeacherPage(app) {
           <input type="text" name="name" placeholder="Họ tên học viên" required>
           <input type="email" name="email" placeholder="Email học viên" required>
           <input type="text" name="password" placeholder="Mật khẩu tạm (bỏ trống để tự sinh)">
-          <select name="classId" required>
-            ${classes.map(c => `<option value="${c.id}">${escapeHtml(c.name)} — ${(levelInfo(c.level) || {}).label || c.level}</option>`).join("")}
-          </select>
+          <div class="class-checkbox-group">
+            <div class="class-checkbox-label">Lớp (được chọn nhiều lớp cùng lúc):</div>
+            ${classes.map(c => `
+              <label class="class-checkbox-item">
+                <input type="checkbox" name="classId" value="${c.id}">
+                ${escapeHtml(c.name)} — ${(levelInfo(c.level) || {}).label || c.level}
+              </label>
+            `).join("")}
+          </div>
           <button class="btn primary" type="submit">Tạo tài khoản</button>
         </form>
         <div id="student-err" class="auth-err"></div>
@@ -1063,12 +1081,14 @@ async function renderTeacherPage(app) {
       let password = (fd.get("password") || "").trim();
       if (!password) password = randomPassword();
       if (password.length < 6) { err.textContent = "Mật khẩu cần ít nhất 6 ký tự."; return; }
-      const cls = classes.find((c) => c.id === fd.get("classId"));
-      if (!cls) { err.textContent = "Hãy chọn lớp."; return; }
+      const checkedIds = [...studentForm.querySelectorAll('input[name="classId"]:checked')].map((el) => el.value);
+      const selectedClasses = checkedIds.map((id) => classes.find((c) => c.id === id)).filter(Boolean)
+        .map((c) => ({ classId: c.id, name: c.name, level: c.level }));
+      if (!selectedClasses.length) { err.textContent = "Hãy chọn ít nhất một lớp."; return; }
       const submitBtn = studentForm.querySelector("button[type=submit]");
       submitBtn.disabled = true;
       try {
-        await HSKAuth.createStudentAccount({ name, email, password, classId: cls.id, level: cls.level, className: cls.name });
+        await HSKAuth.createStudentAccount({ name, email, password, classes: selectedClasses });
         teacherFlash = `Đã tạo tài khoản cho <b>${escapeHtml(name)}</b> — Email: <b>${escapeHtml(email)}</b> · Mật khẩu tạm: <b>${escapeHtml(password)}</b>. Hãy gửi thông tin này cho học viên (học viên có thể tự đổi mật khẩu bằng "Quên mật khẩu?" ở trang đăng nhập).`;
         await renderTeacherPage(app);
       } catch (ex) {
@@ -1089,10 +1109,10 @@ function dateKey(offsetDays) {
 /* Tổng hợp điểm/tiến độ của tất cả học viên thuộc một lớp — dùng cho cả
    bảng danh sách lớp (tổng quan) và trang chi tiết lớp. */
 function classAggStats(students, classId) {
-  const inClass = students.filter((s) => s.classId === classId);
+  const inClass = students.filter((s) => Array.isArray(s.classIds) && s.classIds.includes(classId));
   let quizC = 0, quizQ = 0, fillC = 0, fillQ = 0;
   inClass.forEach((s) => {
-    const st = s.stats || {};
+    const st = (s.classStats && s.classStats[classId]) || {};
     quizC += st.quizCorrectTotal || 0; quizQ += st.quizQuestionsTotal || 0;
     fillC += st.fillCorrectTotal || 0; fillQ += st.fillQuestionsTotal || 0;
   });
@@ -1196,28 +1216,57 @@ function renderClassTable(container, classes, students, onRefresh) {
   });
 }
 
+/* Gộp classStats của một học viên lại thành 1 bộ số liệu để hiển thị.
+   - scopedClassId có giá trị (đang xem trang chi tiết MỘT lớp): chỉ lấy số
+     liệu của đúng lớp đó.
+   - scopedClassId để trống (đang xem danh sách TOÀN BỘ học viên): cộng dồn
+     số liệu của TẤT CẢ các lớp học viên đang thuộc, để vẫn có một con số
+     tổng quan (tiến độ ôn tập được lưu tách riêng theo từng lớp ở tầng dữ
+     liệu — classStats.{classId} — nhưng khi xem "mọi học viên" thì gộp lại
+     cho dễ nhìn). */
+function mergedStatsForStudent(s, scopedClassId) {
+  const classStats = s.classStats || {};
+  const buckets = scopedClassId ? [classStats[scopedClassId] || {}] : Object.values(classStats);
+  const merged = {
+    quizCorrectTotal: 0, quizQuestionsTotal: 0, fillCorrectTotal: 0, fillQuestionsTotal: 0,
+    viewedUnitKeys: [], wrongWords: {}, studyDays: {},
+  };
+  buckets.forEach((b) => {
+    merged.quizCorrectTotal += b.quizCorrectTotal || 0;
+    merged.quizQuestionsTotal += b.quizQuestionsTotal || 0;
+    merged.fillCorrectTotal += b.fillCorrectTotal || 0;
+    merged.fillQuestionsTotal += b.fillQuestionsTotal || 0;
+    merged.viewedUnitKeys.push(...(b.viewedUnitKeys || []));
+    Object.entries(b.wrongWords || {}).forEach(([w, c]) => { merged.wrongWords[w] = (merged.wrongWords[w] || 0) + c; });
+    Object.entries(b.studyDays || {}).forEach(([d, m]) => { merged.studyDays[d] = (merged.studyDays[d] || 0) + m; });
+  });
+  merged.viewedUnitKeys = [...new Set(merged.viewedUnitKeys)];
+  return merged;
+}
+
 /* onRefresh: hàm async gọi lại sau khi sửa tên/xóa học viên hoặc đổi lớp
-   thành công. Trang giáo viên và trang chi tiết lớp cùng dùng hàm này,
-   mỗi trang truyền vào cách tự tải lại của mình. */
-function renderStudentTable(container, students, classes, onRefresh) {
+   thành công. Trang giáo viên và trang chi tiết lớp cùng dùng hàm này, mỗi
+   trang truyền vào cách tự tải lại của mình. scopedClassId: truyền vào khi
+   gọi từ trang chi tiết MỘT lớp, để các cột điểm/hoạt động chỉ tính riêng
+   cho lớp đó thay vì gộp tất cả các lớp của học viên. */
+function renderStudentTable(container, students, classes, onRefresh, scopedClassId) {
   const todayK = dateKey(0);
 
   const rows = students.map((s) => {
-    const stats = s.stats || {};
-    const viewedCount = (stats.viewedUnitKeys || []).length;
+    const stats = mergedStatsForStudent(s, scopedClassId);
+    const viewedCount = stats.viewedUnitKeys.length;
     const quizAvg = stats.quizQuestionsTotal ? Math.round((100 * stats.quizCorrectTotal) / stats.quizQuestionsTotal) : null;
     const fillAvg = stats.fillQuestionsTotal ? Math.round((100 * stats.fillCorrectTotal) / stats.fillQuestionsTotal) : null;
-    const wrongEntries = Object.entries(stats.wrongWords || {}).sort((a, b) => b[1] - a[1]).slice(0, 5);
-    const studyDays = stats.studyDays || {};
-    const minsToday = studyDays[todayK] || 0;
+    const wrongEntries = Object.entries(stats.wrongWords).sort((a, b) => b[1] - a[1]).slice(0, 5);
+    const minsToday = stats.studyDays[todayK] || 0;
     let minsWeek = 0;
-    for (let i = 0; i < 7; i++) minsWeek += studyDays[dateKey(i)] || 0;
+    for (let i = 0; i < 7; i++) minsWeek += stats.studyDays[dateKey(i)] || 0;
     const lastActive = s.lastActiveTs && s.lastActiveTs.toDate ? s.lastActiveTs.toDate() : null;
     return { s, viewedCount, quizAvg, fillAvg, wrongEntries, minsToday, minsWeek, lastActive };
   }).sort((a, b) => (b.lastActive ? b.lastActive.getTime() : 0) - (a.lastActive ? a.lastActive.getTime() : 0));
 
   container.innerHTML = `
-    <p class="section-sub">${students.length} học viên đã có tài khoản · dữ liệu cập nhật theo thời gian thực từ Firestore</p>
+    <p class="section-sub">${students.length} học viên đã có tài khoản · dữ liệu cập nhật theo thời gian thực từ Firestore${scopedClassId ? " · điểm/hoạt động chỉ tính riêng cho lớp này" : " · điểm/hoạt động là tổng của tất cả các lớp học viên đang tham gia"}</p>
     ${students.length === 0 ? `<p class="empty-note">Chưa có học viên nào. Hãy tạo tài khoản ở khung phía trên.</p>` : `
     <div class="teacher-table-wrap">
       <table class="teacher-table">
@@ -1227,7 +1276,10 @@ function renderStudentTable(container, students, classes, onRefresh) {
           <th>Từ hay sai</th><th>Học hôm nay</th><th>Học 7 ngày qua</th><th>Thao tác</th>
         </tr></thead>
         <tbody>
-          ${rows.map((r) => `
+          ${rows.map((r) => {
+            const myClasses = r.s.classes || [];
+            const myClassIds = r.s.classIds || [];
+            return `
             <tr data-uid="${r.s.uid}">
               <td>
                 <b class="student-name-display">${escapeHtml(r.s.name || "(chưa đặt tên)")}</b>
@@ -1235,13 +1287,23 @@ function renderStudentTable(container, students, classes, onRefresh) {
                 <br><span class="tt-sub">${escapeHtml(r.s.email || "")}</span>
                 <div class="student-edit-err auth-err"></div>
               </td>
-              <td>
-                <div class="reassign-wrap">
-                  <select class="reassign-select" data-uid="${r.s.uid}">
-                    ${!r.s.classId ? `<option value="" selected disabled>— chưa phân lớp —</option>` : ""}
-                    ${classes.map(c => `<option value="${c.id}" ${c.id === r.s.classId ? "selected" : ""}>${escapeHtml(c.name)} — ${(levelInfo(c.level) || {}).label || c.level}</option>`).join("")}
-                  </select>
-                  <span class="reassign-status"></span>
+              <td class="class-cell">
+                <div class="student-class-display">
+                  ${myClasses.length ? myClasses.map((c) => `<span class="class-tag">${escapeHtml(c.name)}</span>`).join(" ") : `<span class="tt-sub">— chưa có lớp —</span>`}
+                  <button class="btn btn-sm student-class-edit-btn">✏️ Sửa lớp</button>
+                </div>
+                <div class="student-class-edit" hidden>
+                  ${classes.map((c) => `
+                    <label class="class-checkbox-item">
+                      <input type="checkbox" class="student-class-checkbox" value="${c.id}" ${myClassIds.includes(c.id) ? "checked" : ""}>
+                      ${escapeHtml(c.name)} — ${(levelInfo(c.level) || {}).label || c.level}
+                    </label>
+                  `).join("")}
+                  <div class="class-edit-actions">
+                    <button class="btn primary btn-sm student-class-save-btn">💾 Lưu</button>
+                    <button class="btn btn-sm student-class-cancel-btn">✕ Hủy</button>
+                  </div>
+                  <div class="student-class-err auth-err"></div>
                 </div>
               </td>
               <td>${r.lastActive ? r.lastActive.toLocaleString("vi-VN") : "chưa hoạt động"}</td>
@@ -1258,29 +1320,12 @@ function renderStudentTable(container, students, classes, onRefresh) {
                 <button class="btn btn-sm danger student-delete-btn">🗑 Xóa</button>
               </td>
             </tr>
-          `).join("")}
+          `;
+          }).join("")}
         </tbody>
       </table>
     </div>`}
   `;
-
-  container.querySelectorAll(".reassign-select").forEach((sel) => {
-    sel.addEventListener("change", async () => {
-      const uid = sel.dataset.uid;
-      const statusEl = sel.parentElement.querySelector(".reassign-status");
-      const cls = classes.find((c) => c.id === sel.value);
-      if (!cls) return;
-      sel.disabled = true;
-      if (statusEl) { statusEl.textContent = "Đang lưu..."; statusEl.className = "reassign-status"; }
-      try {
-        await HSKAuth.updateStudentClass(uid, cls.id, cls.level, cls.name);
-        await onRefresh();
-      } catch (ex) {
-        if (statusEl) { statusEl.textContent = HSKAuth.friendlyError(ex); statusEl.className = "reassign-status err"; }
-        sel.disabled = false;
-      }
-    });
-  });
 
   container.querySelectorAll("tr[data-uid]").forEach((row) => {
     const uid = row.dataset.uid;
@@ -1330,6 +1375,42 @@ function renderStudentTable(container, students, classes, onRefresh) {
         deleteBtn.disabled = false;
       }
     });
+
+    const classDisplay = row.querySelector(".student-class-display");
+    const classEdit = row.querySelector(".student-class-edit");
+    const classEditErr = row.querySelector(".student-class-err");
+    const classEditBtn = row.querySelector(".student-class-edit-btn");
+    const classSaveBtn = row.querySelector(".student-class-save-btn");
+    const classCancelBtn = row.querySelector(".student-class-cancel-btn");
+    const classCheckboxes = () => [...row.querySelectorAll(".student-class-checkbox")];
+
+    classEditBtn.addEventListener("click", () => {
+      classDisplay.hidden = true;
+      classEdit.hidden = false;
+    });
+    classCancelBtn.addEventListener("click", () => {
+      // defaultChecked phản ánh đúng thuộc tính "checked" lúc dựng HTML ban
+      // đầu (danh sách lớp gốc của học viên), không đổi theo thao tác click
+      // của người dùng — dùng để khôi phục lại trạng thái khi bấm Hủy.
+      classCheckboxes().forEach((cb) => { cb.checked = cb.defaultChecked; });
+      classEdit.hidden = true;
+      classDisplay.hidden = false;
+      classEditErr.textContent = "";
+    });
+    classSaveBtn.addEventListener("click", async () => {
+      const checkedIds = classCheckboxes().filter((cb) => cb.checked).map((cb) => cb.value);
+      const selectedClasses = checkedIds.map((id) => classes.find((c) => c.id === id)).filter(Boolean)
+        .map((c) => ({ classId: c.id, name: c.name, level: c.level }));
+      classSaveBtn.disabled = true;
+      classEditErr.textContent = "";
+      try {
+        await HSKAuth.setStudentClasses(uid, selectedClasses);
+        await onRefresh();
+      } catch (ex) {
+        classEditErr.textContent = HSKAuth.friendlyError(ex);
+        classSaveBtn.disabled = false;
+      }
+    });
   });
 }
 
@@ -1362,7 +1443,7 @@ async function renderClassDetailPage(app, classId) {
     return;
   }
 
-  const classStudents = students.filter((s) => s.classId === classId);
+  const classStudents = students.filter((s) => Array.isArray(s.classIds) && s.classIds.includes(classId));
   const agg = classAggStats(students, classId);
 
   app.innerHTML = `
@@ -1380,6 +1461,7 @@ async function renderClassDetailPage(app, classId) {
     document.getElementById("class-detail-table"),
     classStudents,
     classes,
-    () => renderClassDetailPage(app, classId)
+    () => renderClassDetailPage(app, classId),
+    classId
   );
 }

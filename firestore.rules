@@ -28,7 +28,7 @@ service cloud.firestore {
       allow update: if isSignedIn() && (
         (request.auth.uid == uid
           && request.resource.data.role == resource.data.role
-          && request.resource.data.get('classId', null) == resource.data.get('classId', null))
+          && request.resource.data.get('classIds', null) == resource.data.get('classIds', null))
         ||
         (isTeacher() && request.resource.data.role == resource.data.role)
       );
