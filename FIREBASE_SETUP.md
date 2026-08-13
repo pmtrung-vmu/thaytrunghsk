@@ -102,7 +102,15 @@ Trang giáo viên có 2 bảng riêng: **"📚 Danh sách lớp"** và **"👥 D
 
 ## Trang giáo viên hiển thị gì?
 
-Với mỗi học viên: lớp đang học, hoạt động gần nhất, số bài đã ôn qua, điểm trung bình trắc nghiệm & điền pinyin, danh sách từ hay điền/chọn sai nhất, và số phút học hôm nay / 7 ngày qua (tự động cộng dồn khi học viên mở một bài học và ở lại trang). Bảng **"📚 Danh sách lớp"** cho xem nhanh sĩ số + điểm trung bình từng lớp, và trang chi tiết từng lớp (bấm "Xem chi tiết →") gom đúng các số liệu đó cho riêng lớp đang xem.
+Với mỗi học viên: lớp đang học, hoạt động gần nhất, số bài đã ôn qua, điểm trung bình **trắc nghiệm, điền pinyin, và điền từ** (3 chế độ được tính riêng), danh sách từ hay điền/chọn sai nhất, và số phút học hôm nay / 7 ngày qua (tự động cộng dồn khi học viên mở một bài học và ở lại trang). Bảng **"📚 Danh sách lớp"** cho xem nhanh sĩ số + điểm trung bình từng lớp, và trang chi tiết từng lớp (bấm "Xem chi tiết →") gom đúng các số liệu đó cho riêng lớp đang xem.
+
+**Xem điểm theo từng bài học của một học viên:** bấm **"📖 Chi tiết"** ở dòng học viên (trong bảng "Danh sách học viên") để mở trang riêng của học viên đó — liệt kê từng bài học viên đã làm (ví dụ "HSK1 · Bài 1"), kèm điểm số/tỉ lệ đúng của cả 3 chế độ (trắc nghiệm, điền pinyin, điền từ) và thời điểm làm gần nhất, tách riêng theo từng lớp nếu học viên thuộc nhiều lớp.
+
+⚠️ **Về điểm "Điền từ" (điền từ vào chỗ trống):** trước bản cập nhật này, điểm của chế độ "📝 Điền từ" từng bị gộp chung vào điểm "Trắc nghiệm" (một sơ suất trong bản cũ). Từ bản này, hai chế độ được tính hoàn toàn tách biệt — nhưng các con số "Điểm TB trắc nghiệm" đã ghi nhận **trước** khi cập nhật vẫn giữ nguyên phần đã bị gộp trước đó (không tự tách lại được); chỉ có hoạt động ôn tập **mới, sau khi cập nhật** mới được tính đúng riêng theo từng chế độ.
+
+## Trang "Tiến độ của tôi" (dành cho học viên)
+
+Học viên đăng nhập sẽ thấy mục **"📈 Tiến độ của tôi"** trên thanh đăng nhập (cạnh nút Đăng xuất). Trang này để học viên **tự theo dõi kết quả luyện tập của chính mình** — không cần hỏi giáo viên: tổng số bài đã ôn, điểm trung bình cả 3 chế độ (trắc nghiệm/điền pinyin/điền từ), số phút học hôm nay/7 ngày qua, danh sách từ hay sai nhất, và bảng chi tiết điểm theo từng bài học (giống hệt trang "📖 Chi tiết" mà giáo viên xem, chỉ khác là học viên chỉ xem được của chính mình). Nếu học viên thuộc nhiều lớp, dữ liệu được chia rõ theo từng lớp.
 
 ## Giới hạn cần biết
 

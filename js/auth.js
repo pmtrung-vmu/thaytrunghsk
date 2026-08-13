@@ -276,12 +276,22 @@
     ref.update(payload).catch((e) => console.warn("recordUnitViewed:", e.message));
   }
 
+  /* prefix dùng làm tiền tố tên trường lưu điểm trong classStats — TÁCH RIÊNG
+     3 chế độ: "quiz" (trắc nghiệm Hán tự↔nghĩa), "fill" (điền pinyin), và
+     "cloze" (điền từ vào chỗ trống). Trước đây "cloze" từng bị gộp chung vào
+     "quiz" (một sơ suất cũ) — từ bản này, điểm điền từ được tính riêng. */
+  function statPrefix(mode) {
+    if (mode === "fill") return "fill";
+    if (mode === "cloze") return "cloze";
+    return "quiz";
+  }
+
   function recordAttempt({ level, unitKey, unitLabel, mode, score, total }) {
     const ref = userRef();
     const cids = classIdsForLevel(level);
     if (!ref || !cids.length) return;
     const key = unitKeyOf(level, unitKey);
-    const prefix = mode === "fill" ? "fill" : "quiz";
+    const prefix = statPrefix(mode);
     const payload = { lastActiveTs: firebase.firestore.FieldValue.serverTimestamp() };
     cids.forEach((cid) => {
       payload[`classStats.${cid}.${prefix}Attempts`] = firebase.firestore.FieldValue.increment(1);
@@ -326,6 +336,18 @@
     if (heartbeatTimer) { clearInterval(heartbeatTimer); heartbeatTimer = null; }
   }
 
+  /* Tải lại hồ sơ của CHÍNH người đang đăng nhập từ Firestore (bỏ qua bản đã
+     lưu trong bộ nhớ) — dùng cho trang "Tiến độ của tôi" của học viên, vì
+     `state.profile` chỉ được nạp một lần lúc đăng nhập (onAuthStateChanged),
+     không tự cập nhật realtime khi có điểm mới được ghi trong lúc học viên
+     đang ở một trang khác của cùng phiên làm việc. */
+  async function refreshProfile() {
+    if (!state.user) return null;
+    const snap = await db.collection("users").doc(state.user.uid).get();
+    state.profile = snap.exists ? snap.data() : null;
+    return state.profile;
+  }
+
   async function fetchAllStudents() {
     requireConfigured();
     requireTeacher();
@@ -358,9 +380,11 @@
     }
     const name = escapeHtml((state.profile && state.profile.name) || state.user.email);
     const isTeacher = state.profile && state.profile.role === "teacher";
+    const isStudent = state.profile && state.profile.role === "student";
     slot.innerHTML = `
       <span class="auth-hello">Xin chào, <b>${name}</b></span>
       ${isTeacher ? `<a href="#/teacher">📊 Trang giáo viên</a>` : ""}
+      ${isStudent ? `<a href="#/progress">📈 Tiến độ của tôi</a>` : ""}
       <a href="#" id="auth-logout-btn">Đăng xuất</a>
     `;
     const btn = document.getElementById("auth-logout-btn");
@@ -377,6 +401,7 @@
     onChange,
     recordUnitViewed, recordAttempt, recordWrongWord,
     startHeartbeat, stopHeartbeat,
+    refreshProfile,
     fetchAllStudents,
     createClass, fetchClasses, createStudentAccount, setStudentClasses,
     updateStudent, deleteStudent, updateClass, deleteClass,

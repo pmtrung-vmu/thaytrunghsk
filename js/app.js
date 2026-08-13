@@ -229,10 +229,13 @@ async function render() {
     }
     if (parts[0] === "login") { markActiveNav(null); await renderLogin(app); return; }
     if (parts[0] === "signup") { markActiveNav(null); await renderSignup(app); return; }
+    if (parts[0] === "progress") { markActiveNav(null); await renderMyProgressPage(app); return; }
     if (parts[0] === "teacher") {
       markActiveNav(null);
       if (parts[1] === "class" && parts[2]) {
         await renderClassDetailPage(app, parts[2]);
+      } else if (parts[1] === "student" && parts[2]) {
+        await renderStudentDetailPage(app, parts[2]);
       } else {
         await renderTeacherPage(app);
       }
@@ -1110,16 +1113,18 @@ function dateKey(offsetDays) {
    bảng danh sách lớp (tổng quan) và trang chi tiết lớp. */
 function classAggStats(students, classId) {
   const inClass = students.filter((s) => Array.isArray(s.classIds) && s.classIds.includes(classId));
-  let quizC = 0, quizQ = 0, fillC = 0, fillQ = 0;
+  let quizC = 0, quizQ = 0, fillC = 0, fillQ = 0, clozeC = 0, clozeQ = 0;
   inClass.forEach((s) => {
     const st = (s.classStats && s.classStats[classId]) || {};
     quizC += st.quizCorrectTotal || 0; quizQ += st.quizQuestionsTotal || 0;
     fillC += st.fillCorrectTotal || 0; fillQ += st.fillQuestionsTotal || 0;
+    clozeC += st.clozeCorrectTotal || 0; clozeQ += st.clozeQuestionsTotal || 0;
   });
   return {
     count: inClass.length,
     quizAvg: quizQ ? Math.round((100 * quizC) / quizQ) : null,
     fillAvg: fillQ ? Math.round((100 * fillC) / fillQ) : null,
+    clozeAvg: clozeQ ? Math.round((100 * clozeC) / clozeQ) : null,
   };
 }
 
@@ -1132,7 +1137,7 @@ function renderClassTable(container, classes, students, onRefresh) {
       <table class="teacher-table">
         <thead><tr>
           <th>Tên lớp</th><th>Trình độ</th><th>Số học viên</th>
-          <th>Điểm TB trắc nghiệm</th><th>Điểm TB điền pinyin</th><th>Thao tác</th>
+          <th>Điểm TB trắc nghiệm</th><th>Điểm TB điền pinyin</th><th>Điểm TB điền từ</th><th>Thao tác</th>
         </tr></thead>
         <tbody>
           ${classes.map((c) => {
@@ -1157,6 +1162,7 @@ function renderClassTable(container, classes, students, onRefresh) {
               <td>${agg.count} học viên</td>
               <td>${agg.quizAvg === null ? "—" : agg.quizAvg + "%"}</td>
               <td>${agg.fillAvg === null ? "—" : agg.fillAvg + "%"}</td>
+              <td>${agg.clozeAvg === null ? "—" : agg.clozeAvg + "%"}</td>
               <td class="row-actions">
                 <a class="btn btn-sm" href="#/teacher/class/${c.id}">Xem chi tiết →</a>
                 <button class="btn btn-sm class-edit-btn">✏️ Sửa</button>
@@ -1229,6 +1235,7 @@ function mergedStatsForStudent(s, scopedClassId) {
   const buckets = scopedClassId ? [classStats[scopedClassId] || {}] : Object.values(classStats);
   const merged = {
     quizCorrectTotal: 0, quizQuestionsTotal: 0, fillCorrectTotal: 0, fillQuestionsTotal: 0,
+    clozeCorrectTotal: 0, clozeQuestionsTotal: 0,
     viewedUnitKeys: [], wrongWords: {}, studyDays: {},
   };
   buckets.forEach((b) => {
@@ -1236,12 +1243,67 @@ function mergedStatsForStudent(s, scopedClassId) {
     merged.quizQuestionsTotal += b.quizQuestionsTotal || 0;
     merged.fillCorrectTotal += b.fillCorrectTotal || 0;
     merged.fillQuestionsTotal += b.fillQuestionsTotal || 0;
+    merged.clozeCorrectTotal += b.clozeCorrectTotal || 0;
+    merged.clozeQuestionsTotal += b.clozeQuestionsTotal || 0;
     merged.viewedUnitKeys.push(...(b.viewedUnitKeys || []));
     Object.entries(b.wrongWords || {}).forEach(([w, c]) => { merged.wrongWords[w] = (merged.wrongWords[w] || 0) + c; });
     Object.entries(b.studyDays || {}).forEach(([d, m]) => { merged.studyDays[d] = (merged.studyDays[d] || 0) + m; });
   });
   merged.viewedUnitKeys = [...new Set(merged.viewedUnitKeys)];
   return merged;
+}
+
+/* Gom điểm theo từng BÀI HỌC (không theo classStats.scores.{mode}_{level_unitKey}
+   phẳng) — mỗi bài học ra 1 dòng gồm cả 3 cột trắc nghiệm/điền pinyin/điền từ,
+   để xem "học viên A làm bài 1 HSK1 được bao nhiêu điểm mỗi chế độ" trong 1
+   bảng duy nhất. Dùng cho cả trang chi tiết học viên (giáo viên xem) và trang
+   "Tiến độ của tôi" (học viên tự xem). */
+function unitBreakdownRows(bucket) {
+  const scores = (bucket && bucket.scores) || {};
+  const labels = (bucket && bucket.unitLabels) || {};
+  const rows = {};
+  Object.entries(scores).forEach(([fullKey, val]) => {
+    const sep = fullKey.indexOf("_");
+    if (sep < 0) return;
+    const mode = fullKey.slice(0, sep);
+    const key = fullKey.slice(sep + 1);
+    if (!rows[key]) rows[key] = { key, label: labels[key] || key, quiz: null, fill: null, cloze: null, lastTs: null };
+    if (mode === "quiz" || mode === "fill" || mode === "cloze") rows[key][mode] = val;
+    const ts = val && val.ts && val.ts.toDate ? val.ts.toDate() : null;
+    if (ts && (!rows[key].lastTs || ts > rows[key].lastTs)) rows[key].lastTs = ts;
+  });
+  return Object.values(rows).sort((a, b) => (b.lastTs ? b.lastTs.getTime() : 0) - (a.lastTs ? a.lastTs.getTime() : 0));
+}
+
+function scoreCell(entry) {
+  if (!entry) return "—";
+  const pct = entry.total ? Math.round((100 * entry.score) / entry.total) : 0;
+  return `${entry.score}/${entry.total} <span class="tt-sub">(${pct}%)</span>`;
+}
+
+function unitBreakdownTableHtml(bucket) {
+  const rows = unitBreakdownRows(bucket);
+  if (!rows.length) return `<p class="empty-note" style="padding:16px;">Chưa có bài nào được làm.</p>`;
+  return `
+    <div class="teacher-table-wrap">
+      <table class="teacher-table">
+        <thead><tr>
+          <th>Bài học</th><th>Trắc nghiệm</th><th>Điền pinyin</th><th>Điền từ</th><th>Lần làm gần nhất</th>
+        </tr></thead>
+        <tbody>
+          ${rows.map((r) => `
+            <tr>
+              <td>${escapeHtml(r.label)}</td>
+              <td>${scoreCell(r.quiz)}</td>
+              <td>${scoreCell(r.fill)}</td>
+              <td>${scoreCell(r.cloze)}</td>
+              <td>${r.lastTs ? r.lastTs.toLocaleString("vi-VN") : "—"}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
 }
 
 /* onRefresh: hàm async gọi lại sau khi sửa tên/xóa học viên hoặc đổi lớp
@@ -1257,12 +1319,13 @@ function renderStudentTable(container, students, classes, onRefresh, scopedClass
     const viewedCount = stats.viewedUnitKeys.length;
     const quizAvg = stats.quizQuestionsTotal ? Math.round((100 * stats.quizCorrectTotal) / stats.quizQuestionsTotal) : null;
     const fillAvg = stats.fillQuestionsTotal ? Math.round((100 * stats.fillCorrectTotal) / stats.fillQuestionsTotal) : null;
+    const clozeAvg = stats.clozeQuestionsTotal ? Math.round((100 * stats.clozeCorrectTotal) / stats.clozeQuestionsTotal) : null;
     const wrongEntries = Object.entries(stats.wrongWords).sort((a, b) => b[1] - a[1]).slice(0, 5);
     const minsToday = stats.studyDays[todayK] || 0;
     let minsWeek = 0;
     for (let i = 0; i < 7; i++) minsWeek += stats.studyDays[dateKey(i)] || 0;
     const lastActive = s.lastActiveTs && s.lastActiveTs.toDate ? s.lastActiveTs.toDate() : null;
-    return { s, viewedCount, quizAvg, fillAvg, wrongEntries, minsToday, minsWeek, lastActive };
+    return { s, viewedCount, quizAvg, fillAvg, clozeAvg, wrongEntries, minsToday, minsWeek, lastActive };
   }).sort((a, b) => (b.lastActive ? b.lastActive.getTime() : 0) - (a.lastActive ? a.lastActive.getTime() : 0));
 
   container.innerHTML = `
@@ -1272,7 +1335,7 @@ function renderStudentTable(container, students, classes, onRefresh, scopedClass
       <table class="teacher-table">
         <thead><tr>
           <th>Học viên</th><th>Lớp</th><th>Hoạt động gần nhất</th><th>Bài đã ôn</th>
-          <th>Điểm TB trắc nghiệm</th><th>Điểm TB điền pinyin</th>
+          <th>Điểm TB trắc nghiệm</th><th>Điểm TB điền pinyin</th><th>Điểm TB điền từ</th>
           <th>Từ hay sai</th><th>Học hôm nay</th><th>Học 7 ngày qua</th><th>Thao tác</th>
         </tr></thead>
         <tbody>
@@ -1310,10 +1373,12 @@ function renderStudentTable(container, students, classes, onRefresh, scopedClass
               <td>${r.viewedCount} bài</td>
               <td>${r.quizAvg === null ? "—" : r.quizAvg + "%"}</td>
               <td>${r.fillAvg === null ? "—" : r.fillAvg + "%"}</td>
+              <td>${r.clozeAvg === null ? "—" : r.clozeAvg + "%"}</td>
               <td>${r.wrongEntries.length ? escapeHtml(r.wrongEntries.map(([w, c]) => `${w} (${c})`).join(", ")) : "—"}</td>
               <td>${r.minsToday.toFixed(1)} phút</td>
               <td>${r.minsWeek.toFixed(1)} phút</td>
               <td class="row-actions">
+                <a class="btn btn-sm" href="#/teacher/student/${r.s.uid}">📖 Chi tiết</a>
                 <button class="btn btn-sm student-edit-btn">✏️ Sửa tên</button>
                 <button class="btn primary btn-sm student-save-btn" hidden>💾 Lưu</button>
                 <button class="btn btn-sm student-cancel-btn" hidden>✕ Hủy</button>
@@ -1452,7 +1517,8 @@ async function renderClassDetailPage(app, classId) {
     <p class="section-sub">
       ${(levelInfo(cls.level) || {}).label || cls.level} · ${agg.count} học viên ·
       Điểm TB trắc nghiệm ${agg.quizAvg === null ? "—" : agg.quizAvg + "%"} ·
-      Điểm TB điền pinyin ${agg.fillAvg === null ? "—" : agg.fillAvg + "%"}
+      Điểm TB điền pinyin ${agg.fillAvg === null ? "—" : agg.fillAvg + "%"} ·
+      Điểm TB điền từ ${agg.clozeAvg === null ? "—" : agg.clozeAvg + "%"}
     </p>
     <div id="class-detail-table"></div>
   `;
@@ -1464,4 +1530,124 @@ async function renderClassDetailPage(app, classId) {
     () => renderClassDetailPage(app, classId),
     classId
   );
+}
+
+/* ---------------- Trang chi tiết một học viên (giáo viên xem, theo từng bài học) ---------------- */
+async function renderStudentDetailPage(app, uid) {
+  if (!window.HSKAuth || !HSKAuth.isConfigured) { app.innerHTML = authNotConfiguredNote(); return; }
+  await HSKAuth.ready;
+  if (!HSKAuth.user) {
+    app.innerHTML = `<div class="empty-note">Bạn cần <a href="#/login">đăng nhập</a> để xem trang này.</div>`;
+    return;
+  }
+  if (!HSKAuth.profile || HSKAuth.profile.role !== "teacher") {
+    app.innerHTML = `<div class="empty-note">Tài khoản này chưa có quyền giáo viên.</div>`;
+    return;
+  }
+
+  app.innerHTML = `<p class="section-sub">Đang tải dữ liệu...</p>`;
+
+  let students;
+  try {
+    students = await HSKAuth.fetchAllStudents();
+  } catch (err) {
+    app.innerHTML = `<p class="empty-note">Không tải được dữ liệu: ${HSKAuth.friendlyError(err)}</p>`;
+    return;
+  }
+
+  const s = students.find((x) => x.uid === uid);
+  if (!s) {
+    app.innerHTML = `<div class="empty-note">Không tìm thấy học viên này (có thể đã bị xóa).<br><a href="#/teacher">← Về trang giáo viên</a></div>`;
+    return;
+  }
+
+  const myClasses = s.classes || [];
+  const overall = mergedStatsForStudent(s, null);
+  const overallQuizAvg = overall.quizQuestionsTotal ? Math.round((100 * overall.quizCorrectTotal) / overall.quizQuestionsTotal) : null;
+  const overallFillAvg = overall.fillQuestionsTotal ? Math.round((100 * overall.fillCorrectTotal) / overall.fillQuestionsTotal) : null;
+  const overallClozeAvg = overall.clozeQuestionsTotal ? Math.round((100 * overall.clozeCorrectTotal) / overall.clozeQuestionsTotal) : null;
+
+  app.innerHTML = `
+    <div class="crumbs"><a href="#/teacher">📊 Trang giáo viên</a> / ${escapeHtml(s.name || "(chưa đặt tên)")}</div>
+    <div class="section-title"><h2>${escapeHtml(s.name || "(chưa đặt tên)")}</h2></div>
+    <p class="section-sub">
+      ${escapeHtml(s.email || "")} ·
+      ${myClasses.length ? myClasses.map((c) => escapeHtml(c.name)).join(", ") : "chưa có lớp nào"}
+    </p>
+    <p class="section-sub">
+      Tổng tất cả các lớp — Trắc nghiệm ${overallQuizAvg === null ? "—" : overallQuizAvg + "%"} ·
+      Điền pinyin ${overallFillAvg === null ? "—" : overallFillAvg + "%"} ·
+      Điền từ ${overallClozeAvg === null ? "—" : overallClozeAvg + "%"}
+    </p>
+    ${myClasses.length === 0 ? `<p class="empty-note">Học viên chưa thuộc lớp nào nên chưa có bài nào để hiện chi tiết.</p>` : myClasses.map((c) => {
+      const bucket = (s.classStats && s.classStats[c.classId]) || {};
+      return `
+        <div class="section-title" style="margin-top:22px;"><h3>${escapeHtml(c.name)}</h3></div>
+        ${unitBreakdownTableHtml(bucket)}
+      `;
+    }).join("")}
+  `;
+}
+
+/* ---------------- Trang "Tiến độ của tôi" (học viên tự xem kết quả luyện tập) ---------------- */
+async function renderMyProgressPage(app) {
+  if (!window.HSKAuth || !HSKAuth.isConfigured) { app.innerHTML = authNotConfiguredNote(); return; }
+  await HSKAuth.ready;
+  if (!HSKAuth.user) {
+    app.innerHTML = `<div class="empty-note">Bạn cần <a href="#/login">đăng nhập</a> để xem trang này.</div>`;
+    return;
+  }
+  if (!HSKAuth.profile || HSKAuth.profile.role !== "student") {
+    app.innerHTML = `<div class="empty-note">Trang này dành cho tài khoản học viên.</div>`;
+    return;
+  }
+
+  app.innerHTML = `<p class="section-sub">Đang tải dữ liệu...</p>`;
+
+  // Hồ sơ nạp lúc đăng nhập có thể đã cũ (điểm mới ghi trong lúc đang ở trang
+  // khác của cùng phiên chưa được cập nhật) — tải lại để chắc chắn mới nhất.
+  const profile = await HSKAuth.refreshProfile();
+  if (!profile) {
+    app.innerHTML = `<div class="empty-note">Không tải được hồ sơ của bạn.</div>`;
+    return;
+  }
+
+  const myClasses = profile.classes || [];
+  const overall = mergedStatsForStudent(profile, null);
+  const overallQuizAvg = overall.quizQuestionsTotal ? Math.round((100 * overall.quizCorrectTotal) / overall.quizQuestionsTotal) : null;
+  const overallFillAvg = overall.fillQuestionsTotal ? Math.round((100 * overall.fillCorrectTotal) / overall.fillQuestionsTotal) : null;
+  const overallClozeAvg = overall.clozeQuestionsTotal ? Math.round((100 * overall.clozeCorrectTotal) / overall.clozeQuestionsTotal) : null;
+  const wrongEntries = Object.entries(overall.wrongWords).sort((a, b) => b[1] - a[1]).slice(0, 10);
+  const todayK = dateKey(0);
+  const minsToday = overall.studyDays[todayK] || 0;
+  let minsWeek = 0;
+  for (let i = 0; i < 7; i++) minsWeek += overall.studyDays[dateKey(i)] || 0;
+
+  app.innerHTML = `
+    <div class="section-title"><h2>📈 Tiến độ của tôi</h2></div>
+    <p class="section-sub">
+      ${myClasses.length ? myClasses.map((c) => `<span class="class-tag">${escapeHtml(c.name)}</span>`).join(" ") : "Bạn chưa thuộc lớp nào."}
+    </p>
+
+    <div class="progress-stat-row">
+      <div class="progress-stat"><b>${overall.viewedUnitKeys.length}</b><span>Bài đã ôn</span></div>
+      <div class="progress-stat"><b>${overallQuizAvg === null ? "—" : overallQuizAvg + "%"}</b><span>Điểm TB trắc nghiệm</span></div>
+      <div class="progress-stat"><b>${overallFillAvg === null ? "—" : overallFillAvg + "%"}</b><span>Điểm TB điền pinyin</span></div>
+      <div class="progress-stat"><b>${overallClozeAvg === null ? "—" : overallClozeAvg + "%"}</b><span>Điểm TB điền từ</span></div>
+      <div class="progress-stat"><b>${minsToday.toFixed(1)}</b><span>Phút học hôm nay</span></div>
+      <div class="progress-stat"><b>${minsWeek.toFixed(1)}</b><span>Phút học 7 ngày qua</span></div>
+    </div>
+
+    <p class="section-sub" style="margin-top:18px;">
+      <b>Từ hay sai nhất:</b> ${wrongEntries.length ? escapeHtml(wrongEntries.map(([w, c]) => `${w} (${c})`).join(", ")) : "Chưa có từ nào bị sai — cố lên!"}
+    </p>
+
+    ${myClasses.length === 0 ? "" : myClasses.map((c) => {
+      const bucket = (profile.classStats && profile.classStats[c.classId]) || {};
+      return `
+        <div class="section-title" style="margin-top:22px;"><h3>${escapeHtml(c.name)} <span class="tt-sub">(${(levelInfo(c.level) || {}).label || c.level})</span></h3></div>
+        ${unitBreakdownTableHtml(bucket)}
+      `;
+    }).join("")}
+  `;
 }

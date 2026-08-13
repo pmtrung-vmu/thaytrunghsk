@@ -34,7 +34,11 @@ Trang dùng Firebase (miễn phí) để quản lý tài khoản, phân lớp v�
 
 Để bật: làm theo hướng dẫn từng bước trong file **`FIREBASE_SETUP.md`** (khoảng 10-15 phút, không cần biết lập trình, không cần thẻ tín dụng, và **bắt buộc phải làm** để trang có nội dung xem được).
 
-Sau khi bật, trang giáo viên (`#/teacher`, chỉ tài khoản có quyền giáo viên mới vào được) cho phép tạo lớp, tạo tài khoản học viên (chọn nhiều lớp cùng lúc), thêm/bớt lớp của học viên bất kỳ lúc nào, **sửa tên/xóa học viên, sửa tên-trình độ/xóa lớp**, và xem theo từng học viên: (các) lớp đang học, hoạt động gần nhất, số bài đã ôn, điểm trung bình trắc nghiệm/điền pinyin, các từ hay sai nhất, và số phút học hôm nay/7 ngày qua. Mỗi lớp còn có **trang chi tiết riêng** (bấm "Xem chi tiết →" trong bảng "Danh sách lớp") để theo dõi tách biệt từng lớp — điểm/hoạt động ở đây chỉ tính riêng cho lớp đang xem, ngay cả khi học viên đó còn thuộc thêm lớp khác. Chi tiết cách dùng và các giới hạn (ví dụ: xóa học viên chỉ thu hồi quyền truy cập chứ chưa xóa được tài khoản đăng nhập gốc; học viên tạo từ trước khi có tính năng nhiều lớp cần được gán lại lớp) — xem `FIREBASE_SETUP.md`.
+Sau khi bật, trang giáo viên (`#/teacher`, chỉ tài khoản có quyền giáo viên mới vào được) cho phép tạo lớp, tạo tài khoản học viên (chọn nhiều lớp cùng lúc), thêm/bớt lớp của học viên bất kỳ lúc nào, **sửa tên/xóa học viên, sửa tên-trình độ/xóa lớp**, và xem theo từng học viên: (các) lớp đang học, hoạt động gần nhất, số bài đã ôn, điểm trung bình **trắc nghiệm / điền pinyin / điền từ** (3 chế độ tách riêng), các từ hay sai nhất, và số phút học hôm nay/7 ngày qua. Mỗi lớp còn có **trang chi tiết riêng** (bấm "Xem chi tiết →" trong bảng "Danh sách lớp") để theo dõi tách biệt từng lớp — điểm/hoạt động ở đây chỉ tính riêng cho lớp đang xem, ngay cả khi học viên đó còn thuộc thêm lớp khác. Bấm **"📖 Chi tiết"** ở một học viên để xem điểm **theo từng bài học** (ví dụ "HSK1 · Bài 1") của riêng học viên đó, cả 3 chế độ.
+
+Về phía học viên: sau khi đăng nhập, mục **"📈 Tiến độ của tôi"** trên thanh đăng nhập cho học viên tự xem kết quả luyện tập của chính mình — tổng số bài đã ôn, điểm trung bình 3 chế độ, từ hay sai nhất, thời gian học, và bảng điểm chi tiết theo từng bài học — không cần hỏi giáo viên.
+
+Chi tiết cách dùng và các giới hạn (ví dụ: xóa học viên chỉ thu hồi quyền truy cập chứ chưa xóa được tài khoản đăng nhập gốc; học viên tạo từ trước khi có tính năng nhiều lớp cần được gán lại lớp) — xem `FIREBASE_SETUP.md`.
 
 ## Cấu trúc thư mục
 
