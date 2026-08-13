@@ -300,8 +300,8 @@ async function renderHome(app) {
   // nội dung nào — không tải dữ liệu từ vựng, chỉ hiện lời mời đăng nhập.
   if (!window.HSKAuth || !HSKAuth.isConfigured) {
     app.innerHTML = `
-      <section class="hero">
-        <h1>Ôn từ vựng HSK 3.0</h1>
+      <section class="hero hero-simple">
+        <h1>Học tiếng Trung vui mỗi ngày</h1>
         <p>Trang đang trong quá trình thiết lập đăng nhập.</p>
       </section>
       ${authNotConfiguredNote()}
@@ -311,9 +311,10 @@ async function renderHome(app) {
   await HSKAuth.ready;
   if (!HSKAuth.user) {
     app.innerHTML = `
-      <section class="hero">
-        <h1>Ôn từ vựng HSK 3.0</h1>
-        <p>Học theo từng cấp độ với 4 chế độ: xem danh sách, lật thẻ ghi nhớ, trắc nghiệm và điền pinyin.</p>
+      <section class="hero hero-simple">
+        <div class="blob b1"></div><div class="blob b2"></div>
+        <h1>Học tiếng Trung <span class="accent">vui mỗi ngày</span></h1>
+        <p>Flashcard, trắc nghiệm, điền từ và luyện viết tay chữ Hán — theo đúng giáo trình 新HSK教程, có giáo viên theo dõi tiến độ từng buổi học.</p>
       </section>
       ${loginPromptNote()}
     `;
@@ -323,39 +324,74 @@ async function renderHome(app) {
   const dataSets = await Promise.all(LEVELS.map(l => fetchLevelData(l.id)));
   const total = dataSets.reduce((s, d) => s + wordCount(d), 0);
   const restricted = isRestrictedStudent();
+  const firstAccessible = LEVELS.find((l) => canAccessLevel(l.id));
 
   app.innerHTML = `
     <section class="hero">
-      <h1>Ôn từ vựng HSK 3.0</h1>
-      <p>Học theo từng cấp độ với 4 chế độ: xem danh sách, lật thẻ ghi nhớ, trắc nghiệm và điền pinyin.</p>
-      <div class="stat-row">
-        <div class="stat"><b>${LEVELS.length}</b><span>Cấp độ</span></div>
-        <div class="stat"><b>${total.toLocaleString("vi-VN")}</b><span>Từ vựng</span></div>
-        <div class="stat"><b>4</b><span>Chế độ ôn</span></div>
-      </div>
-      ${restricted ? (() => {
-        const names = (HSKAuth.profile.classes || []).map((c) => c.name).filter(Boolean);
-        const labels = studentLevels(HSKAuth.profile).map((lv) => (levelInfo(lv) || {}).label || lv);
-        return `<p class="class-banner">🔒 Bạn thuộc ${escapeHtml(names.join(", ") || "chưa có lớp nào")} — chỉ ôn tập được trình độ ${escapeHtml(labels.join(", ") || "—")}.</p>`;
-      })() : ""}
-    </section>
-    <div class="level-grid">
-      ${LEVELS.map((l, i) => {
-        const allowed = canAccessLevel(l.id);
-        const inner = `
-          <div class="lc-top">
-            <span class="badge">${l.label}</span>
-            ${l.grammar ? '<span class="badge" style="background:#e5f4ea;color:#1f6b3c;">có ngữ pháp</span>' : ""}
-            ${!allowed ? '<span class="badge lock-badge">🔒</span>' : ""}
+      <div class="blob b1"></div><div class="blob b2"></div>
+      <div class="wrap hero-grid">
+        <div>
+          <h1>Học tiếng Trung <span class="accent">vui mỗi ngày</span></h1>
+          <p class="lead">Flashcard, trắc nghiệm, điền từ và luyện viết tay chữ Hán — theo đúng giáo trình 新HSK教程, có giáo viên theo dõi tiến độ từng buổi học.</p>
+          <div class="hero-actions">
+            ${firstAccessible ? `<a class="btn primary" href="#/level/${firstAccessible.id}">Bắt đầu ôn tập →</a>` : ""}
+            <a class="btn ghost" href="#level-grid-section">Xem giáo trình</a>
           </div>
-          <h3>Từ vựng ${l.label}</h3>
-          <p>${wordCount(dataSets[i]).toLocaleString("vi-VN")} từ · ${getUnits(dataSets[i]).length} bài học</p>
-        `;
-        return allowed
-          ? `<a class="level-card" href="#/level/${l.id}">${inner}</a>`
-          : `<div class="level-card locked" title="Ngoài trình độ lớp bạn được phân">${inner}</div>`;
-      }).join("")}
-    </div>
+          <div class="stat-row">
+            <div class="stat"><b>${LEVELS.length}</b><span>Cấp độ</span></div>
+            <div class="stat"><b>${total.toLocaleString("vi-VN")}</b><span>Từ vựng</span></div>
+            <div class="stat"><b>6</b><span>Chế độ ôn</span></div>
+          </div>
+          ${restricted ? (() => {
+            const names = (HSKAuth.profile.classes || []).map((c) => c.name).filter(Boolean);
+            const labels = studentLevels(HSKAuth.profile).map((lv) => (levelInfo(lv) || {}).label || lv);
+            return `<p class="class-banner">🔒 Bạn thuộc ${escapeHtml(names.join(", ") || "chưa có lớp nào")} — chỉ ôn tập được trình độ ${escapeHtml(labels.join(", ") || "—")}.</p>`;
+          })() : ""}
+        </div>
+        <div class="hero-card">
+          <div class="flash-mock">
+            <div class="hz">老师</div>
+            <div class="py">lǎoshī</div>
+            <div class="vi">giáo viên, thầy/cô</div>
+          </div>
+          <div class="mini-row">
+            <div class="mini-tag">✏️ Trắc nghiệm</div>
+            <div class="mini-tag">🖌️ Viết chữ</div>
+            <div class="mini-tag">📝 Điền từ</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feat-grid">
+        <div class="feat"><div class="ico">📚</div><h4>Đúng giáo trình</h4><p>Bám sát 新HSK教程, chia bài học rõ ràng theo từng cấp.</p></div>
+        <div class="feat"><div class="ico">🖌️</div><h4>Luyện viết tay</h4><p>Chấm đúng/sai từng nét bút ngay khi viết chữ Hán.</p></div>
+        <div class="feat"><div class="ico">📊</div><h4>Theo dõi tiến độ</h4><p>Giáo viên xem được điểm từng lần làm bài của học viên.</p></div>
+        <div class="feat"><div class="ico">🔒</div><h4>Riêng tư, an toàn</h4><p>Chỉ học viên được giáo viên tạo tài khoản mới truy cập được.</p></div>
+      </div>
+    </section>
+
+    <section id="level-grid-section" class="levels">
+      <div class="sec-title"><h2>Chọn trình độ của bạn</h2><span>${LEVELS.length} cấp độ · từ HSK 1 đến HSK 9</span></div>
+      <div class="level-grid">
+        ${LEVELS.map((l, i) => {
+          const allowed = canAccessLevel(l.id);
+          const inner = `
+            <div class="lc-top">
+              <span class="badge">${l.label}</span>
+              ${l.grammar ? '<span class="badge" style="background:#e5f4ea;color:#1f6b3c;">có ngữ pháp</span>' : ""}
+              ${!allowed ? '<span class="badge lock-badge">🔒</span>' : ""}
+            </div>
+            <h3>Từ vựng ${l.label}</h3>
+            <p>${wordCount(dataSets[i]).toLocaleString("vi-VN")} từ · ${getUnits(dataSets[i]).length} bài học</p>
+          `;
+          return allowed
+            ? `<a class="level-card" href="#/level/${l.id}">${inner}</a>`
+            : `<div class="level-card locked" title="Ngoài trình độ lớp bạn được phân">${inner}</div>`;
+        }).join("")}
+      </div>
+    </section>
   `;
 }
 
