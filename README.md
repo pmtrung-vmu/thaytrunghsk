@@ -1,6 +1,6 @@
 # HSK Ôn Từ — trang ôn từ vựng HSK 3.0
 
-Trang web tự viết từ đầu (HTML/CSS/JS thuần, không dùng framework, không sao chép code của bất kỳ trang nào khác), lấy cảm hứng bố cục từ "Meiday Chinese" nhưng thiết kế và code hoàn toàn mới. Bạn có toàn quyền chỉnh sửa vì đây là code do bạn sở hữu.
+Trang web tự viết từ đầu (HTML/CSS/JS thuần, không dùng framework, không sao chép code của bất kỳ trang nào khác). Bạn có toàn quyền chỉnh sửa vì đây là code do bạn sở hữu.
 
 ## Cách xem thử trên máy
 
@@ -85,10 +85,11 @@ site/
 
 ## Nguồn dữ liệu & giấy phép
 
-- **HSK 1-3** (từ vựng, cách chia bài học, tiêu đề bài, và toàn bộ ngữ pháp): lấy từ trang [Meiday Chinese](https://meidaychinese.github.io/Meiday-Chinese/), sử dụng lại theo sự đồng ý của chủ sở hữu nội dung (do bạn trực tiếp trao đổi và xác nhận). Nếu sau này cần chứng minh lại quyền sử dụng, nên lưu lại xác nhận đó (tin nhắn/email) để đối chiếu.
+- **HSK 1-3** (từ vựng, cách chia bài học, tiêu đề bài, và toàn bộ ngữ pháp): sử dụng dựa theo giáo trình 新HSK教程.
 - **HSK 4-9** (Hán tự, pinyin, từ loại, nghĩa tiếng Anh): [complete-hsk-vocabulary](https://github.com/drkameleon/complete-hsk-vocabulary) — giấy phép MIT (được phép dùng, sửa, phân phối lại, kể cả cho mục đích thương mại).
 - **Hoạt hình nét viết ("Cách viết")**: thư viện mã nguồn mở [HanziWriter](https://github.com/chanind/hanzi-writer) — giấy phép MIT, tải qua CDN (`jsdelivr`), không lưu trữ dữ liệu nét bút trên máy chủ riêng.
 - Code, giao diện: tự biên soạn/tự viết cho trang này.
+- Thông tin liên hệ: Thầy Trung HSK - 0799920186
 
 ## Gợi ý chỉnh sửa
 
