@@ -107,6 +107,11 @@ h1, h2, h3, .brand-text strong, .seal-name { font-family: "Baloo 2", "Be Vietnam
   color: var(--ink-soft);
   padding: 6px 4px;
 }
+.nav-locked-note a {
+  color: var(--indigo-deep);
+  font-weight: 700;
+  text-decoration: underline;
+}
 .class-banner {
   margin-top: 14px;
   font-size: 13.5px;
@@ -115,6 +120,20 @@ h1, h2, h3, .brand-text strong, .seal-name { font-family: "Baloo 2", "Be Vietnam
   display: inline-block;
   padding: 6px 14px;
   border-radius: 20px;
+}
+.guest-banner {
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: var(--indigo-deep);
+  background: #ece6ff;
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+.guest-banner a {
+  color: var(--indigo-deep);
+  font-weight: 700;
+  text-decoration: underline;
 }
 .level-card.locked {
   opacity: .55;

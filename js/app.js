@@ -142,21 +142,22 @@ function getUnits(data) {
 
 /* ---------------- Phân quyền theo lớp/trình độ ---------------- */
 
-/* Khách CHƯA đăng nhập không xem được nội dung ôn tập nào cả (chỉ giáo viên
-   mới tạo được tài khoản, nên "đăng nhập được" đồng nghĩa "được giáo viên
-   cấp tài khoản"). Giáo viên xem được mọi trình độ. Học viên chỉ xem được
-   đúng trình độ của lớp mình được phân. Tài khoản đã đăng nhập nhưng chưa có
-   hồ sơ hợp lệ (thiếu document users/{uid}) cũng bị chặn hoàn toàn. */
+/* Khách vãng lai (CHƯA đăng nhập) được xem và luyện tập MỌI trình độ — chỉ
+   là kết quả không được lưu lại (xem ghi chú trong auth.js: recordAttempt/
+   recordUnitViewed/recordWrongWord/startHeartbeat đều tự bỏ qua khi chưa có
+   HSKAuth.user, nên không cần chặn nội dung ở đây nữa). Giáo viên xem được
+   mọi trình độ. Học viên (tài khoản do giáo viên tạo) chỉ xem được đúng
+   trình độ của (các) lớp mình được phân — đây là giới hạn DUY NHẤT còn lại. */
 function canAccessLevel(levelId) {
-  if (!window.HSKAuth || !HSKAuth.isConfigured) return false;
-  if (!HSKAuth.user) return false;
+  if (!window.HSKAuth || !HSKAuth.isConfigured) return true;
+  if (!HSKAuth.user) return true;
   const profile = HSKAuth.profile;
-  if (!profile) return false;
+  if (!profile) return true;
   if (profile.role === "teacher") return true;
   if (profile.role === "student") {
     return Array.isArray(profile.classes) && profile.classes.some((c) => c.level === levelId);
   }
-  return false;
+  return true;
 }
 
 /* Trình độ (không trùng lặp) của tất cả các lớp một học viên đang thuộc. */
@@ -173,12 +174,12 @@ function isRestrictedStudent() {
   return !!(window.HSKAuth && HSKAuth.user && HSKAuth.profile && HSKAuth.profile.role === "student");
 }
 
-function loginPromptNote() {
-  return `<div class="empty-note">
-    Nội dung ôn tập chỉ dành cho tài khoản đã đăng nhập.<br>
-    Tài khoản học viên do giáo viên cấp sẵn (kèm phân lớp) — liên hệ giáo viên phụ trách để được cấp tài khoản.<br><br>
-    <a href="#/login" class="btn primary" style="display:inline-block;">Đăng nhập</a>
-  </div>`;
+/* Banner nhắc khách vãng lai: chỉ xem được danh sách từ + lật thẻ, các chế
+   độ luyện tập có chấm điểm (trắc nghiệm/điền pinyin/điền từ/viết chữ) cần
+   tài khoản học viên do giáo viên cấp mới dùng được. */
+function guestBanner() {
+  return `<p class="guest-banner">👤 Bạn đang xem với tư cách khách — chỉ xem được danh sách từ và lật thẻ.
+    <a href="#/login">Đăng nhập</a> bằng tài khoản học viên (do giáo viên cấp) để luyện tập trắc nghiệm, điền pinyin, điền từ, viết chữ và lưu tiến độ.</p>`;
 }
 
 /* ---------------- Router ---------------- */
@@ -201,8 +202,8 @@ function buildNav() {
   if (isRestrictedStudent()) {
     const names = (HSKAuth.profile.classes || []).map((c) => c.name).filter(Boolean);
     extra = `<span class="nav-locked-note">🔒 Lớp của bạn: ${escapeHtml(names.length ? names.join(", ") : "chưa được phân lớp")}</span>`;
-  } else if (window.HSKAuth && HSKAuth.isConfigured && !HSKAuth.user) {
-    extra = `<span class="nav-locked-note">🔒 Đăng nhập để xem nội dung</span>`;
+  } else if (!isLoggedIn()) {
+    extra = `<span class="nav-locked-note">👤 Khách: chỉ xem danh sách từ & lật thẻ — <a href="#/login">đăng nhập</a> để luyện tập đầy đủ</span>`;
   }
   nav.innerHTML = `<a href="#/" data-nav="home">Trang chủ</a>` +
     visibleLevels.map(l => `<a href="#/level/${l.id}" data-nav="${l.id}">${l.label}</a>`).join("") +
@@ -275,13 +276,11 @@ if (window.HSKAuth) {
   });
 }
 
+/* Chỉ còn được gọi khi canAccessLevel() trả về false — nay chỉ xảy ra với
+   học viên bị giới hạn đúng trình độ lớp mình (khách vãng lai và giáo viên
+   luôn canAccessLevel === true nên không bao giờ rơi vào đây). */
 function accessDeniedNote(id) {
-  if (!window.HSKAuth || !HSKAuth.isConfigured) return authNotConfiguredNote();
-  if (!HSKAuth.user) return loginPromptNote();
-  const profile = HSKAuth.profile;
-  if (!profile) {
-    return `<div class="empty-note">Tài khoản này chưa được giáo viên cấp hồ sơ học tập.<br>Vui lòng liên hệ giáo viên phụ trách.</div>`;
-  }
+  const profile = window.HSKAuth && HSKAuth.profile;
   if (profile && profile.role === "student") {
     const levels = studentLevels(profile).map(levelInfo).filter(Boolean);
     return `<div class="empty-note">
@@ -296,35 +295,18 @@ function accessDeniedNote(id) {
 /* ---------------- Home ---------------- */
 
 async function renderHome(app) {
-  // Khách chưa đăng nhập (hoặc đăng nhập chưa được cấu hình) không xem được
-  // nội dung nào — không tải dữ liệu từ vựng, chỉ hiện lời mời đăng nhập.
-  if (!window.HSKAuth || !HSKAuth.isConfigured) {
-    app.innerHTML = `
-      <section class="hero hero-simple">
-        <h1>Học tiếng Trung vui mỗi ngày</h1>
-        <p>Trang đang trong quá trình thiết lập đăng nhập.</p>
-      </section>
-      ${authNotConfiguredNote()}
-    `;
-    return;
-  }
-  await HSKAuth.ready;
-  if (!HSKAuth.user) {
-    app.innerHTML = `
-      <section class="hero hero-simple">
-        <div class="blob b1"></div><div class="blob b2"></div>
-        <h1>Học tiếng Trung <span class="accent">vui mỗi ngày</span></h1>
-        <p>Flashcard, trắc nghiệm, điền từ và luyện viết tay chữ Hán — theo đúng giáo trình 新HSK教程, có giáo viên theo dõi tiến độ từng buổi học.</p>
-      </section>
-      ${loginPromptNote()}
-    `;
-    return;
-  }
+  // Ai cũng xem/luyện tập được toàn bộ nội dung (kể cả khách chưa đăng nhập)
+  // — chỉ khác là tiến độ chỉ được LƯU cho tài khoản học viên do giáo viên
+  // cấp (xem canAccessLevel() và ghi chú trong auth.js). Nếu Firebase chưa
+  // được cấu hình, trang vẫn hoạt động bình thường ở chế độ "chỉ khách".
+  if (window.HSKAuth) await HSKAuth.ready;
+  const configured = !!(window.HSKAuth && HSKAuth.isConfigured);
+  const loggedIn = isLoggedIn();
 
   const dataSets = await Promise.all(LEVELS.map(l => fetchLevelData(l.id)));
   const total = dataSets.reduce((s, d) => s + wordCount(d), 0);
   const restricted = isRestrictedStudent();
-  const firstAccessible = LEVELS.find((l) => canAccessLevel(l.id));
+  const firstAccessible = LEVELS.find((l) => canAccessLevel(l.id)) || LEVELS[0];
 
   app.innerHTML = `
     <section class="hero">
@@ -346,7 +328,7 @@ async function renderHome(app) {
             const names = (HSKAuth.profile.classes || []).map((c) => c.name).filter(Boolean);
             const labels = studentLevels(HSKAuth.profile).map((lv) => (levelInfo(lv) || {}).label || lv);
             return `<p class="class-banner">🔒 Bạn thuộc ${escapeHtml(names.join(", ") || "chưa có lớp nào")} — chỉ ôn tập được trình độ ${escapeHtml(labels.join(", ") || "—")}.</p>`;
-          })() : ""}
+          })() : (configured && !loggedIn ? guestBanner() : "")}
         </div>
         <div class="hero-card">
           <div class="flash-mock">
@@ -367,8 +349,8 @@ async function renderHome(app) {
       <div class="feat-grid">
         <div class="feat"><div class="ico">📚</div><h4>Đúng giáo trình</h4><p>Bám sát 新HSK教程, chia bài học rõ ràng theo từng cấp.</p></div>
         <div class="feat"><div class="ico">🖌️</div><h4>Luyện viết tay</h4><p>Chấm đúng/sai từng nét bút ngay khi viết chữ Hán.</p></div>
-        <div class="feat"><div class="ico">📊</div><h4>Theo dõi tiến độ</h4><p>Giáo viên xem được điểm từng lần làm bài của học viên.</p></div>
-        <div class="feat"><div class="ico">🔒</div><h4>Riêng tư, an toàn</h4><p>Chỉ học viên được giáo viên tạo tài khoản mới truy cập được.</p></div>
+        <div class="feat"><div class="ico">🌐</div><h4>Xem thử miễn phí</h4><p>Xem danh sách từ và lật thẻ không cần đăng nhập.</p></div>
+        <div class="feat"><div class="ico">📊</div><h4>Luyện tập & theo dõi tiến độ</h4><p>Đăng nhập bằng tài khoản học viên (do giáo viên cấp) để luyện tập đầy đủ và lưu điểm từng lần làm bài.</p></div>
       </div>
     </section>
 
@@ -439,6 +421,24 @@ async function renderLevel(app, id) {
 
 /* ---------------- Unit (4 modes) ---------------- */
 
+/* Chế độ "luyện tập" có chấm điểm (trắc nghiệm/điền pinyin/điền từ/viết chữ)
+   chỉ dành cho tài khoản đã đăng nhập — khách vãng lai chỉ xem được danh
+   sách từ ("list") và lật thẻ ("flash"), không có điểm nên không cần tài
+   khoản. */
+const PRACTICE_MODES = ["quiz", "fill", "cloze", "write"];
+function canUsePracticeModes() {
+  return isLoggedIn();
+}
+
+function practiceLockedNote(baseUrl) {
+  return `<div class="empty-note">
+    🔒 Chế độ luyện tập (trắc nghiệm, điền pinyin, điền từ, viết chữ) chỉ dành cho tài khoản đã đăng nhập.<br>
+    Khách vãng lai vẫn xem được <a href="${baseUrl}/list">danh sách từ</a> và <a href="${baseUrl}/flash">lật thẻ</a> ở bài học này.<br><br>
+    Tài khoản học viên do giáo viên cấp sẵn — liên hệ giáo viên phụ trách để được cấp tài khoản.<br><br>
+    <a href="#/login" class="btn primary" style="display:inline-block;">Đăng nhập</a>
+  </div>`;
+}
+
 async function renderUnit(app, id, unitIdx, mode) {
   const info = levelInfo(id);
   const data = await fetchLevelData(id);
@@ -451,15 +451,16 @@ async function renderUnit(app, id, unitIdx, mode) {
 
   const unitLabel = isAll ? `Ôn toàn bộ ${info.label}` : `${unit.title}${unit.sub ? ` — ${unit.sub}` : ""}`;
   const baseUrl = `#/level/${id}/unit/${unitIdx}`;
+  const practiceAllowed = canUsePracticeModes();
 
   const canWriteQuiz = STROKE_ORDER_LEVELS.includes(id) && typeof HanziWriter !== "undefined";
   const tabs = [
-    ["list", "📋 Danh sách"],
-    ["flash", "🔄 Lật thẻ"],
-    ["quiz", "✏️ Trắc nghiệm"],
-    ["fill", "⌨️ Điền pinyin"],
-    ["cloze", "📝 Điền từ"],
-    ...(canWriteQuiz ? [["write", "🖌️ Viết chữ"]] : []),
+    ["list", "📋 Danh sách", false],
+    ["flash", "🔄 Lật thẻ", false],
+    ["quiz", "✏️ Trắc nghiệm", true],
+    ["fill", "⌨️ Điền pinyin", true],
+    ["cloze", "📝 Điền từ", true],
+    ...(canWriteQuiz ? [["write", "🖌️ Viết chữ", true]] : []),
   ];
 
   const header = `
@@ -467,7 +468,9 @@ async function renderUnit(app, id, unitIdx, mode) {
     <div class="section-title"><h2>${unitLabel}</h2></div>
     <p class="section-sub">${words.length.toLocaleString("vi-VN")} từ</p>
     <div class="tab-row">
-      ${tabs.map(([m, label]) => `<a class="${mode === m ? "active" : ""}" href="${baseUrl}/${m}">${label}</a>`).join("")}
+      ${tabs.map(([m, label, isPractice]) =>
+        `<a class="${mode === m ? "active" : ""}" href="${baseUrl}/${m}">${label}${isPractice && !practiceAllowed ? " 🔒" : ""}</a>`
+      ).join("")}
     </div>
     <div id="unit-body"></div>
   `;
@@ -482,6 +485,9 @@ async function renderUnit(app, id, unitIdx, mode) {
 
   if (mode === "list") renderListMode(body, words, id);
   else if (mode === "flash") renderFlashMode(body, words);
+  else if (PRACTICE_MODES.includes(mode) && !practiceAllowed) {
+    body.innerHTML = practiceLockedNote(baseUrl);
+  }
   else if (mode === "quiz") renderQuizMode(body, words, ctx);
   else if (mode === "fill") renderFillMode(body, words, ctx);
   else if (mode === "cloze") renderClozeMode(body, words, ctx);
