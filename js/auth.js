@@ -277,13 +277,17 @@
   }
 
   /* prefix dùng làm tiền tố tên trường lưu điểm trong classStats — TÁCH RIÊNG
-     4 chế độ: "quiz" (trắc nghiệm Hán tự↔nghĩa), "fill" (điền pinyin),
-     "cloze" (điền từ vào chỗ trống), và "write" (viết chữ tay). Trước đây
-     "cloze" từng bị gộp chung vào "quiz" (một sơ suất cũ) — từ bản có điểm
-     điền từ riêng, các chế độ được tính tách biệt hoàn toàn. */
+     5 chế độ: "quiz" (trắc nghiệm Hán tự↔nghĩa), "fill" (điền pinyin),
+     "cloze" (điền từ vào chỗ trống), "translate" (dịch câu, học viên tự
+     chấm), và "write" (viết chữ tay). Trước đây "cloze" từng bị gộp chung
+     vào "quiz" (một sơ suất cũ) — từ bản có điểm điền từ riêng, các chế độ
+     được tính tách biệt hoàn toàn. Lưu ý: "translate" hiện chỉ được LƯU vào
+     Firestore (classStats.{cid}.translate*), CHƯA có cột hiển thị riêng
+     trên trang giáo viên/trang tiến độ học viên — xem README.md. */
   function statPrefix(mode) {
     if (mode === "fill") return "fill";
     if (mode === "cloze") return "cloze";
+    if (mode === "translate") return "translate";
     if (mode === "write") return "write";
     return "quiz";
   }

@@ -175,11 +175,11 @@ function isRestrictedStudent() {
 }
 
 /* Banner nhắc khách vãng lai: chỉ xem được danh sách từ + lật thẻ, các chế
-   độ luyện tập có chấm điểm (trắc nghiệm/điền pinyin/điền từ/viết chữ) cần
-   tài khoản học viên do giáo viên cấp mới dùng được. */
+   độ luyện tập có chấm điểm (trắc nghiệm/điền pinyin/điền từ/dịch câu/viết
+   chữ) cần tài khoản học viên do giáo viên cấp mới dùng được. */
 function guestBanner() {
   return `<p class="guest-banner">👤 Bạn đang xem với tư cách khách — chỉ xem được danh sách từ và lật thẻ.
-    <a href="#/login">Đăng nhập</a> bằng tài khoản học viên (do giáo viên cấp) để luyện tập trắc nghiệm, điền pinyin, điền từ, viết chữ và lưu tiến độ.</p>`;
+    <a href="#/login">Đăng nhập</a> bằng tài khoản học viên (do giáo viên cấp) để luyện tập trắc nghiệm, điền pinyin, điền từ, dịch câu, viết chữ và lưu tiến độ.</p>`;
 }
 
 /* ---------------- Router ---------------- */
@@ -322,7 +322,7 @@ async function renderHome(app) {
           <div class="stat-row">
             <div class="stat"><b>${LEVELS.length}</b><span>Cấp độ</span></div>
             <div class="stat"><b>${total.toLocaleString("vi-VN")}</b><span>Từ vựng</span></div>
-            <div class="stat"><b>6</b><span>Chế độ ôn</span></div>
+            <div class="stat"><b>7</b><span>Chế độ ôn</span></div>
           </div>
           ${restricted ? (() => {
             const names = (HSKAuth.profile.classes || []).map((c) => c.name).filter(Boolean);
@@ -421,18 +421,18 @@ async function renderLevel(app, id) {
 
 /* ---------------- Unit (4 modes) ---------------- */
 
-/* Chế độ "luyện tập" có chấm điểm (trắc nghiệm/điền pinyin/điền từ/viết chữ)
-   chỉ dành cho tài khoản đã đăng nhập — khách vãng lai chỉ xem được danh
-   sách từ ("list") và lật thẻ ("flash"), không có điểm nên không cần tài
-   khoản. */
-const PRACTICE_MODES = ["quiz", "fill", "cloze", "write"];
+/* Chế độ "luyện tập" có chấm điểm (trắc nghiệm/điền pinyin/điền từ/dịch câu/
+   viết chữ) chỉ dành cho tài khoản đã đăng nhập — khách vãng lai chỉ xem
+   được danh sách từ ("list") và lật thẻ ("flash"), không có điểm nên không
+   cần tài khoản. */
+const PRACTICE_MODES = ["quiz", "fill", "cloze", "translate", "write"];
 function canUsePracticeModes() {
   return isLoggedIn();
 }
 
 function practiceLockedNote(baseUrl) {
   return `<div class="empty-note">
-    🔒 Chế độ luyện tập (trắc nghiệm, điền pinyin, điền từ, viết chữ) chỉ dành cho tài khoản đã đăng nhập.<br>
+    🔒 Chế độ luyện tập (trắc nghiệm, điền pinyin, điền từ, dịch câu, viết chữ) chỉ dành cho tài khoản đã đăng nhập.<br>
     Khách vãng lai vẫn xem được <a href="${baseUrl}/list">danh sách từ</a> và <a href="${baseUrl}/flash">lật thẻ</a> ở bài học này.<br><br>
     Tài khoản học viên do giáo viên cấp sẵn — liên hệ giáo viên phụ trách để được cấp tài khoản.<br><br>
     <a href="#/login" class="btn primary" style="display:inline-block;">Đăng nhập</a>
@@ -460,6 +460,7 @@ async function renderUnit(app, id, unitIdx, mode) {
     ["quiz", "✏️ Trắc nghiệm", true],
     ["fill", "⌨️ Điền pinyin", true],
     ["cloze", "📝 Điền từ", true],
+    ["translate", "🌐 Dịch câu", true],
     ...(canWriteQuiz ? [["write", "🖌️ Viết chữ", true]] : []),
   ];
 
@@ -491,6 +492,7 @@ async function renderUnit(app, id, unitIdx, mode) {
   else if (mode === "quiz") renderQuizMode(body, words, ctx);
   else if (mode === "fill") renderFillMode(body, words, ctx);
   else if (mode === "cloze") renderClozeMode(body, words, ctx);
+  else if (mode === "translate") renderTranslateMode(body, words, ctx);
   else if (mode === "write") {
     if (canWriteQuiz) renderWriteQuizMode(body, words, ctx);
     else body.innerHTML = `<div class="empty-note">Luyện viết chữ hiện chỉ hỗ trợ HSK 1-3.</div>`;
@@ -895,8 +897,119 @@ function renderClozeMode(body, words, ctx) {
   draw();
 }
 
+/* ---- Dịch câu mode — luyện dịch câu ví dụ (lấy từ dữ liệu word.example) cả
+   2 chiều Trung→Việt và Việt→Trung. Vì dịch câu không có một đáp án "đúng
+   duy nhất" để so khớp tự động (khác pinyin/điền từ), chế độ này để HỌC VIÊN
+   TỰ CHẤM: gõ bản dịch của mình, bấm "Xem đáp án" để so với câu dịch tham
+   khảo, rồi tự bấm Đúng/Chưa đúng — giống cách Anki/nhiều app ngoại ngữ xử lý
+   bài dịch tự luận. */
+function translateSentencePool(words) {
+  const pairs = [];
+  words.forEach((w) => {
+    exampleLines(w.example).forEach((l) => {
+      if (l.zh && l.vi) pairs.push({ hanzi: w.hanzi, zh: l.zh, vi: l.vi });
+    });
+  });
+  return pairs;
+}
+
+function renderTranslateMode(body, words, ctx, direction) {
+  direction = direction === "vi2zh" ? "vi2zh" : "zh2vi";
+  const pool = translateSentencePool(words);
+  if (!pool.length) {
+    body.innerHTML = `<div class="empty-note">Bài này chưa có câu ví dụ để luyện dịch.</div>`;
+    return;
+  }
+  const shuffled = [...pool];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  const questions = shuffled.slice(0, Math.min(10, shuffled.length));
+  let qi = 0, score = 0;
+
+  const dirToggle = (disabled) => `
+    <div class="quiz-dir-toggle">
+      <button class="${direction === "zh2vi" ? "active" : ""}" data-dir="zh2vi" ${disabled ? "disabled" : ""}>Trung → Việt</button>
+      <button class="${direction === "vi2zh" ? "active" : ""}" data-dir="vi2zh" ${disabled ? "disabled" : ""}>Việt → Trung</button>
+    </div>
+  `;
+  function bindDirToggle() {
+    body.querySelectorAll("[data-dir]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const newDir = btn.dataset.dir;
+        if (newDir !== direction) renderTranslateMode(body, words, ctx, newDir);
+      });
+    });
+  }
+
+  function draw() {
+    if (qi >= questions.length) {
+      if (window.HSKAuth && HSKAuth.user && ctx) {
+        HSKAuth.recordAttempt({ level: ctx.level, unitKey: ctx.unitKey, unitLabel: ctx.unitLabel, mode: "translate", score, total: questions.length });
+      }
+      body.innerHTML = `
+        ${dirToggle(false)}
+        <div class="quiz-result-box">
+          <div class="score-big">${score}/${questions.length}</div>
+          <p>Bạn tự chấm đúng ${score} trên ${questions.length} câu.</p>
+          <button class="btn primary" id="t-retry">Làm lại</button>
+        </div>`;
+      document.getElementById("t-retry").addEventListener("click", () => renderTranslateMode(body, words, ctx, direction));
+      bindDirToggle();
+      return;
+    }
+    const q = questions[qi];
+    const sourceText = direction === "zh2vi" ? q.zh : q.vi;
+    const answerText = direction === "zh2vi" ? q.vi : q.zh;
+
+    body.innerHTML = `
+      <div class="quiz-wrap">
+        ${dirToggle(false)}
+        <div class="quiz-progress">Câu ${qi + 1} / ${questions.length} · Điểm: ${score}</div>
+        <div class="translate-card">
+          <div class="translate-source ${direction === "zh2vi" ? "zh" : "vi"}">${sourceText}</div>
+          <textarea id="t-input" rows="2" placeholder="Nhập bản dịch của bạn..." autocomplete="off"></textarea>
+          <div class="flash-controls" style="justify-content:center;">
+            <button class="btn primary" id="t-check">Xem đáp án</button>
+            <button class="btn" id="t-skip">Bỏ qua →</button>
+          </div>
+          <div class="translate-answer" id="t-answer" style="display:none;">
+            <div class="translate-answer-label">Câu dịch tham khảo:</div>
+            <div class="translate-answer-text ${direction === "zh2vi" ? "vi" : "zh"}">${answerText}</div>
+            <p class="translate-self-grade-q">Bản dịch của bạn đúng ý chưa?</p>
+            <div class="flash-controls" style="justify-content:center;">
+              <button class="btn ok" id="t-correct">✓ Đúng</button>
+              <button class="btn err" id="t-wrong">✗ Chưa đúng</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    bindDirToggle();
+
+    function revealAnswer() {
+      document.getElementById("t-check").disabled = true;
+      document.getElementById("t-answer").style.display = "";
+      document.getElementById("t-input").disabled = true;
+    }
+    function next(correct, recordWrong) {
+      if (correct) score++;
+      else if (recordWrong && window.HSKAuth && HSKAuth.user && ctx) HSKAuth.recordWrongWord(q.hanzi, ctx.level);
+      qi++;
+      draw();
+    }
+
+    document.getElementById("t-check").addEventListener("click", revealAnswer);
+    document.getElementById("t-skip").addEventListener("click", () => next(false, false));
+    document.getElementById("t-correct").addEventListener("click", () => next(true, false));
+    document.getElementById("t-wrong").addEventListener("click", () => next(false, true));
+    document.getElementById("t-input").focus();
+  }
+  draw();
+}
+
 /* ---- Viết chữ (kiểm tra viết tay) mode — cho xem nghĩa tiếng Việt, yêu cầu
-   viết tay đúng thứ tự nét bằng chuột/ngón tay, dùng công cụ quiz có sẵn của
    thư viện HanziWriter (thư viện tự nhận diện nét vẽ đúng/sai theo dữ liệu
    nét chuẩn — không phải Claude tự chấm). Chỉ có ở HSK1-3 (đúng những cấp đã
    có dữ liệu nét bút cho tính năng "✏️ Cách viết"). */
@@ -947,11 +1060,12 @@ function renderWriteQuizMode(body, words, ctx) {
         <div class="write-quiz-hint-row">
           <button class="btn btn-sm" id="w-hint-btn">💡 Gợi ý pinyin</button>
           <span class="write-quiz-hint-text" id="w-hint-text"></span>
+          <button class="btn btn-sm" id="w-outline-btn">👁️ Hiện nét mờ</button>
         </div>
         <div class="write-quiz-targets">
           ${chars.map((ch, i) => `<div class="write-quiz-target" id="w-quiz-target-${i}"></div>`).join("")}
         </div>
-        <div class="write-quiz-feedback" id="w-feedback">Viết từng chữ theo đúng thứ tự nét — sai nét sẽ được báo ngay để bạn thử lại.</div>
+        <div class="write-quiz-feedback" id="w-feedback">Viết từng chữ theo trí nhớ — quên nét thì bấm "Hiện nét mờ" để xem gợi ý.</div>
         <div class="flash-controls" style="justify-content:center; margin-top:14px;">
           <button class="btn" id="w-skip">Bỏ qua →</button>
         </div>
@@ -960,6 +1074,16 @@ function renderWriteQuizMode(body, words, ctx) {
 
     document.getElementById("w-hint-btn").addEventListener("click", () => {
       document.getElementById("w-hint-text").textContent = w.pinyin;
+    });
+
+    let outlineVisible = false;
+    const outlineBtn = document.getElementById("w-outline-btn");
+    outlineBtn.addEventListener("click", () => {
+      outlineVisible = !outlineVisible;
+      writers.forEach((wr) => {
+        try { outlineVisible ? wr.showOutline() : wr.hideOutline(); } catch (e) {}
+      });
+      outlineBtn.textContent = outlineVisible ? "🙈 Ẩn nét mờ" : "👁️ Hiện nét mờ";
     });
 
     const feedback = document.getElementById("w-feedback");
@@ -984,7 +1108,7 @@ function renderWriteQuizMode(body, words, ctx) {
     chars.forEach((ch, i) => {
       const writer = HanziWriter.create(`w-quiz-target-${i}`, ch, {
         width: 150, height: 150, padding: 6,
-        showOutline: true,
+        showOutline: false,
         strokeColor: "#2b3a55",
         outlineColor: "#d8dee5",
         highlightColor: "#e2984a",
